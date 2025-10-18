@@ -1,0 +1,2153 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - l'Olio di Valeria | Pagamento Sicuro</title>
+    <link rel="alternate" hreflang="it" href="https://www.oliodiValeria.com/checkout.html" />
+    <link rel="alternate" hreflang="en" href="https://www.oliodiValeria.com/en/checkout.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.oliodiValeria.com/checkout.html" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="js/page-loader.js"></script>
+    <!-- Email Configuration Scripts -->
+    <script src="email-config.js"></script>
+    <script src="email-utils.js"></script>
+</head>
+<body>
+    <style>
+        /* ========================================
+           Global Styles
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9fafb;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            padding: 0 20px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .checkout-steps {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .step.active {
+            background: #eab308;
+            color: #000;
+        }
+
+        .step.completed {
+            background: #10b981;
+            color: #fff;
+        }
+
+        .step.inactive {
+            background: #e5e7eb;
+            color: #6b7280;
+        }
+
+        .security-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #10b981;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .checkout-main {
+            padding: 40px 0;
+        }
+
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* Order Summary */
+        .order-summary {
+            background: #fff;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid #eab308;
+            position: sticky;
+            top: 120px;
+        }
+
+        .summary-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .order-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-image {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ffffff, #ffffff);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .item-details {
+            flex: 1;
+        }
+
+        .item-name {
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 4px;
+        }
+
+        .item-size {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 4px;
+        }
+
+        .item-quantity {
+            font-size: 14px;
+            color: #374151;
+        }
+
+        .item-price {
+            font-weight: bold;
+            color: #eab308;
+            font-size: 1.125rem;
+        }
+
+        .order-totals {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 2px solid #f3f4f6;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .total-row.final {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #000;
+            padding-top: 12px;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 12px;
+        }
+
+        .total-row.final .total-price {
+            color: #eab308;
+            font-size: 1.5rem;
+        }
+
+        /* Checkout Form */
+        .checkout-form {
+            background: #fff;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-section {
+            margin-bottom: 32px;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: #fff;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #eab308;
+            box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.1);
+        }
+
+        .form-input.error {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 12px;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        /* Payment Methods */
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .payment-method {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: #fff;
+        }
+
+        .payment-method:hover {
+            border-color: #eab308;
+            background: #fef3c7;
+        }
+
+        .payment-method.selected {
+            border-color: #eab308;
+            background: #eab308;
+            color: #000;
+        }
+
+        .payment-method i {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .payment-method span {
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Card Input Styling */
+        .card-input-group {
+            position: relative;
+        }
+
+        .card-type-icon {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #6b7280;
+        }
+
+        .card-type-icon.visa { color: #1a1f71; }
+        .card-type-icon.mastercard { color: #eb001b; }
+        .card-type-icon.amex { color: #006fcf; }
+
+        /* Security Features */
+        .security-info {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border: 1px solid #bbf7d0;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 24px;
+        }
+
+        .security-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .security-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #166534;
+        }
+
+        .security-feature i {
+            color: #10b981;
+        }
+
+        /* Submit Button */
+        .submit-section {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 2px solid #f3f4f6;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #eab308, #f59e0b);
+            color: #000;
+            border: none;
+            padding: 18px 24px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(234, 179, 8, 0.4);
+        }
+
+        .submit-btn:disabled {
+            background: #d1d5db;
+            color: #6b7280;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .loading-spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid currentColor;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: none;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Terms and Privacy */
+        .terms-section {
+            margin-top: 20px;
+            padding: 16px;
+            background: #f9fafb;
+            border-radius: 12px;
+            font-size: 14px;
+            color: #6b7280;
+            text-align: center;
+        }
+
+        .terms-section a {
+            color: #eab308;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .terms-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Success Modal */
+        .success-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .success-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .success-content {
+            background: #fff;
+            border-radius: 20px;
+            padding: 48px;
+            text-align: center;
+            max-width: 500px;
+            margin: 20px;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .order-details {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .order-details p {
+            margin: 8px 0;
+            color: #374151;
+        }
+
+        .order-details strong {
+            color: #000;
+        }
+
+        .success-modal.show .success-content {
+            transform: scale(1);
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #10b981;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            color: #fff;
+            font-size: 36px;
+        }
+
+        .success-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 16px;
+        }
+
+        .success-message {
+            color: #6b7280;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .success-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: #eab308;
+            color: #000;
+        }
+
+        .btn-secondary {
+            background: #f3f4f6;
+            color: #374151;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Translation transition effects */
+        [data-i18n],
+        [data-i18n-placeholder],
+        [data-i18n-title] {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        [data-i18n].translating,
+        [data-i18n-placeholder].translating,
+        [data-i18n-title].translating {
+            opacity: 0;
+            transform: translateY(-5px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .checkout-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .order-summary {
+                order: -1;
+                position: static;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .payment-methods {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .checkout-steps {
+                display: none;
+            }
+
+            .success-content {
+                padding: 32px 24px;
+            }
+
+            .success-actions {
+                flex-direction: column;
+            }
+
+            /* Footer: 2-column layout for tablets */
+            .footer {
+                padding: 40px 0 32px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px 24px;
+                margin-bottom: 40px;
+            }
+
+            .footer-section {
+                padding: 0 8px;
+            }
+
+            .footer-section h4 {
+                font-size: 16px;
+                margin-bottom: 14px;
+            }
+
+            .footer-description,
+            .footer-links a,
+            .footer-contact,
+            .social-description {
+                font-size: 13px;
+            }
+
+            .footer-details {
+                font-size: 12px;
+            }
+
+            /* Social media: Compact horizontal for tablets */
+            .social-links {
+                flex-direction: row;
+                gap: 8px;
+            }
+
+            .social-link {
+                padding: 10px 14px;
+                font-size: 13px;
+            }
+
+            .social-link i {
+                font-size: 16px;
+            }
+
+            .social-link span {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .checkout-form,
+            .order-summary {
+                padding: 24px;
+            }
+
+            .payment-methods {
+                grid-template-columns: 1fr;
+            }
+
+            /* Footer: Single-column layout for mobile */
+            .footer {
+                padding: 32px 0 24px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+                margin-bottom: 32px;
+            }
+
+            .footer-section {
+                padding: 0 4px;
+            }
+
+            .footer-section:nth-child(1),
+            .footer-section:nth-child(2),
+            .footer-section:nth-child(3),
+            .footer-section:nth-child(4),
+            .footer-section:nth-child(5),
+            .footer-section:nth-child(6) {
+                grid-column: 1 / 2;
+                grid-row: auto;
+            }
+
+            .footer-section h4 {
+                font-size: 15px;
+                margin-bottom: 12px;
+            }
+
+            .footer-description {
+                font-size: 13px;
+                line-height: 1.5;
+                margin-bottom: 12px;
+            }
+
+            .footer-details {
+                font-size: 11px;
+            }
+
+            .footer-links li {
+                margin-bottom: 10px;
+            }
+
+            .footer-links a {
+                font-size: 13px;
+            }
+
+            .footer-contact {
+                font-size: 13px;
+            }
+
+            .footer-contact p {
+                margin-bottom: 6px;
+            }
+
+            /* Social media: Compact horizontal icons for mobile */
+            .social-media {
+                margin-top: 4px;
+            }
+
+            .social-description {
+                font-size: 12px;
+                margin-bottom: 12px;
+            }
+
+            .social-links {
+                flex-direction: row;
+                gap: 10px;
+                justify-content: flex-start;
+            }
+
+            .social-link {
+                padding: 8px;
+                min-width: 36px;
+                height: 36px;
+                justify-content: center;
+            }
+
+            .social-link i {
+                font-size: 16px;
+                margin-right: 0;
+            }
+
+            .social-link span {
+                display: none;
+            }
+
+            /* Footer-bottom: Center-align and stack vertically */
+            .footer-bottom {
+                padding-top: 24px;
+                padding-bottom: 24px;
+            }
+
+            .footer-bottom-content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 16px;
+            }
+
+            .footer-copyright {
+                font-size: 12px;
+                text-align: center;
+                order: 1;
+            }
+
+            .footer-social-mobile {
+                display: flex;
+                flex-direction: row;
+                gap: 12px;
+                justify-content: center;
+                order: 2;
+            }
+
+            .social-icon {
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            /* Further reduce footer spacing for very small screens */
+            .footer {
+                padding: 24px 0 20px;
+            }
+
+            .footer-grid {
+                gap: 24px;
+                margin-bottom: 24px;
+            }
+
+            .footer-section h4 {
+                font-size: 14px;
+            }
+
+            .footer-description,
+            .footer-links a,
+            .footer-contact,
+            .social-description {
+                font-size: 12px;
+            }
+
+            .social-link {
+                min-width: 32px;
+                height: 32px;
+            }
+
+            .social-link i {
+                font-size: 14px;
+            }
+
+            .social-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="assets/odvlogo.png" alt="l'Olio di Valeria" data-i18n-alt="img.alt.logo">
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="checkout-main">
+        <div class="container">
+            <div class="checkout-grid">
+                <!-- Checkout Form -->
+                <div class="checkout-form">
+                    <form id="checkoutForm">
+                        <!-- Billing Information -->
+                        <div class="form-section">
+                            <h2 class="section-title">
+                                <i class="fas fa-user"></i>
+                                Informazioni di Fatturazione
+                            </h2>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label" for="firstName">Nome *</label>
+                                    <input type="text" id="firstName" name="firstName" class="form-input" required data-i18n-placeholder="form.placeholder.firstName">
+                                    <div class="error-message">Il nome è obbligatorio</div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="lastName">Cognome *</label>
+                                    <input type="text" id="lastName" name="lastName" class="form-input" required data-i18n-placeholder="form.placeholder.lastName">
+                                    <div class="error-message">Il cognome è obbligatorio</div>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label class="form-label" for="email">Email *</label>
+                                    <input type="email" id="email" name="email" class="form-input" required data-i18n-placeholder="form.placeholder.email">
+                                    <div class="error-message">Inserisci un'email valida</div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="phone">Telefono *</label>
+                                    <input type="tel" id="phone" name="phone" class="form-input" required data-i18n-placeholder="form.placeholder.phone">
+                                    <div class="error-message">Il telefono è obbligatorio</div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="company">Azienda (opzionale)</label>
+                                    <input type="text" id="company" name="company" class="form-input" data-i18n-placeholder="form.placeholder.company">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Shipping Address -->
+                        <div class="form-section">
+                            <h2 class="section-title">
+                                <i class="fas fa-truck"></i>
+                                Indirizzo di Spedizione
+                            </h2>
+                            <div class="form-grid">
+                                <div class="form-group full-width">
+                                    <label class="form-label" for="address">Indirizzo *</label>
+                                    <input type="text" id="address" name="address" class="form-input" required data-i18n-placeholder="form.placeholder.address">
+                                    <div class="error-message">L'indirizzo è obbligatorio</div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="city">Città *</label>
+                                    <input type="text" id="city" name="city" class="form-input" required data-i18n-placeholder="form.placeholder.city">
+                                    <div class="error-message">La città è obbligatoria</div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="postalCode">CAP *</label>
+                                    <input type="text" id="postalCode" name="postalCode" class="form-input" required data-i18n-placeholder="form.placeholder.postalCode">
+                                    <div class="error-message">Il CAP è obbligatorio</div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="province">Provincia *</label>
+                                    <input type="text" id="province" name="province" class="form-input" required data-i18n-placeholder="form.placeholder.province">
+                                    <div class="error-message">La provincia è obbligatoria</div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="country">Paese *</label>
+                                    <select id="country" name="country" class="form-input" required>
+                                        <option value="">Seleziona paese</option>
+                                        <option value="IT" selected>Italia</option>
+                                        <optgroup label="Europa">
+                                            <option value="FR">Francia</option>
+                                            <option value="DE">Germania</option>
+                                            <option value="ES">Spagna</option>
+                                            <option value="AT">Austria</option>
+                                            <option value="BE">Belgio</option>
+                                            <option value="NL">Paesi Bassi</option>
+                                            <option value="PT">Portogallo</option>
+                                            <option value="GR">Grecia</option>
+                                            <option value="PL">Polonia</option>
+                                            <option value="SE">Svezia</option>
+                                            <option value="DK">Danimarca</option>
+                                            <option value="FI">Finlandia</option>
+                                            <option value="IE">Irlanda</option>
+                                            <option value="CZ">Repubblica Ceca</option>
+                                            <option value="HU">Ungheria</option>
+                                            <option value="RO">Romania</option>
+                                            <option value="BG">Bulgaria</option>
+                                            <option value="HR">Croazia</option>
+                                            <option value="SK">Slovacchia</option>
+                                            <option value="SI">Slovenia</option>
+                                            <option value="LT">Lituania</option>
+                                            <option value="LV">Lettonia</option>
+                                            <option value="EE">Estonia</option>
+                                            <option value="LU">Lussemburgo</option>
+                                            <option value="MT">Malta</option>
+                                            <option value="CY">Cipro</option>
+                                            <option value="CH">Svizzera</option>
+                                            <option value="NO">Norvegia</option>
+                                            <option value="GB">Regno Unito</option>
+                                        </optgroup>
+                                        <optgroup label="Extra Europa">
+                                            <option value="US">Stati Uniti</option>
+                                            <option value="CA">Canada</option>
+                                            <option value="AU">Australia</option>
+                                            <option value="ZA">Sud Africa</option>
+                                            <option value="JP">Giappone</option>
+                                            <option value="CN">Cina</option>
+                                            <option value="BR">Brasile</option>
+                                            <option value="MX">Messico</option>
+                                            <option value="AR">Argentina</option>
+                                            <option value="OTHER">Altro</option>
+                                        </optgroup>
+                                    </select>
+                                    <div class="error-message">Seleziona un paese</div>
+                                </div>
+                                
+                                <!-- Added custom country input field that appears when "Altro" is selected -->
+                                <div class="form-group" id="customCountryGroup" style="display: none;">
+                                    <label for="customCountry" class="form-label">Nome del paese</label>
+                                    <input 
+                                        type="text" 
+                                        id="customCountry" 
+                                        name="customCountry" 
+                                        class="form-input" 
+                                        placeholder="Inserisci il nome del paese"
+                                    >
+                                    <div class="error-message">Inserisci il nome del paese</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Method -->
+                        <div class="form-section">
+                            <h2 class="section-title">
+                                <i class="fas fa-credit-card"></i>
+                                Metodo di Pagamento
+                            </h2>
+
+                            <div class="payment-methods">
+                                <div class="payment-method selected" data-method="card">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Carta di Credito</span>
+                                </div>
+                                <div class="payment-method" data-method="paypal">
+                                    <i class="fab fa-paypal"></i>
+                                    <span>PayPal</span>
+                                </div>
+                                <div class="payment-method" data-method="bank">
+                                    <i class="fas fa-university"></i>
+                                    <span>Bonifico</span>
+                                </div>
+                                <div class="payment-method" data-method="apple">
+                                    <i class="fab fa-apple-pay"></i>
+                                    <span>Apple Pay</span>
+                                </div>
+                            </div>
+
+                            <!-- Card Payment Form -->
+                            <div id="cardPaymentForm">
+                                <div class="security-info">
+                                    <div class="security-features">
+                                        <div class="security-feature">
+                                            <i class="fas fa-lock"></i>
+                                            <span>SSL 256-bit</span>
+                                        </div>
+                                        <div class="security-feature">
+                                            <i class="fas fa-shield-alt"></i>
+                                            <span>PCI DSS Compliant</span>
+                                        </div>
+                                        <div class="security-feature">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Transazione Sicura</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-grid">
+                                    <div class="form-group full-width">
+                                        <label class="form-label" for="cardNumber">Numero Carta *</label>
+                                        <div class="card-input-group">
+                                            <input type="text" id="cardNumber" name="cardNumber" class="form-input" 
+                                                   placeholder="1234 5678 9012 3456" maxlength="19" required data-i18n-placeholder="form.placeholder.cardNumber">
+                                            <i class="card-type-icon fas fa-credit-card" id="cardTypeIcon"></i>
+                                        </div>
+                                        <div class="error-message">Inserisci un numero di carta valido</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="expiryDate">Scadenza *</label>
+                                        <input type="text" id="expiryDate" name="expiryDate" class="form-input" 
+                                               placeholder="MM/AA" maxlength="5" required data-i18n-placeholder="form.placeholder.expiryDate">
+                                        <div class="error-message">Inserisci una data valida</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="cvv">CVV *</label>
+                                        <input type="text" id="cvv" name="cvv" class="form-input" 
+                                               placeholder="123" maxlength="4" required data-i18n-placeholder="form.placeholder.cvv">
+                                        <div class="error-message">Inserisci il CVV</div>
+                                    </div>
+                                    <div class="form-group full-width">
+                                        <label class="form-label" for="cardName">Nome sulla Carta *</label>
+                                        <input type="text" id="cardName" name="cardName" class="form-input" required data-i18n-placeholder="form.placeholder.cardName">
+                                        <div class="error-message">Il nome sulla carta è obbligatorio</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Section -->
+                        <div class="submit-section">
+                            <button type="submit" class="submit-btn" id="submitBtn">
+                                <i class="fas fa-lock"></i>
+                                <span data-i18n="hero.checkout.submitButton">Completa Ordine Sicuro</span>
+                                <div class="loading-spinner"></div>
+                            </button>
+
+                            <div class="terms-section">
+                                Procedendo con l'ordine, accetti i nostri 
+                                <a href="termini-e-condizioniodv.html" target="_blank">Termini di Servizio</a> e 
+                                <a href="cookie-e-privacy-policy.html" target="_blank">Privacy Policy</a>. 
+                                I tuoi dati sono protetti con crittografia SSL.
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h3 class="summary-title">
+                        <i class="fas fa-receipt"></i>
+                        Riepilogo Ordine
+                    </h3>
+
+                    <div id="orderItems">
+                        <!-- Items will be loaded here -->
+                    </div>
+
+                    <div class="order-totals">
+                        <div class="total-row">
+                            <span>Subtotale:</span>
+                            <span id="subtotal">€0.00</span>
+                        </div>
+                        <div class="total-row">
+                            <span>Spedizione:</span>
+                            <span id="shipping">€9.90</span>
+                        </div>
+                        <div class="total-row">
+                            <span>IVA (4%):</span>
+                            <span id="tax">Inclusa</span>
+                        </div>
+                        <div class="total-row final">
+                            <span>Totale:</span>
+                            <span class="total-price" id="finalTotal">€0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div class="success-modal" id="successModal">
+        <div class="success-content">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h2 class="success-title">Ordine Completato!</h2>
+            <div class="order-details">
+                <p><strong>Numero Ordine:</strong> <span class="order-id">#-</span></p>
+                <p><strong>ID Transazione:</strong> <span class="transaction-id">-</span></p>
+            </div>
+            <p class="success-message">
+                Grazie per il tuo acquisto! Riceverai una email di conferma con i dettagli dell'ordine. 
+                I tuoi prodotti saranno spediti entro 2-3 giorni lavorativi.
+            </p>
+            <div class="success-actions">
+                <a href="index.html" class="btn btn-primary">Torna alla Home</a>
+                <a href="shop.html" class="btn btn-secondary">Continua Shopping</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class CheckoutManager {
+            constructor() {
+                this.cart = this.loadCart();
+                this.shippingCost = 9.90;
+                this.selectedCountry = 'IT'; // Track selected country for shipping calculation
+                this.init();
+            }
+
+            init() {
+                this.loadOrderSummary();
+                this.bindEvents();
+                this.setupFormValidation();
+                this.setupCardFormatting();
+                // Initialize custom country input visibility if a default country is pre-selected
+                this.toggleCustomCountryInput(this.selectedCountry);
+            }
+
+            loadCart() {
+                const saved = localStorage.getItem('oliodiValeriaCart');
+                return saved ? JSON.parse(saved) : [];
+            }
+
+            calculateShipping(subtotal, country) {
+                // European Union countries
+                const euCountries = [
+                    'FR', 'DE', 'ES', 'AT', 'BE', 'NL', 'PT', 'GR', 'PL', 
+                    'SE', 'DK', 'FI', 'IE', 'CZ', 'HU', 'RO', 'BG', 'HR', 
+                    'SK', 'SI', 'LT', 'LV', 'EE', 'LU', 'MT', 'CY',
+                    'CH', 'NO', 'GB'
+                ];
+                
+                // High shipping cost countries
+                const highShippingCountries = ['US', 'CA', 'AU', 'ZA'];
+
+                if (country === 'IT') {
+                    // Italy: under €80 = €10, €80+ = free
+                    return subtotal >= 80 ? 0 : 10;
+                } else if (euCountries.includes(country)) {
+                    // European countries (including CH, NO, GB): €25 flat rate
+                    return 25;
+                } else if (highShippingCountries.includes(country) || country === 'OTHER') {
+                    // USA, Canada, Australia, South Africa, and other non-EU countries: €48
+                    return 48;
+                } else {
+                    // Default for any other country
+                    return 48;
+                }
+            }
+
+            loadOrderSummary() {
+                const orderItemsContainer = document.getElementById('orderItems');
+                
+                if (this.cart.length === 0) {
+                    orderItemsContainer.innerHTML = `
+                        <div style="text-align: center; padding: 40px; color: #6b7280;">
+                            <i class="fas fa-shopping-cart" style="font-size: 3rem; margin-bottom: 16px;"></i>
+                            <p>Il carrello è vuoto</p>
+                            <a href="shop.html" style="color: #eab308; text-decoration: none;">Vai al Shop</a>
+                        </div>
+                    `;
+                    return;
+                }
+
+                orderItemsContainer.innerHTML = this.cart.map(item => `
+                    <div class="order-item">
+                        <div class="item-image">
+                            <img src="${item.image || '/api/placeholder/60/80'}" 
+                                 alt="${item.name}" 
+                                 style="width: 40px; height: 60px; object-fit: cover; border-radius: 4px;"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                            <i class="fas fa-wine-bottle" style="color: #eab308; font-size: 24px; display: none;"></i>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">${item.name}</div>
+                            <div class="item-size">${item.size}</div>
+                            <div class="item-quantity">Quantità: ${item.quantity}</div>
+                        </div>
+                        <div class="item-price">€${(item.price * item.quantity).toFixed(2)}</div>
+                    </div>
+                `).join('');
+
+                this.updateTotals();
+            }
+
+            updateTotals() {
+                const subtotal = this.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                const shipping = this.calculateShipping(subtotal, this.selectedCountry);
+                const total = subtotal + shipping;
+
+                document.getElementById('subtotal').textContent = `€${subtotal.toFixed(2)}`;
+                document.getElementById('shipping').textContent = shipping === 0 ? 'Gratuita' : `€${shipping.toFixed(2)}`;
+                document.getElementById('tax').textContent = 'Inclusa';
+                document.getElementById('finalTotal').textContent = `€${total.toFixed(2)}`;
+            }
+
+            bindEvents() {
+                const countrySelect = document.getElementById('country');
+                if (countrySelect) {
+                    countrySelect.addEventListener('change', (e) => {
+                        this.selectedCountry = e.target.value;
+                        this.toggleCustomCountryInput(e.target.value);
+                        this.updateTotals();
+                    });
+                }
+
+                // Payment method selection
+                document.querySelectorAll('.payment-method').forEach(method => {
+                    method.addEventListener('click', this.handlePaymentMethodChange.bind(this));
+                });
+
+                // Form submission
+                document.getElementById('checkoutForm').addEventListener('submit', this.handleFormSubmit.bind(this));
+
+                // Auto-fill card name from billing name
+                const firstNameInput = document.getElementById('firstName');
+                const lastNameInput = document.getElementById('lastName');
+                const cardNameInput = document.getElementById('cardName');
+
+                [firstNameInput, lastNameInput].forEach(input => {
+                    input.addEventListener('input', () => {
+                        const firstName = firstNameInput.value.trim();
+                        const lastName = lastNameInput.value.trim();
+                        if (firstName && lastName) {
+                            cardNameInput.value = `${firstName} ${lastName}`.toUpperCase();
+                        }
+                    });
+                });
+            }
+
+            handlePaymentMethodChange(e) {
+                // Remove selected class from all methods
+                document.querySelectorAll('.payment-method').forEach(method => {
+                    method.classList.remove('selected');
+                });
+
+                // Add selected class to clicked method
+                e.currentTarget.classList.add('selected');
+
+                // Show/hide card form based on selection
+                const cardForm = document.getElementById('cardPaymentForm');
+                const method = e.currentTarget.dataset.method;
+                
+                if (method === 'card') {
+                    cardForm.style.display = 'block';
+                } else {
+                    cardForm.style.display = 'none';
+                }
+            }
+
+            // method to toggle custom country input visibility
+            toggleCustomCountryInput(countryValue) {
+                const customCountryGroup = document.getElementById('customCountryGroup');
+                const customCountryInput = document.getElementById('customCountry');
+                
+                if (countryValue === 'OTHER') {
+                    customCountryGroup.style.display = 'block';
+                    customCountryInput.setAttribute('required', 'required');
+                } else {
+                    customCountryGroup.style.display = 'none';
+                    customCountryInput.removeAttribute('required');
+                    customCountryInput.value = '';
+                }
+            }
+
+            setupFormValidation() {
+                const form = document.getElementById('checkoutForm');
+                const inputs = form.querySelectorAll('.form-input[required]');
+
+                inputs.forEach(input => {
+                    input.addEventListener('blur', () => this.validateField(input));
+                    input.addEventListener('input', () => this.clearFieldError(input));
+                });
+            }
+
+            validateField(field) {
+                const value = field.value.trim();
+                let isValid = true;
+                let errorMessage = '';
+
+                // Basic required field validation
+                if (!value) {
+                    isValid = false;
+                    errorMessage = 'Questo campo è obbligatorio';
+                }
+
+                // Specific field validations
+                switch (field.type) {
+                    case 'email':
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (value && !emailRegex.test(value)) {
+                            isValid = false;
+                            errorMessage = 'Inserisci un\'email valida';
+                        }
+                        break;
+                    case 'tel':
+                        const phoneRegex = /^[\+]?[0-9\s\-$$$$]{8,}$/;
+                        if (value && !phoneRegex.test(value)) {
+                            isValid = false;
+                            errorMessage = 'Inserisci un numero di telefono valido';
+                        }
+                        break;
+                }
+
+                // Card-specific validations
+                if (field.id === 'cardNumber') {
+                    const cardRegex = /^[0-9\s]{13,19}$/;
+                    if (value && !cardRegex.test(value.replace(/\s/g, ''))) {
+                        isValid = false;
+                        errorMessage = 'Inserisci un numero di carta valido';
+                    }
+                }
+
+                if (field.id === 'expiryDate') {
+                    const expiryRegex = /^(0[1-9]|1[0-2])\/([0-9]{2})$/;
+                    if (value && !expiryRegex.test(value)) {
+                        isValid = false;
+                        errorMessage = 'Formato: MM/AA';
+                    } else if (value) {
+                        const [month, year] = value.split('/');
+                        const expiry = new Date(2000 + parseInt(year), parseInt(month) - 1);
+                        const now = new Date();
+                        if (expiry < now) {
+                            isValid = false;
+                            errorMessage = 'La carta è scaduta';
+                        }
+                    }
+                }
+
+                if (field.id === 'cvv') {
+                    const cvvRegex = /^[0-9]{3,4}$/;
+                    if (value && !cvvRegex.test(value)) {
+                        isValid = false;
+                        errorMessage = 'CVV non valido';
+                    }
+                }
+                
+                // Validate custom country input if it's visible and required
+                if (field.id === 'customCountry' && field.required && !value) {
+                    isValid = false;
+                    errorMessage = 'Inserisci il nome del paese';
+                }
+
+                this.showFieldError(field, isValid, errorMessage);
+                return isValid;
+            }
+
+            showFieldError(field, isValid, message) {
+                const errorElement = field.parentNode.querySelector('.error-message');
+                
+                if (isValid) {
+                    field.classList.remove('error');
+                    errorElement.classList.remove('show');
+                } else {
+                    field.classList.add('error');
+                    errorElement.textContent = message;
+                    errorElement.classList.add('show');
+                }
+            }
+
+            clearFieldError(field) {
+                field.classList.remove('error');
+                const errorElement = field.parentNode.querySelector('.error-message');
+                errorElement.classList.remove('show');
+            }
+
+            setupCardFormatting() {
+                const cardNumberInput = document.getElementById('cardNumber');
+                const expiryInput = document.getElementById('expiryDate');
+                const cvvInput = document.getElementById('cvv');
+                const cardTypeIcon = document.getElementById('cardTypeIcon');
+
+                // Format card number
+                cardNumberInput.addEventListener('input', (e) => {
+                    let value = e.target.value.replace(/\s/g, '');
+                    let formattedValue = value.replace(/(.{4})/g, '$1 ').trim();
+                    
+                    if (formattedValue.length > 19) {
+                        formattedValue = formattedValue.substring(0, 19);
+                    }
+                    
+                    e.target.value = formattedValue;
+
+                    // Detect card type
+                    this.detectCardType(value, cardTypeIcon);
+                });
+
+                // Format expiry date
+                expiryInput.addEventListener('input', (e) => {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value.length >= 2) {
+                        value = value.substring(0, 2) + '/' + value.substring(2, 4);
+                    }
+                    e.target.value = value;
+                });
+
+                // CVV numeric only
+                cvvInput.addEventListener('input', (e) => {
+                    e.target.value = e.target.value.replace(/\D/g, '');
+                });
+            }
+
+            detectCardType(cardNumber, iconElement) {
+                const firstDigit = cardNumber.charAt(0);
+                const firstTwoDigits = cardNumber.substring(0, 2);
+
+                if (firstDigit === '4') {
+                    iconElement.className = 'card-type-icon fab fa-cc-visa visa';
+                } else if (['51', '52', '53', '54', '55'].includes(firstTwoDigits) || 
+                          (parseInt(firstTwoDigits) >= 22 && parseInt(firstTwoDigits) <= 27)) {
+                    iconElement.className = 'card-type-icon fab fa-cc-mastercard mastercard';
+                } else if (['34', '37'].includes(firstTwoDigits)) {
+                    iconElement.className = 'card-type-icon fab fa-cc-amex amex';
+                } else {
+                    iconElement.className = 'card-type-icon fas fa-credit-card';
+                }
+            }
+
+            async handleFormSubmit(e) {
+                e.preventDefault();
+                
+                // Validate all required fields
+                const form = e.target;
+                const requiredFields = form.querySelectorAll('.form-input[required]');
+                let isFormValid = true;
+
+                requiredFields.forEach(field => {
+                    if (!this.validateField(field)) {
+                        isFormValid = false;
+                    }
+                });
+
+                if (!isFormValid) {
+                    // Scroll to first error
+                    const firstError = form.querySelector('.form-input.error');
+                    if (firstError) {
+                        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        firstError.focus();
+                    }
+                    return;
+                }
+
+                // Show enhanced loading state
+                this.showLoadingState();
+
+                try {
+                    // Process payment and create order with enhanced error handling
+                    const result = await this.processPayment(new FormData(form));
+                    
+                    // Show specific success confirmation based on result
+                    if (result.emailSent) {
+                        this.showEmailConfirmation('Order confirmation sent successfully!', result);
+                    }
+                    
+                    // Clear cart
+                    localStorage.removeItem('oliodiValeriaCart');
+                    
+                    // Show success modal with enhanced order details
+                    this.showSuccessModal(result);
+                    
+                } catch (error) {
+                    // Enhanced error handling with specific user-friendly messages
+                    this.showOrderError(error);
+                    console.error('Payment error:', error);
+                } finally {
+                    // Reset loading state
+                    this.hideLoadingState();
+                }
+            }
+
+            showLoadingState() {
+                const submitBtn = document.getElementById('submitBtn');
+                const spinner = submitBtn.querySelector('.loading-spinner');
+                const btnText = submitBtn.querySelector('span');
+                
+                // Enhanced loading state with visual feedback
+                submitBtn.disabled = true;
+                submitBtn.classList.add('btn-loading');
+                spinner.style.display = 'inline-block';
+                btnText.textContent = 'Elaborazione ordine...';
+
+                // Add loading overlay to form
+                const form = document.getElementById('checkoutForm');
+                const loadingOverlay = document.createElement('div');
+                loadingOverlay.id = 'checkoutLoadingOverlay';
+                loadingOverlay.innerHTML = `
+                    <div style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: rgba(255, 255, 255, 0.9);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 100;
+                        border-radius: 20px;
+                        backdrop-filter: blur(2px);
+                    ">
+                        <div style="text-align: center;">
+                            <div class="loading-spinner" style="width: 40px; height: 40px; border: 4px solid #e5e7eb; border-top: 4px solid #eab308; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 16px;"></div>
+                            <div style="color: #6b7280; font-weight: 600;">Processing your order...</div>
+                            <div style="color: #9ca3af; font-size: 14px; margin-top: 8px;">Please do not refresh the page</div>
+                        </div>
+                    </div>
+                `;
+                form.style.position = 'relative';
+                form.appendChild(loadingOverlay);
+
+                // Disable form inputs
+                const inputs = form.querySelectorAll('input, select, textarea, button');
+                inputs.forEach(input => input.disabled = true);
+            }
+
+            hideLoadingState() {
+                const submitBtn = document.getElementById('submitBtn');
+                const spinner = submitBtn.querySelector('.loading-spinner');
+                const btnText = submitBtn.querySelector('span');
+                
+                // Reset button state
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('btn-loading');
+                spinner.style.display = 'none';
+                btnText.textContent = 'Completa Ordine Sicuro';
+
+                // Remove loading overlay
+                const loadingOverlay = document.getElementById('checkoutLoadingOverlay');
+                if (loadingOverlay) {
+                    loadingOverlay.remove();
+                }
+
+                // Re-enable form inputs
+                const form = document.getElementById('checkoutForm');
+                const inputs = form.querySelectorAll('input, select, textarea, button');
+                inputs.forEach(input => input.disabled = false);
+            }
+
+            showEmailConfirmation(message, result) {
+                // Create temporary success notification for email confirmation
+                const emailNotification = document.createElement('div');
+                emailNotification.className = 'email-confirmation-notice';
+                emailNotification.innerHTML = `
+                    <div style="
+                        position: fixed;
+                        top: 20px;
+                        right: 20px;
+                        background: linear-gradient(135deg, #10b981, #059669);
+                        color: white;
+                        padding: 16px 24px;
+                        border-radius: 8px;
+                        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+                        z-index: 1000;
+                        max-width: 400px;
+                        animation: slideInFromRight 0.5s ease-out;
+                    ">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <i class="fas fa-envelope-check" style="font-size: 20px;"></i>
+                            <div>
+                                <div style="font-weight: 600; margin-bottom: 4px;">Email Sent Successfully!</div>
+                                <div style="font-size: 14px; opacity: 0.9;">Order confirmation sent to your email</div>
+                                ${result.emailMessageId ? `<div style="font-size: 12px; opacity: 0.7; margin-top: 4px;">ID: ${result.emailMessageId}</div>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(emailNotification);
+                
+                // Auto-remove after 5 seconds
+                setTimeout(() => {
+                    emailNotification.style.animation = 'slideOutToRight 0.5s ease-in';
+                    setTimeout(() => emailNotification.remove(), 500);
+                }, 5000);
+            }
+
+            showOrderError(error) {
+                // Enhanced error display with specific messaging based on error type
+                let errorTitle = 'Order Processing Error';
+                let errorMessage = error.message || 'An unexpected error occurred. Please try again.';
+                let errorIcon = 'fas fa-exclamation-triangle';
+                let errorColor = '#ef4444';
+
+                // Categorize errors and provide specific guidance
+                if (error.message.includes('network') || error.message.includes('fetch')) {
+                    errorTitle = 'Connection Error';
+                    errorMessage = 'Unable to connect to our servers. Please check your internet connection and try again.';
+                    errorIcon = 'fas fa-wifi';
+                } else if (error.message.includes('email')) {
+                    errorTitle = 'Email Delivery Issue';
+                    errorMessage = 'Your order was processed but we could not send the confirmation email. You will receive it shortly.';
+                    errorIcon = 'fas fa-envelope-open-text';
+                    errorColor = '#f59e0b';
+                } else if (error.message.includes('payment')) {
+                    errorTitle = 'Payment Processing Error';
+                    errorMessage = 'There was an issue processing your payment. Please check your payment details and try again.';
+                    errorIcon = 'fas fa-credit-card';
+                } else if (error.message.includes('validation')) {
+                    errorTitle = 'Order Validation Error';
+                    errorMessage = 'Please check all required fields and ensure your information is correct.';
+                    errorIcon = 'fas fa-clipboard-check';
+                }
+
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'order-error';
+                errorDiv.innerHTML = `
+                    <div style="
+                        background: linear-gradient(135deg, #fef2f2, #fee2e2);
+                        border: 2px solid #fecaca;
+                        border-left: 6px solid ${errorColor};
+                        border-radius: 12px;
+                        padding: 20px;
+                        margin: 20px 0;
+                        color: #991b1b;
+                        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15);
+                        animation: slideInFromLeft 0.5s ease-out;
+                    ">
+                        <div style="display: flex; align-items: flex-start; gap: 16px;">
+                            <i class="${errorIcon}" style="font-size: 24px; color: ${errorColor}; margin-top: 4px; flex-shrink: 0;"></i>
+                            <div style="flex: 1;">
+                                <div style="font-weight: 700; font-size: 16px; margin-bottom: 8px;">${errorTitle}</div>
+                                <p style="margin: 0; line-height: 1.5; color: #7c2d12;">${errorMessage}</p>
+                                <div style="margin-top: 12px; font-size: 14px; color: #a16207;">
+                                    <p style="margin: 0;">Need help? Contact our support team:</p>
+                                    <p style="margin: 4px 0 0 0;">📧 support@oliodivaleria.com • 📞 +39 XXX XXX XXXX</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // Remove any existing error messages
+                const existingError = document.querySelector('.order-error');
+                if (existingError) {
+                    existingError.remove();
+                }
+                
+                // Insert error message before the form
+                const form = document.getElementById('checkoutForm');
+                form.parentNode.insertBefore(errorDiv, form);
+                
+                // Scroll to error message
+                errorDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Auto-remove error after 10 seconds
+                setTimeout(() => {
+                    errorDiv.style.animation = 'fadeOut 0.5s ease-out';
+                    setTimeout(() => errorDiv.remove(), 500);
+                }, 10000);
+            }
+
+            async processPayment(formData) {
+                try {
+                    // Get cart data from localStorage
+                    const cart = JSON.parse(localStorage.getItem('oliodiValeriaCart') || '[]');
+                    
+                    if (cart.length === 0) {
+                        throw new Error('Il carrello è vuoto');
+                    }
+
+                    // Calculate totals
+                    const subtotal = cart.reduce((total, item) => total + (parseFloat(item.price) * item.quantity), 0);
+                    const country = formData.get('country') || 'IT'; // Get country from form
+                    const shipping = this.calculateShipping(subtotal, country); // Use new shipping calculation
+                    const totalAmount = subtotal + shipping;
+                    
+                    const actualCountry = country === 'OTHER' ? formData.get('customCountry') : country;
+
+                    // Build order data matching OrderRequest structure expected by OrderController
+                    const orderData = {
+                        customerName: `${formData.get('firstName')} ${formData.get('lastName')}`,
+                        customerEmail: formData.get('email'),
+                        customerPhone: formData.get('phone'),
+                        contactMethod: 'email',
+                        company: formData.get('company') || '',
+                        deliveryNotes: '',
+                        items: cart.map(item => ({
+                            productId: item.name.toLowerCase().replace(/\s+/g, '-'),
+                            productName: `${item.name} - ${item.size}`,
+                            quantity: item.quantity,
+                            price: parseFloat(item.price)
+                        })),
+                        subtotal: subtotal,
+                        shippingCost: shipping,
+                        totalAmount: totalAmount,
+                        shippingAddress: {
+                            street: formData.get('address'),
+                            city: formData.get('city'),
+                            state: formData.get('province') || formData.get('state') || '',
+                            postalCode: formData.get('postalCode'),
+                            country: actualCountry
+
+                        },
+                        templateParams: window.emailConfig ? window.emailConfig.getOrderEmailParams({
+                            customerName: `${formData.get('firstName')} ${formData.get('lastName')}`,
+                            email: formData.get('email'),
+                            phone: formData.get('phone'),
+                            totalAmount: totalAmount,
+                            items: cart
+                        }, window.emailConfig.loadUserPreferences ? window.emailConfig.loadUserPreferences() : {}) : undefined
+                    };
+
+                    // Send POST request to the create order API endpoint
+                    const response = await fetch('https://odv-mfnu.onrender.com/api/orders/create', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(orderData)
+                    });
+
+                    let result;
+                    try {
+                        result = await response.json();
+                    } catch (parseError) {
+                        throw new Error('Invalid response from server');
+                    }
+
+                    if (!response.ok) {
+                        // Handle validation errors from the backend
+                        if (response.status === 400 && result.details) {
+                            const validationErrors = result.details.map(detail => detail.message).join(', ');
+                            throw new Error(`Errori di validazione: ${validationErrors}`);
+                        }
+                        throw new Error(result?.message || `Errore del server: ${response.status}`);
+                    }
+
+                    // Process OrderResponse from backend
+                    if (!result.success) {
+                        throw new Error(result.message || 'Errore nella creazione dell\'ordine');
+                    }
+
+                    // Extract order data from response
+                    const orderResponse = result.data;
+                    
+                    // Track successful order
+                    if (window.gtag) {
+                        gtag('event', 'purchase', {
+                            'transaction_id': `ODV-${orderResponse.id}-${Date.now()}`,
+                            'value': orderData.totalAmount,
+                            'currency': 'EUR',
+                            'items': orderData.items
+                        });
+                    }
+                    
+                    return {
+                        success: true,
+                        orderId: orderResponse.id,
+                        transactionId: `ODV-${orderResponse.id}-${Date.now()}`,
+                        emailSent: result.emailResults ? 
+                            (result.emailResults.customerConfirmation?.success || result.emailResults.adminNotification?.success) : false,
+                        emailMethod: result.emailResults?.customerConfirmation?.method || result.emailResults?.adminNotification?.method,
+                        emailResults: result.emailResults || null,
+                        processingTime: result.processingTime,
+                        emailMessageId: result.emailResults?.customerConfirmation?.messageId,
+                        templateIds: result.emailResults?.templateIds
+                    };
+
+                } catch (error) {
+                    console.error('Order processing failed:', error);
+                    
+                    // Track order errors
+                    if (window.gtag) {
+                        gtag('event', 'checkout_error', {
+                            'event_category': 'ecommerce',
+                            'event_label': 'order_failed',
+                            'error_message': error.message
+                        });
+                    }
+                    
+                    // Provide user-friendly error messages
+                    if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
+                        throw new Error('Problema di connessione. Controlla la tua connessione internet e riprova.');
+                    } else if (error.message.includes('500')) {
+                        throw new Error('Errore interno del server. Riprova tra qualche minuto.');
+                    } else if (error.message.includes('400') || error.message.includes('Errori di validazione')) {
+                        throw error; // Pass validation errors as-is
+                    } else {
+                        throw error;
+                    }
+                }
+            }
+
+            getSelectedPaymentMethod() {
+                const selectedMethod = document.querySelector('.payment-method.selected');
+                return selectedMethod ? selectedMethod.dataset.method : 'card';
+            }
+
+            async sendOrderConfirmationEmail(orderData, orderResult) {
+                try {
+                    const emailData = {
+                        to: orderData.customerEmail,
+                        subject: `Order Confirmation - ${orderResult.orderId}`,
+                        customerName: orderData.customerName,
+                        orderId: orderResult.orderId,
+                        transactionId: orderResult.transactionId,
+                        items: orderData.items,
+                        totalAmount: orderData.totalAmount,
+                        shippingAddress: orderData.shippingAddress
+                    };
+
+                    const response = await fetch('https://odv-mfnu.onrender.com/api/orders/send-confirmation', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(emailData)
+                    });
+
+                    if (response.ok) {
+                        const result = await response.json();
+                        return {
+                            success: true,
+                            messageId: result.messageId,
+                            method: result.method
+                        };
+                    } else {
+                        throw new Error('Email service unavailable');
+                    }
+                } catch (error) {
+                    console.error('Email confirmation failed:', error);
+                    return {
+                        success: false,
+                        error: error.message
+                    };
+                }
+            }
+
+            showSuccessModal(orderResult) {
+                const modal = document.getElementById('successModal');
+                const successContent = modal.querySelector('.success-content');
+                
+                // Enhanced success modal with detailed order and email information
+                let successMessage = 'Grazie per il tuo acquisto! ';
+                
+                if (orderResult.emailSent) {
+                    successMessage += 'Riceverai una email di conferma con i dettagli dell\'ordine. ';
+                    if (orderResult.emailMethod) {
+                        successMessage += `L'email è stata inviata tramite ${orderResult.emailMethod === 'smtp' ? 'il nostro server email' : 'il servizio email'}. `;
+                    }
+                } else {
+                    successMessage += 'Una email di conferma verrà inviata a breve. ';
+                }
+                
+                successMessage += 'I tuoi prodotti saranno spediti entro 2-3 giorni lavorativi.';
+                
+                // Update modal content with enhanced order details
+                if (orderResult && orderResult.orderId) {
+                    const orderIdElement = modal.querySelector('.order-id');
+                    const transactionIdElement = modal.querySelector('.transaction-id');
+                    
+                    if (orderIdElement) {
+                        orderIdElement.textContent = `#${orderResult.orderId}`;
+                    }
+                    
+                    if (transactionIdElement) {
+                        transactionIdElement.textContent = orderResult.transactionId;
+                    }
+
+                    // Update success message
+                    const successMessageElement = modal.querySelector('.success-message');
+                    if (successMessageElement) {
+                        successMessageElement.textContent = successMessage;
+                    }
+
+                    // Add enhanced order details
+                    const orderDetailsContainer = modal.querySelector('.order-details');
+                    if (orderDetailsContainer && orderResult) {
+                        let enhancedDetails = `
+                            <p><strong>Numero Ordine:</strong> <span class="order-id">#${orderResult.orderId}</span></p>
+                            <p><strong>ID Transazione:</strong> <span class="transaction-id">${orderResult.transactionId}</span></p>
+                        `;
+                        
+                        if (orderResult.processingTime) {
+                            enhancedDetails += `<p><strong>Tempo di Elaborazione:</strong> ${Math.round(orderResult.processingTime)}ms</p>`;
+                        }
+                        
+                        if (orderResult.emailSent) {
+                            enhancedDetails += `
+                                <p style="color: #10b981;"><strong><i class="fas fa-check-circle"></i> Email Confermata:</strong> Inviata con successo</p>
+                            `;
+                            if (orderResult.emailMessageId) {
+                                enhancedDetails += `<p><strong>ID Email:</strong> <span style="font-family: monospace; font-size: 12px;">${orderResult.emailMessageId}</span></p>`;
+                            }
+                            if (orderResult.templateIds && Object.values(orderResult.templateIds).some(id => id)) {
+                                enhancedDetails += `<p><strong>Template:</strong> ${Object.values(orderResult.templateIds).filter(id => id).join(', ')}</p>`;
+                            }
+                        } else {
+                            enhancedDetails += `
+                                <p style="color: #f59e0b;"><strong><i class="fas fa-clock"></i> Email Confermata:</strong> In attesa di invio</p>
+                            `;
+                        }
+                        
+                        orderDetailsContainer.innerHTML = enhancedDetails;
+                    }
+                }
+                
+                // Add celebration animation
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+
+                // Add confetti effect
+                this.showCelebrationEffect();
+
+                // Auto-redirect after 12 seconds (slightly longer for enhanced content)
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 12000);
+            }
+
+            showCelebrationEffect() {
+                // Simple celebration effect
+                const celebrationOverlay = document.createElement('div');
+                celebrationOverlay.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    pointer-events: none;
+                    z-index: 2999;
+                `;
+
+                // Add some celebratory emojis
+                const emojis = ['🎉', '🎊', '✨', '🎈', '🥳'];
+                
+                for (let i = 0; i < 15; i++) {
+                    setTimeout(() => {
+                        const emoji = document.createElement('div');
+                        emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                        emoji.style.cssText = `
+                            position: absolute;
+                            font-size: 30px;
+                            left: ${Math.random() * 100}%;
+                            top: -50px;
+                            animation: fall 3s linear forwards;
+                            pointer-events: none;
+                        `;
+                        
+                        celebrationOverlay.appendChild(emoji);
+                        
+                        setTimeout(() => emoji.remove(), 3000);
+                    }, i * 200);
+                }
+
+                document.body.appendChild(celebrationOverlay);
+                
+                // Remove celebration overlay after animation
+                setTimeout(() => {
+                    celebrationOverlay.remove();
+                }, 3500);
+
+                // Add CSS for falling animation
+                if (!document.getElementById('celebration-styles')) {
+                    const style = document.createElement('style');
+                    style.id = 'celebration-styles';
+                    style.textContent = `
+                        @keyframes fall {
+                            to {
+                                transform: translateY(100vh) rotate(360deg);
+                                opacity: 0;
+                            }
+                        }
+                        
+                        @keyframes slideInFromRight {
+                            from {
+                                transform: translateX(100%);
+                                opacity: 0;
+                            }
+                            to {
+                                transform: translateX(0);
+                                opacity: 1;
+                            }
+                        }
+                        
+                        @keyframes slideOutToRight {
+                            from {
+                                transform: translateX(0);
+                                opacity: 1;
+                            }
+                            to {
+                                transform: translateX(100%);
+                                opacity: 0;
+                            }
+                        }
+                        
+                        @keyframes slideInFromLeft {
+                            from {
+                                transform: translateX(-20px);
+                                opacity: 0;
+                            }
+                            to {
+                                transform: translateX(0);
+                                opacity: 1;
+                            }
+                        }
+                        
+                        @keyframes fadeOut {
+                            from {
+                                opacity: 1;
+                            }
+                            to {
+                                opacity: 0;
+                            }
+                        }
+                    `;
+                    document.head.appendChild(style);
+                }
+            }
+        }
+
+        // Initialize checkout when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new CheckoutManager();
+
+            // Handle success modal close
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('success-modal')) {
+                    e.target.classList.remove('show');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    </script>
+    
+    <!-- Cookie Consent and User Preferences Scripts -->
+    <script src="cookie-utils.js"></script>
+    <script src="cookie-consent.js"></script>
+    <script>
+        // Initialize cookie consent and user preferences after DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                if (typeof CookieUtils !== 'undefined' && typeof UserPreferences !== 'undefined') {
+                    window.userPreferences = new UserPreferences();
+                    console.log('User preferences system initialized');
+                } else {
+                    console.warn('Cookie utility classes not available - graceful degradation');
+                }
+                
+                if (typeof window.cookieConsent === 'undefined') {
+                    console.warn('Cookie consent system not available - graceful degradation');
+                }
+            } catch (error) {
+                console.error('Error initializing cookie systems:', error);
+            }
+        });
+    </script>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p class="footer-copyright">
+                    &copy; 2025 l'Olio di Valeria - San Biagio Platani (AG). Tutti i diritti riservati.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+/* Footer Styles */
+.footer {
+    background: #fff;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+    margin-top: 60px;
+}
+
+.footer-bottom {
+    padding: 30px 0;
+    border-top: 1px solid #f3f4f6;
+}
+
+.footer-bottom-content {
+    text-align: center;
+}
+
+.footer-copyright {
+    color: #6b7280;
+    font-size: 14px;
+    margin: 0;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #f9fafb;
+    border-radius: 50%;
+    color: #374151;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 18px;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.social-icon.facebook:hover {
+    background: #1877f2;
+    color: #fff;
+}
+
+.social-icon.instagram:hover {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    color: #fff;
+}
+
+.social-icon.tiktok:hover {
+    background: #000;
+    color: #fff;
+}
+
+@media (max-width: 480px) {
+    .footer-copyright {
+        font-size: 12px;
+    }
+    
+    .social-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+}
+</style>
+
+</body>
+</html>
