@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galleria - l'Olio di Valeria | Scopri il Nostro Mondo</title>
+    <meta name="description" content="Scopri la galleria fotografica e video di l'Olio di Valeria: dalle bottiglie ai campi, dalla produzione agli eventi.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* ========================================
+           Global Styles
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            padding: 0 20px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #eab308;
+        }
+
+        .nav-links a.active {
+            color: #eab308;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #eab308;
+        }
+
+        .shop-btn {
+            background: linear-gradient(135deg, #eab308, #f59e0b);
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(234, 179, 8, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .shop-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(234, 179, 8, 0.4);
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #374151;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            background: #f3f4f6;
+            color: #eab308;
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1500;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100vh;
+            background: #fff;
+            box-shadow: 5px 0 20px rgba(0, 0, 0, 0.1);
+            transition: left 0.3s ease;
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.open {
+            left: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #6b7280;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-close:hover {
+            background: #f3f4f6;
+            color: #000;
+        }
+
+        .mobile-nav-links {
+            padding: 24px;
+            list-style: none;
+        }
+
+        .mobile-nav-links li {
+            margin-bottom: 16px;
+        }
+
+        .mobile-nav-links a {
+            display: block;
+            padding: 12px 16px;
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-links a:hover {
+            background: #f3f4f6;
+            color: #eab308;
+        }
+
+        .mobile-nav-links a.active {
+            background: #fef3c7;
+            color: #eab308;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.55) 100%), 
+                        url('/placeholder.svg?height=600&width=1200');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: #fff;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(234, 179, 8, 0.18) 0%, rgba(245, 158, 11, 0.08) 50%, rgba(0, 0, 0, 0.12) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(234, 179, 8, 0.25);
+            border: 2px solid #eab308;
+            color: #fef3c7;
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 16px;
+            line-height: 1.2;
+            color: #fff;
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #f3f4f6;
+            margin-bottom: 32px;
+            font-weight: 300;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: #f9fafb;
+            padding: 16px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .breadcrumb-nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .breadcrumb-nav a {
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb-nav a:hover {
+            color: #eab308;
+        }
+
+        .breadcrumb-nav .current {
+            color: #eab308;
+            font-weight: 500;
+        }
+
+        /* Category Filter */
+        .filter-section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .filter-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 16px;
+        }
+
+        .filter-divider {
+            width: 80px;
+            height: 4px;
+            background: #eab308;
+            margin: 0 auto 40px;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 12px 28px;
+            border: 2px solid #e5e7eb;
+            background: #fff;
+            color: #374151;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #eab308;
+            color: #000;
+            border-color: #eab308;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(234, 179, 8, 0.3);
+        }
+
+        /* Gallery Grid */
+        .gallery-section {
+            padding: 60px 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            aspect-ratio: 1;
+            cursor: pointer;
+            group: gallery;
+            animation: fadeInScale 0.6s ease;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .gallery-item.hidden {
+            display: none;
+        }
+
+        .gallery-item-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-item:hover .gallery-item-image {
+            transform: scale(1.1) rotate(2deg);
+        }
+
+        .gallery-item-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(234, 179, 8, 0.3) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item-title {
+            color: #fff;
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .gallery-item-category {
+            color: #fef3c7;
+            font-size: 0.875rem;
+            font-weight: 600;
+            background: rgba(234, 179, 8, 0.3);
+            padding: 4px 12px;
+            border-radius: 12px;
+            display: inline-block;
+            backdrop-filter: blur(4px);
+        }
+
+        .gallery-item-icon {
+            font-size: 2rem;
+            color: #eab308;
+            margin-bottom: 12px;
+            animation: bounce 0.6s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90vh;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-image {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+
+        .modal-video {
+            width: 100%;
+            max-height: 80vh;
+            border-radius: 12px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 32px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            color: #eab308;
+            transform: rotate(90deg);
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-nav:hover {
+            background: rgba(234, 179, 8, 0.5);
+            color: #000;
+        }
+
+        .modal-nav.prev {
+            left: -60px;
+        }
+
+        .modal-nav.next {
+            right: -60px;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, #000 0%, #374151 100%);
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(234, 179, 8, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-card {
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #eab308;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 1.125rem;
+            color: #d1d5db;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #eab308 0%, #f59e0b 100%);
+            color: #000;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 24px;
+        }
+
+        .cta-description {
+            font-size: 1.125rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #000;
+            color: #eab308;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #000;
+            border: 2px solid #000;
+            padding: 14px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            background: #000;
+            color: #eab308;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #fff;
+            border-top: 4px solid #eab308;
+            padding: 48px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px 24px;
+            margin-bottom: 48px;
+        }
+
+        .footer-section h4 {
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 16px;
+            font-size: 1.25rem;
+            letter-spacing: 0.05em;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+        }
+
+        .footer-description {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #eab308;
+        }
+
+        .footer-contact {
+            font-size: 14px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon.facebook {
+            background: #1877f2;
+            color: #fff;
+        }
+
+        .social-icon.instagram {
+            background: linear-gradient(135deg, #e4405f, #f77737);
+            color: #fff;
+        }
+
+        .social-icon.tiktok {
+            background: #000;
+            color: #fff;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #e5e7eb;
+            padding: 32px 0;
+            text-align: center;
+        }
+
+        .footer-copyright {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .shop-btn {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+
+            .filter-title {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 16px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .modal-nav.prev {
+                left: 10px;
+            }
+
+            .modal-nav.next {
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: 1.875rem;
+            }
+
+            .filter-buttons {
+                gap: 8px;
+            }
+
+            .filter-btn {
+                padding: 10px 20px;
+                font-size: 12px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 12px;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/odvlogo.png" alt="l'Olio di Valeria">
+                    </a>
+                </div>
+
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Prodotti</a></li>
+                        <li><a href="chisiamo.html">Chi Siamo</a></li>
+                        <li><a href="aziendaagr.html">L'Azienda Agricola</a></li>
+                        <li><a href="dovesiamo.html">Dove Siamo</a></li>
+                        <li><a href="contatti.html">Contatti</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Apri menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <a href="shop.html" class="shop-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    Shop
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <div class="logo">
+                <img src="assets/odvlogo.png" alt="l'Olio di Valeria">
+            </div>
+            <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Chiudi menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav>
+            <ul class="mobile-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Prodotti</a></li>
+                <li><a href="chisiamo.html">Chi Siamo</a></li>
+                <li><a href="aziendaagr.html">L'Azienda Agricola</a></li>
+                <li><a href="dovesiamo.html">Dove Siamo</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span class="current">Galleria</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">Scopri il Nostro Mondo</div>
+                <h1>Galleria Fotografica</h1>
+                <p class="hero-subtitle">Dalle bottiglie ai campi: la storia visiva dell'Olio di Valeria</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <h2 class="filter-title">Esplora le Nostre Categorie</h2>
+            <div class="filter-divider"></div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Tutte</button>
+                <button class="filter-btn" data-filter="bottiglie">Bottiglie</button>
+                <button class="filter-btn" data-filter="supermercati">Supermercati</button>
+                <button class="filter-btn" data-filter="produzione">Produzione</button>
+                <button class="filter-btn" data-filter="eventi">Eventi</button>
+                <button class="filter-btn" data-filter="campi">Campi e Alberi</button>
+                <button class="filter-btn" data-filter="video">Video</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Bottiglie -->
+                <div class="gallery-item" data-category="bottiglie" data-type="image">
+                    <img src="assets/bottle-1.jpg" alt="Bottiglia Premium" class="gallery-item-image">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-wine-bottle gallery-item-icon"></i>
+                        <div class="gallery-item-title">Bottiglia Premium</div>
+                        <span class="gallery-item-category">Bottiglie</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="bottiglie" data-type="image">
+                    <img src="assets/bottle-15.jpg" alt="Collezione Bottiglie" class="gallery-item-image">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-wine-bottle gallery-item-icon"></i>
+                        <div class="gallery-item-title">Collezione Completa</div>
+                        <span class="gallery-item-category">Bottiglie</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="bottiglie" data-type="image">
+                    <img src="assets/bottle-2.jpg" alt="Dettaglio Bottiglia" class="gallery-item-image">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-wine-bottle gallery-item-icon"></i>
+                        <div class="gallery-item-title">Dettaglio Etichetta</div>
+                        <span class="gallery-item-category">Bottiglie</span>
+                    </div>
+                </div>
+
+                <!-- Supermercati -->
+                <div class="gallery-item" data-category="supermercati" data-type="image">
+                    <img src="assets/retail-3.jpg" alt="Scaffale Supermercato" class="gallery-item-image">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-store gallery-item-icon"></i>
+                        <div class="gallery-item-title">Scaffale Supermercato</div>
+                        <span class="gallery-item-category">Supermercati</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="supermercati" data-type="image">
+                    <img src="assets/retail-2.jpg" alt="Esposizione Retail" class="gallery-item-image">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-store gallery-item-icon"></i>
+                        <div class="gallery-item-title">Esposizione Retail</div>
+                        <span class="gallery-item-category">Supermercati</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="supermercati" data-type="image">
+                    <img src="assets/retail-1.jpg" alt="Spedizione" class="gallery-item-image">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-store gallery-item-icon"></i>
+                        <div class="gallery-item-title">Spedizione Bottiglie</div>
+                        <span class="gallery-item-category">Supermercati</span>
+                    </div>
+                </div>
+
+                <!-- Produzione -->
+                <div class="gallery-item" data-category="produzione" data-type="image">
+                    <img src="assets/field-14.jpg" alt="Raccolta Olive" class="gallery-item-image">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-leaf gallery-item-icon"></i>
+                        <div class="gallery-item-title">Raccolta Olive</div>
+                        <span class="gallery-item-category">Produzione</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="produzione" data-type="image">
+                    <img src="assets/production-1.jpg" alt="Spremitura" class="gallery-item-image">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-cog gallery-item-icon"></i>
+                        <div class="gallery-item-title">Processo di Spremitura</div>
+                        <span class="gallery-item-category">Produzione</span>
+                    </div>
+                </div>
+
+                <!-- Eventi -->
+                <div class="gallery-item" data-category="eventi" data-type="image">
+                    <img src="assets/event-15.jpg" alt="Degustazione" class="gallery-item-image">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-wine-glass gallery-item-icon"></i>
+                        <div class="gallery-item-title">Evento di Degustazione</div>
+                        <span class="gallery-item-category">Eventi</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="eventi" data-type="image">
+                    <img src="assets/event-10.jpg" alt="Visita Aziendale" class="gallery-item-image">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-users gallery-item-icon"></i>
+                        <div class="gallery-item-title">Visita Aziendale</div>
+                        <span class="gallery-item-category">Eventi</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="eventi" data-type="image">
+                    <img src="assets/event-12.jpg" alt="Eventi" class="gallery-item-image">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-celebration gallery-item-icon"></i>
+                        <div class="gallery-item-title">Eventi</div>
+                        <span class="gallery-item-category">Eventi</span>
+                    </div>
+                </div>
+
+                <!-- Campi e Alberi -->
+                <div class="gallery-item" data-category="campi" data-type="image">
+                    <img src="assets/field-8.jpg" alt="Uliveto Siciliano" class="gallery-item-image">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-tree gallery-item-icon"></i>
+                        <div class="gallery-item-title">Uliveto Siciliano</div>
+                        <span class="gallery-item-category">Campi</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="campi" data-type="image">
+                    <img src="assets/field-3.jpg" alt="campi" class="gallery-item-image">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-tree gallery-item-icon"></i>
+                        <div class="gallery-item-title">Campi</div>
+                        <span class="gallery-item-category">Campi</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="campi" data-type="image">
+                    <img src="assets/dalalto.JPG" alt="Terra Sicana" class="gallery-item-image">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-sun gallery-item-icon"></i>
+                        <div class="gallery-item-title">Terra Sicana</div>
+                        <span class="gallery-item-category">Campi</span>
+                    </div>
+                </div>
+
+                <!-- Video - Produzione -->
+                <div class="gallery-item" data-category="video produzione" data-type="video" data-src="assets/production-video-1.mp4">
+                    <img src="assets/video-1.png" alt="Video Produzione 1" class="gallery-item-image">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-play gallery-item-icon"></i>
+                        <div class="gallery-item-title">Produzione 1</div>
+                        <span class="gallery-item-category">Video</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="video produzione" data-type="video" data-src="assets/production-video-2.mp4">
+                    <img src="assets/video-2.png" alt="Video Produzione 2" class="gallery-item-image">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-play gallery-item-icon"></i>
+                        <div class="gallery-item-title">Produzione 2</div>
+                        <span class="gallery-item-category">Video</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="video produzione" data-type="video" data-src="assets/production-video-3.mp4">
+                    <img src="assets/production-4.jpg" alt="Video Produzione 3" class="gallery-item-image">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-play gallery-item-icon"></i>
+                        <div class="gallery-item-title">Produzione 3</div>
+                        <span class="gallery-item-category">Video</span>
+                    </div>
+                </div>
+
+                <!-- Video - Eventi -->
+                <div class="gallery-item" data-category="video eventi" data-type="video" data-src="assets/event-video-1.mp4">
+                    <img src="assets/event-1.jpg" alt="Video Evento 1" class="gallery-item-image">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-play gallery-item-icon"></i>
+                        <div class="gallery-item-title">Evento 1</div>
+                        <span class="gallery-item-category">Video</span>
+                    </div>
+                </div>
+
+                <!-- Video - Campi -->
+                <div class="gallery-item" data-category="video campi" data-type="video" data-src="assets/field-video-1.mp4">
+                    <img src="assets/field-2.jpg" alt="Video Campi 1" class="gallery-item-image">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-play gallery-item-icon"></i>
+                        <div class="gallery-item-title">Campi 1</div>
+                        <span class="gallery-item-category">Video</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="video produzione" data-type="video" data-src="assets/field-video-2.mp4">
+                    <img src="assets/production-1.jpg" alt="Video spremitura" class="gallery-item-image">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-play gallery-item-icon"></i>
+                        <div class="gallery-item-title">Spremitura</div>
+                        <span class="gallery-item-category">Video</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">18+</div>
+                    <div class="stat-label">Foto Esclusive</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Video Professionali</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">35+</div>
+                    <div class="stat-label">Anni di Tradizione</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Qualità Garantita</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Scopri i Nostri Oli</h2>
+            <p class="cta-description">
+                Ogni immagine racconta una storia di passione, dedizione e amore per la terra siciliana. 
+                Assaggia la qualità che vedi nella nostra galleria.
+            </p>
+            <div class="cta-buttons">
+                <a href="shop.html" class="btn-primary">
+                    <i class="fas fa-shopping-cart"></i>
+                    Acquista Ora
+                </a>
+                <a href="chisiamo.html" class="btn-secondary">
+                    <i class="fas fa-info-circle"></i>
+                    Scopri di Più
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="modal-nav prev" id="modalPrev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <img id="modalImage" class="modal-image" alt="Immagine Ingrandita">
+            <video id="modalVideo" class="modal-video" controls style="display: none;"></video>
+            <button class="modal-nav next" id="modalNext">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/odvlogo.png" alt="l'Olio di Valeria">
+                    </div>
+                    <p class="footer-description">
+                        Tradizione siciliana dal 1987. Olio extravergine di oliva di qualità superiore dalle terre di San Biagio Platani.
+                    </p>
+                <div class="footer-details">
+                <p>P.IVA: 02957530849</p>
+                <p>Cod. Fisc.: LCTVLR81D62Z112B</p>
+                </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Prodotti</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html#products">Le Nostre Bottiglie</a></li>
+                        <li><a href="shop.html#products">Specialità Siciliana</a></li>
+                        <li><a href="shop.html#latta">Olio In Latta</a></li>
+                        <li><a href="shop.html#regalo">Confezione Regalo</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Azienda</h4>
+                    <ul class="footer-links">
+                        <li><a href="chisiamo.html">Chi Siamo</a></li>
+                        <li><a href="aziendaagr.html">L'Azienda Agricola</a></li>
+                        <li><a href="contatti.html">Contatti</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contatti</h4>
+                    <div class="footer-contact">
+                        <p>
+                            <strong>Sede Operativa:</strong><br>
+                            Via Alcide De Gasperi, 4<br>
+                            92020 San Biagio Platani (AG)
+                        </p>
+                        <p>
+                            <strong>Tel:</strong> +39 327 309 8513<br>
+                        <strong>Tel:</strong> +39 339 530 5990
+                    </p>
+                        
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Informazioni Legali</h4>
+                    <ul class="footer-links">
+                        <li><a href="termini-e-condizioniodv.html">Termini e Condizioni</a></li>
+                        <li><a href="cookie-e-privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Seguici Su</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/OliodiValeria/" target="_blank" rel="noopener noreferrer" class="social-icon facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/oliodivaleria/" target="_blank" rel="noopener noreferrer" class="social-icon instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@oliodivaleria" target="_blank" rel="noopener noreferrer" class="social-icon tiktok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    &copy; 2025 Faraj Informatica. Tutti i diritti riservati.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Management
+        class MobileMenu {
+            constructor() {
+                this.init()
+            }
+
+            init() {
+                this.bindEvents()
+            }
+
+            bindEvents() {
+                const mobileMenuBtn = document.getElementById('mobileMenuBtn')
+                const mobileMenuClose = document.getElementById('mobileMenuClose')
+                const mobileMenuOverlay = document.getElementById('mobileMenuOverlay')
+                const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a')
+
+                mobileMenuBtn?.addEventListener('click', this.openMobileMenu.bind(this))
+                mobileMenuClose?.addEventListener('click', this.closeMobileMenu.bind(this))
+                mobileMenuOverlay?.addEventListener('click', this.closeMobileMenu.bind(this))
+
+                // Close menu when clicking on a link
+                mobileNavLinks.forEach(link => {
+                    link.addEventListener('click', this.closeMobileMenu.bind(this))
+                })
+
+                // Handle escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        this.closeMobileMenu()
+                    }
+                })
+            }
+
+            openMobileMenu() {
+                const mobileMenu = document.getElementById('mobileMenu')
+                const mobileMenuOverlay = document.getElementById('mobileMenuOverlay')
+
+                mobileMenu?.classList.add('open')
+                mobileMenuOverlay?.classList.add('open')
+                document.body.style.overflow = 'hidden'
+
+                // Update button icon
+                const mobileMenuBtn = document.getElementById('mobileMenuBtn')
+                const icon = mobileMenuBtn?.querySelector('i')
+                if (icon) {
+                    icon.className = 'fas fa-times'
+                }
+            }
+
+            closeMobileMenu() {
+                const mobileMenu = document.getElementById('mobileMenu')
+                const mobileMenuOverlay = document.getElementById('mobileMenuOverlay')
+
+                mobileMenu?.classList.remove('open')
+                mobileMenuOverlay?.classList.remove('open')
+                document.body.style.overflow = ''
+
+                // Update button icon
+                const mobileMenuBtn = document.getElementById('mobileMenuBtn')
+                const icon = mobileMenuBtn?.querySelector('i')
+                if (icon) {
+                    icon.className = 'fas fa-bars'
+                }
+            }
+        }
+
+        // Initialize mobile menu when DOM is loaded
+        document.addEventListener("DOMContentLoaded", () => {
+            window.mobileMenu = new MobileMenu()
+        })
+
+        // Gallery Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Filter items
+                const filter = btn.dataset.filter;
+                galleryItems.forEach(item => {
+                    const categories = item.dataset.category.split(' ');
+                    if (filter === 'all' || categories.includes(filter)) {
+                        item.classList.remove('hidden');
+                        setTimeout(() => {
+                            item.style.animation = 'fadeInScale 0.6s ease';
+                        }, 10);
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('modal');
+        const modalImage = document.getElementById('modalImage');
+        const modalVideo = document.getElementById('modalVideo');
+        const modalClose = document.getElementById('modalClose');
+        const modalPrev = document.getElementById('modalPrev');
+        const modalNext = document.getElementById('modalNext');
+        let currentIndex = 0;
+        let visibleItems = [];
+
+        function updateVisibleItems() {
+            visibleItems = Array.from(galleryItems).filter(item => !item.classList.contains('hidden'));
+        }
+
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                updateVisibleItems();
+                currentIndex = visibleItems.indexOf(item);
+                openModal(item);
+            });
+        });
+
+        function openModal(item) {
+            const isVideo = item.dataset.type === 'video';
+            const img = item.querySelector('.gallery-item-image');
+            
+            if (isVideo) {
+                modalImage.style.display = 'none';
+                modalVideo.style.display = 'block';
+                modalVideo.src = item.dataset.src || '';
+            } else {
+                modalImage.style.display = 'block';
+                modalVideo.style.display = 'none';
+                modalImage.src = img.src;
+            }
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            modalVideo.pause();
+        }
+
+        function showPrevious() {
+            currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
+            openModal(visibleItems[currentIndex]);
+        }
+
+        function showNext() {
+            currentIndex = (currentIndex + 1) % visibleItems.length;
+            openModal(visibleItems[currentIndex]);
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        modalPrev.addEventListener('click', showPrevious);
+        modalNext.addEventListener('click', showNext);
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!modal.classList.contains('active')) return;
+            if (e.key === 'Escape') closeModal();
+            if (e.key === 'ArrowLeft') showPrevious();
+            if (e.key === 'ArrowRight') showNext();
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.stat-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

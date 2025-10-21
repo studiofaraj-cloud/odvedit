@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qualità dell'Olio di Valeria</title>
+    <link rel="alternate" hreflang="it" href="https://www.oliodiValeria.com/qualita.html" />
+    <link rel="alternate" hreflang="en" href="https://www.oliodiValeria.com/en/qualita.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.oliodiValeria.com/qualita.html" />
+    <script src="js/page-loader.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'yellow-400': '#eab308',
+                        'yellow-500': '#d97706',
+                        'yellow-600': '#ca8a04',
+                        'amber-500': '#f59e0b'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+    <style>
+       * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #eab308;
+            background: #f9fafb;
+            font-weight: bold;
+
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+       /* Header */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            padding: 0 20px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #eab308;
+        }
+
+        .nav-links a.active {
+            color: #eab308;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #eab308;
+        }
+
+        .shop-btn {
+            background: linear-gradient(135deg, #eab308, #f59e0b);
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(234, 179, 8, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .shop-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(234, 179, 8, 0.4);
+        }
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #374151;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            background: #f3f4f6;
+            color: #eab308;
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1500;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100vh;
+            background: #fff;
+            box-shadow: 5px 0 20px rgba(0, 0, 0, 0.1);
+            transition: left 0.3s ease;
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.open {
+            left: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #6b7280;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-close:hover {
+            background: #f3f4f6;
+            color: #000;
+        }
+
+        .mobile-nav-links {
+            padding: 24px;
+            list-style: none;
+        }
+
+        .mobile-nav-links li {
+            margin-bottom: 16px;
+        }
+
+        .mobile-nav-links a {
+            display: block;
+            padding: 12px 16px;
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-links a:hover {
+            background: #f3f4f6;
+            color: #eab308;
+        }
+
+        .mobile-nav-links a.active {
+            background: #fef3c7;
+            color: #eab308;
+            font-weight: 600;
+        }
+
+        /* Enhanced certifications section with better centering and animations */
+        .certifications-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certifications-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(234, 179, 8, 0.05) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+
+
+        [data-i18n].translating,
+        [data-i18n-placeholder].translating,
+        [data-i18n-title].translating {
+            opacity: 0;
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .page-qualita .shop-btn {
+                display: none;
+            }
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #2c5530;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-divider {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #eab308, #f59e0b);
+            margin: 0 auto 2rem;
+            border-radius: 2px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .certifications-intro {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #6c757d;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+            position: relative;
+            z-index: 10;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .certification-item {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .certification-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(234, 179, 8, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .certification-item:hover::before {
+            left: 100%;
+        }
+
+        .certification-item:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            border-color: #eab308;
+        }
+
+        .cert-logo {
+            width: 140px;
+            height: 100px;
+            object-fit: contain;
+            margin: 0 auto 25px;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .certification-item:hover .cert-logo {
+            transform: scale(1.1);
+        }
+
+        .certification-item h3 {
+            color: #eab308;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .certification-item p {
+            color: #6c757d;
+            font-size: 1rem;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* Added scroll animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .scroll-animate.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-animate-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .scroll-animate-left.animate-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-animate-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .scroll-animate-right.animate-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-animate-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .scroll-animate-scale.animate-in {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        @media (max-width: 768px) {
+            .certifications-section {
+                padding: 80px 0;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .certifications-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 0 15px;
+            }
+            
+            .certification-item {
+                padding: 30px 20px;
+            }
+
+            .cert-logo {
+                width: 120px;
+                height: 80px;
+            }
+        }
+        /* Footer */
+        .footer {
+            background: #fff;
+            border-top: 4px solid #eab308;
+            padding: 48px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px 24px;
+            margin-bottom: 48px;
+        }
+
+        .footer-section {
+            margin-bottom: 0;
+        }
+
+        .footer-section:nth-child(1) {
+            grid-column: 1 / 2;
+            grid-row: 1;
+        }
+
+        .footer-section:nth-child(2) {
+            grid-column: 2 / 3;
+            grid-row: 1;
+        }
+
+        .footer-section:nth-child(3) {
+            grid-column: 3 / 4;
+            grid-row: 1;
+        }
+
+        .footer-section:nth-child(4) {
+            grid-column: 1 / 2;
+            grid-row: 2;
+        }
+
+        .footer-section:nth-child(5) {
+            grid-column: 3 / 4;
+            grid-row: 2;
+        }
+
+        .footer-section:nth-child(6) {
+            grid-column: 2 / 3;
+            grid-row: 2;
+        }
+
+        .footer-section h4 {
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 16px;
+            font-size: 1.25rem;
+            letter-spacing: 0.05em;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+        }
+        
+        .footer-section h4::before {
+            margin-right: 8px;
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+        }
+        
+        .footer-section:nth-child(2) h4::before {
+            content: '\f72f'; /* wine-bottle icon for Prodotti */
+        }
+        
+        .footer-section:nth-child(3) h4::before {
+            content: '\f1ad'; /* building icon for Azienda */
+        }
+        
+        .footer-section:nth-child(4) h4::before {
+            content: '\f0e0'; /* envelope icon for Contatti */
+        }
+        
+        .footer-section:nth-child(6) h4::before {
+            content: '\f1e0'; /* share-alt icon for Seguici Su */
+        }
+        
+        .footer-section:nth-child(5) h4::before {
+            content: '\f0e3'; /* gavel icon for Informazioni Legali */
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .footer-logo img {
+                animation: none;
+            }
+        }
+
+        .footer-description {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            font-weight: normal;
+        }
+
+        .footer-details {
+            font-size: 14px;
+            color: #9ca3af;
+        }
+
+        .footer-details p {
+            margin-bottom: 4px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: normal;
+        }
+
+        .footer-links a:hover {
+            color: #eab308;
+        }
+
+        .footer-contact {
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+        .footer-contact p {
+            margin-bottom: 12px;
+            line-height: 1.5;
+            font-weight: normal;
+        }
+
+        .footer-contact strong {
+            color: #000;
+        }
+
+        .social-media {
+            margin-top: 8px;
+        }
+
+        .social-description {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .social-link.facebook {
+            background: linear-gradient(135deg, #1877f2, #42a5f5);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(24, 119, 242, 0.2);
+        }
+
+        .social-link.facebook:hover {
+            background: linear-gradient(135deg, #166fe5, #1976d2);
+            transform: translateY(-2px);
+        }
+
+        .social-link.instagram {
+            background: linear-gradient(135deg, #e4405f, #f77737, #fcaf45);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(228, 64, 95, 0.2);
+        }
+
+        .social-link.instagram:hover {
+            background: linear-gradient(135deg, #d73447, #e91e63, #ff9800);
+            transform: translateY(-2px);
+        }
+
+        .social-link i {
+            font-size: 18px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #e5e7eb;
+            padding: 32px 0;
+        }
+
+        .footer-bottom-content {
+            text-align: center;
+        }
+
+        .footer-copyright {
+            color: #6b7280;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .footer-social-mobile {
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+        }
+
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .social-icon.facebook {
+            background: #1877f2;
+            color: #fff;
+        }
+
+        .social-icon.instagram {
+            background: linear-gradient(135deg, #e4405f, #f77737);
+            color: #fff;
+        }
+
+        .social-icon.tiktok {
+            background: #000;
+            color: #fff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px 20px;
+            }
+
+            .footer-section:nth-child(1) {
+                grid-column: 1 / 2;
+                grid-row: 1;
+            }
+
+            .footer-section:nth-child(2) {
+                grid-column: 2 / 3;
+                grid-row: 1;
+            }
+
+            .footer-section:nth-child(3) {
+                grid-column: 1 / 2;
+                grid-row: 2;
+            }
+
+            .footer-section:nth-child(4) {
+                grid-column: 2 / 3;
+                grid-row: 2;
+            }
+
+            .footer-section:nth-child(5) {
+                grid-column: 1 / 2;
+                grid-row: 3;
+            }
+
+            .footer-section:nth-child(6) {
+                grid-column: 2 / 3;
+                grid-row: 3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 60px;
+                margin-right: 0;
+                text-align: left;
+            }
+
+            .timeline-marker {
+                left: 20px;
+                transform: translateX(-50%);
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .footer-section:nth-child(1),
+            .footer-section:nth-child(2),
+            .footer-section:nth-child(3),
+            .footer-section:nth-child(4),
+            .footer-section:nth-child(5),
+            .footer-section:nth-child(6) {
+                grid-column: 1 / 2;
+                grid-row: auto;
+            }
+
+            .footer-social-mobile {
+                display: flex;
+            }
+
+            .social-links {
+                flex-direction: row;
+                gap: 8px;
+            }
+
+            .social-link span {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 80px 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 60px 0;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+<body class="page-qualita">
+
+     <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/odvlogo.png" alt="l'Olio di Valeria" data-i18n-alt="img.alt.logo">
+                    </a>
+                </div>
+
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Prodotti</a></li>
+                        <li><a href="chisiamo.html">Chi Siamo</a></li>
+                        <li><a href="aziendaagr.html">L'Azienda Agricola</a></li>
+                        <li><a href="dovesiamo.html">Dove Siamo</a></li>
+                        <li><a href="contatti.html">Contatti</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Apri menu" data-i18n-aria-label="aria.openMenu">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <a href="shop.html" class="shop-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    Shop
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Changed background from gradient amber/yellow to pure white -->
+    <div class="min-h-screen bg-white">
+        <!-- Hero Section with reliable dark background -->
+        <section class="relative py-20 px-4 overflow-hidden bg-gray-900 scroll-animate" style="background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6)), url('assets/f1.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+
+            <div class="relative z-10 max-w-6xl mx-auto">
+                <div class="max-w-3xl">
+                    <span class="inline-block mb-6 bg-yellow-400 text-black hover:bg-yellow-500 text-sm font-bold px-6 py-2 rounded-full scroll-animate-scale">
+                        Qualità Premium
+                    </span>
+                    <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight scroll-animate-left">
+                        Qualità dell'
+                        <!-- Enhanced contrast for the animated text -->
+                        <span class="text-yellow-400 animate-pulse drop-shadow-lg">Olio di Valeria</span>
+                    </h1>
+                    <p class="text-xl text-white mb-8 leading-relaxed max-w-2xl drop-shadow-md scroll-animate-right">
+                        I benefici e la qualità del nostro olio di oliva extravergine, controllato secondo i più alti standard di eccellenza.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Health Benefits Section -->
+        <section class="py-20 px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 scroll-animate">
+                    <h2 class="text-4xl font-bold text-black mb-4" data-i18n="quality.health.title">Benefici per la Salute</h2>
+                    <div class="w-24 h-1 bg-yellow-400 mx-auto mb-6"></div>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed" data-i18n="quality.health.intro">
+                        Il nostro olio extravergine di oliva è ricco di componenti benefici che contribuiscono al benessere del tuo organismo.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Vitamina E -->
+                    <div class="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 border-gray-100 hover:border-yellow-400 bg-white rounded-lg p-8 text-center scroll-animate">
+                        <div class="w-16 h-16 bg-yellow-400 text-black rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-black mb-4" data-i18n="quality.health.vitaminE.title">Vitamina E</h3>
+                        <p class="text-gray-600 leading-relaxed" data-i18n="quality.health.vitaminE.description">Potente antiossidante naturale che protegge le cellule dai danni dei radicali liberi.</p>
+                    </div>
+
+                    <!-- Grassi Monoinsaturi -->
+                    <div class="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 border-gray-100 hover:border-yellow-400 bg-white rounded-lg p-8 text-center scroll-animate">
+                        <div class="w-16 h-16 bg-black text-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-black mb-4" data-i18n="quality.health.monounsaturated.title">Grassi Monoinsaturi</h3>
+                        <p class="text-gray-600 leading-relaxed" data-i18n="quality.health.monounsaturated.description">Favoriscono la salute cardiovascolare e aiutano a mantenere livelli ottimali di colesterolo.</p>
+                    </div>
+
+                    <!-- Acido Oleico -->
+                    <div class="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 border-gray-100 hover:border-yellow-400 bg-white rounded-lg p-8 text-center scroll-animate">
+                        <div class="w-16 h-16 bg-yellow-400 text-black rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-black mb-4" data-i18n="quality.health.oleicAcid.title">Acido Oleico</h3>
+                        <p class="text-gray-600 leading-relaxed" data-i18n="quality.health.oleicAcid.description">Acido grasso essenziale che supporta il sistema immunitario e la salute della pelle.</p>
+                    </div>
+
+                    <!-- Acido Palmitico -->
+                    <div class="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 border-gray-100 hover:border-yellow-400 bg-white rounded-lg p-8 text-center scroll-animate">
+                        <div class="w-16 h-16 bg-black text-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-black mb-4" data-i18n="quality.health.palmiticAcid.title">Acido Palmitico</h3>
+                        <p class="text-gray-600 leading-relaxed" data-i18n="quality.health.palmiticAcid.description">Contribuisce alla struttura delle membrane cellulari e al metabolismo energetico.</p>
+                    </div>
+
+                    <!-- Acido Linoleico -->
+                    <div class="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 border-gray-100 hover:border-yellow-400 bg-white rounded-lg p-8 text-center scroll-animate">
+                        <div class="w-16 h-16 bg-yellow-400 text-black rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-black mb-4" data-i18n="quality.health.linoleicAcid.title">Acido Linoleico</h3>
+                        <p class="text-gray-600 leading-relaxed" data-i18n="quality.health.linoleicAcid.description">Acido grasso omega-6 essenziale per la salute della pelle e del sistema nervoso.</p>
+                    </div>
+
+                    <!-- Acido Stearico -->
+                    <div class="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 border-gray-100 hover:border-yellow-400 bg-white rounded-lg p-8 text-center scroll-animate">
+                        <div class="w-16 h-16 bg-black text-yellow-400 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-black mb-4" data-i18n="quality.health.stearicAcid.title">Acido Stearico</h3>
+                        <p class="text-gray-600 leading-relaxed" data-i18n="quality.health.stearicAcid.description">Supporta la produzione di energia e mantiene la stabilità dell'olio nel tempo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quality Control Section -->
+        <section class="py-20 px-4 bg-black text-white relative overflow-hidden">
+            <div class="absolute top-20 left-20 w-72 h-72 bg-yellow-400/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-20 w-96 h-96 bg-yellow-400/5 rounded-full blur-3xl"></div>
+
+            <div class="max-w-6xl mx-auto relative z-10">
+                <div class="text-center mb-16 scroll-animate">
+                    <span class="inline-block mb-6 bg-yellow-400 text-black hover:bg-yellow-500 text-sm font-bold px-6 py-2 rounded-full" data-i18n="quality.control.badge">
+                        Controllo Qualità
+                    </span>
+                    <h2 class="text-4xl font-bold mb-4" data-i18n="quality.control.title">Parametri di Eccellenza</h2>
+                    <div class="w-24 h-1 bg-yellow-400 mx-auto mb-6"></div>
+                    <p class="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed" data-i18n="quality.control.intro">
+                        Ogni lotto del nostro olio viene sottoposto a rigorosi controlli per garantire la massima qualità e purezza.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Acidità -->
+                    <div class="bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/25 transition-all duration-300 group rounded-lg p-8 scroll-animate-left">
+                        <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl flex items-center justify-center mb-6 text-black group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2" data-i18n="quality.control.acidity.title">Acidità</h3>
+                        <div class="text-3xl font-bold text-yellow-400 mb-2">≤ 0,35%</div>
+                        <div class="text-sm text-gray-300 mb-4" data-i18n="quality.control.acidity.limit">Limite legale: 0,80%</div>
+                        <p class="text-gray-200 leading-relaxed" data-i18n="quality.control.acidity.description">Il nostro olio mantiene un'acidità eccezionalmente bassa, molto al di sotto dei limiti di legge, garantendo freschezza e qualità superiore.</p>
+                    </div>
+
+                    <!-- Polifenoli -->
+                    <div class="bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/25 transition-all duration-300 group rounded-lg p-8 scroll-animate">
+                        <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-2xl flex items-center justify-center mb-6 text-black group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2" data-i18n="quality.control.polyphenols.title">Polifenoli</h3>
+                        <div class="text-3xl font-bold text-yellow-400 mb-2" data-i18n="quality.control.polyphenols.value">Valori Elevati</div>
+                        <div class="text-sm text-gray-300 mb-4" data-i18n="quality.control.polyphenols.benefit">Benefici cardiovascolari</div>
+                        <p class="text-gray-200 leading-relaxed" data-i18n="quality.control.polyphenols.description">Ricchi di polifenoli naturali che prevengono l'invecchiamento e supportano il sistema circolatorio. I valori rimangono alti per tutto il primo anno.</p>
+                    </div>
+
+                    <!-- Perossidi -->
+                    <div class="bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/25 transition-all duration-300 group rounded-lg p-8 scroll-animate-right">
+                        <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-2xl flex items-center justify-center mb-6 text-black group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2" data-i18n="quality.control.peroxides.title">Perossidi</h3>
+                        <div class="text-3xl font-bold text-yellow-400 mb-2">< 20</div>
+                        <div class="text-sm text-gray-300 mb-4" data-i18n="quality.control.peroxides.limit">Limite massimo: 20</div>
+                        <p class="text-gray-200 leading-relaxed" data-i18n="quality.control.peroxides.description">Bassi livelli di perossidi garantiscono che l'olio mantenga il suo sapore autentico e le sue proprietà organolettiche nel tempo.</p>
+                    </div>
+                </div>
+
+                <div class="mt-16 text-center scroll-animate-scale">
+                    <div class="bg-gradient-to-r from-yellow-400/20 to-transparent p-8 rounded-2xl border border-yellow-400/20">
+                        <h3 class="text-2xl font-bold text-white mb-4" data-i18n="quality.control.guarantee.title">Garanzia di Qualità</h3>
+                        <p class="text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto" data-i18n="quality.control.guarantee.description">
+                            Ogni bottiglia di <span class="text-yellow-400 font-semibold">Olio di Valeria</span> rappresenta l'eccellenza della tradizione olearia italiana, con controlli costanti che assicurano la massima qualità dal frantoio alla tua tavola.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+        
+    <!-- Enhanced certifications section with perfect centering and animations -->
+    <section id="certifications" class="certifications-section">
+        <div class="container">
+            <h2 class="section-title scroll-animate" data-i18n="quality.certifications.title">Le Nostre Certificazioni</h2>
+            <div class="section-divider scroll-animate"></div>
+            <p class="certifications-intro scroll-animate" data-i18n="quality.certifications.intro">La qualità dei nostri prodotti è garantita dalle più prestigiose certificazioni del settore alimentare.</p>
+            
+            <div class="certifications-grid">
+                <div class="certification-item scroll-animate">
+                    <img src="assets/marchio-bio-ue.jpg" alt="Certificazione Biologica" class="cert-logo" data-i18n-alt="img.alt.certBio">
+                    <h3 data-i18n="quality.certifications.organic.title">Biologico</h3>
+                    <p data-i18n="quality.certifications.organic.description">Certificazione biologica che garantisce prodotti naturali e sostenibili</p>
+                </div>
+                
+                <div class="certification-item scroll-animate">
+                    <img src="assets/cropped-v-label-logo.png" alt="Certificazione Vegana" class="cert-logo" data-i18n-alt="img.alt.certVegan">
+                    <h3 data-i18n="quality.certifications.vegan.title">Vegano</h3>
+                    <p data-i18n="quality.certifications.vegan.description">Prodotti completamente vegani, senza ingredienti di origine animale</p>
+                </div>
+                
+                <div class="certification-item scroll-animate">
+                    <img src="assets/slow-food-logo-vector.png" alt="Slow Food" class="cert-logo" data-i18n-alt="img.alt.certSlowFood">
+                    <h3 data-i18n="quality.certifications.slowFood.title">Slow Food</h3>
+                    <p data-i18n="quality.certifications.slowFood.description">Riconoscimento per la qualità e la tradizione dei nostri metodi di produzione</p>
+                </div>
+                
+                <div class="certification-item scroll-animate">
+                    <img src="assets/01_Marchio-DRQ-Sicani.png" alt="Distretto Sicani" class="cert-logo" data-i18n-alt="img.alt.certSicani">
+                    <h3 data-i18n="quality.certifications.sicani.title">Distretto Sicani</h3>
+                    <p data-i18n="quality.certifications.sicani.description">Facciamo parte del Distretto Rurale di Qualità dei Sicani</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer with Social Media -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="assets/odvlogo.png" alt="l'Olio di Valeria">
+                </div>
+                <p class="footer-description">
+                    Tradizione siciliana dal 1987. Olio extravergine di oliva di qualità superiore dalle terre di San Biagio
+                    Platani.
+                </p>
+                <div class="footer-details">
+                    <p>P.IVA: 02957530849</p>
+                    <p>Cod. Fisc.: LCTVLR81D62Z112B</p>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Prodotti</h4>
+                <ul class="footer-links">
+                    <li><a href="shop.html#products">Le Nostre Bottiglie</a></li>
+                    <li><a href="shop.html#edizione-speciale">Specialità Siciliana</a></li>
+                    <li><a href="shop.html#latta">Olio In Latta</a></li>
+                    <li><a href="shop.html#regalo">Confezione Regalo</a></li>
+                </ul>
+            </div>
+
+                <div class="footer-section">
+                <h4>Azienda</h4>
+                <ul class="footer-links">
+                    <li><a href="chisiamo.html">Chi Siamo</a></li>
+                    <li><a href="aziendaagr.html">L'azienda Agricola</a></li>
+                    <li><a href="qualita.html">Qualità</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contatti</h4>
+                <div class="footer-contact">
+                    <p>
+                        <strong>Sede Operativa:</strong><br>
+                        Via Alcide De Gasperi, 4<br>
+                        92020 San Biagio Platani (AG)
+                    </p>
+                    <p>
+                        <strong>Tel:</strong> +39 327 309 8513<br>
+                        <strong>Tel:</strong> +39 339 530 5990
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Informazioni Legali</h4>
+                <ul class="footer-links">
+                    <li><a href="termini-e-condizioniodv.html">Termini e Condizioni</a></li>
+                    <li><a href="cookie-e-privacy-policy.html">Cookie e Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- New Social Media Section -->
+            <div class="footer-section">
+                <h4>Seguici Su</h4>
+                <p class="social-description">Resta aggiornato sulle nostre novità</p>
+                <div class="footer-social-mobile" style="margin-top: 12px;">
+                    <a href="https://www.facebook.com/oliodivaleria" target="_blank" rel="noopener noreferrer" class="social-icon facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/oliodivaleria" target="_blank" rel="noopener noreferrer" class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@oliodivaleria" target="_blank" rel="noopener noreferrer" class="social-icon tiktok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p class="footer-copyright">
+                    &copy; 2025 Faraj Informatica. Tutti i diritti riservati.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Added JavaScript for scroll animations -->
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Add staggered delay for grid items
+                    const delay = entry.target.classList.contains('certification-item') ? index * 150 : 0;
+                    
+                    setTimeout(() => {
+                        entry.target.classList.add('animate-in');
+                    }, delay);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with scroll animation classes
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale');
+            animatedElements.forEach(el => observer.observe(el));
+        });
+
+        // Add smooth scrolling behavior
+        document.documentElement.style.scrollBehavior = 'smooth';
+    </script>
+    
+    <script>
+        // Mobile Menu Management
+        class MobileMenu {
+            constructor() {
+                this.init()
+            }
+
+            init() {
+                this.bindEvents()
+            }
+
+            bindEvents() {
+                const mobileMenuBtn = document.getElementById('mobileMenuBtn')
+                const mobileMenuClose = document.getElementById('mobileMenuClose')
+                const mobileMenuOverlay = document.getElementById('mobileMenuOverlay')
+                const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a')
+
+                mobileMenuBtn?.addEventListener('click', this.openMobileMenu.bind(this))
+                mobileMenuClose?.addEventListener('click', this.closeMobileMenu.bind(this))
+                mobileMenuOverlay?.addEventListener('click', this.closeMobileMenu.bind(this))
+
+                // Close menu when clicking on a link
+                mobileNavLinks.forEach(link => {
+                    link.addEventListener('click', this.closeMobileMenu.bind(this))
+                })
+
+                // Handle escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        this.closeMobileMenu()
+                    }
+                })
+            }
+
+            openMobileMenu() {
+                const mobileMenu = document.getElementById('mobileMenu')
+                const mobileMenuOverlay = document.getElementById('mobileMenuOverlay')
+
+                mobileMenu?.classList.add('open')
+                mobileMenuOverlay?.classList.add('open')
+                document.body.style.overflow = 'hidden'
+
+                // Update button icon
+                const mobileMenuBtn = document.getElementById('mobileMenuBtn')
+                const icon = mobileMenuBtn?.querySelector('i')
+                if (icon) {
+                    icon.className = 'fas fa-times'
+                }
+            }
+
+            closeMobileMenu() {
+                const mobileMenu = document.getElementById('mobileMenu')
+                const mobileMenuOverlay = document.getElementById('mobileMenuOverlay')
+
+                mobileMenu?.classList.remove('open')
+                mobileMenuOverlay?.classList.remove('open')
+                document.body.style.overflow = ''
+
+                // Update button icon
+                const mobileMenuBtn = document.getElementById('mobileMenuBtn')
+                const icon = mobileMenuBtn?.querySelector('i')
+                if (icon) {
+                    icon.className = 'fas fa-bars'
+                }
+            }
+        }
+
+        // Initialize mobile menu when DOM is loaded
+        document.addEventListener("DOMContentLoaded", () => {
+            window.mobileMenu = new MobileMenu()
+        })
+    </script>
+    
+    <!-- Cookie Consent and User Preferences Scripts -->
+    <script src="cookie-utils.js"></script>
+    <script src="cookie-consent.js"></script>
+    <script>
+        // Initialize cookie consent and user preferences after DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                if (typeof CookieUtils !== 'undefined' && typeof UserPreferences !== 'undefined') {
+                    window.userPreferences = new UserPreferences();
+                    console.log('User preferences system initialized');
+                } else {
+                    console.warn('Cookie utility classes not available - graceful degradation');
+                }
+                
+                if (typeof window.cookieConsent === 'undefined') {
+                    console.warn('Cookie consent system not available - graceful degradation');
+                }
+            } catch (error) {
+                console.error('Error initializing cookie systems:', error);
+            }
+        });
+    </script>
+
+</body>
+</html>
+

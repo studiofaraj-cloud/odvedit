@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - L'Olio di Valeria</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="js/page-loader.js"></script>
+</head>
+<body>
+    <style>
+        /* ========================================
+           Global Styles
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            padding: 0 20px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #eab308;
+        }
+
+        .nav-links a.active {
+            color: #eab308;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #eab308;
+        }
+
+        .shop-btn {
+            background: linear-gradient(135deg, #eab308, #f59e0b);
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(234, 179, 8, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .shop-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(234, 179, 8, 0.4);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #374151;
+            cursor: pointer;
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100vh;
+            background: #fff;
+            box-shadow: 5px 0 20px rgba(0, 0, 0, 0.1);
+            transition: left 0.3s ease;
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.open {
+            left: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #6b7280;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-close:hover {
+            background: #f3f4f6;
+            color: #000;
+        }
+
+        .mobile-nav-links {
+            padding: 24px;
+            list-style: none;
+        }
+
+        .mobile-nav-links li {
+            margin-bottom: 16px;
+        }
+
+        .mobile-nav-links a {
+            display: block;
+            padding: 12px 16px;
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-links a:hover {
+            background: #f3f4f6;
+            color: #eab308;
+        }
+
+        .mobile-nav-links a.active {
+            background: #fef3c7;
+            color: #eab308;
+            font-weight: 600;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: #f9fafb;
+            padding: 20px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .breadcrumb-nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+        }
+
+        .breadcrumb-nav a {
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb-nav a:hover {
+            color: #eab308;
+        }
+
+        .breadcrumb-nav .current {
+            color: #eab308;
+            font-weight: 600;
+        }
+
+        .breadcrumb-nav i {
+            color: #d1d5db;
+            font-size: 12px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(107, 114, 128, 0.9), rgba(75, 85, 99, 0.9));
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(234, 179, 8, 0.2);
+            border: 2px solid #eab308;
+            color: #eab308;
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #d1d5db;
+            margin-bottom: 32px;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-category {
+            margin-bottom: 60px;
+        }
+
+        .faq-category-title {
+            text-align: center;
+            color: #eab308;
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .faq-item {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 24px;
+            text-align: left;
+            font-size: 16px;
+            font-weight: 500;
+            color: #374151;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #f9fafb;
+        }
+
+        .faq-question.active {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .faq-icon {
+            font-size: 18px;
+            color: #eab308;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer.active {
+            max-height: 200px;
+        }
+
+        .faq-answer-content {
+            padding: 0 24px 24px;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+
+/* Footer */
+        .footer {
+            background: #fff;
+            border-top: 4px solid #eab308;
+            padding: 48px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px 24px;
+            margin-bottom: 48px;
+        }
+
+        .footer-section {
+            margin-bottom: 0;
+        }
+
+        .footer-section:nth-child(1) {
+            grid-column: 1 / 2;
+            grid-row: 1;
+        }
+
+        .footer-section:nth-child(2) {
+            grid-column: 2 / 3;
+            grid-row: 1;
+        }
+
+        .footer-section:nth-child(3) {
+            grid-column: 3 / 4;
+            grid-row: 1;
+        }
+
+        .footer-section:nth-child(4) {
+            grid-column: 1 / 2;
+            grid-row: 2;
+        }
+
+        .footer-section:nth-child(5) {
+            grid-column: 3 / 4;
+            grid-row: 2;
+        }
+
+        .footer-section:nth-child(6) {
+            grid-column: 2 / 3;
+            grid-row: 2;
+        }
+
+        .footer-section h4 {
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 16px;
+            font-size: 1.25rem;
+            letter-spacing: 0.05em;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+        }
+        
+        .footer-section h4::before {
+            margin-right: 8px;
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+        }
+        
+        .footer-section:nth-child(2) h4::before {
+            content: '\f72f'; /* wine-bottle icon for Prodotti */
+        }
+        
+        .footer-section:nth-child(3) h4::before {
+            content: '\f1ad'; /* building icon for Azienda */
+        }
+        
+        .footer-section:nth-child(4) h4::before {
+            content: '\f0e0'; /* envelope icon for Contatti */
+        }
+        
+        .footer-section:nth-child(6) h4::before {
+            content: '\f1e0'; /* share-alt icon for Seguici Su */
+        }
+        
+        .footer-section:nth-child(5) h4::before {
+            content: '\f0e3'; /* gavel icon for Informazioni Legali */
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .footer-logo img {
+                animation: none;
+            }
+        }
+
+        .footer-description {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .footer-details {
+            font-size: 14px;
+            color: #9ca3af;
+        }
+
+        .footer-details p {
+            margin-bottom: 4px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #eab308;
+        }
+
+        .footer-contact {
+            font-size: 14px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .footer-contact strong {
+            color: #000;
+        }
+
+        .social-media {
+            margin-top: 8px;
+        }
+
+        .social-description {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .social-link.facebook {
+            background: linear-gradient(135deg, #1877f2, #42a5f5);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(24, 119, 242, 0.2);
+        }
+
+        .social-link.facebook:hover {
+            background: linear-gradient(135deg, #166fe5, #1976d2);
+            transform: translateY(-2px);
+        }
+
+        .social-link.instagram {
+            background: linear-gradient(135deg, #e4405f, #f77737, #fcaf45);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(228, 64, 95, 0.2);
+        }
+
+        .social-link.instagram:hover {
+            background: linear-gradient(135deg, #d73447, #e91e63, #ff9800);
+            transform: translateY(-2px);
+        }
+
+        .social-link i {
+            font-size: 18px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #e5e7eb;
+            padding: 32px 0;
+        }
+
+        .footer-bottom-content {
+            text-align: center;
+        }
+
+        .footer-copyright {
+            color: #6b7280;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .footer-social-mobile {
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+        }
+
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .social-icon.facebook {
+            background: #1877f2;
+            color: #fff;
+        }
+
+        .social-icon.instagram {
+            background: linear-gradient(135deg, #e4405f, #f77737);
+            color: #fff;
+        }
+
+        .social-icon.tiktok {
+            background: #000;
+            color: #fff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px 20px;
+            }
+
+            .footer-section:nth-child(1) {
+                grid-column: 1 / 2;
+                grid-row: 1;
+            }
+
+            .footer-section:nth-child(2) {
+                grid-column: 2 / 3;
+                grid-row: 1;
+            }
+
+            .footer-section:nth-child(3) {
+                grid-column: 1 / 2;
+                grid-row: 2;
+            }
+
+            .footer-section:nth-child(4) {
+                grid-column: 2 / 3;
+                grid-row: 2;
+            }
+
+            .footer-section:nth-child(5) {
+                grid-column: 1 / 2;
+                grid-row: 3;
+            }
+
+            .footer-section:nth-child(6) {
+                grid-column: 2 / 3;
+                grid-row: 3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-faq .shop-btn {
+                display: none;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 60px;
+                margin-right: 0;
+                text-align: left;
+            }
+
+            .timeline-marker {
+                left: 20px;
+                transform: translateX(-50%);
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .footer-section:nth-child(1),
+            .footer-section:nth-child(2),
+            .footer-section:nth-child(3),
+            .footer-section:nth-child(4),
+            .footer-section:nth-child(5),
+            .footer-section:nth-child(6) {
+                grid-column: 1 / 2;
+                grid-row: auto;
+            }
+
+            .footer-social-mobile {
+                display: flex;
+            }
+
+            .social-links {
+                flex-direction: row;
+                gap: 8px;
+            }
+
+            .social-link span {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 80px 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 60px 0;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+<body class="page-faq">
+     
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/odvlogo.png" alt="l'Olio di Valeria" data-i18n-alt="img.alt.logo">
+                    </a>
+                </div>
+
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Prodotti</a></li>
+                        <li><a href="chisiamo.html">Chi Siamo</a></li>
+                        <li><a href="aziendaagr.html">L'Azienda Agricola</a></li>
+                        <li><a href="dovesiamo.html">Dove Siamo</a></li>
+                        <li><a href="contatti.html">Contatti</a></li>
+                    </ul>
+                </nav>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Apri menu" data-i18n-aria-label="aria.openMenu">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <a href="shop.html" class="shop-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    Shop
+                </a>
+            </div>
+        </div>
+    </header>
+
+    
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+      
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <div class="logo">
+                <img src="assets/odvlogo.png" alt="l'Olio di Valeria">
+            </div>
+            <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Chiudi menu" data-i18n-aria-label="aria.closeMenu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav>
+            <ul class="mobile-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Prodotti</a></li>
+                <li><a href="chisiamo.html">Chi Siamo</a></li>
+                <li><a href="aziendaagr.html">L'Azienda Agricola</a></li>
+                <li><a href="dovesiamo.html">Dove Siamo</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+            </ul>
+        </nav>
+    </div>
+
+     
+    <section class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="index.html" data-i18n="breadcrumb.home">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span class="current" data-i18n="breadcrumb.faq">FAQ</span>
+            </nav>
+        </div>
+    </section>
+
+      
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge" data-i18n="hero.faq.badge">❓ Domande Frequenti</div>
+                <h1 data-i18n="hero.faq.title">FAQ</h1>
+                <p class="hero-subtitle" data-i18n="hero.faq.subtitle">Trova le risposte alle domande più frequenti sui nostri prodotti, spedizioni e servizi</p>
+            </div>
+        </div>
+    </section>
+
+     
+    <section class="faq-section">
+        <div class="container">
+            <div class="faq-container">
+                 
+                <div class="faq-category">
+                    <h3 class="faq-category-title">Ordini e Spedizioni</h3>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Effettuate spedizioni internazionali?
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Attualmente spediamo in tutta Italia e in alcuni paesi dell'Unione Europea. Per spedizioni internazionali al di fuori dell'UE, vi preghiamo di contattarci direttamente per verificare la disponibilità e i costi di spedizione.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Quando riceverò il mio ordine?
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Gli ordini vengono elaborati entro 1-2 giorni lavorativi. La spedizione standard richiede 3-5 giorni lavorativi per l'Italia. Per spedizioni urgenti, offriamo anche il servizio espresso con consegna in 24-48 ore.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Ho sbagliato le merce danneggiata, cosa faccio?
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                In caso di merce danneggiata durante il trasporto, vi preghiamo di contattarci immediatamente con foto del danno. Provvederemo alla sostituzione gratuita del prodotto nel minor tempo possibile.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Mi sono dimenticato un prodotto, come faccio ad aggiungerlo nell'ordine?
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Se l'ordine non è ancora stato spedito, potete contattarci per aggiungere prodotti. Se è già stato spedito, sarà necessario effettuare un nuovo ordine separato.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Posso ordinare dei prodotti da spedire con la confezione regalo?
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Certamente! Offriamo confezioni regalo eleganti per tutti i nostri prodotti. Potete selezionare questa opzione durante il checkout e aggiungere anche un messaggio personalizzato.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 
+                <div class="faq-category">
+                    <h3 class="faq-category-title">Prodotti e Conservazione</h3>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            L'olio d'oliva ha scadenza?
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Il nostro olio extravergine di oliva ha una durata di 18 mesi dalla data di produzione se conservato correttamente. La data di scadenza è sempre indicata sull'etichetta del prodotto.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            Qual è il metodo migliore per conservare l'olio?
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                L'olio deve essere conservato in luogo fresco, asciutto e al riparo dalla luce diretta. La temperatura ideale è tra 14-18°C. Evitate di conservarlo vicino a fonti di calore o in frigorifero.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 
+                <div class="faq-category">
+                    <h3 class="faq-category-title">Generale</h3>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            È nato qualche cosa di sbagliato. Come faccio a contattarvi?
+                            <i class="fas fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Potete contattarci tramite email, telefono o attraverso i nostri canali social. Tutti i nostri contatti sono disponibili nella sezione "Contatti" del sito. Risponderemo nel minor tempo possibile.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/odvlogo.png" alt="l'Olio di Valeria">
+                    </div>
+                    <p class="footer-description" data-i18n="footer.companyDescription">
+                        Tradizione siciliana dal 1987. Olio extravergine di oliva di qualità superiore dalle terre di San Biagio
+                        Platani.
+                    </p>
+                    <div class="footer-details">
+                        <p>P.IVA: 02957530849</p>
+                        <p>Cod. Fisc.: LCTVLR81D62Z112B</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4 data-i18n="footer.products">Prodotti</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html#products" data-i18n="footer.link.ourBottles">Le Nostre Bottiglie</a></li>
+                        <li><a href="shop.html#edizione-speciale" data-i18n="footer.link.sicilianSpecialty">Specialità Siciliana</a></li>
+                        <li><a href="shop.html#latta" data-i18n="footer.link.oilInTin">Olio In Latta</a></li>
+                        <li><a href="shop.html#regalo" data-i18n="footer.link.giftBox">Confezione Regalo</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 data-i18n="footer.company">Azienda</h4>
+                    <ul class="footer-links">
+                        <li><a href="chisiamo.html" data-i18n="footer.link.aboutUs">Chi Siamo</a></li>
+                        <li><a href="aziendaagr.html" data-i18n="footer.link.farm">L'azienda Agricola</a></li>
+                        <li><a href="qualita.html" data-i18n="footer.link.quality">Qualità</a></li>
+                        <li><a href="faq.html" data-i18n="footer.link.faq">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 data-i18n="footer.contact">Contatti</h4>
+                    <div class="footer-contact">
+                        <p>
+                            <strong data-i18n="footer.operatingOffice">Sede Operativa:</strong><br>
+                            Via Alcide De Gasperi, 4<br>
+                            92020 San Biagio Platani (AG)
+                        </p>
+                        <p>
+                            <strong data-i18n="footer.phone">Tel:</strong> +39 327 309 8513<br>
+                            <strong data-i18n="footer.phone">Tel:</strong> +39 339 530 5990
+                        </p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4 data-i18n="footer.legalInfo">Informazioni Legali</h4>
+                    <ul class="footer-links">
+                        <li><a href="termini-e-condizioniodv.html" data-i18n="footer.link.terms">Termini e Condizioni</a></li>
+                        <li><a href="cookie-e-privacy-policy.html" data-i18n="footer.link.privacy">Cookie e Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 data-i18n="footer.followUs">Seguici Su</h4>
+                    <p class="social-description" data-i18n="footer.socialDescription">Resta aggiornato sulle nostre novità</p>
+                    <div class="footer-social-mobile" style="margin-top: 12px;">
+                        <a href="https://www.facebook.com/OliodiValeria/?locale=it_IT" target="_blank" rel="noopener noreferrer" class="social-icon facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/oliodivaleria/" target="_blank" rel="noopener noreferrer" class="social-icon instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@oliodivaleria" target="_blank" rel="noopener noreferrer" class="social-icon tiktok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="footer-copyright" data-i18n="footer.copyright">
+                        &copy; 2025 Faraj Informatica. Tutti i diritti riservati.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Management
+        class MobileMenu {
+            constructor() {
+                this.init()
+            }
+
+            init() {
+                this.bindEvents()
+            }
+
+            bindEvents() {
+                const mobileMenuBtn = document.getElementById('mobileMenuBtn')
+                const mobileMenuClose = document.getElementById('mobileMenuClose')
+                const mobileMenuOverlay = document.getElementById('mobileMenuOverlay')
+                const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a')
+
+                mobileMenuBtn?.addEventListener('click', this.openMobileMenu.bind(this))
+                mobileMenuClose?.addEventListener('click', this.closeMobileMenu.bind(this))
+                mobileMenuOverlay?.addEventListener('click', this.closeMobileMenu.bind(this))
+
+                // Close menu when clicking on a link
+                mobileNavLinks.forEach(link => {
+                    link.addEventListener('click', this.closeMobileMenu.bind(this))
+                })
+
+                // Handle escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        this.closeMobileMenu()
+                    }
+                })
+            }
+
+            openMobileMenu() {
+                const mobileMenu = document.getElementById('mobileMenu')
+                const mobileMenuOverlay = document.getElementById('mobileMenuOverlay')
+
+                mobileMenu?.classList.add('open')
+                mobileMenuOverlay?.classList.add('open')
+                document.body.style.overflow = 'hidden'
+
+                // Update button icon
+                const mobileMenuBtn = document.getElementById('mobileMenuBtn')
+                const icon = mobileMenuBtn?.querySelector('i')
+                if (icon) {
+                    icon.className = 'fas fa-times'
+                }
+            }
+
+            closeMobileMenu() {
+                const mobileMenu = document.getElementById('mobileMenu')
+                const mobileMenuOverlay = document.getElementById('mobileMenuOverlay')
+
+                mobileMenu?.classList.remove('open')
+                mobileMenuOverlay?.classList.remove('open')
+                document.body.style.overflow = ''
+
+                // Update button icon
+                const mobileMenuBtn = document.getElementById('mobileMenuBtn')
+                const icon = mobileMenuBtn?.querySelector('i')
+                if (icon) {
+                    icon.className = 'fas fa-bars'
+                }
+            }
+        }
+
+        // Initialize mobile menu when DOM is loaded
+        document.addEventListener("DOMContentLoaded", () => {
+            window.mobileMenu = new MobileMenu()
+        })
+
+        // FAQ functionality
+        function toggleFaq(button) {
+            const faqItem = button.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+            const isActive = button.classList.contains('active');
+
+            // Close all other FAQ items
+            document.querySelectorAll('.faq-question.active').forEach(activeButton => {
+                if (activeButton !== button) {
+                    activeButton.classList.remove('active');
+                    activeButton.parentElement.querySelector('.faq-answer').classList.remove('active');
+                }
+            });
+
+            // Toggle current FAQ item
+            if (isActive) {
+                button.classList.remove('active');
+                answer.classList.remove('active');
+            } else {
+                button.classList.add('active');
+                answer.classList.add('active');
+            }
+        }
+    </script>
+
+</body>
+
+</html>

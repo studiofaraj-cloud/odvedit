@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termini e Condizioni - L'Olio di Valeria</title>
+    <link rel="alternate" hreflang="it" href="https://www.oliodiValeria.com/termini-e-condizioniodv.html" />
+    <link rel="alternate" hreflang="en" href="https://www.oliodiValeria.com/en/termini-e-condizioniodv.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.oliodiValeria.com/termini-e-condizioniodv.html" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="js/page-loader.js"></script>
+</head>
+<body>
+    <style>
+        /* ========================================
+           Global Styles
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            padding: 0 20px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #8B4513;
+        }
+
+        .shop-btn {
+            background: #8B4513;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s;
+        }
+
+        .shop-btn:hover {
+            background: #A0522D;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100vh;
+            background: #fff;
+            box-shadow: 5px 0 20px rgba(0, 0, 0, 0.1);
+            transition: left 0.3s ease;
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.open {
+            left: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #6b7280;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-close:hover {
+            background: #f3f4f6;
+            color: #000;
+        }
+
+        .mobile-nav-links {
+            padding: 24px;
+            list-style: none;
+        }
+
+        .mobile-nav-links li {
+            margin-bottom: 16px;
+        }
+
+        .mobile-nav-links a {
+            display: block;
+            padding: 12px 16px;
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav-links a:hover {
+            background: #f3f4f6;
+            color: #eab308;
+        }
+
+        .mobile-nav-links a.active {
+            background: #fef3c7;
+            color: #eab308;
+            font-weight: 600;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: #f8f9fa;
+            padding: 15px 0;
+        }
+
+        .breadcrumb-nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .breadcrumb-nav a {
+            color: #8B4513;
+            text-decoration: none;
+        }
+
+        .breadcrumb-nav .current {
+            color: #666;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: #8B4513;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .terms-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .terms-content h1 {
+            color: #8B4513;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .terms-content h3 {
+            color: #8B4513;
+            font-size: 1.5rem;
+            margin: 30px 0 15px 0;
+            border-bottom: 2px solid #8B4513;
+            padding-bottom: 5px;
+        }
+
+        .terms-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .terms-content ol {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .terms-content li {
+            margin-bottom: 10px;
+        }
+
+        .terms-content a {
+            color: #8B4513;
+            text-decoration: none;
+        }
+
+        .terms-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background: #fff;
+            border-top: 4px solid #eab308;
+            padding: 48px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px 24px;
+            margin-bottom: 48px;
+        }
+
+        .footer-section {
+            margin-bottom: 0;
+        }
+
+        .footer-section:nth-child(1) {
+            grid-column: 1 / 2;
+            grid-row: 1;
+        }
+
+        .footer-section:nth-child(2) {
+            grid-column: 2 / 3;
+            grid-row: 1;
+        }
+
+        .footer-section:nth-child(3) {
+            grid-column: 3 / 4;
+            grid-row: 1;
+        }
+
+        .footer-section:nth-child(4) {
+            grid-column: 1 / 2;
+            grid-row: 2;
+        }
+
+        .footer-section:nth-child(5) {
+            grid-column: 3 / 4;
+            grid-row: 2;
+        }
+
+        .footer-section:nth-child(6) {
+            grid-column: 2 / 3;
+            grid-row: 2;
+        }
+
+        .footer-section h4 {
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 16px;
+            font-size: 1.25rem;
+            letter-spacing: 0.05em;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+            font-weight: bold;
+        }
+
+        .footer-section:nth-child(1) h4::before {
+            content: "\f72f";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            margin-right: 10px;
+        }
+
+        .footer-section:nth-child(2) h4::before {
+            content: "\f1ad";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            margin-right: 10px;
+        }
+
+        .footer-section:nth-child(3) h4::before {
+            content: "\f0e0";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            margin-right: 10px;
+        }
+
+        .footer-section:nth-child(4) h4::before {
+            content: "\f1e0";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            margin-right: 10px;
+        }
+
+        .footer-section:nth-child(5) h4::before {
+            content: "\f0e3";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            margin-right: 10px;
+        }
+        
+        .footer-section h4::before {
+            margin-right: 8px;
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+        }
+        
+        .footer-section:nth-child(2) h4::before {
+            content: '\f72f'; /* wine-bottle icon for Prodotti */
+        }
+        
+        .footer-section:nth-child(3) h4::before {
+            content: '\f1ad'; /* building icon for Azienda */
+        }
+        
+        .footer-section:nth-child(4) h4::before {
+            content: '\f0e0'; /* envelope icon for Contatti */
+        }
+        
+        .footer-section:nth-child(6) h4::before {
+            content: '\f1e0'; /* share-alt icon for Seguici Su */
+        }
+        
+        .footer-section:nth-child(5) h4::before {
+            content: '\f0e3'; /* gavel icon for Informazioni Legali */
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            margin-bottom: 20px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .footer-logo img {
+                animation: none;
+            }
+        }
+
+        .footer-description {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .footer-details {
+            font-size: 14px;
+            color: #9ca3af;
+        }
+
+        .footer-details p {
+            margin-bottom: 4px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #eab308;
+        }
+
+        .footer-contact {
+            font-size: 14px;
+        }
+
+        .footer-contact p {
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .footer-contact strong {
+            color: #000;
+        }
+
+        .social-media {
+            margin-top: 8px;
+        }
+
+        .social-description {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .social-link.facebook {
+            background: linear-gradient(135deg, #1877f2, #42a5f5);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(24, 119, 242, 0.2);
+        }
+
+        .social-link.facebook:hover {
+            background: linear-gradient(135deg, #166fe5, #1976d2);
+            transform: translateY(-2px);
+        }
+
+        .social-link.instagram {
+            background: linear-gradient(135deg, #e4405f, #f77737, #fcaf45);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(228, 64, 95, 0.2);
+        }
+
+        .social-link.instagram:hover {
+            background: linear-gradient(135deg, #d73447, #e91e63, #ff9800);
+            transform: translateY(-2px);
+        }
+
+        .social-link i {
+            font-size: 18px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #e5e7eb;
+            padding: 32px 0;
+        }
+
+        .footer-bottom-content {
+            text-align: center;
+        }
+
+        .footer-copyright {
+            color: #6b7280;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .footer-social-mobile {
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s;
+            font-size: 14px;
+        }
+
+        .social-icon:nth-child(1) {
+            background-color: #1877f2;
+        }
+
+        .social-icon:nth-child(2) {
+            background: linear-gradient(135deg, #e4405f, #f77737);
+        }
+
+        .social-icon:nth-child(3) {
+            background: #000;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links,
+            .shop-btn {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .terms-content {
+                padding: 20px;
+                margin: 0 10px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-section:nth-child(1),
+            .footer-section:nth-child(2),
+            .footer-section:nth-child(3),
+            .footer-section:nth-child(4),
+            .footer-section:nth-child(5),
+            .footer-section:nth-child(6) {
+                grid-column: 1 / 2;
+                grid-row: auto;
+            }
+
+            .footer-social-mobile {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .social-icon {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+
+            .social-links {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        .social-icon.facebook {
+            background: #1877f2;
+            color: #fff;
+        }
+
+        .social-icon.instagram {
+            background: linear-gradient(135deg, #e4405f, #f77737);
+            color: #fff;
+        }
+
+        .social-icon.tiktok {
+            background: #000;
+            color: #fff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px 20px;
+            }
+
+            .footer-section:nth-child(1) {
+                grid-column: 1 / 2;
+                grid-row: 1;
+            }
+
+            .footer-section:nth-child(2) {
+                grid-column: 2 / 3;
+                grid-row: 1;
+            }
+
+            .footer-section:nth-child(3) {
+                grid-column: 1 / 2;
+                grid-row: 2;
+            }
+
+            .footer-section:nth-child(4) {
+                grid-column: 2 / 3;
+                grid-row: 2;
+            }
+
+            .footer-section:nth-child(5) {
+                grid-column: 1 / 2;
+                grid-row: 3;
+            }
+
+            .footer-section:nth-child(6) {
+                grid-column: 2 / 3;
+                grid-row: 3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .shop-btn {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .terms-content {
+                padding: 20px;
+                margin: 0 10px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .footer-section:nth-child(1),
+            .footer-section:nth-child(2),
+            .footer-section:nth-child(3),
+            .footer-section:nth-child(4),
+            .footer-section:nth-child(5),
+            .footer-section:nth-child(6) {
+                grid-column: 1 / 2;
+                grid-row: auto;
+            }
+
+            .footer-social-mobile {
+                display: flex;
+            }
+
+            .social-links {
+                flex-direction: row;
+                gap: 8px;
+            }
+
+            .social-link span {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 80px 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 60px 0;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/odvlogo.png" alt="l'Olio di Valeria" data-i18n-alt="img.alt.logo">
+                    </a>
+                </div>
+
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Prodotti</a></li>
+                        <li><a href="chisiamo.html">Chi Siamo</a></li>
+                        <li><a href="aziendaagr.html">L'Azienda Agricola</a></li>
+                        <li><a href="dovesiamo.html">Dove Siamo</a></li>
+                        <li><a href="contatti.html">Contatti</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Apri menu" data-i18n-aria-label="aria.openMenu">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <a href="shop.html" class="shop-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    Shop
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <div class="logo">
+                <img src="assets/odvlogo.png" alt="l'Olio di Valeria">
+            </div>
+            <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Chiudi menu" data-i18n-aria-label="aria.closeMenu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav>
+            <ul class="mobile-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Prodotti</a></li>
+                <li><a href="chisiamo.html">Chi Siamo</a></li>
+                <li><a href="aziendaagr.html">L'Azienda Agricola</a></li>
+                <li><a href="dovesiamo.html">Dove Siamo</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span class="current">Termini e Condizioni</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge" data-i18n="hero.terms.badge">📋 Informazioni Legali</div>
+                <h1 data-i18n="hero.terms.title">Termini e Condizioni</h1>
+                <p class="hero-subtitle" data-i18n="hero.terms.subtitle">Condizioni generali di vendita e utilizzo del sito web</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="terms-content">
+                <h1>Condizioni di vendita</h1>
+                
+                <p>Ogni operazione di acquisto è regolata dalle disposizioni di cui al D.Lgs n. 185 del 22/05/1999 "Attuazione della direttiva 97/7/CE relativa alla protezione dei consumatori in materia di contratti a distanza" e, per quanto concerne la tutela della riservatezza, è sottoposta alla normativa di cui al Regolamento (UE) 2016/679 del Parlamento europeo.</p>
+
+                <p>Questo contratto ha per oggetto la compravendita dei prodotti commercializzati da <a href="https://www.oliodivaleria.it">www.oliodivaleria.it</a> nella quantità e qualità prescelta dal consumatore mediante selezione telematica sul sito <a href="https://www.oliodivaleria.it">www.oliodivaleria.it</a></p>
+
+                <p>Dal momento in cui il consumatore accede e utilizza il sito <a href="https://www.oliodivaleria.it">www.oliodivaleria.it</a> deve esaminare e accettare le presenti condizioni di vendita prima di confermare gli acquisti dal sito. L'inoltro della conferma d'ordine implica pertanto la totale conoscenza delle condizioni di vendita e la loro integrale accettazione. La invitiamo quindi a leggerle attentamente ed a stamparle e/o salvarle su altro supporto duraturo a scelta, al fine di soddisfare integralmente la condizione di cui agli art. 3 e 4 del D.Lgs n. 185/1999. Il consumatore può rinunciare ad accedere al sito web o utilizzarlo nel caso non volesse accettare e rispettare tali termini e condizioni.</p>
+
+                <h3>MODALITÀ DI ACQUISTO</h3>
+                <p>Gli acquisti dei prodotti, disponibili così come illustrati e descritti on line nelle relative schede descrittive, sono effettuati al prezzo ivi indicato, espresso in euro IVA inclusa. I prezzi esposti sono validi solo per l'Italia. Le spese di trasporto non sono comprese nel prezzo ma vengono visualizzate a parte al momento dell'acquisto. Prima della conferma dell'acquisto le verrà riepilogato il costo unitario di ogni prodotto prescelto, il costo totale in caso di più prodotti e le relative spese di trasporto. Confermando l'acquisto riceverà un messaggio di posta elettronica contenente la data e l'importo complessivo del Suo ordine ed il dettaglio dello stesso.</p>
+
+                <h3>ORDINI E FATTURAZIONE</h3>
+                <p>Gli ordini si accettano mediante selezione telematica sul sito <a href="https://www.oliodivaleria.it">www.oliodivaleria.it</a>. La conclusione del contratto è subordinata all'effettuazione da parte del Cliente del pagamento dell'intero importo con una delle modalità di pagamento consentite.</p>
+                <p>I soggetti obbligati a richiedere fattura devono comunicare il n° di Partita Iva e tutti i dati necessari per la sua emissione. La Fattura Fiscale potrebbe anche essere emessa successivamente alla consegna della merce, entro i tempi previsti dalla legge.</p>
+
+                <h3>CONTRATTO D'ACQUISTO STIPULATI DA MINORENNI</h3>
+                <p>L'acquisto può essere effettuato solo da maggiorenni. Tuttavia, se si dovesse verificare l'acquisto da parte di un minorenne fornendo false informazioni relative all'età, o false indicazioni per acquistare l'oggetto desiderato e/o per accedere ai dati desiderati, i genitori sono direttamente responsabili per il pagamento di quanto acquistato ferma restando la disciplina del recesso riportata nelle presenti condizioni di vendita.</p>
+
+                <h3>MODALITÀ DI PAGAMENTO</h3>
+                <p>I prezzi presenti sul sito <a href="https://www.oliodivaleria.it">www.oliodivaleria.it</a> sono validi solo per l'Italia e si intendono comprensivi di IVA, recipienti e imballaggi.</p>
+                <p>Il pagamento dei prodotti acquistati e delle relative spese di spedizione potranno essere effettuate dopo l' inoltro della conferma d'ordine concordate telefonicamente non appena quest'ultimo verrà elaborato dagli operatori.</p>
+                <p>L'acquisto può essere effettuato anche con il metodo di pagamento <strong>Bonifico Bancario</strong>; verrà inviata al cliente una mail di conferma dell'ordine e una seconda mail contenente tutte le istruzioni per effettuare il bonifico. Dopo il pagamento il cliente dovrà inviare la ricevuta del pagamento il prima possibile al seguente indirizzo di posta elettronica: <a href="mailto:info@oliodivaleria.it">info@oliodivaleria.it</a></p>
+                <p>L'ordine sarà evaso e la merce sarà inviata previo controllo dell'avvenuto accredito della somma pagata.</p>
+
+                <h3>MODALITÀ DI CONSEGNA</h3>
+                <p>Per il servizio e-commerce, <strong>L'Olio di Valeria</strong> effettua le consegne solo in Italia, servendosi di Corrieri specializzati. I prodotti acquistati verranno consegnati direttamente all'indirizzo indicato durante la procedura di acquisto. Ogni spedizione contiene la merce ordinata e la relativa documentazione accompagnatoria.</p>
+                <p>I prodotti verranno consegnati tramite corriere GLS, BRT o SDA entro le 72 ore lavorative (sabato, domenica, festivi esclusi) dall'avvenuto pagamento dell'ammontare totale dovuto. Nel caso di prodotti voluminosi e/o pesanti (es. pallet per un grosso ordine ecc.) i prodotti verranno recapitati in 4-5 giorni lavorativi tramite corriere Susa previo preavviso telefonico.</p>
+                <p>Si ricorda che il trasporto non comprende il servizio di facchinaggio (consegna al piano o movimentazione della merce).</p>
+                <p>Alla consegna il Cliente è tenuto a verificare che il pacco sia integro, non danneggiato né bagnato. Solo dopo tale verifica dovrà accettare la consegna, altrimenti sarà tenuto a respingere il pacco. Nel caso la merce arrivasse a destinazione rotta o danneggiata <strong>L'Olio di Valeria</strong> si impegna a provvedere alla sostituzione del prodotto a proprie spese, solo ed esclusivamente se il ricevente ha constatato la rottura o il danneggiamento in presenza del corriere che ha effettuato la consegna e se ha indicato sul documento di ricevimento "<strong>ACCETTAZIONE CON RISERVA DI CONTROLLO" – SPECIFICANDO PER ISCRITTO SUL DOCUMENTO DEL CORRIERE QUALE DANNO SI È RISCONTRATO.</strong></p>
+
+                <h3>GARANZIA E DENUNCIA DI VIZI</h3>
+                <p>Nel caso non ci sia corrispondenza tra l'ordine e la consegna, oppure in caso di difformità o in presenza di eventuali vizi nel prodotto ricevuto, il Cliente dovrà sollevare la contestazione telefonando allo 333-3161460 o mandando un e-mail al servizio clienti all'indirizzo <strong><a href="mailto:info@oliodivaleria.it">info@oliodivaleria.it</a> entro 3 giorni dal ricevimento della merce.</strong></p>
+                <p>La garanzia non opera ove i difetti rilevati siano dovuti ad impropria conservazione successiva al momento della consegna.</p>
+                <p>Per i prodotti venduti, le condizioni di garanzia e di assistenza sono quelle offerte dalla casa madre in conformità a quanto previsto dalla direttiva comunitaria 99/44/CE.</p>
+
+                <h3>MODALITÀ DI ESERCIZIO DEL DIRITTO DI RECESSO</h3>
+                <p><strong>L'Olio di Valeria</strong> garantisce il diritto di recedere dal contratto d'acquisto, facendo riferimento al D.lg. 22/05/1999, n. 185 "Attuazione della direttiva 97/7/CE relativa alla protezione dei consumatori in materia di contratti a distanza" e successive modifiche.</p>
+                <p>Il Cliente può esercitare il diritto di recesso entro e non oltre 14 giorni lavorativi dalla data di ricevimento dei beni. Tale diritto dovrà essere esercitato con l'invio di una comunicazione scritta mediante raccomandata con avviso di ricevimento a <strong>L'Olio di Valeria</strong>, Via Alcide De Gasperi, 4, 92020 San Biagio Platani (AG) Italy. La comunicazione può essere inviata, entro lo stesso termine, oltremodo mediante e-mail indirizzata a <strong><a href="mailto:info@oliodivaleria.it">info@oliodivaleria.it</a></strong>, a condizione che sia confermata mediante lettera raccomandata con avviso di ricevimento entro le quarantotto (48) ore successive.</p>
+                <p>I beni dovranno essere restituiti all'Esercente <strong>integri</strong>, <strong>NON utilizzati,</strong> in <strong>condizioni inalterate</strong>, nel <strong>normale stato di conservazione</strong> in tutte le loro parti e completi dell'<strong>imballo originale</strong>, a spese del Cliente entro e non oltre 14 giorni dalla Comunicazione del recesso.</p>
+
+                <h3>LIMITAZIONE DELLA RESPONSABILITÀ</h3>
+                <ol>
+                    <li><strong>L'Olio di Valeria</strong> non si assume responsabilità per eventuali danni risultanti da un utilizzo o da uno scorretto utilizzo del servizio fornito da <a href="https://www.oliodivaleria.it">www.oliodivaleria.it</a>.</li>
+                    <li><strong>L'Olio di Valeria</strong> non si assume responsabilità per errori ed omissioni all'interno di <a href="https://www.oliodivaleria.it">www.oliodivaleria.it</a> o di qualsiasi sito web cui si possa fare riferimento o collegamento.</li>
+                    <li><strong>L'Olio di Valeria</strong> si riserva il diritto ad un aggiornamento continuo del sito <a href="https://www.oliodivaleria.it">www.oliodivaleria.it</a> che può essere effettuato in qualsiasi momento.</li>
+                    <li><strong>L'Olio di Valeria</strong> non garantisce che i servizi svolti da <a href="https://www.oliodivaleria.it">www.oliodivaleria.it</a> verranno prestati senza interruzioni.</li>
+                </ol>
+
+                <h3>RESPONSABILITÀ DELL'UTENTE</h3>
+                <p>L'Utente è tenuto ad assicurarsi che i propri dati immessi siano veritieri, completi, aggiornati ed a comunicare tempestivamente ogni eventuale modifica degli stessi. Nel caso in cui si rendano dichiarazioni false è prevista la perdita dei benefici ottenuti dai servizi forniti.</p>
+
+                <h3>FORO COMPETENTE</h3>
+                <p>Il presente contratto è disciplinato dalle norme dell'ordinamento giuridico della Repubblica Italiana. Per qualsiasi controversia inerente il presente contratto è inderogabilmente competente il Foro di Agrigento.</p>
+
+                <h3>COPYRIGHT E TRADEMARK</h3>
+                <p>Tutti i contenuti del sito <a href="https://www.oliodivaleria.it">www.oliodivaleria.it</a>, quali testi, files, tabelle, informazioni presenti all'interno delle pagine del sito, elementi grafici, HTML, logo, tasti, icone, immagini, grafici, brani audio-video, sono da considerarsi di esclusiva proprietà di <strong>L'Olio di Valeria</strong> o dei suoi fornitori di contenuti e di prodotti e sono protetti dalle leggi nazionali e internazionali sul diritto d'autore.</p>
+
+                <h3>PRIVACY</h3>
+                <p>Tutti i dati dell'interessato sono trattati nel rispetto della normativa in materia di protezione dei dati personali, come espressamente spiegato nel documento di privacy-policy del sito. Titolare del trattamento è <strong>L'Olio di Valeria</strong>.</p>
+                <p>Per maggiori informazioni sui cookie e sulla privacy, consultare la nostra <a href="https://www.oliodivaleria.it/cookie-e-privacy-policy/">Cookie & Privacy Policy</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/odvlogo.png" alt="l'Olio di Valeria">
+                    </div>
+                    <p class="footer-description" data-i18n="footer.companyDescription">
+                        Tradizione siciliana dal 1987. Olio extravergine di oliva di qualità superiore dalle terre di San Biagio
+                        Platani.
+                    </p>
+                    <div class="footer-details">
+                        <p>P.IVA: 02957530849</p>
+                        <p>Cod. Fisc.: LCTVLR81D62Z112B</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                <h4 data-i18n="footer.products">Prodotti</h4>
+                <ul class="footer-links">
+                    <li><a href="shop.html#products" data-i18n="footer.link.ourBottles">Le Nostre Bottiglie</a></li>
+                    <li><a href="shop.html#edizione-speciale" data-i18n="footer.link.sicilianSpecialty">Specialità Siciliana</a></li>
+                    <li><a href="shop.html#latta" data-i18n="footer.link.oilInTin">Olio In Latta</a></li>
+                    <li><a href="shop.html#regalo" data-i18n="footer.link.giftBox">Confezione Regalo</a></li>
+                </ul>
+            </div>
+
+                <div class="footer-section">
+                <h4 data-i18n="footer.company">Azienda</h4>
+                <ul class="footer-links">
+                    <li><a href="chisiamo.html" data-i18n="footer.link.aboutUs">Chi Siamo</a></li>
+                    <li><a href="aziendaagr.html" data-i18n="footer.link.farm">L'azienda Agricola</a></li>
+                    <li><a href="qualita.html" data-i18n="footer.link.quality">Qualità</a></li>
+                    <li><a href="faq.html" data-i18n="footer.link.faq">FAQ</a></li>
+                </ul>
+            </div>
+
+                <div class="footer-section">
+                    <h4 data-i18n="footer.contact">Contatti</h4>
+                    <div class="footer-contact">
+                        <p>
+                            <strong data-i18n="footer.operatingOffice">Sede Operativa:</strong><br>
+                            Via Alcide De Gasperi, 4<br>
+                            92020 San Biagio Platani (AG)
+                        </p>
+                        <p>
+                            <strong data-i18n="footer.phone">Tel:</strong> +39 327 309 8513<br>
+                            <strong data-i18n="footer.phone">Tel:</strong> +39 339 530 5990
+                        </p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4 data-i18n="footer.legalInfo">Informazioni Legali</h4>
+                    <ul class="footer-links">
+                        <li><a href="termini-e-condizioniodv.html" data-i18n="footer.link.terms">Termini e Condizioni</a></li>
+                        <li><a href="cookie-e-privacy-policy.html" data-i18n="footer.link.privacy">Cookie e Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social Media Section -->
+                <div class="footer-section">
+                    <h4 data-i18n="footer.followUs">Seguici Su</h4>
+                    <p class="social-description" data-i18n="footer.socialDescription">Resta aggiornato sulle nostre novità</p>
+                    <div class="footer-social-mobile" style="margin-top: 12px;">
+                        <a href="https://www.facebook.com/OliodiValeria/?locale=it_IT" target="_blank" rel="noopener noreferrer" class="social-icon facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/oliodivaleria/" target="_blank" rel="noopener noreferrer" class="social-icon instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@oliodivaleria" target="_blank" rel="noopener noreferrer" class="social-icon tiktok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="footer-copyright" data-i18n="footer.copyright">
+                        &copy; 2025 Faraj Informatica. Tutti i diritti riservati.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Management
+        class MobileMenu {
+            constructor() {
+                this.init()
+            }
+
+            init() {
+                this.bindEvents()
+            }
+
+            bindEvents() {
+                const mobileMenuBtn = document.getElementById('mobileMenuBtn')
+                const mobileMenuClose = document.getElementById('mobileMenuClose')
+                const mobileMenuOverlay = document.getElementById('mobileMenuOverlay')
+                const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a')
+
+                mobileMenuBtn?.addEventListener('click', this.openMobileMenu.bind(this))
+                mobileMenuClose?.addEventListener('click', this.closeMobileMenu.bind(this))
+                mobileMenuOverlay?.addEventListener('click', this.closeMobileMenu.bind(this))
+
+                // Close menu when clicking on a link
+                mobileNavLinks.forEach(link => {
+                    link.addEventListener('click', this.closeMobileMenu.bind(this))
+                })
+
+                // Handle escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        this.closeMobileMenu()
+                    }
+                })
+            }
+
+            openMobileMenu() {
+                const mobileMenu = document.getElementById('mobileMenu')
+                const mobileMenuOverlay = document.getElementById('mobileMenuOverlay')
+
+                mobileMenu?.classList.add('open')
+                mobileMenuOverlay?.classList.add('open')
+                document.body.style.overflow = 'hidden'
+
+                // Update button icon
+                const mobileMenuBtn = document.getElementById('mobileMenuBtn')
+                const icon = mobileMenuBtn?.querySelector('i')
+                if (icon) {
+                    icon.className = 'fas fa-times'
+                }
+            }
+
+            closeMobileMenu() {
+                const mobileMenu = document.getElementById('mobileMenu')
+                const mobileMenuOverlay = document.getElementById('mobileMenuOverlay')
+
+                mobileMenu?.classList.remove('open')
+                mobileMenuOverlay?.classList.remove('open')
+                document.body.style.overflow = ''
+
+                // Update button icon
+                const mobileMenuBtn = document.getElementById('mobileMenuBtn')
+                const icon = mobileMenuBtn?.querySelector('i')
+                if (icon) {
+                    icon.className = 'fas fa-bars'
+                }
+            }
+        }
+
+        // Initialize mobile menu when DOM is loaded
+        document.addEventListener("DOMContentLoaded", () => {
+            window.mobileMenu = new MobileMenu()
+        })
+    </script>
+    
+    <!-- Cookie Consent and User Preferences Scripts -->
+    <script src="cookie-utils.js"></script>
+    <script src="cookie-consent.js"></script>
+    <script>
+        // Initialize cookie consent and user preferences after DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                if (typeof CookieUtils !== 'undefined' && typeof UserPreferences !== 'undefined') {
+                    window.userPreferences = new UserPreferences();
+                    console.log('User preferences system initialized');
+                } else {
+                    console.warn('Cookie utility classes not available - graceful degradation');
+                }
+                
+                if (typeof window.cookieConsent === 'undefined') {
+                    console.warn('Cookie consent system not available - graceful degradation');
+                }
+            } catch (error) {
+                console.error('Error initializing cookie systems:', error);
+            }
+        });
+    </script>
+
+</body>
+</html>
