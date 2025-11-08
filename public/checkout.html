@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - l'Olio di Valeria | Pagamento Sicuro</title>
+    <link rel="alternate" hreflang="it" href="https://www.oliodiValeria.com/checkout.html" />
+    <link rel="alternate" hreflang="en" href="https://www.oliodiValeria.com/en/checkout.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.oliodiValeria.com/checkout.html" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <img src="assets/odvlogo.png" alt="l'Olio di Valeria">
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="checkout-main">
+        <div class="container">
+            <div class="checkout-grid">
+                <!-- Checkout Form -->
+                <div class="checkout-form">
+                    <form id="checkoutForm">
+                        <!-- Billing Information -->
+                        <div class="form-section">
+                            <h2 class="section-title">
+                                <i class="fas fa-user"></i>
+                                Informazioni di Fatturazione
+                            </h2>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label" for="firstName">Nome *</label>
+                                    <input type="text" id="firstName" name="firstName" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="lastName">Cognome *</label>
+                                    <input type="text" id="lastName" name="lastName" class="form-input" required>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label class="form-label" for="email">Email *</label>
+                                    <input type="email" id="email" name="email" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="phone">Telefono *</label>
+                                    <input type="tel" id="phone" name="phone" class="form-input" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Shipping Address -->
+                        <div class="form-section">
+                            <h2 class="section-title">
+                                <i class="fas fa-truck"></i>
+                                Indirizzo di Spedizione
+                            </h2>
+                            <div class="form-grid">
+                                <div class="form-group full-width">
+                                    <label class="form-label" for="address">Indirizzo *</label>
+                                    <input type="text" id="address" name="address" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="city">Città *</label>
+                                    <input type="text" id="city" name="city" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="postalCode">CAP *</label>
+                                    <input type="text" id="postalCode" name="postalCode" class="form-input" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Section -->
+                        <div class="submit-section">
+                            <button type="submit" class="submit-btn" id="submitBtn">
+                                <i class="fas fa-lock"></i>
+                                <span>Completa Ordine Sicuro</span>
+                                <div class="loading-spinner" style="display: none;"></div>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h3 class="summary-title">
+                        <i class="fas fa-receipt"></i>
+                        Riepilogo Ordine
+                    </h3>
+
+                    <div id="orderItems">
+                        <!-- Items will be loaded here -->
+                    </div>
+
+                    <div class="order-totals">
+                        <div class="total-row">
+                            <span>Subtotale:</span>
+                            <span id="subtotal">€0.00</span>
+                        </div>
+                        <div class="total-row">
+                            <span>Spedizione:</span>
+                            <span id="shipping">€9.90</span>
+                        </div>
+                        <div class="total-row final">
+                            <span>Totale:</span>
+                            <span class="total-price" id="finalTotal">€0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div class="success-modal" id="successModal" style="display: none;">
+        <div class="success-content">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h2 class="success-title">Ordine Completato!</h2>
+            <p class="success-message">
+                Grazie per il tuo acquisto! Riceverai una email di conferma con i dettagli dell'ordine.
+            </p>
+            <div class="success-actions">
+                <a href="index.html" class="btn btn-primary">Torna alla Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="js/firebase.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cart = JSON.parse(localStorage.getItem('oliodiValeriaCart')) || [];
+            const orderItemsContainer = document.getElementById('orderItems');
+            const subtotalEl = document.getElementById('subtotal');
+            const shippingEl = document.getElementById('shipping');
+            const finalTotalEl = document.getElementById('finalTotal');
+            const checkoutForm = document.getElementById('checkoutForm');
+            const successModal = document.getElementById('successModal');
+            const submitBtn = document.getElementById('submitBtn');
+            const loadingSpinner = submitBtn.querySelector(".loading-spinner");
+
+            let subtotal = 0;
+
+            if (cart.length === 0) {
+                orderItemsContainer.innerHTML = '<p>Il carrello è vuoto.</p>';
+            } else {
+                cart.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.classList.add('order-item');
+                    itemElement.innerHTML = `
+                        <div class="item-details">
+                            <div class="item-name">${item.name}</div>
+                            <div class="item-quantity">Quantità: ${item.quantity}</div>
+                        </div>
+                        <div class="item-price">€${(item.price * item.quantity).toFixed(2)}</div>
+                    `;
+                    orderItemsContainer.appendChild(itemElement);
+                    subtotal += item.price * item.quantity;
+                });
+            }
+
+            const shipping = 9.90;
+            const total = subtotal + shipping;
+
+            subtotalEl.textContent = `€${subtotal.toFixed(2)}`;
+            shippingEl.textContent = `€${shipping.toFixed(2)}`;
+            finalTotalEl.textContent = `€${total.toFixed(2)}`;
+
+            checkoutForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                submitBtn.disabled = true;
+                loadingSpinner.style.display = 'block';
+
+                const customerInfo = {
+                    name: `${checkoutForm.firstName.value} ${checkoutForm.lastName.value}`,
+                    email: checkoutForm.email.value,
+                    phone: checkoutForm.phone.value,
+                    address: checkoutForm.address.value,
+                    city: checkoutForm.city.value,
+                    postalCode: checkoutForm.postalCode.value
+                };
+
+                try {
+                    await addOrder(customerInfo, cart, total * 100); // Pass total in cents
+                    localStorage.removeItem('oliodiValeriaCart');
+                    successModal.style.display = 'flex';
+                } catch (error) {
+                    console.error("Error adding order: ", error);
+                    alert("Si è verificato un errore durante l'invio dell'ordine. Riprova.");
+                } finally {
+                    submitBtn.disabled = false;
+                    loadingSpinner.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

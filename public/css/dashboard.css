@@ -1,0 +1,52 @@
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+.dashboard-section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.data-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.data-item {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.data-item p {
+    margin: 0 0 10px;
+}
+
+.data-item p strong {
+    color: #555;
+}

@@ -1,0 +1,17 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /contactMessages/{messageId} {
+      allow create: if true;
+    }
+
+    match /newsletter/{emailId} {
+      allow create: if true;
+    }
+
+    match /orders/{orderId} {
+      allow create: if true;
+    }
+  }
+}

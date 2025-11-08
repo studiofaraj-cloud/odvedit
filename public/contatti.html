@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti - l'Olio di Valeria | Parliamo di Olio Siciliano</title>
+    <meta name="description" content="Contatta l'Olio di Valeria per informazioni sui nostri oli extravergini siciliani, ordini e collaborazioni. Siamo qui per condividere la passione per l'olio di qualitá.">
+    <link rel="alternate" hreflang="it" href="https://www.oliodiValeria.com/contatti.html" />
+    <link rel="alternate" hreflang="en" href="https://www.oliodiValeria.com/en/contatti.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.oliodiValeria.com/contatti.html" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/contatti.css">
+</head>
+<body class="page-contatti">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/odvlogo.png" alt="l'Olio di Valeria" data-i18n-alt="img.alt.logo">
+                    </a>
+                </div>
+
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Prodotti</a></li>
+                        <li><a href="chisiamo.html">Chi Siamo</a></li>
+                        <li><a href="aziendaagr.html">L'Azienda Agricola</a></li>
+                        <li><a href="dovesiamo.html">Dove Siamo</a></li>
+                        <li><a href="contatti.html" class="active">Contatti</a></li>
+                    </ul>
+                </nav>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Apri menu" data-i18n-aria-label="aria.openMenu">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <a href="shop.html" class="shop-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    Shop
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <div class="logo">
+                <img src="assets/odvlogo.png" alt="l'Olio di Valeria">
+            </div>
+            <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Chiudi menu" data-i18n-aria-label="aria.closeMenu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav>
+            <ul class="mobile-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Prodotti</a></li>
+                <li><a href="chisiamo.html">Chi Siamo</a></li>
+                <li><a href="aziendaagr.html">L'Azienda Agricola</a></li>
+                <li><a href="dovesiamo.html">Dove Siamo</a></li>
+                <li><a href="contatti.html" class="active">Contatti</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <section class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span class="current">Contatti</span>
+            </nav>
+        </div>
+    </section>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">Parliamo di Olio Siciliano</div>
+                <h1>Mettiamoci in Contatto</h1>
+                <p class="hero-subtitle">
+                    Siamo qui per condividere la nostra passione per l'olio extravergine siciliano. 
+                    Che tu abbia domande sui nostri prodotti, voglia saperne di più sulla nostra storia 
+                    o sia interessato a collaborazioni, saremo felici di sentirti.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="contact-form-section">
+                <div>
+                    <div class="section-header" style="text-align: left; margin-bottom: 40px;">
+                        <div class="section-badge">Scrivici</div>
+                        <h2 class="section-title" style="font-size: 2rem;">Invia un Messaggio</h2>
+                        <p class="section-description" style="margin: 0;">
+                            Compila il modulo e ti risponderemo il prima possibile. 
+                            Ogni messaggio è importante per noi.
+                        </p>
+                    </div>
+
+                    <form class="contact-form" id="contactForm">
+                        <div class="success-message" id="successMessage" style="display: none;">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Grazie per il tuo messaggio! Ti risponderemo presto.</span>
+                        </div>
+                        <div class="error-message" id="errorMessage" style="display: none;">
+                             <i class="fas fa-exclamation-triangle"></i>
+                            <span id="errorText">Si è verificato un errore. Riprova più tardi.</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="form-label">Nome *</label>
+                            <input type="text" id="name" name="name" class="form-input" required placeholder="Il tuo nome completo">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email *</label>
+                            <input type="email" id="email" name="email" class="form-input" required placeholder="la.tua.email@esempio.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Telefono *</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" required placeholder="Es. +39 123 456 7890">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inquiry" class="form-label">Tipo di Richiesta</label>
+                            <select id="inquiry" name="inquiry" class="form-select">
+                                <option value="generale">Informazioni Generali</option>
+                                <option value="ordini">Ordini e Spedizioni</option>
+                                <option value="wholesale">Collaborazioni e Ingrosso</option>
+                                <option value="visite">Visite in Azienda</option>
+                                <option value="altro">Altro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Messaggio *</label>
+                            <textarea id="message" name="message" class="form-textarea" required placeholder="Raccontaci come possiamo aiutarti..."></textarea>
+                        </div>
+
+                        <button type="submit" class="form-submit" id="submitBtn">
+                            <span id="submitText">
+                                <i class="fas fa-paper-plane"></i>
+                                Invia Messaggio
+                            </span>
+                             <span id="loadingText" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                Invio in corso...
+                            </span>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="contact-info">
+                    <div class="contact-intro">
+                        <h3>Siamo Qui per Te</h3>
+                        <p>
+                            Come famiglia siciliana, crediamo nel valore delle relazioni autentiche. 
+                            Che tu sia un appassionato di olio extravergine, un ristoratore alla ricerca 
+                            di qualitá superiore, o semplicemente curioso della nostra storia, 
+                            siamo sempre felici di condividere la nostra passione.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="social-cta">
+        <div class="container">
+            <div class="social-content">
+                 <h2 class="social-title">Seguici e Resta Aggiornato</h2>
+                 <p class="social-description">
+                    Unisciti alla nostra comunitá per scoprire ricette, consigli sull'olio extravergine 
+                    e le ultime novitá dalla nostra azienda siciliana.
+                </p>
+
+                <div class="newsletter-signup">
+                    <h3 class="newsletter-title">Newsletter</h3>
+                    <p class="newsletter-description">
+                        Ricevi ricette siciliane, consigli sull'olio e offerte esclusive direttamente nella tua casella di posta.
+                    </p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" id="newsletter-email" class="newsletter-input" placeholder="La tua email" required>
+                        <button type="submit" class="newsletter-btn">
+                            <i class="fas fa-envelope"></i>
+                        </button>
+                    </form>
+                    <div id="newsletter-success" style="display: none; color: #10b981; margin-top: 10px;">Grazie per l'iscrizione!</div>
+                    <div id="newsletter-error" style="display: none; color: #ef4444; margin-top: 10px;">Si è verificato un errore.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="js/firebase.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const contactForm = document.getElementById("contactForm");
+            const successMessage = document.getElementById("successMessage");
+            const errorMessage = document.getElementById("errorMessage");
+            const submitBtn = document.getElementById("submitBtn");
+            const submitText = document.getElementById("submitText");
+            const loadingText = document.getElementById("loadingText");
+            
+            contactForm.addEventListener("submit", async (e) => {
+                e.preventDefault();
+
+                submitBtn.disabled = true;
+                submitText.style.display = 'none';
+                loadingText.style.display = 'flex';
+
+                const name = contactForm.name.value;
+                const email = contactForm.email.value;
+                const phone = contactForm.phone.value;
+                const inquiry = contactForm.inquiry.value;
+                const message = contactForm.message.value;
+
+                try {
+                    await addContactMessage(name, email, phone, inquiry, message);
+                    successMessage.style.display = 'block';
+                    errorMessage.style.display = 'none';
+                    contactForm.reset();
+                } catch (error) {
+                    console.error("Error adding contact message: ", error);
+                    errorMessage.style.display = 'block';
+                    successMessage.style.display = 'none';
+                } finally {
+                    submitBtn.disabled = false;
+                    submitText.style.display = 'flex';
+                    loadingText.style.display = 'none';
+                }
+            });
+
+            const newsletterForm = document.getElementById("newsletterForm");
+            const newsletterSuccess = document.getElementById("newsletter-success");
+            const newsletterError = document.getElementById("newsletter-error");
+
+            newsletterForm.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                const email = document.getElementById("newsletter-email").value;
+
+                try {
+                    await addNewsletterEmail(email);
+                    newsletterSuccess.style.display = 'block';
+                    newsletterError.style.display = 'none';
+                    newsletterForm.reset();
+                } catch (error) {
+                    console.error("Error adding newsletter email: ", error);
+                    newsletterError.style.display = 'block';
+                    newsletterSuccess.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
