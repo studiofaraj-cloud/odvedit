@@ -3,32 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="css/dashboard.css">
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyAg7Jal9PIext4OSxhH4q0Twoybos3_mvE",
+            authDomain: "l-olio-di-valeria.firebaseapp.com",
+            projectId: "l-olio-di-valeria",
+            storageBucket: "l-olio-di-valeria.appspot.com",
+            messagingSenderId: "438585656275",
+            appId: "1:438585656275:web:0ec70ddabc7de64b806526",
+            measurementId: "G-QW0YWNWKZ8"
+        };
+        const app = initializeApp(firebaseConfig);
+    </script>
 </head>
 <body>
     <div class="dashboard-container">
-        <h1>Admin Dashboard</h1>
-
-        <div class="dashboard-section">
-            <h2>Contact Form Messages</h2>
-            <div id="contact-messages" class="data-container"></div>
+        <div class="dashboard-nav">
+            <a href="dashboard_orders.html">Orders</a>
+            <a href="dashboard_messages.html">Messages</a>
+            <a href="dashboard_newsletter.html">Newsletter</a>
         </div>
-
-        <div class="dashboard-section">
-            <h2>Newsletter Subscriptions</h2>
-            <div id="newsletter-subscriptions" class="data-container"></div>
-        </div>
-
-        <div class="dashboard-section">
-            <h2>E-commerce Orders</h2>
-            <div id="orders" class="data-container"></div>
-        </div>
+        <h1>Welcome to Your Dashboard</h1>
+        <p>Select a category above to view data.</p>
     </div>
 
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-    <script src="js/firebase.js"></script>
-    <script src="js/dashboard.js"></script>
+    <script type="module" src="js/firebase.js"></script>
+    <script type="module" src="js/auth.js"></script>
 </body>
 </html>

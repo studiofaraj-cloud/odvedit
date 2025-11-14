@@ -12,6 +12,1179 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/contatti.css">
 </head>
+<style>
+    /* ========================================
+       Global Styles
+       ======================================== */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fff;
+        color: #333;
+        line-height: 1.7;
+    }
+
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Header */
+    .header {
+        background: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1001;
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 80px;
+        padding: 0 20px;
+    }
+
+    .logo img {
+        height: 50px;
+        width: auto;
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        list-style: none;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #374151;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        position: relative;
+    }
+
+    .nav-links a:hover {
+        color: #eab308;
+    }
+
+    .nav-links a.active {
+        color: #eab308;
+    }
+
+    .nav-links a.active::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: #eab308;
+    }
+
+    .shop-btn {
+        background: linear-gradient(135deg, #eab308, #f59e0b);
+        color: #000;
+        padding: 12px 24px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(234, 179, 8, 0.3);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .shop-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(234, 179, 8, 0.4);
+    }
+/* Mobile Menu Button */
+    .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: #374151;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-menu-btn:hover {
+        background: #f3f4f6;
+        color: #eab308;
+    }
+
+    /* Mobile Menu Overlay */
+    .mobile-menu-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1500;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-menu-overlay.open {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        width: 300px;
+        height: 100vh;
+        background: #fff;
+        box-shadow: 5px 0 20px rgba(0, 0, 0, 0.1);
+        transition: left 0.3s ease;
+        z-index: 2000;
+        overflow-y: auto;
+    }
+
+    .mobile-menu.open {
+        left: 0;
+    }
+
+    .mobile-menu-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .mobile-menu-close {
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: #6b7280;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-menu-close:hover {
+        background: #f3f4f6;
+        color: #000;
+    }
+
+    .mobile-nav-links {
+        padding: 24px;
+        list-style: none;
+    }
+
+    .mobile-nav-links li {
+        margin-bottom: 16px;
+    }
+
+    .mobile-nav-links a {
+        display: block;
+        padding: 12px 16px;
+        text-decoration: none;
+        color: #374151;
+        font-weight: 500;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-nav-links a:hover {
+        background: #f3f4f6;
+        color: #eab308;
+    }
+
+    .mobile-nav-links a.active {
+        background: #fef3c7;
+        color: #eab308;
+        font-weight: 600;
+    }
+
+    /* Hero Section */
+    .hero {
+        background: linear-gradient(135deg, rgba(107, 114, 128, 0.9), rgba(75, 85, 99, 0.9)), 
+                    url('/placeholder.svg?height=500&width=1200&text=Sicilian+Olive+Oil+Contact') center/cover;
+        color: #fff;
+        padding: 100px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(234, 179, 8, 0.1) 0%, transparent 50%);
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .hero-badge {
+        display: inline-block;
+        background: rgba(234, 179, 8, 0.2);
+        border: 2px solid #eab308;
+        color: #eab308;
+        padding: 8px 24px;
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 24px;
+        backdrop-filter: blur(10px);
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 24px;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 1.25rem;
+        color: #d1d5db;
+        margin-bottom: 32px;
+        font-weight: 300;
+        line-height: 1.6;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+        background: #f9fafb;
+        padding: 16px 0;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .breadcrumb-nav {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        color: #6b7280;
+    }
+
+    .breadcrumb-nav a {
+        color: #6b7280;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .breadcrumb-nav a:hover {
+        color: #eab308;
+    }
+
+    .breadcrumb-nav .current {
+        color: #eab308;
+        font-weight: 500;
+    }
+
+    /* Content Sections */
+    .content-section {
+        padding: 80px 0;
+    }
+
+    .content-section.gray {
+        background: #f9fafb;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .section-badge {
+        display: inline-block;
+        background: rgba(234, 179, 8, 0.1);
+        color: #eab308;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 16px;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #000;
+        margin-bottom: 16px;
+        line-height: 1.3;
+    }
+
+    .section-divider {
+        width: 80px;
+        height: 4px;
+        background: #eab308;
+        margin: 0 auto 24px;
+    }
+
+    .section-description {
+        font-family: 'Lato', 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 400;
+        font-size: 1.125rem;
+        color: #6b7280;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.7;
+    }
+
+    /* Contact Form Section */
+    .contact-form-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: start;
+    }
+
+    .contact-form {
+        background: #fff;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border: 2px solid #f3f4f6;
+    }
+
+    .form-group {
+        margin-bottom: 24px;
+    }
+
+    .form-label {
+        display: block;
+        font-weight: 600;
+        color: #374151;
+        margin-bottom: 8px;
+        font-size: 14px;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+        width: 100%;
+        padding: 14px 16px;
+        border: 2px solid #e5e7eb;
+        border-radius: 12px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        background: #fff;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+        outline: none;
+        border-color: #eab308;
+        box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.1);
+    }
+
+    .form-textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+    .form-submit {
+        width: 100%;
+        background: linear-gradient(135deg, #eab308, #f59e0b);
+        color: #000;
+        border: none;
+        padding: 16px 24px;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .form-submit:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(234, 179, 8, 0.3);
+    }
+
+    .form-submit:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    /* Health Check Status Indicator */
+    .health-status-indicator {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 8px;
+        font-size: 13px;
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+    }
+
+    .health-status-indicator i {
+        font-size: 16px;
+    }
+
+    .health-status-indicator.checking {
+        background: rgba(234, 179, 8, 0.1);
+        border-color: rgba(234, 179, 8, 0.3);
+        color: #92400e;
+    }
+
+    .health-status-indicator.checking i {
+        color: #eab308;
+        animation: spin 1s linear infinite;
+    }
+
+    .health-status-indicator.success {
+        background: rgba(16, 185, 129, 0.1);
+        border-color: rgba(16, 185, 129, 0.3);
+        color: #065f46;
+    }
+
+    .health-status-indicator.success i {
+        color: #10b981;
+    }
+
+    .health-status-indicator.error {
+        background: rgba(239, 68, 68, 0.1);
+        border-color: rgba(239, 68, 68, 0.3);
+        color: #991b1b;
+    }
+
+    .health-status-indicator.error i {
+        color: #ef4444;
+    }
+
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+
+
+    /* Contact Info */
+    .contact-info {
+        padding: 20px 0;
+    }
+
+    .contact-intro {
+        background: linear-gradient(135deg, #fef3c7, #fde68a);
+        padding: 32px;
+        border-radius: 20px;
+        margin-bottom: 40px;
+        border-left: 6px solid #eab308;
+    }
+
+    .contact-intro h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #000;
+        margin-bottom: 16px;
+    }
+
+    .contact-intro p {
+        color: #374151;
+        line-height: 1.7;
+        margin-bottom: 12px;
+    }
+
+    .contact-details {
+        display: grid;
+        gap: 32px;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 24px;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        border: 1px solid #f3f4f6;
+        transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        border-color: #eab308;
+    }
+
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #eab308, #f59e0b);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: #000;
+        flex-shrink: 0;
+    }
+
+    .contact-content h4 {
+        font-size: 1.125rem;
+        font-weight: bold;
+        color: #000;
+        margin-bottom: 8px;
+    }
+
+    .contact-content p {
+        color: #6b7280;
+        line-height: 1.6;
+        margin-bottom: 4px;
+    }
+
+    .contact-content a {
+        color: #eab308;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .contact-content a:hover {
+        text-decoration: underline;
+    }
+
+    /* Map Section */
+    .map-section {
+        background: #f9fafb;
+        padding: 80px 0;
+    }
+
+    .map-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+
+    .map-info h3 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #000;
+        margin-bottom: 16px;
+    }
+
+    .map-info p {
+        color: #6b7280;
+        line-height: 1.7;
+        margin-bottom: 24px;
+    }
+
+    .location-details {
+        background: #fff;
+        padding: 24px;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .location-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 16px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #f3f4f6;
+    }
+
+    .location-item:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    .location-icon {
+        width: 40px;
+        height: 40px;
+        background: #eab308;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        color: #000;
+    }
+
+    .location-text {
+        flex: 1;
+    }
+
+    .location-text strong {
+        color: #000;
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    .location-text span {
+        color: #6b7280;
+        font-size: 14px;
+    }
+
+    .map-placeholder {
+        background: linear-gradient(135deg, #e5e7eb, #d1d5db);
+        border-radius: 20px;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #6b7280;
+        font-size: 18px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .map-placeholder::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('/placeholder.svg?height=400&width=500&text=San+Biagio+Platani+Map') center/cover;
+        opacity: 0.7;
+    }
+
+    /* Social CTA Section */
+    .social-cta {
+        background: linear-gradient(135deg, #000 0%, #374151 100%);
+        color: #fff;
+        padding: 80px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .social-cta::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(234, 179, 8, 0.1) 0%, transparent 70%);
+        animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    .social-content {
+        position: relative;
+        z-index: 2;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .social-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 24px;
+        line-height: 1.2;
+    }
+
+    .social-description {
+        font-size: 1.125rem;
+        color: #d1d5db;
+        margin-bottom: 40px;
+        line-height: 1.6;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+    }
+
+    .social-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 24px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        min-width: 160px;
+        justify-content: center;
+    }
+
+    .social-link.facebook {
+        background: #1877f2;
+        color: #fff;
+    }
+
+    .social-link.instagram {
+        background: linear-gradient(135deg, #e4405f, #f77737);
+        color: #fff;
+    }
+
+    .social-link:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .newsletter-signup {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 32px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .newsletter-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 12px;
+    }
+
+    .newsletter-description {
+        font-family: 'Lato', 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 400;
+        color: #d1d5db;
+        margin-bottom: 24px;
+    }
+
+    .newsletter-form {
+        display: flex;
+        gap: 12px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .newsletter-input {
+        flex: 1;
+        padding: 12px 16px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        
+    }
+
+    .newsletter-input::placeholder {
+        color: #d1d5db;
+    }
+
+    .newsletter-input:focus {
+        outline: none;
+        border-color: #eab308;
+    }
+
+    .newsletter-btn {
+        background: #eab308;
+        color: #000;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .newsletter-btn:hover {
+        background: #f59e0b;
+        transform: translateY(-2px);
+    }
+
+    
+
+    /* Success Message */
+    .success-message {
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: #fff;
+        border-radius: 12px;
+        margin-bottom: 24px;
+        display: none;
+        align-items: center;
+        gap: 12px;
+        padding: 18px 24px;
+        box-shadow: 0 4px 20px rgba(16, 185, 129, 0.25);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        position: relative;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .success-message::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    .success-message.show {
+        display: flex;
+        animation: messageSlideIn 0.5s ease-out forwards;
+    }
+
+    .success-message.fade-out {
+        animation: messageFadeOut 0.4s ease-in forwards;
+    }
+
+    .success-message i {
+        font-size: 24px;
+        flex-shrink: 0;
+        animation: iconPulse 0.6s ease-in-out;
+    }
+
+    /* Error Message */
+    .error-message {
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+        color: #fff;
+        border-radius: 12px;
+        margin-bottom: 24px;
+        display: none;
+        padding: 18px 24px;
+        box-shadow: 0 4px 20px rgba(239, 68, 68, 0.25);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        position: relative;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .error-message::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    .error-message.show {
+        display: flex;
+        animation: messageSlideIn 0.5s ease-out forwards;
+    }
+
+    .error-message.fade-out {
+        animation: messageFadeOut 0.4s ease-in forwards;
+    }
+
+    .error-message-content {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex: 1;
+    }
+
+    .error-message i:first-child {
+        font-size: 24px;
+        flex-shrink: 0;
+        animation: iconShake 0.5s ease-in-out;
+    }
+
+    .error-dismiss-btn {
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: #fff;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: all 0.2s ease;
+        margin-left: 8px;
+        font-size: 16px;
+    }
+
+    .error-dismiss-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(1.1);
+    }
+
+    .error-dismiss-btn:active {
+        transform: scale(0.95);
+    }
+
+    /* Message Animations */
+    @keyframes messageSlideIn {
+        0% {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        60% {
+            transform: translateY(5px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes messageFadeOut {
+        0% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(-15px) scale(0.95);
+        }
+    }
+
+    @keyframes iconPulse {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.2);
+        }
+    }
+
+    @keyframes iconShake {
+        0%, 100% {
+            transform: translateX(0) rotate(0deg);
+        }
+        25% {
+            transform: translateX(-5px) rotate(-5deg);
+        }
+        75% {
+            transform: translateX(5px) rotate(5deg);
+        }
+    }
+
+    /* Form validation styles */
+    .form-input.error,
+    .form-select.error,
+    .form-textarea.error {
+        border-color: #dc2626;
+        box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+        animation: shake 0.5s ease-in-out;
+    }
+
+    /* Retry Indicator */
+    .retry-indicator {
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        color: #fff;
+        padding: 16px 24px;
+        border-radius: 12px;
+        margin-bottom: 24px;
+        display: none;
+        align-items: center;
+        gap: 12px;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+    }
+
+    .retry-indicator.show {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .retry-spinner {
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-top-color: #fff;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
+    .retry-text {
+        flex: 1;
+    }
+
+    .retry-message {
+        font-weight: 600;
+        margin-bottom: 4px;
+    }
+
+    .retry-countdown {
+        font-size: 14px;
+        opacity: 0.9;
+    }
+
+    .form-error {
+        color: #dc2626;
+        font-size: 13px;
+        margin-top: 6px;
+        display: none;
+        line-height: 1.4;
+    }
+
+    .form-error.show {
+        display: block;
+        animation: slideDown 0.3s ease-out;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+        20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+
+    .form-group {
+        position: relative;
+    }
+
+    .form-group.has-error .form-label {
+        color: #dc2626;
+        font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+        .page-contatti .shop-btn {
+            display: none;
+        }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+
+        .mobile-menu-btn {
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero {
+            padding: 80px 0;
+        }
+
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .contact-form-section {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .contact-form {
+            padding: 30px;
+        }
+
+
+
+        .map-container {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .map-info h3 {
+            font-size: 1.75rem;
+        }
+
+        .social-title {
+            font-size: 2rem;
+        }
+
+        .social-links {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-link {
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .newsletter-form {
+            flex-direction: column;
+        }
+
+        .newsletter-input,
+        .newsletter-btn {
+            width: 100%;
+        }
+
+        .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero h1 {
+            font-size: 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+        }
+
+        .contact-form {
+            padding: 24px;
+        }
+
+        .contact-intro {
+            padding: 24px;
+        }
+
+        .contact-item {
+            padding: 20px;
+        }
+
+        .newsletter-signup {
+            padding: 24px;
+        }
+    }
+</style>
+
+
 <body class="page-contatti">
     <!-- Header -->
     <header class="header">
@@ -34,6 +1207,7 @@
                     </ul>
                 </nav>
 
+                <!-- Mobile Menu Button -->
                 <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Apri menu" data-i18n-aria-label="aria.openMenu">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -46,8 +1220,10 @@
         </div>
     </header>
 
+    <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-header">
             <div class="logo">
@@ -59,16 +1235,19 @@
         </div>
         <nav>
             <ul class="mobile-nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html">Prodotti</a></li>
-                <li><a href="chisiamo.html">Chi Siamo</a></li>
-                <li><a href="aziendaagr.html">L'Azienda Agricola</a></li>
-                <li><a href="dovesiamo.html">Dove Siamo</a></li>
-                <li><a href="contatti.html" class="active">Contatti</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Prodotti</a></li>
+                        <li><a href="chisiamo.html">Chi Siamo</a></li>
+                        <li><a href="aziendaagr.html">L'Azienda Agricola</a></li>
+                        <li><a href="dovesiamo.html">Dove Siamo</a></li>
+                        <li><a href="contatti.html" class="active">Contatti</a></li>
             </ul>
         </nav>
     </div>
 
+
+
+    <!-- Breadcrumb -->
     <section class="breadcrumb">
         <div class="container">
             <nav class="breadcrumb-nav">
@@ -79,6 +1258,7 @@
         </div>
     </section>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -93,117 +1273,750 @@
         </div>
     </section>
 
-    <section class="content-section">
-        <div class="container">
-            <div class="contact-form-section">
-                <div>
-                    <div class="section-header" style="text-align: left; margin-bottom: 40px;">
-                        <div class="section-badge">Scrivici</div>
-                        <h2 class="section-title" style="font-size: 2rem;">Invia un Messaggio</h2>
-                        <p class="section-description" style="margin: 0;">
-                            Compila il modulo e ti risponderemo il prima possibile. 
-                            Ogni messaggio è importante per noi.
-                        </p>
+<!-- Contact Form Section -->
+ <section class="content-section">
+    <div class="container">
+        <div class="contact-form-section">
+            <!-- Contact Form -->
+            <div>
+                <div class="section-header" style="text-align: left; margin-bottom: 40px;">
+                    <div class="section-badge">Scrivici</div>
+                    <h2 class="section-title" style="font-size: 2rem;">Invia un Messaggio</h2>
+                    <p class="section-description" style="margin: 0;">
+                        Compila il modulo e ti risponderemo il prima possibile. 
+                        Ogni messaggio è importante per noi.
+                    </p>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+
+                    <div class="retry-indicator" id="retryIndicator">
+                        <div class="retry-spinner"></div>
+                        <div class="retry-text">
+                            <div class="retry-message" id="retryMessage"></div>
+                            <div class="retry-countdown" id="retryCountdown"></div>
+                        </div>
                     </div>
 
-                    <form class="contact-form" id="contactForm">
-                        <div class="success-message" id="successMessage" style="display: none;">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Grazie per il tuo messaggio! Ti risponderemo presto.</span>
-                        </div>
-                        <div class="error-message" id="errorMessage" style="display: none;">
-                             <i class="fas fa-exclamation-triangle"></i>
+                    <div class="success-message" id="successMessage">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Grazie per il tuo messaggio! Ti risponderemo presto.</span>
+                    </div>
+
+                    <div class="error-message" id="errorMessage">
+                        <div class="error-message-content">
+                            <i class="fas fa-exclamation-triangle"></i>
                             <span id="errorText">Si è verificato un errore. Riprova più tardi.</span>
                         </div>
-
-                        <div class="form-group">
-                            <label for="name" class="form-label">Nome *</label>
-                            <input type="text" id="name" name="name" class="form-input" required placeholder="Il tuo nome completo">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email *</label>
-                            <input type="email" id="email" name="email" class="form-input" required placeholder="la.tua.email@esempio.com">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone" class="form-label">Telefono *</label>
-                            <input type="tel" id="phone" name="phone" class="form-input" required placeholder="Es. +39 123 456 7890">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="inquiry" class="form-label">Tipo di Richiesta</label>
-                            <select id="inquiry" name="inquiry" class="form-select">
-                                <option value="generale">Informazioni Generali</option>
-                                <option value="ordini">Ordini e Spedizioni</option>
-                                <option value="wholesale">Collaborazioni e Ingrosso</option>
-                                <option value="visite">Visite in Azienda</option>
-                                <option value="altro">Altro</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message" class="form-label">Messaggio *</label>
-                            <textarea id="message" name="message" class="form-textarea" required placeholder="Raccontaci come possiamo aiutarti..."></textarea>
-                        </div>
-
-                        <button type="submit" class="form-submit" id="submitBtn">
-                            <span id="submitText">
-                                <i class="fas fa-paper-plane"></i>
-                                Invia Messaggio
-                            </span>
-                             <span id="loadingText" style="display: none;">
-                                <i class="fas fa-spinner fa-spin"></i>
-                                Invio in corso...
-                            </span>
+                        <button type="button" class="error-dismiss-btn" id="errorDismissBtn" aria-label="Chiudi messaggio di errore">
+                            <i class="fas fa-times"></i>
                         </button>
-                    </form>
+                    </div>
+
+                    <div class="health-status-indicator" id="healthStatus" style="display: none;">
+                        <i class="fas fa-spinner"></i>
+                        <span id="healthStatusText"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" class="form-label">Nome *</label>
+                        <input type="text" id="name" name="name" class="form-input" required placeholder="Il tuo nome completo" data-i18n-placeholder="form.placeholder.name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email *</label>
+                        <input type="email" id="email" name="email" class="form-input" required placeholder="la.tua.email@esempio.com" data-i18n-placeholder="form.placeholder.email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Telefono *</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" required placeholder="Es. +39 123 456 7890" data-i18n-placeholder="form.placeholder.phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inquiry" class="form-label">Tipo di Richiesta</label>
+                        <select id="inquiry" name="inquiry" class="form-select">
+                            <option value="generale">Informazioni Generali</option>
+                            <option value="ordini">Ordini e Spedizioni</option>
+                            <option value="wholesale">Collaborazioni e Ingrosso</option>
+                            <option value="visite">Visite in Azienda</option>
+                            <option value="altro">Altro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">Messaggio *</label>
+                        <textarea id="message" name="message" class="form-textarea" required placeholder="Raccontaci come possiamo aiutarti..." data-i18n-placeholder="form.placeholder.message"></textarea>
+                    </div>
+
+                    <button type="submit" class="form-submit" id="submitBtn">
+                        <span id="submitText">
+                            <i class="fas fa-paper-plane"></i>
+                            Invia Messaggio
+                        </span>
+                        <span id="loadingText" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            Invio in corso...
+                        </span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <div class="contact-intro">
+                    <h3>Siamo Qui per Te</h3>
+                    <p>
+                        Come famiglia siciliana, crediamo nel valore delle relazioni autentiche. 
+                        Che tu sia un appassionato di olio extravergine, un ristoratore alla ricerca 
+                        di qualitá superiore, o semplicemente curioso della nostra storia, 
+                        siamo sempre felici di condividere la nostra passione.
+                    </p>
+                    <p>
+                        <strong>Non esitare a contattarci</strong> - ogni conversazione è un'opportunitá 
+                        per far conoscere l'autentico sapore della Sicilia.
+                    </p>
                 </div>
 
-                <div class="contact-info">
-                    <div class="contact-intro">
-                        <h3>Siamo Qui per Te</h3>
-                        <p>
-                            Come famiglia siciliana, crediamo nel valore delle relazioni autentiche. 
-                            Che tu sia un appassionato di olio extravergine, un ristoratore alla ricerca 
-                            di qualitá superiore, o semplicemente curioso della nostra storia, 
-                            siamo sempre felici di condividere la nostra passione.
-                        </p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-content">
+                            <h4>Email</h4>
+                            <p><a href="mailto:info@oliodivaleria.it">info@oliodivaleria.it</a></p>
+                            <p>Rispondiamo entro 24 ore</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-content">
+                            <h4>Telefono</h4>
+                            <p><a href="tel:+393273098513">+39 327 309 8513</a></p>
+                            <p><a href="tel:+393395305990">+39 339 530 5990</a></p>
+                            <p>Lun-Ven: 9:00-18:00</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-content">
+                            <h4>Sede Operativa</h4>
+                            <p>Via Alcide De Gasperi, 4</p>
+                            <p>92020 San Biagio Platani (AG)</p>
+                            <p>Sicilia, Italia</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-content">
+                            <h4>Orari di Apertura</h4>
+                            <p>Lunedì - Venerdì: 9:00 - 18:00</p>
+                            <p>Sabato: 9:00 - 13:00</p>
+                            <p>Domenica: Chiuso</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="social-cta">
-        <div class="container">
-            <div class="social-content">
-                 <h2 class="social-title">Seguici e Resta Aggiornato</h2>
-                 <p class="social-description">
-                    Unisciti alla nostra comunitá per scoprire ricette, consigli sull'olio extravergine 
-                    e le ultime novitá dalla nostra azienda siciliana.
+<!-- Map Section -->
+<section class="map-section">
+    <div class="container">
+        <div class="map-container">
+            <div class="map-info">
+                <h3>Vieni a Trovarci</h3>
+                <p>
+                    La nostra azienda si trova nel cuore della Sicilia, nelle campagne di San Biagio Platani, 
+                    in provincia di Agrigento. Qui, tra colline dorate e uliveti secolari, 
+                    produciamo il nostro olio extravergine seguendo le tradizioni di famiglia.
+                </p>
+                <p>
+                    <strong>Visite in azienda:</strong> Organizziamo visite guidate per far conoscere 
+                    il nostro processo produttivo e degustare i nostri oli. Contattaci per prenotare 
+                    la tua visita.
                 </p>
 
-                <div class="newsletter-signup">
-                    <h3 class="newsletter-title">Newsletter</h3>
-                    <p class="newsletter-description">
-                        Ricevi ricette siciliane, consigli sull'olio e offerte esclusive direttamente nella tua casella di posta.
-                    </p>
-                    <form class="newsletter-form" id="newsletterForm">
-                        <input type="email" id="newsletter-email" class="newsletter-input" placeholder="La tua email" required>
-                        <button type="submit" class="newsletter-btn">
-                            <i class="fas fa-envelope"></i>
-                        </button>
-                    </form>
-                    <div id="newsletter-success" style="display: none; color: #10b981; margin-top: 10px;">Grazie per l'iscrizione!</div>
-                    <div id="newsletter-error" style="display: none; color: #ef4444; margin-top: 10px;">Si è verificato un errore.</div>
+                <div class="location-details">
+                    <div class="location-item">
+                        <div class="location-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="location-text">
+                            <strong>Sede Amministrativa</strong>
+                            <span>Contrada Serre, 19 - San Biagio Platani (AG)</span>
+                        </div>
+                    </div>
+
+                    <div class="location-item">
+                        <div class="location-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <div class="location-text">
+                            <strong>Frantoio</strong>
+                            <span>Via Alcide De Gasperi, 4 - San Biagio Platani (AG)</span>
+                        </div>
+                    </div>
+
+                    <div class="location-item">
+                        <div class="location-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="location-text">
+                            <strong>Come Raggiungerci</strong>
+                            <span>A 60 km da Agrigento, facilmente raggiungibile in auto</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-placeholder">
+                <div style="position: relative; z-index: 2;">
+                    <i class="fas fa-map-marked-alt" style="font-size: 48px; margin-bottom: 16px; color: #eab308;"></i>
+                    <p>San Biagio Platani, Agrigento</p>
+                    <p style="font-size: 14px; margin-top: 8px;">Sicilia, Italia</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer class="footer">
-    </footer>
+<!-- Social CTA Section -->
+<section class="social-cta">
+    <div class="container">
+        <div class="social-content">
+            <h2 class="social-title">Seguici e Resta Aggiornato</h2>
+            <p class="social-description">
+                Unisciti alla nostra comunitá per scoprire ricette, consigli sull'olio extravergine 
+                e le ultime novitá dalla nostra azienda siciliana.
+            </p>
+
+            <div class="social-links">
+                <a href="https://www.facebook.com/OliodiValeria/?locale=it_IT" target="_blank" rel="noopener noreferrer" class="social-link facebook">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>Facebook</span>
+                </a>
+                <a href="https://www.instagram.com/oliodivaleria/" target="_blank" rel="noopener noreferrer" class="social-link instagram">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+            </div>
+
+            <div class="newsletter-signup">
+                <h3 class="newsletter-title">Newsletter</h3>
+                <p class="newsletter-description">
+                    Ricevi ricette siciliane, consigli sull'olio e offerte esclusive direttamente nella tua casella di posta.
+                </p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" class="newsletter-input" placeholder="La tua email" required data-i18n-placeholder="form.placeholder.newsletterEmail">
+                    <button type="submit" class="newsletter-btn">
+                        <i class="fas fa-envelope"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+       <!-- Footer with Social Media -->
+<footer class="footer">
+<div class="container">
+    <div class="footer-grid">
+        <div class="footer-section">
+            <div class="footer-logo">
+                <img src="assets/odvlogo.png" alt="l'Olio di Valeria">
+            </div>
+            <p class="footer-description">
+                Tradizione siciliana dal 1987. Olio extravergine di oliva di qualità superiore dalle terre di San Biagio
+                Platani.
+            </p>
+            <div class="footer-details">
+                <p>P.IVA: 02957530849</p>
+                <p>Cod. Fisc.: LCTVLR81D62Z112B</p>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h4>Prodotti</h4>
+            <ul class="footer-links">
+                <li><a href="shop.html#products">Le Nostre Bottiglie</a></li>
+                <li><a href="shop.html#edizione-speciale">Specialità Siciliana</a></li>
+                <li><a href="shop.html#latta">Olio In Latta</a></li>
+                <li><a href="shop.html#regalo">Confezione Regalo</a></li>
+            </ul>
+        </div>
+
+            <div class="footer-section">
+            <h4>Azienda</h4>
+            <ul class="footer-links">
+                <li><a href="chisiamo.html">Chi Siamo</a></li>
+                <li><a href="aziendaagr.html">L'azienda Agricola</a></li>
+                <li><a href="qualita.html">Qualitá</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Contatti</h4>
+            <div class="footer-contact">
+                <p>
+                    <strong>Sede Operativa:</strong><br>
+                    Via Alcide De Gasperi, 4<br>
+                    92020 San Biagio Platani (AG)
+                </p>
+                <p>
+                    <strong>Tel:</strong> +39 327 309 8513<br>
+                    <strong>Tel:</strong> +39 339 530 5990
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h4>Informazioni Legali</h4>
+            <ul class="footer-links">
+                <li><a href="termini-e-condizioniodv.html">Termini e Condizioni</a></li>
+                <li><a href="cookie-e-privacy-policy.html">Cookie e Privacy Policy</a></li>
+            </ul>
+        </div>
+
+        <!-- New Social Media Section -->
+        <div class="footer-section">
+            <h4>Seguici Su</h4>
+            <p class="social-description">Resta aggiornato sulle nostre novitá</p>
+            <div class="footer-social-mobile" style="margin-top: 12px;">
+                <a href="https://www.facebook.com/OliodiValeria/?locale=it_IT" target="_blank" rel="noopener noreferrer" class="social-icon facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/oliodivaleria/" target="_blank" rel="noopener noreferrer" class="social-icon instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@oliodivaleria" target="_blank" rel="noopener noreferrer" class="social-icon tiktok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="footer-bottom-content">
+            <p class="footer-copyright">
+                &copy; 2025 Faraj Informatica. Tutti i diritti riservati.
+            </p>
+        </div>
+    </div>
+</div>
+</footer>
+
+<style>
+/* Footer */
+    .footer {
+        background: #fff;
+        border-top: 4px solid #eab308;
+        padding: 48px 0 0;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px 24px;
+        margin-bottom: 48px;
+    }
+
+    .footer-section {
+        margin-bottom: 0;
+    }
+
+    .footer-section:nth-child(1) {
+        grid-column: 1 / 2;
+        grid-row: 1;
+    }
+
+    .footer-section:nth-child(2) {
+        grid-column: 2 / 3;
+        grid-row: 1;
+    }
+
+    .footer-section:nth-child(3) {
+        grid-column: 3 / 4;
+        grid-row: 1;
+    }
+
+    .footer-section:nth-child(4) {
+        grid-column: 1 / 2;
+        grid-row: 2;
+    }
+
+    .footer-section:nth-child(5) {
+        grid-column: 3 / 4;
+        grid-row: 2;
+    }
+
+    .footer-section:nth-child(6) {
+        grid-column: 2 / 3;
+        grid-row: 2;
+    }
+
+    .footer-section h4 {
+        font-weight: bold;
+        color: #000;
+        margin-bottom: 16px;
+        font-size: 1.25rem;
+        letter-spacing: 0.05em;
+        padding-bottom: 12px;
+        border-bottom: 2px solid rgba(0,0,0,0.1);
+    }
+    
+    .footer-section h4::before {
+        margin-right: 8px;
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+    }
+    
+    .footer-section:nth-child(2) h4::before {
+        content: '\f72f'; /* wine-bottle icon for Prodotti */
+    }
+    
+    .footer-section:nth-child(3) h4::before {
+        content: '\f1ad'; /* building icon for Azienda */
+    }
+    
+    .footer-section:nth-child(4) h4::before {
+        content: '\f0e0'; /* envelope icon for Contatti */
+    }
+    
+    .footer-section:nth-child(6) h4::before {
+        content: '\f1e0'; /* share-alt icon for Seguici Su */
+    }
+    
+    .footer-section:nth-child(5) h4::before {
+        content: '\f0e3'; /* gavel icon for Informazioni Legali */
+    }
+
+    .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+
+    .footer-logo img {
+        height: 40px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .footer-logo img {
+            animation: none;
+        }
+    }
+
+    .footer-description {
+        color: #6b7280;
+        line-height: 1.6;
+        margin-bottom: 16px;
+    }
+
+    .footer-details {
+        font-size: 14px;
+        color: #9ca3af;
+    }
+
+    .footer-details p {
+        margin-bottom: 4px;
+    }
+
+    .footer-links {
+        list-style: none;
+    }
+
+    .footer-links li {
+        margin-bottom: 12px;
+    }
+
+    .footer-links a {
+        color: #6b7280;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+        color: #eab308;
+    }
+
+    .footer-contact {
+        font-size: 14px;
+    }
+
+    .footer-contact p {
+        margin-bottom: 12px;
+        line-height: 1.5;
+    }
+
+    .footer-contact strong {
+        color: #000;
+    }
+
+    .social-media {
+        margin-top: 8px;
+    }
+
+    .social-description {
+        color: #6b7280;
+        font-size: 14px;
+        margin-bottom: 16px;
+        line-height: 1.4;
+    }
+
+    .social-links {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .social-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 14px;
+        transition: all 0.3s ease;
+    }
+
+    .social-link.facebook {
+        background: linear-gradient(135deg, #1877f2, #42a5f5);
+        color: #fff;
+        box-shadow: 0 4px 12px rgba(24, 119, 242, 0.2);
+    }
+
+    .social-link.facebook:hover {
+        background: linear-gradient(135deg, #166fe5, #1976d2);
+        transform: translateY(-2px);
+    }
+
+    .social-link.instagram {
+        background: linear-gradient(135deg, #e4405f, #f77737, #fcaf45);
+        color: #fff;
+        box-shadow: 0 4px 12px rgba(228, 64, 95, 0.2);
+    }
+
+    .social-link.instagram:hover {
+        background: linear-gradient(135deg, #d73447, #e91e63, #ff9800);
+        transform: translateY(-2px);
+    }
+
+    .social-link i {
+        font-size: 18px;
+        width: 20px;
+        text-align: center;
+    }
+
+    .footer-bottom {
+        border-top: 1px solid #e5e7eb;
+        padding: 32px 0;
+    }
+
+    .footer-bottom-content {
+        text-align: center;
+    }
+
+    .footer-copyright {
+        color: #6b7280;
+        font-size: 14px;
+        margin: 0;
+    }
+
+    .footer-social-mobile {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+    }
+
+    .social-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 14px;
+        transition: all 0.3s ease;
+    }
+
+    .social-icon:hover {
+        transform: scale(1.1);
+    }
+
+    .social-icon.facebook {
+        background: #1877f2;
+        color: #fff;
+    }
+
+    .social-icon.instagram {
+        background: linear-gradient(135deg, #e4405f, #f77737);
+        color: #fff;
+    }
+
+    .social-icon.tiktok {
+        background: #000;
+        color: #fff;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+        .footer-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px 20px;
+        }
+
+        .footer-section:nth-child(1) {
+            grid-column: 1 / 2;
+            grid-row: 1;
+        }
+
+        .footer-section:nth-child(2) {
+            grid-column: 2 / 3;
+            grid-row: 1;
+        }
+
+        .footer-section:nth-child(3) {
+            grid-column: 1 / 2;
+            grid-row: 2;
+        }
+
+        .footer-section:nth-child(4) {
+            grid-column: 2 / 3;
+            grid-row: 2;
+        }
+
+        .footer-section:nth-child(5) {
+            grid-column: 1 / 2;
+            grid-row: 3;
+        }
+
+        .footer-section:nth-child(6) {
+            grid-column: 2 / 3;
+            grid-row: 3;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+
+        .mobile-menu-btn {
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+        }
+
+        .cta-title {
+            font-size: 2rem;
+        }
+
+        .two-column {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .values-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .timeline::before {
+            left: 20px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content,
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 60px;
+            margin-right: 0;
+            text-align: left;
+        }
+
+        .timeline-marker {
+            left: 20px;
+            transform: translateX(-50%);
+        }
+
+        .cta-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .footer-section:nth-child(1),
+        .footer-section:nth-child(2),
+        .footer-section:nth-child(3),
+        .footer-section:nth-child(4),
+        .footer-section:nth-child(5),
+        .footer-section:nth-child(6) {
+            grid-column: 1 / 2;
+            grid-row: auto;
+        }
+
+        .footer-social-mobile {
+            display: flex;
+        }
+
+        .social-links {
+            flex-direction: row;
+            gap: 8px;
+        }
+
+        .social-link span {
+            display: none;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero {
+            padding: 80px 0;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+        }
+
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .footer-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
 
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>

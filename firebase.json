@@ -21,6 +21,7 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ]
+    ],
+    "site": "l-olio-di-valeria-146320-38473"
   }
 }

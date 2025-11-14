@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Newsletter</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-nav">
+            <a href="dashboard_orders.html">Orders</a>
+            <a href="dashboard_messages.html">Messages</a>
+            <a href="dashboard_newsletter.html" class="active">Newsletter</a>
+        </div>
+        <h1>Newsletter Subscriptions</h1>
+        <div id="newsletter-subscriptions" class="data-container"></div>
+    </div>
+
+    <script type="module" src="js/firebase.js"></script>
+    <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/dashboard_newsletter.js"></script>
+</body>
+</html>
