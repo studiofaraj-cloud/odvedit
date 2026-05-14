@@ -13,8 +13,32 @@ function buildItemNameCell(item) {
     const imgCell = imageUrl
         ? `<td style="padding: 0 12px 0 0; vertical-align: middle; width: 64px;"><img src="${imageUrl}" alt="${name}" width="60" height="60" style="display:block; border-radius:6px; object-fit:cover; border:1px solid #e5e7eb;"></td>`
         : '';
-    const sizeLine = size ? `<div style="font-size: 12px; color: #6b7280; margin-top: 2px;">${size}</div>` : '';
-    return `<table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;"><tr>${imgCell}<td style="vertical-align: middle;"><div style="font-weight: 600; color: #1a202c;">${name}</div>${sizeLine}</td></tr></table>`;
+
+    // For custom gift boxes, the cart item's `size` field encodes the contents as
+    // "1x Grandolio 500ml, 2x King Quadra 250ml [Box Personalizzata]".
+    // Render each bottle on its own line and surface the pricing rule as a badge
+    // so the customer (and warehouse) can see exactly what was ordered.
+    const isGiftBox = /confezione regalo personalizzata/i.test(name);
+    let detailHtml = '';
+    if (isGiftBox && size) {
+        const ruleMatch = size.match(/\s*\[([^\]]+)\]\s*$/);
+        const rule = ruleMatch ? ruleMatch[1] : '';
+        const bottlesStr = ruleMatch ? size.slice(0, ruleMatch.index) : size;
+        const bottles = bottlesStr.split(',').map(s => s.trim()).filter(Boolean);
+        const listHtml = bottles.map(b =>
+            `<div style="margin: 3px 0; font-size: 13px; color: #374151;">` +
+            `<span style="color: #eab308; font-weight: 700; margin-right: 6px;">&bull;</span>${b}` +
+            `</div>`
+        ).join('');
+        const ruleBadge = rule
+            ? `<div style="margin-top: 6px;"><span style="display: inline-block; font-size: 11px; font-weight: 700; color: #a16207; background: #fef9c3; border: 1px solid #fde68a; padding: 2px 8px; border-radius: 10px;">${rule}</span></div>`
+            : '';
+        detailHtml = `<div style="margin-top: 6px;">${listHtml}</div>${ruleBadge}`;
+    } else if (size) {
+        detailHtml = `<div style="font-size: 12px; color: #6b7280; margin-top: 2px;">${size}</div>`;
+    }
+
+    return `<table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;"><tr>${imgCell}<td style="vertical-align: middle;"><div style="font-weight: 600; color: #1a202c;">${name}</div>${detailHtml}</td></tr></table>`;
 }
 
 const emailStyles = `

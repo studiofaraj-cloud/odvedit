@@ -1,24 +1,29 @@
-const functions = require("firebase-functions");
-const admin = require("firebase-admin");
+// Gen 2 Firebase Functions (firebase-functions v6+)
+const { onRequest } = require("firebase-functions/v2/https");
 const { defineSecret } = require("firebase-functions/params");
+const admin = require("firebase-admin");
 
-// Initialize Firebase Admin SDK before requiring any module that touches Firestore.
 admin.initializeApp();
 
 const { handleStripeWebhook } = require("./stripeWebhook");
 
-// Secrets — set with: firebase functions:secrets:set STRIPE_SECRET_KEY (etc.)
+// Secrets — values managed via Google Secret Manager
 const stripeSecretKey = defineSecret("STRIPE_SECRET_KEY");
 const webhookSecret   = defineSecret("STRIPE_WEBHOOK_SECRET");
 const brevoApiKey     = defineSecret("BREVO_API_KEY");
 
-// Email config
+// Email config (non-secret)
 const fromEmail  = "info@oliodivaleria.it";
 const adminEmail = "oliodivaleria@gmail.com";
 
-exports.stripeWebhook = functions
-  .runWith({ secrets: [stripeSecretKey, webhookSecret, brevoApiKey] })
-  .https.onRequest(async (req, res) => {
+exports.stripeWebhook = onRequest(
+  {
+    region: "us-central1",
+    secrets: [stripeSecretKey, webhookSecret, brevoApiKey],
+    // Stripe webhooks must verify the *raw* request body, not parsed JSON
+    invoker: "public"
+  },
+  async (req, res) => {
     await handleStripeWebhook(
       req,
       res,
@@ -28,4 +33,10 @@ exports.stripeWebhook = functions
       fromEmail,
       adminEmail
     );
-  });
+  }
+);
+
+// Firestore-triggered order email functions (replaces the legacy deployments
+// whose source we no longer have access to). Defined in ./orderEmails.js so
+// index.js stays focused on wiring/exports.
+Object.assign(exports, require('./orderEmails'));

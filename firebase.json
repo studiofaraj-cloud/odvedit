@@ -1,22 +1,23 @@
 {
-  "firestore": {
-    "database": "(default)",
-    "location": "nam5",
-    "rules": "firestore.rules",
-    "indexes": "firestore.indexes.json"
-  },
   "functions": [
     {
+      "source": "functions",
       "codebase": "default",
+      "runtime": "nodejs20",
       "ignore": [
         "node_modules",
         ".git",
         "firebase-debug.log",
         "firebase-debug.*.log",
-        "*.local"
-      ],
-      "source": "functions",
-      "runtime": "nodejs20"
+        ".env",
+        ".env.*",
+        "*.local.js",
+        "test-webhook.js",
+        "test_webhook_payload.json",
+        "env.example",
+        "firestore-rules-example.txt",
+        "migrations"
+      ]
     }
   ],
   "hosting": {
@@ -26,6 +27,11 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "site": "l-olio-di-valeria"
+    "rewrites": [
+      {
+        "source": "/stripeWebhook",
+        "function": "stripeWebhook"
+      }
+    ]
   }
 }

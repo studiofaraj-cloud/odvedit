@@ -70,18 +70,24 @@
     animation: flyToCart 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-/* Cart Sidebar */
+/* Cart Sidebar — flex column: header (fixed) / items (scroll) / total (fixed at bottom)
+   Avoids the old "whole sidebar scrolls + sticky footer" pattern which fails on mobile
+   when the items list exceeds the viewport — the checkout button used to scroll out of view. */
 .cart-sidebar {
     position: fixed;
     top: 0;
     right: -400px;
     width: 400px;
     height: 100vh;
+    /* dvh accounts for mobile browser chrome (Safari URL bar, etc.) so the checkout
+       button is never hidden behind it. Falls back to vh on older browsers. */
+    height: 100dvh;
     background: #fff;
     box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
     transition: right 0.3s ease;
     z-index: 2000;
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .cart-sidebar.open {
@@ -113,6 +119,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-shrink: 0; /* fixed at top, never scrolls or shrinks */
 }
 
 .cart-title {
@@ -139,6 +146,10 @@
 
 .cart-items {
     padding: 24px;
+    flex: 1 1 auto;          /* expand to fill all space between header and total */
+    overflow-y: auto;        /* scroll only THIS region when items overflow */
+    -webkit-overflow-scrolling: touch; /* momentum scrolling on iOS */
+    min-height: 0;           /* required for flex children that overflow */
 }
 
 .cart-item {
@@ -217,11 +228,14 @@
 }
 
 .cart-total {
+    /* Pinned at the bottom of the sidebar via flex layout (parent is flex column).
+       Adds safe-area inset so the checkout button isn't covered by iOS Safari's
+       bottom toolbar or the iPhone home indicator. */
     padding: 24px;
+    padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
     border-top: 2px solid #e5e7eb;
     background: #f9fafb;
-    position: sticky;
-    bottom: 0;
+    flex-shrink: 0; /* never shrinks — checkout button always visible */
 }
 
 .total-row {

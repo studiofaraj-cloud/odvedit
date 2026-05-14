@@ -2639,6 +2639,34 @@
         }
 
 
+        /* Size badges — bottom-left of product image */
+        .size-badges {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 5px;
+            z-index: 3;
+            max-width: calc(100% - 24px);
+        }
+
+        .size-badge {
+            background: rgba(15, 15, 15, 0.78);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 20px;
+            letter-spacing: 0.4px;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
 
         .product-content {
 
@@ -6492,18 +6520,19 @@
 
                 </div>
 
-                <!-- Product 3: Spallata -->
+                <!-- Product 3: King Quadra -->
 
                 <div class="product-card">
 
                     <div class="product-image">
 
-                        <img alt="SPALLATA - Olio Extravergine Biologico" decoding="async" height="400" loading="lazy"
-                            src="assets/spallata.webp" width="400" />
+                        <img alt="KING QUADRA - Olio Extravergine Biologico" decoding="async" height="400" loading="lazy"
+                            src="assets/olio-extravergine-biologico-bottiglia-king-quadra-limited-edition.webp"
+                            width="400" />
 
                         <button aria-label="Aggiungi rapidamente" class="quick-add-trigger"
-                            data-image="assets/olio-extravergine-biologico-bottiglia-spallata-siciliano.webp"
-                            data-product="SPALLATA"
+                            data-image="assets/olio-extravergine-biologico-bottiglia-king-quadra-limited-edition.webp"
+                            data-product="KING QUADRA"
                             data-variants='[{"size":"250ml","price":9.99},{"size":"500ml","price":11.99}]'><i
                                 class="fas fa-plus"></i></button>
 
@@ -6511,16 +6540,16 @@
 
                     <div class="product-content">
 
-                        <h3 class="product-title" data-i18n="t_6e3ad117">SPALLATA</h3>
+                        <h3 class="product-title" data-i18n="t_d3d95c71">KING QUADRA</h3>
 
                         <p data-i18n="t_3e64cbc1"
                             style="font-size: 0.9rem; color: #eab308; font-weight: 600; margin-top: -8px; margin-bottom: 20px;">
 
                             L'OLIO DI VALERIA</p>
 
-                        <div class="product-price" data-i18n="t_def7b93d">Da €9.99</div>
+                        <div class="product-price" data-i18n="t_bdefd394">Da €9.99</div>
 
-                        <a class="catalog-action-btn" data-i18n="t_5282d2cf" href="prodotto-spallata.html">
+                        <a class="catalog-action-btn" data-i18n="t_5282d2cf" href="prodotto-king-quadra.html">
 
                             Scopri e Acquista
 
@@ -10674,6 +10703,28 @@
             } catch (error) {
                 console.error('Error initializing cookie systems:', error);
             }
+        });
+    </script>
+
+    <!-- Auto-generate size badges from data-variants on each product card -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.quick-add-trigger[data-variants]').forEach(function (btn) {
+                try {
+                    var variants = JSON.parse(btn.getAttribute('data-variants'));
+                    if (!variants || variants.length === 0) return;
+                    var container = document.createElement('div');
+                    container.className = 'size-badges';
+                    variants.forEach(function (v) {
+                        var badge = document.createElement('span');
+                        badge.className = 'size-badge';
+                        badge.textContent = v.size;
+                        container.appendChild(badge);
+                    });
+                    var imgEl = btn.closest('.product-image');
+                    if (imgEl) imgEl.appendChild(container);
+                } catch (e) {}
+            });
         });
     </script>
 
