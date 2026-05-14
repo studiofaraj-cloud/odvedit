@@ -1031,38 +1031,54 @@ export class CheckoutUI {
             const normalizedShipping = typeof shippingCost === 'number' ? shippingCost : (shipping || 0);
 
             // Trim items payload for Stripe: the deployed createCheckoutSession function
-            // stringifies the full items array into a Stripe metadata value, and Stripe
-            // enforces a 500-char limit per metadata value. Long gift-box `size` fields
-            // (the bottle list) can push it over. We shorten size to just the rule marker
-            // (e.g., "[Box Personalizzata]") for the Stripe call only. The full cart
-            // is already persisted in Firestore via submitCheckoutOrder, so email +
-            // order history aren't affected.
-            const stripeItems = items.map(it => {
-                const out = { ...it };
-                const s = typeof it.size === 'string' ? it.size : '';
-                if (s.length > 40) {
-                    const ruleMatch = s.match(/\[([^\]]+)\]/);
-                    if (ruleMatch) {
-                        // Gift-box style: keep just the rule marker
-                        out.size = ruleMatch[0];
-                    } else {
-                        // Plain long size: hard truncate
-                        out.size = s.slice(0, 37) + '...';
+            // stringifies the full items array into a single Stripe metadata value, and
+            // Stripe enforces a hard 500-char limit per value. The full cart is already
+            // persisted in Firestore by submitCheckoutOrder, so email + order history
+            // see the unmodified data — only the Stripe metadata is slimmed here.
+            //
+            // Strategy (3-tier fallback to handle even very long carts):
+            //   Tier 1: keep {name, size, quantity, price} per item (drop productId,
+            //           totalPrice, image, id). Shorten any size > 40 chars to its rule
+            //           marker (e.g., "[Box Personalizzata]") or a 37-char truncation.
+            //   Tier 2: if still > 480 chars, abbreviate keys to {n,s,q,p}.
+            //   Tier 3: if still > 480 chars, send only first N items that fit, plus a
+            //           "+X more" placeholder so the metadata reflects the truncation.
+            const shortSize = (s) => {
+                if (typeof s !== 'string') return s;
+                if (s.length <= 40) return s;
+                const m = s.match(/\[([^\]]+)\]/);
+                return m ? m[0] : s.slice(0, 37) + '...';
+            };
+
+            // Tier 1
+            let payloadItems = items.map(it => ({
+                name: it.name,
+                size: shortSize(it.size),
+                quantity: it.quantity || 1,
+                price: it.price
+            }));
+
+            // Tier 2 — abbreviate keys
+            if (JSON.stringify(payloadItems).length > 480) {
+                payloadItems = items.map(it => ({
+                    n: it.name,
+                    s: shortSize(it.size),
+                    q: it.quantity || 1,
+                    p: it.price
+                }));
+            }
+
+            // Tier 3 — drop items from the tail until fits
+            if (JSON.stringify(payloadItems).length > 480) {
+                let kept = [...payloadItems];
+                while (kept.length > 1) {
+                    kept.pop();
+                    const probe = [...kept, { n: `+${payloadItems.length - kept.length} more` }];
+                    if (JSON.stringify(probe).length <= 480) {
+                        payloadItems = probe;
+                        break;
                     }
                 }
-                return out;
-            });
-
-            // Final safety net: if the JSON is still > ~480 chars (rare for typical carts),
-            // drop the non-essential totalPrice and productId fields to give more headroom.
-            let payloadItems = stripeItems;
-            if (JSON.stringify(stripeItems).length > 480) {
-                payloadItems = stripeItems.map(it => ({
-                    name: it.name,
-                    size: it.size,
-                    quantity: it.quantity,
-                    price: it.price
-                }));
             }
 
             // Call Cloud Function to create checkout session
