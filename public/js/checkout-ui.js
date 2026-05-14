@@ -196,17 +196,17 @@ export class CheckoutUI {
 
     calculateShipping(subtotal, country) {
         const euCountries = [
-            'FR', 'DE', 'ES', 'AT', 'BE', 'NL', 'PT', 'GR', 'PL', 
-            'SE', 'DK', 'FI', 'IE', 'CZ', 'HU', 'RO', 'BG', 'HR', 
+            'FR', 'DE', 'ES', 'AT', 'BE', 'NL', 'PT', 'GR', 'PL',
+            'SE', 'DK', 'FI', 'IE', 'CZ', 'HU', 'RO', 'BG', 'HR',
             'SK', 'SI', 'LT', 'LV', 'EE', 'LU', 'MT', 'CY',
             'CH', 'NO', 'GB'
         ];
-        
+
         const highShippingCountries = ['US', 'CA', 'AU', 'ZA'];
 
         if (country === 'IT') {
-            // Italy: €9.90 flat rate
-            return 9.90;
+            // Italy: free shipping over €100, otherwise €9.90 flat
+            return (Number(subtotal) || 0) >= 100 ? 0 : 9.90;
         } else if (euCountries.includes(country)) {
             // European countries (including CH, NO, GB): €24.90 flat rate
             return 24.90;
