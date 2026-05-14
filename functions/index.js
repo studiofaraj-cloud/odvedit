@@ -40,3 +40,7 @@ exports.stripeWebhook = onRequest(
 // whose source we no longer have access to). Defined in ./orderEmails.js so
 // index.js stays focused on wiring/exports.
 Object.assign(exports, require('./orderEmails'));
+
+// Replacement createCheckoutSession (legacy version dumped the entire cart
+// into Stripe metadata which broke for big carts due to the 500-char limit).
+Object.assign(exports, require('./checkoutSession'));
