@@ -1,0 +1,279 @@
+/* ========================================
+   Image Protection CSS
+   Prevents image downloading, dragging, and copying
+   ======================================== */
+
+/* Disable user selection on all images */
+img,
+.product-image,
+.product-image img,
+.gallery-item-image,
+.hero-slide img,
+.cart-item-image img,
+[style*="background-image"] {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    pointer-events: auto;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+}
+
+/* Add transparent overlay to all img elements */
+img::before,
+.product-image img::before,
+.gallery-item-image::before,
+.hero-slide img::before,
+.cart-item-image img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Ensure relative positioning for images with ::before pseudo-elements */
+img,
+.product-image img,
+.gallery-item-image,
+.hero-slide img,
+.cart-item-image img {
+    position: relative;
+}
+
+/* Add overlay to product-image containers */
+.product-image {
+    position: relative;
+}
+
+.product-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Add overlay to gallery-item containers */
+.gallery-item {
+    position: relative;
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Disable pointer events on hero slides */
+.hero-slide {
+    position: relative;
+}
+
+.hero-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Background image protection for elements with inline background-image styles */
+[style*="background-image"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 1;
+    pointer-events: none;
+}
+
+[style*="background-image"] {
+    position: relative;
+}
+
+/* Disable right-click context menu on images */
+img,
+.product-image,
+.gallery-item-image,
+.hero-slide img,
+[style*="background-image"] {
+    -webkit-touch-callout: none;
+}
+
+/* Prevent dragging with draggable attribute */
+img[draggable="false"],
+.product-image img[draggable="false"],
+.gallery-item-image[draggable="false"] {
+    -webkit-user-drag: none;
+    user-drag: none;
+}
+
+/* Additional protection for cart images */
+.cart-item-image {
+    position: relative;
+}
+
+.cart-item-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Logo protection */
+.logo img,
+.footer-logo img,
+.mobile-menu-header img {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    pointer-events: auto;
+}
+
+.logo,
+.footer-logo,
+.mobile-menu-header {
+    position: relative;
+}
+
+.logo::before,
+.footer-logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Hero background images */
+.hero,
+.shop-hero,
+[class*="hero-"] {
+    position: relative;
+}
+
+/* Feature images and thumbnails */
+.feature-card img,
+.thumbnail img,
+.card-image img {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: auto;
+}
+
+.feature-card,
+.thumbnail,
+.card-image {
+    position: relative;
+}
+
+.feature-card::before,
+.thumbnail::before,
+.card-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Ensure text and interactive elements remain clickable */
+.product-card a,
+.gallery-item a,
+.btn,
+button,
+input,
+textarea,
+select,
+.nav-link,
+.dropdown-item {
+    pointer-events: auto;
+    z-index: 10;
+    position: relative;
+}
+
+/* Modal images */
+.modal-image,
+.modal-video {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+}
+
+.modal-content {
+    position: relative;
+}
+
+.modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Prevent text selection on image containers */
+.product-card,
+.gallery-item,
+.hero,
+.feature-card {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Additional security: disable pointer events on specific image types */
+img[src*=".jpg"]::before,
+img[src*=".jpeg"]::before,
+img[src*=".png"]::before,
+img[src*=".webp"]::before,
+img[src*=".svg"]::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    z-index: 1;
+}

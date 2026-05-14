@@ -1,11 +1,32 @@
 /**
  * Cookie Consent Manager
  * Handles user consent for cookies and privacy compliance
+ * Uses secure storage for sensitive preference data
  */
+
+// Import secureStorage if using modules, otherwise use fallback
+const getSecureStorage = () => {
+    if (typeof secureStorage !== 'undefined') {
+        return secureStorage;
+    }
+    // Fallback to localStorage if secureStorage not available
+    return {
+        getItem: (key) => {
+            const item = localStorage.getItem(key);
+            return item ? JSON.parse(item) : null;
+        },
+        setItem: (key, value) => {
+            localStorage.setItem(key, JSON.stringify(value));
+        },
+        removeItem: (key) => localStorage.removeItem(key)
+    };
+};
+
 class CookieConsent {
     constructor() {
         this.consentKey = 'cookieConsent';
         this.preferencesKey = 'cookiePreferences';
+        this.storage = getSecureStorage();
         this.consentData = this.loadConsent();
         this.init();
     }
@@ -17,13 +38,53 @@ class CookieConsent {
 
     loadConsent() {
         try {
+            // Try to load from secure storage first
+            const consentData = this.storage.getItem(this.consentKey);
+            
+            if (consentData && typeof consentData === 'object') {
+                return {
+                    given: consentData.given === true,
+                    timestamp: consentData.timestamp || Date.now(),
+                    preferences: consentData.preferences || {
+                        necessary: true,
+                        analytics: false,
+                        marketing: false,
+                        preferences: false
+                    }
+                };
+            }
+            
+            // Fallback: try old localStorage format for migration
             const consent = localStorage.getItem(this.consentKey);
             const preferences = localStorage.getItem(this.preferencesKey);
             
+            if (consent) {
+                const data = {
+                    given: consent === 'true',
+                    timestamp: parseInt(localStorage.getItem(this.consentKey + '_timestamp')) || Date.now(),
+                    preferences: preferences ? JSON.parse(preferences) : {
+                        necessary: true,
+                        analytics: false,
+                        marketing: false,
+                        preferences: false
+                    }
+                };
+                
+                // Migrate to secure storage
+                this.storage.setItem(this.consentKey, data);
+                
+                // Clean up old storage
+                localStorage.removeItem(this.consentKey);
+                localStorage.removeItem(this.preferencesKey);
+                localStorage.removeItem(this.consentKey + '_timestamp');
+                
+                return data;
+            }
+            
             return {
-                given: consent === 'true',
-                timestamp: parseInt(localStorage.getItem(this.consentKey + '_timestamp')) || Date.now(),
-                preferences: preferences ? JSON.parse(preferences) : {
+                given: false,
+                timestamp: Date.now(),
+                preferences: {
                     necessary: true,
                     analytics: false,
                     marketing: false,
@@ -54,9 +115,8 @@ class CookieConsent {
                 this.consentData.preferences = { ...this.consentData.preferences, ...preferences };
             }
 
-            localStorage.setItem(this.consentKey, given.toString());
-            localStorage.setItem(this.consentKey + '_timestamp', this.consentData.timestamp.toString());
-            localStorage.setItem(this.preferencesKey, JSON.stringify(this.consentData.preferences));
+            // Save to secure storage
+            this.storage.setItem(this.consentKey, this.consentData);
             
             // Trigger consent change event
             window.dispatchEvent(new CustomEvent('consentChanged', {
@@ -248,23 +308,23 @@ class CookieConsent {
             <div class="cookie-banner">
                 <div class="cookie-content">
                     <div class="cookie-text">
-                        <h3>Cookie Consent</h3>
-                        <p>We use cookies to enhance your experience and analyze site usage. You can customize your preferences or accept all cookies.</p>
+                        <h3>Consenso Cookie</h3>
+                        <p>Utilizziamo i cookie per migliorare la tua esperienza e analizzare l'utilizzo del sito. Puoi personalizzare le tue preferenze o accettare tutti i cookie.</p>
                     </div>
                     <div class="cookie-actions">
-                        <button id="acceptAllCookies" class="cookie-btn cookie-accept">Accept All</button>
-                        <button id="customizeCookies" class="cookie-btn cookie-customize">Customize</button>
-                        <button id="declineAllCookies" class="cookie-btn cookie-decline">Decline All</button>
+                        <button id="acceptAllCookies" class="cookie-btn cookie-accept">Accetta Tutti</button>
+                        <button id="customizeCookies" class="cookie-btn cookie-customize">Personalizza</button>
+                        <button id="declineAllCookies" class="cookie-btn cookie-decline">Rifiuta Tutti</button>
                     </div>
                 </div>
                 <div id="cookiePreferences" class="cookie-preferences hidden">
-                    <h4>Cookie Preferences</h4>
+                    <h4>Preferenze Cookie</h4>
                     <div class="preference-item">
                         <label>
                             <input type="checkbox" id="necessary" checked disabled>
                             <div class="preference-info">
-                                <strong>Necessary Cookies</strong>
-                                <p>Required for basic site functionality</p>
+                                <strong>Cookie Necessari</strong>
+                                <p>Necessari per il funzionamento base del sito</p>
                             </div>
                         </label>
                     </div>
@@ -272,8 +332,8 @@ class CookieConsent {
                         <label>
                             <input type="checkbox" id="analytics">
                             <div class="preference-info">
-                                <strong>Analytics Cookies</strong>
-                                <p>Help us understand how visitors interact with our website</p>
+                                <strong>Cookie Analitici</strong>
+                                <p>Ci aiutano a capire come i visitatori interagiscono con il nostro sito web</p>
                             </div>
                         </label>
                     </div>
@@ -281,8 +341,8 @@ class CookieConsent {
                         <label>
                             <input type="checkbox" id="marketing">
                             <div class="preference-info">
-                                <strong>Marketing Cookies</strong>
-                                <p>Used to track visitors across websites for advertising purposes</p>
+                                <strong>Cookie di Marketing</strong>
+                                <p>Utilizzati per tracciare i visitatori su vari siti web a scopo pubblicitario</p>
                             </div>
                         </label>
                     </div>
@@ -290,14 +350,14 @@ class CookieConsent {
                         <label>
                             <input type="checkbox" id="preferences">
                             <div class="preference-info">
-                                <strong>Preference Cookies</strong>
-                                <p>Remember your settings and preferences</p>
+                                <strong>Cookie delle Preferenze</strong>
+                                <p>Memorizzano le tue impostazioni e preferenze</p>
                             </div>
                         </label>
                     </div>
                     <div class="preference-actions">
-                        <button id="savePreferences" class="cookie-btn cookie-accept">Save Preferences</button>
-                        <button id="cancelPreferences" class="cookie-btn cookie-cancel">Cancel</button>
+                        <button id="savePreferences" class="cookie-btn cookie-accept">Salva Preferenze</button>
+                        <button id="cancelPreferences" class="cookie-btn cookie-cancel">Annulla</button>
                     </div>
                 </div>
             </div>

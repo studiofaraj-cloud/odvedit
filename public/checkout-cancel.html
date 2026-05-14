@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title data-i18n="t_2754163c">Pagamento Annullato - l'Olio di Valeria</title>
+<link href="assets/favicon.ico" rel="icon" type="image/x-icon"/>
+<!-- Resource Hints -->
+<link href="https://cdnjs.cloudflare.com" rel="dns-prefetch"/>
+<link crossorigin="" href="https://cdnjs.cloudflare.com" rel="preconnect"/>
+<!-- Font Awesome (async) -->
+<link as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/></noscript>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f9fafb 0%, #e5e7eb 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .cancel-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .cancel-icon {
+            width: 80px;
+            height: 80px;
+            background: #ef4444;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        .cancel-icon i {
+            font-size: 40px;
+            color: white;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            color: #1f2937;
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .cancel-message {
+            color: #6b7280;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .info-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+
+        .info-box p {
+            color: #92400e;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .info-box i {
+            margin-right: 8px;
+        }
+
+        .reason-box {
+            background: #f9fafb;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+
+        .reason-box h2 {
+            color: #1f2937;
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        .reason-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .reason-box li {
+            padding: 8px 0;
+            color: #6b7280;
+            display: flex;
+            align-items: start;
+            gap: 12px;
+        }
+
+        .reason-box li i {
+            color: #f59e0b;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #eab308;
+            color: #000000;
+        }
+
+        .btn-primary:hover {
+            background: #d4a007;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(234, 179, 8, 0.3);
+        }
+
+        .btn-secondary {
+            background: #f3f4f6;
+            color: #374151;
+        }
+
+        .btn-secondary:hover {
+            background: #e5e7eb;
+        }
+
+        @media (max-width: 640px) {
+            .cancel-container {
+                padding: 24px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+<script src="js/translations.js"></script>
+<script defer="" src="js/translator.js"></script><link href="css/language-switcher.css" rel="stylesheet"/></head>
+<body>
+<div class="cancel-container">
+<div class="cancel-icon">
+<i class="fas fa-times"></i>
+</div>
+<h1 data-i18n="t_f496bd34">Pagamento Annullato</h1>
+<p class="cancel-message" data-i18n="t_be7661c2">
+            Il pagamento non è stato completato. Nessun addebito è stato effettuato sul tuo conto.
+        </p>
+<div class="info-box">
+<p data-i18n="t_61d72a23">
+<i class="fas fa-info-circle"></i>
+                Non preoccuparti, puoi riprovare in qualsiasi momento. Il tuo carrello è ancora disponibile.
+            </p>
+</div>
+<div class="reason-box">
+<h2 data-i18n="t_2ff93bd8">Possibili motivi del mancato pagamento:</h2>
+<ul>
+<li data-i18n="t_cfa8e366">
+<i class="fas fa-circle"></i>
+<span>Hai annullato volontariamente il pagamento</span>
+</li>
+<li data-i18n="t_0e4ea1ec">
+<i class="fas fa-circle"></i>
+<span>La carta di credito è stata rifiutata dalla tua banca</span>
+</li>
+<li data-i18n="t_6821b685">
+<i class="fas fa-circle"></i>
+<span>Si è verificato un errore tecnico durante il processo</span>
+</li>
+<li data-i18n="t_8bb95543">
+<i class="fas fa-circle"></i>
+<span>La sessione di pagamento è scaduta</span>
+</li>
+</ul>
+</div>
+<div class="actions" data-i18n="t_c101af42">
+<a class="btn btn-primary" href="checkout.html">
+<i class="fas fa-redo"></i>
+                Riprova il Pagamento
+            </a>
+<a class="btn btn-secondary" href="shop.html">
+<i class="fas fa-shopping-bag"></i>
+                Torna allo Shop
+            </a>
+<a class="btn btn-secondary" href="contatti.html">
+<i class="fas fa-headset"></i>
+                Contattaci
+            </a>
+</div>
+</div>
+<script>
+        // Extract session_id from URL if present
+        const urlParams = new URLSearchParams(window.location.search);
+        const sessionId = urlParams.get('session_id');
+
+        if (sessionId) {
+            console.log('Cancelled checkout session ID:', sessionId);
+        }
+
+        // Log cancellation for analytics (if implemented)
+        console.log('Payment cancelled or failed');
+    </script>
+
+    
+\n
+
+    <!-- Cookie Consent Scripts -->
+    <script src="js/cookie-utils.js"></script>
+    <script src="js/cookie-consent.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                if (typeof CookieUtils !== 'undefined' && typeof UserPreferences !== 'undefined') {
+                    window.userPreferences = new UserPreferences();
+                }
+            } catch (error) {
+                console.error('Error initializing cookie systems:', error);
+            }
+        });
+    </script>
+
+</body>
+</html>
+

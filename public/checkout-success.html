@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title data-i18n="t_69c38a12">Ordine Confermato - l'Olio di Valeria</title>
+<link href="assets/favicon.ico" rel="icon" type="image/x-icon"/>
+<!-- Resource Hints -->
+<link href="https://cdnjs.cloudflare.com" rel="dns-prefetch"/>
+<link crossorigin="" href="https://cdnjs.cloudflare.com" rel="preconnect"/>
+<!-- Font Awesome (async) -->
+<link as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/></noscript>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f9fafb 0%, #e5e7eb 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .success-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #10b981;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        .success-icon i {
+            font-size: 40px;
+            color: white;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            color: #1f2937;
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .success-message {
+            color: #6b7280;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .order-info {
+            background: #f9fafb;
+            border: 2px solid #eab308;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+
+        .order-info h2 {
+            color: #1f2937;
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+        .order-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .order-detail:last-child {
+            border-bottom: none;
+        }
+
+        .order-detail-label {
+            font-weight: 600;
+            color: #6b7280;
+        }
+
+        .order-detail-value {
+            color: #1f2937;
+            font-weight: 500;
+        }
+
+        .info-box {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+
+        .info-box p {
+            color: #1e40af;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .info-box i {
+            margin-right: 8px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #eab308;
+            color: #000000;
+        }
+
+        .btn-primary:hover {
+            background: #d4a007;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(234, 179, 8, 0.3);
+        }
+
+        .btn-secondary {
+            background: #f3f4f6;
+            color: #374151;
+        }
+
+        .btn-secondary:hover {
+            background: #e5e7eb;
+        }
+
+        @media (max-width: 640px) {
+            .success-container {
+                padding: 24px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+<script src="js/translations.js"></script>
+<script defer="" src="js/translator.js"></script><link href="css/language-switcher.css" rel="stylesheet"/></head>
+<body>
+<div class="success-container">
+<div class="success-icon">
+<i class="fas fa-check"></i>
+</div>
+<h1 data-i18n="t_3b8c9a80">Ordine Confermato!</h1>
+<p class="success-message" data-i18n="t_847dbc85">
+            Grazie per il tuo ordine. Il pagamento è stato elaborato con successo.
+        </p>
+<div class="order-info" id="orderInfo" style="display: none;">
+<h2 data-i18n="t_47ffb582">Dettagli Ordine</h2>
+<div class="order-detail" data-i18n="t_9662de65">
+<span class="order-detail-label">Numero Ordine:</span>
+<span class="order-detail-value" id="orderId">-</span>
+</div>
+<div class="order-detail" data-i18n="t_46e081de">
+<span class="order-detail-label">Importo:</span>
+<span class="order-detail-value" id="orderTotal">-</span>
+</div>
+</div>
+<div class="info-box">
+<p data-i18n="t_34141f29">
+<i class="fas fa-envelope"></i>
+                Riceverai una email di conferma con tutti i dettagli del tuo ordine all'indirizzo fornito.
+            </p>
+</div>
+<div class="actions" data-i18n="t_cd8eea98">
+<a class="btn btn-primary" href="shop.html">
+<i class="fas fa-shopping-bag"></i>
+                Continua lo Shopping
+            </a>
+<a class="btn btn-secondary" href="index.html">
+<i class="fas fa-home"></i>
+                Torna alla Home
+            </a>
+</div>
+</div>
+<script>
+        // Extract session_id from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const sessionId = urlParams.get('session_id');
+
+        if (sessionId) {
+            // Optionally retrieve order details from session
+            // For now, we'll just show a generic success message
+            // The order will be created via webhook and email will be sent automatically
+            console.log('Checkout session ID:', sessionId);
+        }
+
+        // You could optionally call a Cloud Function to get order details
+        // For now, the webhook will create the order and send emails automatically
+    </script>
+
+    
+\n
+
+    <!-- Cookie Consent Scripts -->
+    <script src="js/cookie-utils.js"></script>
+    <script src="js/cookie-consent.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                if (typeof CookieUtils !== 'undefined' && typeof UserPreferences !== 'undefined') {
+                    window.userPreferences = new UserPreferences();
+                }
+            } catch (error) {
+                console.error('Error initializing cookie systems:', error);
+            }
+        });
+    </script>
+
+</body>
+</html>
+

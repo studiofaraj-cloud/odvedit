@@ -1,1542 +1,3466 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
+
+
+
 <html lang="it">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galleria - l'Olio di Valeria | Scopri il Nostro Mondo</title>
-    <meta name="description" content="Scopri la galleria fotografica e video di l'Olio di Valeria: dalle bottiglie ai campi, dalla produzione agli eventi.">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <link href="assets/favicon.ico" rel="icon" type="image/x-icon" />
+
+    <link href="assets/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+
+    <link href="assets/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+
+    <link href="assets/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+
+    <link href="assets/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png" />
+
+    <link href="assets/android-chrome-512x512.png" rel="icon" sizes="512x512" type="image/png" />
+
+    <link href="assets/site.webmanifest" rel="manifest" />
+
+    <meta charset="utf-8" />
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title data-i18n="t_59872dba">Galleria - l'Olio di Valeria | Foto e Video della Produzione Siciliana</title>
+
+    <meta
+        content="Galleria fotografica e video dell'Olio di Valeria: uliveti in Sicilia, produzione artigianale, bottiglie ed eventi. Immagini autentiche da Agrigento."
+        name="description" />
+
+    <meta
+        content="galleria olio siciliano, foto produzione olio, video olio extravergine, uliveti sicilia, azienda agricola agrigento, immagini olio biologico, produzione olio artigianale"
+        name="keywords" />
+
+    <!-- Open Graph / Facebook -->
+
+    <meta content="website" property="og:type" />
+
+    <meta content="https://oliodivaleria.it/galleria.html" property="og:url" />
+
+    <meta content="Galleria - l'Olio di Valeria | Foto e Video della Produzione Siciliana" property="og:title" />
+
+    <meta
+        content="Galleria fotografica e video di l'Olio di Valeria: scopri i nostri uliveti in Sicilia, il processo di produzione artigianale e le bottiglie."
+        property="og:description" />
+
+    <meta content="https://oliodivaleria.it/assets/odv-bott.jpg" property="og:image" />
+
+    <meta content="l'Olio di Valeria" property="og:site_name" />
+
+    <!-- Twitter -->
+
+    <meta content="summary_large_image" property="twitter:card" />
+
+    <meta content="https://oliodivaleria.it/galleria.html" property="twitter:url" />
+
+    <meta content="Galleria - l'Olio di Valeria | Foto e Video della Produzione Siciliana" property="twitter:title" />
+
+    <meta
+        content="Galleria fotografica e video di l'Olio di Valeria: scopri i nostri uliveti in Sicilia, il processo di produzione artigianale e le bottiglie."
+        property="twitter:description" />
+
+    <meta content="https://oliodivaleria.it/assets/odv-bott.jpg" property="twitter:image" />
+
+    <link href="https://oliodivaleria.it/galleria.html" hreflang="it" rel="alternate" />
+
+    <link href="https://oliodivaleria.it/galleria.html" hreflang="x-default" rel="alternate" />
+
+    <!-- Resource Hints -->
+
+    <link href="https://cdnjs.cloudflare.com" rel="dns-prefetch" />
+
+    <link crossorigin="" href="https://cdnjs.cloudflare.com" rel="preconnect" />
+
+    <!-- Font Awesome (async) -->
+
+    <link as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        onload="this.onload=null;this.rel='stylesheet'" rel="preload" />
+
+    <noscript>
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
+    </noscript>
+
+    <!-- JSON-LD Structured Data: BreadcrumbList -->
+
+    <script type="application/ld+json">
+
+    {
+
+      "@context": "https://schema.org",
+
+      "@type": "BreadcrumbList",
+
+      "itemListElement": [{
+
+        "@type": "ListItem",
+
+        "position": 1,
+
+        "name": "Home",
+
+        "item": "https://oliodivaleria.it/index.html"
+
+      },{
+
+        "@type": "ListItem",
+
+        "position": 2,
+
+        "name": "Galleria",
+
+        "item": "https://oliodivaleria.it/galleria.html"
+
+      }]
+
+    }
+
+    </script>
+
+    <script src="js/mobile-nav.js"></script>
+
+    <link href="css/mobile-nav.css" rel="stylesheet">
+
+    <link href="css/footer.css" rel="stylesheet" />
+
     <style>
         /* ========================================
+
            Global Styles
+
            ======================================== */
+
         * {
+
             margin: 0;
+
             padding: 0;
+
             box-sizing: border-box;
+
         }
+
+
 
         body {
+
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
             background-color: #fff;
+
             color: #333;
+
             line-height: 1.7;
+
         }
+
+
 
         .container {
+
             max-width: 1400px;
+
             margin: 0 auto;
+
             padding: 0 20px;
+
         }
 
-        /* Header */
+
+
+        /* Header Styles */
+
         .header {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
+
+            position: fixed;
+
             top: 0;
+
+            left: 0;
+
+            right: 0;
+
             z-index: 1001;
+
+            background: rgba(255, 255, 255, 0.9);
+
+            backdrop-filter: blur(10px);
+
+            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+
+            transition: all 0.3s ease;
+
         }
+
+
+
+        .header.scrolled {
+
+            background: rgba(255, 255, 255, 0.95);
+
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+            border-bottom: 1px solid rgba(234, 179, 8, 0.2);
+
+        }
+
+
 
         .header-content {
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
+
             height: 80px;
+
             padding: 0 20px;
+
         }
+
+
+
+        .logo {
+
+            flex-shrink: 0;
+
+        }
+
+
 
         .logo img {
+
             height: 50px;
+
             width: auto;
+
+            transition: all 0.3s ease;
+
         }
 
-        .nav-links {
+
+
+        .logo:hover img {
+
+            transform: scale(1.05);
+
+        }
+
+
+
+        /* Navigation Styles */
+
+        .nav-desktop {
+
+            display: none;
+
+            flex: 1;
+
+            justify-content: center;
+
+            margin: 0 32px;
+
+        }
+
+
+
+        .nav-menu {
+
             display: flex;
+
             align-items: center;
+
             gap: 32px;
+
             list-style: none;
+
         }
 
-        .nav-links a {
-            text-decoration: none;
-            color: #374151;
-            font-weight: 500;
-            transition: color 0.3s ease;
+
+
+        .nav-item {
+
             position: relative;
+
         }
 
-        .nav-links a:hover {
+
+
+        .nav-link {
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 500;
+
+            color: #374151;
+
+            padding: 8px 0;
+
+            transition: all 0.3s ease;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 4px;
+
+        }
+
+
+
+        .nav-link:hover {
+
             color: #eab308;
+
         }
 
-        .nav-links a.active {
-            color: #eab308;
-        }
 
-        .nav-links a.active::after {
+
+        .nav-link::after {
+
             content: '';
+
             position: absolute;
-            bottom: -8px;
+
+            bottom: 0;
+
             left: 0;
+
             right: 0;
+
             height: 2px;
+
             background: #eab308;
+
+            transform: scaleX(0);
+
+            transition: transform 0.3s ease;
+
         }
+
+
+
+        .nav-link:hover::after {
+
+            transform: scaleX(1);
+
+        }
+
+
+
+        
+
+
+
+        /* Dropdown Styles */
+
+        .dropdown {
+
+            position: absolute;
+
+            top: 100%;
+
+            left: 50%;
+
+            transform: translateX(-50%) translateY(8px);
+
+            width: 256px;
+
+            background: rgba(255, 255, 255, 0.95);
+
+            backdrop-filter: blur(12px);
+
+            border-radius: 16px;
+
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+
+            border: 1px solid rgba(229, 231, 235, 0.5);
+
+            overflow: hidden;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transform: translateX(-50%) translateY(-4px);
+
+            transition: all 0.3s ease;
+
+        }
+
+
+
+        .nav-item:hover .dropdown {
+
+            opacity: 1;
+
+            visibility: visible;
+
+            transform: translateX(-50%) translateY(8px);
+
+        }
+
+
+
+        .dropdown-content {
+
+            padding: 16px 0;
+
+        }
+
+
+
+        .dropdown-item {
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 12px 24px;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 500;
+
+            color: #374151;
+
+            transition: all 0.2s ease;
+
+        }
+
+
+
+        .dropdown-item:hover {
+
+            color: #eab308;
+
+            background: rgba(254, 240, 138, 0.8);
+
+        }
+
+
+
+        .dropdown-dot {
+
+            width: 8px;
+
+            height: 8px;
+
+            background: #eab308;
+
+            border-radius: 50%;
+
+            margin-right: 12px;
+
+            opacity: 0;
+
+            transition: opacity 0.2s ease;
+
+        }
+
+
+
+        .dropdown-item:hover .dropdown-dot {
+
+            opacity: 1;
+
+        }
+
+
+
+        .dropdown-arrow-right {
+
+            margin-left: auto;
+
+            color: #9ca3af;
+
+            transition: color 0.2s ease;
+
+        }
+
+
+
+        .dropdown-item:hover .dropdown-arrow-right {
+
+            color: #eab308;
+
+        }
+
+
+
+        .dropdown-footer {
+
+            padding: 16px 24px;
+
+            background: linear-gradient(to right, rgba(254, 240, 138, 0.5), rgba(249, 250, 251, 0.5));
+
+            border-top: 1px solid rgba(229, 231, 235, 1);
+
+            text-align: center;
+
+            font-size: 12px;
+
+            color: #6b7280;
+
+        }
+
+
+
+        /* Right Section */
+
+        .header-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+        }
+
+
+
+        .contact-info {
+
+            display: none;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin-right: 16px;
+
+            font-size: 14px;
+
+            color: #6b7280;
+
+        }
+
+
+
+        .contact-icon {
+
+            color: #eab308;
+
+        }
+
+
 
         .shop-btn {
-            background: linear-gradient(135deg, #eab308, #f59e0b);
+
+            background: linear-gradient(to right, #eab308, #f59e0b);
+
             color: #000;
-            padding: 12px 24px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
+
+            border: none;
+
+            padding: 8px 16px;
+
+            border-radius: 8px;
+
+            font-weight: 600;
+
+            font-size: 14px;
+
+            cursor: pointer;
+
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(234, 179, 8, 0.3);
+
             display: flex;
+
             align-items: center;
+
             gap: 8px;
+
         }
+
+
 
         .shop-btn:hover {
+
+            background: linear-gradient(to right, #f59e0b, #f97316);
+
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(234, 179, 8, 0.4);
+
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+
         }
 
-        /* Mobile Menu Button */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: #374151;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 6px;
-            transition: all 0.3s ease;
+
+
+
+
+        .mobile-dropdown {
+
+            max-height: 0;
+
+            overflow: hidden;
+
+            transition: max-height 0.3s ease;
+
         }
 
-        .mobile-menu-btn:hover {
-            background: #f3f4f6;
-            color: #eab308;
+
+
+        .mobile-dropdown.active {
+
+            max-height: 400px;
+
         }
 
-        /* Mobile Menu Overlay */
-        .mobile-menu-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1500;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
 
-        .mobile-menu-overlay.open {
-            opacity: 1;
-            visibility: visible;
-        }
 
-        /* Mobile Menu */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            left: -300px;
-            width: 300px;
-            height: 100vh;
-            background: #fff;
-            box-shadow: 5px 0 20px rgba(0, 0, 0, 0.1);
-            transition: left 0.3s ease;
-            z-index: 2000;
-            overflow-y: auto;
-        }
+        .mobile-dropdown-item {
 
-        .mobile-menu.open {
-            left: 0;
-        }
-
-        .mobile-menu-header {
             display: flex;
+
             align-items: center;
-            justify-content: space-between;
-            padding: 20px;
-            border-bottom: 1px solid #e5e7eb;
-        }
 
-        .mobile-menu-close {
-            background: none;
-            border: none;
-            font-size: 24px;
-            color: #6b7280;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
+            padding: 8px 48px;
 
-        .mobile-menu-close:hover {
-            background: #f3f4f6;
-            color: #000;
-        }
-
-        .mobile-nav-links {
-            padding: 24px;
-            list-style: none;
-        }
-
-        .mobile-nav-links li {
-            margin-bottom: 16px;
-        }
-
-        .mobile-nav-links a {
-            display: block;
-            padding: 12px 16px;
             text-decoration: none;
-            color: #374151;
-            font-weight: 500;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+
+            font-size: 14px;
+
+            color: #6b7280;
+
+            transition: all 0.2s ease;
+
         }
 
-        .mobile-nav-links a:hover {
-            background: #f3f4f6;
+
+
+        .mobile-dropdown-item:hover {
+
             color: #eab308;
+
+            background: rgba(254, 240, 138, 0.5);
+
         }
 
-        .mobile-nav-links a.active {
-            background: #fef3c7;
-            color: #eab308;
+
+
+        .mobile-contact {
+
+            padding: 24px 20px;
+
+            border-top: 1px solid #e5e7eb;
+
+            margin-top: auto;
+
+        }
+
+
+
+        .mobile-contact-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 16px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+
+        .mobile-contact-item:last-child {
+
+            margin-bottom: 0;
+
+        }
+
+
+
+        .mobile-contact-icon {
+
+            width: 40px;
+
+            height: 40px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 16px;
+
+        }
+
+
+
+        .mobile-contact-icon.yellow {
+
+            background: #eab308;
+
+            color: #fff;
+
+        }
+
+
+
+        .mobile-contact-icon.black {
+
+            background: #eab308;
+
+            color: #fff;
+
+        }
+
+
+
+        .mobile-contact-info p {
+
+            margin: 0;
+
+            line-height: 1.4;
+
+        }
+
+
+
+        .mobile-contact-info .contact-label {
+
             font-weight: 600;
+
+            color: #374151;
+
+            font-size: 14px;
+
         }
+
+
+
+        .mobile-contact-info .contact-value {
+
+            color: #eab308;
+
+            font-size: 14px;
+
+        }
+
+
+
+        @media (min-width: 768px) {
+
+            .contact-info {
+
+                display: flex;
+
+            }
+
+        }
+
+
+
+        @media (min-width: 1280px) {
+
+            .nav-desktop {
+
+                display: flex;
+
+            }
+
+        }
+
+
 
         /* Hero Section */
+
         .hero {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.55) 100%), 
-                        url('/placeholder.svg?height=600&width=1200');
+
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.55) 100%),
+
+                url('/placeholder.svg?height=600&width=1200');
+
             background-position: center;
+
             background-size: cover;
+
             background-repeat: no-repeat;
+
             color: #fff;
+
             padding: 120px 0;
+
             text-align: center;
+
             position: relative;
+
             overflow: hidden;
+
         }
+
+
 
         .hero::before {
+
             content: '';
+
             position: absolute;
+
             top: 0;
+
             left: 0;
+
             right: 0;
+
             bottom: 0;
+
             background: linear-gradient(135deg, rgba(234, 179, 8, 0.18) 0%, rgba(245, 158, 11, 0.08) 50%, rgba(0, 0, 0, 0.12) 100%);
+
             z-index: 1;
+
             pointer-events: none;
+
         }
+
+
 
         .hero-content {
+
             position: relative;
+
             z-index: 2;
+
             max-width: 700px;
+
             margin: 0 auto;
+
             padding: 0 20px;
+
         }
+
+
 
         .hero-badge {
+
             display: inline-block;
+
             background: rgba(234, 179, 8, 0.25);
+
             border: 2px solid #eab308;
+
             color: #fef3c7;
+
             padding: 8px 24px;
+
             border-radius: 30px;
+
             font-size: 14px;
+
             font-weight: bold;
+
             margin-bottom: 24px;
+
             backdrop-filter: blur(10px);
+
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+
             animation: fadeInDown 0.8s ease;
+
         }
+
+
 
         .hero h1 {
+
             font-size: 3rem;
+
             font-weight: bold;
+
             margin-bottom: 16px;
+
             line-height: 1.2;
+
             color: #fff;
+
             text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+
             animation: fadeInUp 0.8s ease 0.2s both;
+
         }
+
+
 
         .hero-subtitle {
+
             font-size: 1.5rem;
+
             color: #f3f4f6;
+
             margin-bottom: 32px;
+
             font-weight: 300;
+
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+
             animation: fadeInUp 0.8s ease 0.4s both;
+
         }
+
+
 
         /* Breadcrumb */
+
         .breadcrumb {
+
             background: #f9fafb;
+
             padding: 16px 0;
+
             border-bottom: 1px solid #e5e7eb;
+
         }
+
+
 
         .breadcrumb-nav {
+
             display: flex;
+
             align-items: center;
+
             gap: 8px;
+
             font-size: 14px;
+
             color: #6b7280;
+
         }
+
+
 
         .breadcrumb-nav a {
+
             color: #6b7280;
+
             text-decoration: none;
+
             transition: color 0.3s ease;
+
         }
+
+
 
         .breadcrumb-nav a:hover {
+
             color: #eab308;
+
         }
+
+
 
         .breadcrumb-nav .current {
+
             color: #eab308;
+
             font-weight: 500;
+
         }
+
+
 
         /* Category Filter */
+
         .filter-section {
+
             padding: 60px 0;
+
             text-align: center;
+
         }
+
+
 
         .filter-title {
+
             font-size: 2.5rem;
+
             font-weight: bold;
+
             color: #000;
+
             margin-bottom: 16px;
+
         }
+
+
 
         .filter-divider {
+
             width: 80px;
+
             height: 4px;
+
             background: #eab308;
+
             margin: 0 auto 40px;
+
         }
+
+
 
         .filter-buttons {
+
             display: flex;
+
             flex-wrap: wrap;
+
             gap: 12px;
+
             justify-content: center;
+
             margin-bottom: 40px;
+
         }
+
+
 
         .filter-btn {
+
             padding: 12px 28px;
+
             border: 2px solid #e5e7eb;
+
             background: #fff;
+
             color: #374151;
+
             border-radius: 25px;
+
             cursor: pointer;
+
             font-weight: 600;
+
             transition: all 0.3s ease;
+
             font-size: 14px;
+
         }
+
+
 
         .filter-btn:hover,
+
         .filter-btn.active {
+
             background: #eab308;
+
             color: #000;
+
             border-color: #eab308;
+
             transform: translateY(-2px);
+
             box-shadow: 0 4px 12px rgba(234, 179, 8, 0.3);
+
         }
+
+
 
         /* Gallery Grid */
+
         .gallery-section {
+
             padding: 60px 0;
+
         }
+
+
 
         .gallery-grid {
+
             display: grid;
+
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+
             gap: 24px;
+
             margin-bottom: 60px;
+
         }
+
+
 
         .gallery-item {
+
             position: relative;
+
             overflow: hidden;
+
             border-radius: 16px;
+
             aspect-ratio: 1;
+
             cursor: pointer;
-            group: gallery;
+
+            /* group property removed as it is not valid CSS */
+
             animation: fadeInScale 0.6s ease;
+
         }
+
+
 
         @keyframes fadeInScale {
+
             from {
+
                 opacity: 0;
+
                 transform: scale(0.9);
+
             }
+
+
+
             to {
+
                 opacity: 1;
+
                 transform: scale(1);
+
             }
+
         }
+
+
 
         .gallery-item.hidden {
+
             display: none;
+
         }
+
+
 
         .gallery-item-image {
+
             width: 100%;
+
             height: 100%;
+
             object-fit: cover;
+
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
         }
+
+
 
         .gallery-item:hover .gallery-item-image {
+
             transform: scale(1.1) rotate(2deg);
+
         }
+
+
 
         .gallery-item-overlay {
+
             position: absolute;
+
             inset: 0;
+
             background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(234, 179, 8, 0.3) 100%);
+
             display: flex;
+
             flex-direction: column;
+
             align-items: center;
+
             justify-content: center;
+
             opacity: 0;
+
             transition: opacity 0.3s ease;
+
             padding: 20px;
+
             text-align: center;
+
+            z-index: 2;
+
         }
+
+
 
         .gallery-item:hover .gallery-item-overlay {
+
             opacity: 1;
+
         }
+
+
 
         .gallery-item-title {
+
             color: #fff;
+
             font-size: 1.25rem;
+
             font-weight: bold;
+
             margin-bottom: 8px;
+
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+
         }
+
+
 
         .gallery-item-category {
+
             color: #fef3c7;
+
             font-size: 0.875rem;
+
             font-weight: 600;
+
             background: rgba(234, 179, 8, 0.3);
+
             padding: 4px 12px;
+
             border-radius: 12px;
+
             display: inline-block;
+
             backdrop-filter: blur(4px);
+
         }
+
+
 
         .gallery-item-icon {
+
             font-size: 2rem;
+
             color: #eab308;
+
             margin-bottom: 12px;
+
             animation: bounce 0.6s ease infinite;
+
         }
+
+
 
         @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+
+
+
+            0%,
+
+            100% {
+
+                transform: translateY(0);
+
+            }
+
+
+
+            50% {
+
+                transform: translateY(-8px);
+
+            }
+
         }
+
+
 
         /* Modal */
+
         .modal {
+
             display: none;
+
             position: fixed;
+
             inset: 0;
+
             background: rgba(0, 0, 0, 0.9);
+
             z-index: 2000;
+
             align-items: center;
+
             justify-content: center;
+
             padding: 20px;
+
             animation: fadeIn 0.3s ease;
+
         }
+
+
 
         .modal.active {
+
             display: flex;
+
         }
+
+
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+
+            from {
+
+                opacity: 0;
+
+            }
+
+
+
+            to {
+
+                opacity: 1;
+
+            }
+
         }
+
+
 
         .modal-content {
+
             position: relative;
+
             max-width: 90%;
+
             max-height: 90vh;
+
             animation: slideUp 0.3s ease;
+
         }
+
+
 
         @keyframes slideUp {
+
             from {
+
                 opacity: 0;
+
                 transform: translateY(30px);
+
             }
+
+
+
             to {
+
                 opacity: 1;
+
                 transform: translateY(0);
+
             }
+
         }
+
+
 
         .modal-image {
+
             width: 100%;
+
             height: auto;
+
             max-height: 80vh;
+
             object-fit: contain;
+
             border-radius: 12px;
+
         }
+
+
 
         .modal-video {
+
             width: 100%;
+
             max-height: 80vh;
+
             border-radius: 12px;
+
         }
+
+
 
         .modal-close {
+
             position: absolute;
+
             top: -40px;
+
             right: 0;
+
             background: none;
+
             border: none;
+
             color: #fff;
+
             font-size: 32px;
+
             cursor: pointer;
+
             transition: all 0.3s ease;
+
             width: 40px;
+
             height: 40px;
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
         }
+
+
 
         .modal-close:hover {
+
             color: #eab308;
+
             transform: rotate(90deg);
+
         }
+
+
 
         .modal-nav {
+
             position: absolute;
+
             top: 50%;
+
             transform: translateY(-50%);
+
             background: rgba(255, 255, 255, 0.2);
+
             border: none;
+
             color: #fff;
+
             font-size: 24px;
+
             cursor: pointer;
+
             width: 48px;
+
             height: 48px;
+
             border-radius: 50%;
+
             transition: all 0.3s ease;
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             backdrop-filter: blur(4px);
+
         }
+
+
 
         .modal-nav:hover {
+
             background: rgba(234, 179, 8, 0.5);
+
             color: #000;
+
         }
+
+
 
         .modal-nav.prev {
+
             left: -60px;
+
         }
+
+
 
         .modal-nav.next {
+
             right: -60px;
+
         }
+
+
 
         /* Stats Section */
+
         .stats-section {
+
             background: linear-gradient(135deg, #000 0%, #374151 100%);
+
             color: #fff;
+
             padding: 80px 0;
+
             text-align: center;
+
             position: relative;
+
             overflow: hidden;
+
         }
+
+
 
         .stats-section::before {
+
             content: '';
+
             position: absolute;
+
             top: -50%;
+
             left: -50%;
+
             width: 200%;
+
             height: 200%;
+
             background: radial-gradient(circle, rgba(234, 179, 8, 0.1) 0%, transparent 70%);
+
             animation: rotate 20s linear infinite;
+
         }
+
+
 
         @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+
+            from {
+
+                transform: rotate(0deg);
+
+            }
+
+
+
+            to {
+
+                transform: rotate(360deg);
+
+            }
+
         }
+
+
 
         .stats-grid {
+
             display: grid;
+
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
             gap: 40px;
+
             position: relative;
+
             z-index: 1;
+
         }
+
+
 
         .stat-card {
+
             animation: fadeInUp 0.8s ease;
+
         }
+
+
 
         .stat-number {
+
             font-size: 3rem;
+
             font-weight: bold;
+
             color: #eab308;
+
             margin-bottom: 8px;
+
         }
+
+
 
         .stat-label {
+
             font-size: 1.125rem;
+
             color: #d1d5db;
+
         }
+
+
 
         /* CTA Section */
+
         .cta-section {
+
             background: linear-gradient(135deg, #eab308 0%, #f59e0b 100%);
+
             color: #000;
+
             padding: 80px 0;
+
             text-align: center;
+
         }
+
+
 
         .cta-title {
+
             font-size: 2.5rem;
+
             font-weight: bold;
+
             margin-bottom: 24px;
+
         }
+
+
 
         .cta-description {
+
             font-size: 1.125rem;
+
             margin-bottom: 40px;
+
             max-width: 600px;
+
             margin-left: auto;
+
             margin-right: auto;
+
             opacity: 0.9;
+
         }
+
+
 
         .cta-buttons {
+
             display: flex;
+
             gap: 20px;
+
             justify-content: center;
+
             flex-wrap: wrap;
+
         }
+
+
 
         .btn-primary {
+
             background: #000;
+
             color: #eab308;
+
             padding: 16px 32px;
+
             border-radius: 12px;
+
             text-decoration: none;
+
             font-weight: bold;
+
             font-size: 1.125rem;
+
             transition: all 0.3s ease;
+
             display: inline-flex;
+
             align-items: center;
+
             gap: 8px;
+
             border: none;
+
             cursor: pointer;
+
         }
+
+
 
         .btn-primary:hover {
+
             transform: translateY(-3px);
+
             box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+
         }
+
+
 
         .btn-secondary {
+
             background: transparent;
+
             color: #000;
+
             border: 2px solid #000;
+
             padding: 14px 30px;
+
             border-radius: 12px;
+
             text-decoration: none;
+
             font-weight: bold;
+
             font-size: 1.125rem;
+
             transition: all 0.3s ease;
+
             display: inline-flex;
+
             align-items: center;
+
             gap: 8px;
+
             cursor: pointer;
+
         }
+
+
 
         .btn-secondary:hover {
+
             background: #000;
+
             color: #eab308;
+
             transform: translateY(-3px);
+
         }
 
-        /* Footer */
-        .footer {
-            background: #fff;
-            border-top: 4px solid #eab308;
-            padding: 48px 0 0;
-        }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px 24px;
-            margin-bottom: 48px;
-        }
 
-        .footer-section h4 {
-            font-weight: bold;
-            color: #000;
-            margin-bottom: 16px;
-            font-size: 1.25rem;
-            letter-spacing: 0.05em;
-            padding-bottom: 12px;
-            border-bottom: 2px solid rgba(0,0,0,0.1);
-        }
 
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-
-        .footer-logo img {
-            height: 40px;
-        }
-
-        .footer-description {
-            color: #6b7280;
-            line-height: 1.6;
-            margin-bottom: 16px;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: #6b7280;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: #eab308;
-        }
-
-        .footer-contact {
-            font-size: 14px;
-        }
-
-        .footer-contact p {
-            margin-bottom: 12px;
-            line-height: 1.5;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 12px;
-            margin-top: 16px;
-        }
-
-        .social-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-
-        .social-icon.facebook {
-            background: #1877f2;
-            color: #fff;
-        }
-
-        .social-icon.instagram {
-            background: linear-gradient(135deg, #e4405f, #f77737);
-            color: #fff;
-        }
-
-        .social-icon.tiktok {
-            background: #000;
-            color: #fff;
-        }
-
-        .social-icon:hover {
-            transform: scale(1.1);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #e5e7eb;
-            padding: 32px 0;
-            text-align: center;
-        }
-
-        .footer-copyright {
-            color: #6b7280;
-            font-size: 14px;
-        }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+
+        @media (min-width: 768px) {
+
+            .contact-info {
+
+                display: flex;
+
             }
 
-            .mobile-menu-btn {
-                display: block;
+        }
+
+
+
+        @media (min-width: 1280px) {
+
+            .nav-desktop {
+
+                display: flex;
+
             }
+
+        }
+
+
+
+        @media (max-width: 768px) {
+
+            .nav-links {
+
+                display: none;
+
+            }
+
+
 
             .shop-btn {
-                display: none;
+
+                display: none !important;
+
             }
 
+
+
             .hero h1 {
+
                 font-size: 2.25rem;
+
             }
+
+
 
             .hero-subtitle {
+
                 font-size: 1.125rem;
+
             }
+
+
 
             .filter-title {
+
                 font-size: 2rem;
+
             }
 
+
+
             .gallery-grid {
+
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
                 gap: 16px;
+
             }
+
+
 
             .stat-number {
+
                 font-size: 2rem;
+
             }
+
+
 
             .cta-title {
+
                 font-size: 2rem;
+
             }
 
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
+
+
+
 
             .cta-buttons {
+
                 flex-direction: column;
+
                 align-items: center;
+
             }
+
+
 
             .modal-nav.prev {
+
                 left: 10px;
+
             }
+
+
 
             .modal-nav.next {
+
                 right: 10px;
+
             }
+
         }
+
+
 
         @media (max-width: 480px) {
-            .hero {
-                padding: 60px 0;
+
+
+
+            /* Prevent horizontal scrolling */
+
+            body {
+
+                overflow-x: hidden;
+
             }
+
+
+
+            * {
+
+                max-width: 100%;
+
+            }
+
+
+
+            .container {
+
+                padding: 0 16px;
+
+            }
+
+
+
+            .hero {
+
+                padding: 60px 0;
+
+            }
+
+
 
             .hero h1 {
+
                 font-size: 1.875rem;
+
             }
+
+
 
             .filter-buttons {
+
                 gap: 8px;
+
             }
+
+
 
             .filter-btn {
-                padding: 10px 20px;
-                font-size: 12px;
+
+                padding: 12px 20px;
+
+                font-size: 14px;
+
+                min-height: 44px;
+
             }
+
+
 
             .gallery-grid {
+
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
                 gap: 12px;
+
             }
+
+
+
+            /* Touch-friendly buttons */
+
+            .btn,
+
+            button {
+
+                min-height: 48px;
+
+                padding: 14px 24px;
+
+                font-size: 16px;
+
+            }
+
         }
+
+
 
         @keyframes fadeInDown {
+
             from {
+
                 opacity: 0;
+
                 transform: translateY(-20px);
+
             }
+
+
+
             to {
+
                 opacity: 1;
+
                 transform: translateY(0);
+
             }
+
         }
+
+
 
         @keyframes fadeInUp {
+
             from {
+
                 opacity: 0;
+
                 transform: translateY(20px);
+
             }
+
+
+
             to {
+
                 opacity: 1;
+
                 transform: translateY(0);
+
             }
+
         }
     </style>
+
+    <link href="css/mobile-nav.css" rel="stylesheet" />
+
+    </link>
+    <script src="js/translations.js"></script>
+
+    <script defer="" src="js/translator.js"></script>
+    <link href="css/language-switcher.css" rel="stylesheet" />
 </head>
+
 <body>
+
     <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="assets/odvlogo.png" alt="l'Olio di Valeria">
-                    </a>
+
+    <header class="header" id="header">
+
+        <div class="header-content">
+
+            <!-- Logo -->
+
+            <div class="logo">
+
+                <a href="index.html">
+
+                    <img alt="l'Olio di Valeria - Olio Extravergine Siciliano" src="assets/odvlogo.png" />
+
+                </a>
+
+            </div>
+
+            <!-- Desktop Navigation -->
+
+            <nav class="nav-desktop">
+
+                <ul class="nav-menu">
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" data-i18n="header.home" href="index.html">HOME</a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" data-i18n="header.about" href="index.html#about">
+
+                            L'OLIO DI VALERIA
+
+                            <i class="fas fa-chevron-down dropdown-arrow"></i>
+
+                        </a>
+
+                        <div class="dropdown">
+
+                            <div class="dropdown-content">
+
+                                <a class="dropdown-item" href="chisiamo.html">
+
+                                    <div class="dropdown-dot"></div>
+
+                                    <span data-i18n="header.chi_siamo">Chi Siamo</span>
+
+                                    <div class="dropdown-arrow-right">→</div>
+
+                                </a>
+
+                                <a class="dropdown-item" href="aziendaagr.html">
+
+                                    <div class="dropdown-dot"></div>
+
+                                    <span data-i18n="header.azienda">L'Azienda Agricola</span>
+
+                                    <div class="dropdown-arrow-right">→</div>
+
+                                </a>
+
+                                <a class="dropdown-item" href="qualita.html">
+
+                                    <div class="dropdown-dot"></div>
+
+                                    <span data-i18n="header.qualita">Qualità</span>
+
+                                    <div class="dropdown-arrow-right">→</div>
+
+                                </a>
+
+                                <a class="dropdown-item" href="galleria.html">
+
+                                    <div class="dropdown-dot"></div>
+
+                                    <span data-i18n="header.galleria">Galleria</span>
+
+                                    <div class="dropdown-arrow-right">→</div>
+
+                                </a>
+
+                            </div>
+
+                            <div class="dropdown-footer">
+
+                                <p>Scopri tutto su l'Olio di Valeria</p>
+
+                            </div>
+
+                        </div>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" data-i18n="header.products" href="shop.html">I NOSTRI PRODOTTI</a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" data-i18n="header.where" href="dovesiamo.html">DOVE SIAMO</a>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" data-i18n="header.contact" href="contatti.html">CONTATTI</a>
+
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <!-- Right Section -->
+
+            <div class="header-actions">
+
+
+                <!-- Shop Button -->
+
+                <!-- Language Switcher -->
+                <div class="language-switcher">
+                    <button class="current-lang">
+                        <svg class="flag-svg" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="213.3" height="480" fill="#009246" />
+                            <rect x="213.3" width="213.4" height="480" fill="#fff" />
+                            <rect x="426.7" width="213.3" height="480" fill="#ce2b37" />
+                        </svg> <span class="flag-text">IT</span> <i class="fas fa-chevron-down chevron"></i>
+                    </button>
+                    <div class="lang-dropdown">
+                        <button class="lang-btn active" data-lang="it"><svg class="flag-svg" viewBox="0 0 640 480"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="213.3" height="480" fill="#009246" />
+                                <rect x="213.3" width="213.4" height="480" fill="#fff" />
+                                <rect x="426.7" width="213.3" height="480" fill="#ce2b37" />
+                            </svg> Italiano</button>
+                        <button class="lang-btn" data-lang="en"><svg class="flag-svg" viewBox="0 0 640 480"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill="#012169" d="M0 0h640v480H0z" />
+                                <path fill="#FFF"
+                                    d="m75 0 244 181L562 0h78v62L400 241l240 178v61h-80L320 301 81 480H0v-60l239-178L0 64V0z" />
+                                <path fill="#C8102E"
+                                    d="m424 281 216 159v40L369 281zm-184 20 6 35L54 480H0zM640 0v3L391 191l2-44L590 0zM0 0l239 176h-60L0 42z" />
+                                <path fill="#FFF" d="M241 0v480h160V0zM0 160v160h640V160z" />
+                                <path fill="#C8102E" d="M0 193v96h640v-96zM273 0v480h96V0z" />
+                            </svg> English</button>
+                        <button class="lang-btn" data-lang="de"><svg class="flag-svg" viewBox="0 0 640 480"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="640" height="160" fill="#000" />
+                                <rect y="160" width="640" height="160" fill="#D00" />
+                                <rect y="320" width="640" height="160" fill="#FFCE00" />
+                            </svg> Deutsch</button>
+                        <button class="lang-btn" data-lang="fr"><svg class="flag-svg" viewBox="0 0 640 480"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="213.3" height="480" fill="#002395" />
+                                <rect x="213.3" width="213.4" height="480" fill="#fff" />
+                                <rect x="426.7" width="213.3" height="480" fill="#ED2939" />
+                            </svg> Fran&ccedil;ais</button>
+                    </div>
                 </div>
 
-                <nav>
-                    <ul class="nav-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="shop.html">Prodotti</a></li>
-                        <li><a href="chisiamo.html">Chi Siamo</a></li>
-                        <li><a href="aziendaagr.html">L'Azienda Agricola</a></li>
-                        <li><a href="dovesiamo.html">Dove Siamo</a></li>
-                        <li><a href="contatti.html">Contatti</a></li>
-                    </ul>
-                </nav>
+                <a class="shop-btn" data-i18n="header.shop" href="shop.html">
+
+                    <i class="fas fa-shopping-bag"></i>
+
+                    <span data-i18n="header.shop">SHOP</span>
+
+                </a>
 
                 <!-- Mobile Menu Button -->
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Apri menu">
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+
                     <i class="fas fa-bars"></i>
+
                 </button>
 
-                <a href="shop.html" class="shop-btn">
-                    <i class="fas fa-shopping-bag"></i>
-                    Shop
-                </a>
             </div>
+
         </div>
+
     </header>
 
     <!-- Mobile Menu Overlay -->
+
     <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 
     <!-- Mobile Menu -->
+
     <div class="mobile-menu" id="mobileMenu">
+
         <div class="mobile-menu-header">
-            <div class="logo">
-                <img src="assets/odvlogo.png" alt="l'Olio di Valeria">
-            </div>
-            <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Chiudi menu">
+
+            <img alt="l'Olio di Valeria" src="assets/odvlogo.png" />
+
+            <button class="mobile-menu-close" id="mobileMenuClose">
+
                 <i class="fas fa-times"></i>
+
             </button>
+
         </div>
-        <nav>
-            <ul class="mobile-nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html">Prodotti</a></li>
-                <li><a href="chisiamo.html">Chi Siamo</a></li>
-                <li><a href="aziendaagr.html">L'Azienda Agricola</a></li>
-                <li><a href="dovesiamo.html">Dove Siamo</a></li>
-                <li><a href="contatti.html">Contatti</a></li>
-            </ul>
+
+        <nav class="mobile-nav">
+
+            <div class="mobile-nav-item">
+
+                <a class="mobile-nav-link" data-i18n="header.home" href="index.html">
+
+                    <span data-i18n="header.home">HOME</span>
+
+                    <div style="width: 8px; height: 8px; background: #eab308; border-radius: 50%; opacity: 0;"></div>
+
+                </a>
+
+            </div>
+
+            <div class="mobile-nav-item">
+
+                <a class="mobile-nav-link" data-i18n="header.about" href="#" id="mobileDropdownToggle"><span data-i18n="header.about">L'OLIO DI VALERIA</span>
+
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+
+                </a>
+
+                <div class="mobile-dropdown" data-i18n="t_30fed23a" id="mobileDropdown">
+
+                    <a class="mobile-dropdown-item" href="chisiamo.html">
+
+                        <div
+                            style="width: 6px; height: 6px; background: #eab308; border-radius: 50%; margin-right: 12px;">
+
+                        </div>
+
+                        <span data-i18n="header.chi_siamo">Chi Siamo</span>
+
+                        <div style="margin-left: auto; color: #9ca3af;">→</div>
+
+                    </a>
+
+                    <a class="mobile-dropdown-item" href="aziendaagr.html">
+
+                        <div
+                            style="width: 6px; height: 6px; background: #eab308; border-radius: 50%; margin-right: 12px;">
+
+                        </div>
+
+                        <span data-i18n="header.azienda">L'Azienda Agricola</span>
+
+                        <div style="margin-left: auto; color: #9ca3af;">→</div>
+
+                    </a>
+
+                    <a class="mobile-dropdown-item" href="qualita.html">
+
+                        <div
+                            style="width: 6px; height: 6px; background: #eab308; border-radius: 50%; margin-right: 12px;">
+
+                        </div>
+
+                        <span data-i18n="header.qualita">Qualità</span>
+
+                        <div style="margin-left: auto; color: #9ca3af;">→</div>
+
+                    </a>
+
+                    <a class="mobile-dropdown-item" href="galleria.html">
+
+                        <div
+                            style="width: 6px; height: 6px; background: #eab308; border-radius: 50%; margin-right: 12px;">
+
+                        </div>
+
+                        <span data-i18n="header.galleria">Galleria</span>
+
+                        <div style="margin-left: auto; color: #9ca3af;">→</div>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="mobile-nav-item">
+
+                <a class="mobile-nav-link" data-i18n="header.products" href="shop.html">
+
+                    <span data-i18n="header.products">I NOSTRI PRODOTTI</span>
+
+                    <div style="width: 8px; height: 8px; background: #eab308; border-radius: 50%; opacity: 0;"></div>
+
+                </a>
+
+            </div>
+
+            <div class="mobile-nav-item">
+
+                <a class="mobile-nav-link" data-i18n="header.where" href="dovesiamo.html">
+
+                    <span data-i18n="header.where">DOVE SIAMO</span>
+
+                    <div style="width: 8px; height: 8px; background: #eab308; border-radius: 50%; opacity: 0;"></div>
+
+                </a>
+
+            </div>
+
+            <div class="mobile-nav-item">
+
+                <a class="mobile-nav-link" data-i18n="header.contact" href="contatti.html">
+
+                    <span data-i18n="header.contact">CONTATTI</span>
+
+                    <div style="width: 8px; height: 8px; background: #eab308; border-radius: 50%; opacity: 0;"></div>
+
+                </a>
+
+            </div>
+
+            <div class="mobile-nav-item">
+
+                <a class="mobile-nav-link" href="faq.html">
+
+                    <span>FAQ</span>
+
+                    <div style="width: 8px; height: 8px; background: #eab308; border-radius: 50%; opacity: 0;"></div>
+
+                </a>
+
+            </div>
+
         </nav>
+
+        <div class="mobile-contact">
+
+            <div class="mobile-contact-item">
+
+                <div class="mobile-contact-icon yellow">
+
+                    <i class="fas fa-phone"></i>
+
+                </div>
+
+                <div class="mobile-contact-info">
+
+                    <p class="contact-label" data-i18n="t_2ca2a483">Chiamaci</p>
+
+                    <p class="contact-value">+39 327 309 8513</p>
+
+                </div>
+
+            </div>
+
+            <div class="mobile-contact-item">
+
+                <div class="mobile-contact-icon black">
+
+                    <i class="fas fa-map-marker-alt"></i>
+
+                </div>
+
+                <div class="mobile-contact-info">
+
+                    <p class="contact-label" data-i18n="t_1e29c5f9">Sede Operativa</p>
+
+                    <p class="contact-value" data-i18n="t_7eada641">San Biagio Platani (AG)</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
     <!-- Breadcrumb -->
+
     <section class="breadcrumb">
-        <div class="container">
+
+        <div class="container" data-i18n="t_efc71d76">
+
             <nav class="breadcrumb-nav">
+
                 <a href="index.html">Home</a>
+
                 <i class="fas fa-chevron-right"></i>
-                <span class="current">Galleria</span>
+
+                <span class="current" data-i18n="header.galleria">Galleria</span>
+
             </nav>
+
         </div>
+
     </section>
 
     <!-- Hero Section -->
+
     <section class="hero">
+
         <div class="container">
+
             <div class="hero-content">
-                <div class="hero-badge">Scopri il Nostro Mondo</div>
-                <h1>Galleria Fotografica</h1>
-                <p class="hero-subtitle">Dalle bottiglie ai campi: la storia visiva dell'Olio di Valeria</p>
+
+                <div class="hero-badge" data-i18n="t_4be08243">Scopri il Nostro Mondo</div>
+
+                <h1 data-i18n="t_64343dd2">Galleria Fotografica</h1>
+
+                <p class="hero-subtitle" data-i18n="t_2ebb2397">Galleria fotografica dell'Olio di Valeria: dalle
+                    bottiglie ai campi</p>
+
             </div>
+
         </div>
+
     </section>
 
     <!-- Filter Section -->
+
     <section class="filter-section">
+
         <div class="container">
-            <h2 class="filter-title">Esplora le Nostre Categorie</h2>
+
+            <h2 class="filter-title" data-i18n="t_01ae633f">Esplora le Nostre Categorie</h2>
+
             <div class="filter-divider"></div>
+
             <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">Tutte</button>
-                <button class="filter-btn" data-filter="bottiglie">Bottiglie</button>
-                <button class="filter-btn" data-filter="supermercati">Supermercati</button>
-                <button class="filter-btn" data-filter="produzione">Produzione</button>
-                <button class="filter-btn" data-filter="eventi">Eventi</button>
-                <button class="filter-btn" data-filter="campi">Campi e Alberi</button>
-                <button class="filter-btn" data-filter="video">Video</button>
+
+                <button class="filter-btn active" data-filter="all" data-i18n="t_72654598">Tutte</button>
+
+                <button class="filter-btn" data-filter="bottiglie" data-i18n="t_20f3a17b">Bottiglie</button>
+
+                <button class="filter-btn" data-filter="supermercati" data-i18n="t_fbb53ccc">Supermercati</button>
+
+                <button class="filter-btn" data-filter="produzione" data-i18n="t_26450ea0">Produzione</button>
+
+                <button class="filter-btn" data-filter="eventi" data-i18n="t_1ac71938">Eventi</button>
+
+                <button class="filter-btn" data-filter="campi" data-i18n="t_da5076f5">Campi e Alberi</button>
+
+                <button class="filter-btn" data-filter="video" data-i18n="t_34e2d198">Video</button>
+
             </div>
+
         </div>
+
     </section>
 
     <!-- Gallery Section -->
+
     <section class="gallery-section">
+
         <div class="container">
+
             <div class="gallery-grid" id="galleryGrid">
+
                 <!-- Bottiglie -->
+
                 <div class="gallery-item" data-category="bottiglie" data-type="image">
-                    <img src="assets/bottle-1.jpg" alt="Bottiglia Premium" class="gallery-item-image">
+
+                    <img alt="Bottiglia Premium" class="gallery-item-image" src="assets/bottle-1.jpg" />
+
                     <div class="gallery-item-overlay">
+
                         <i class="fas fa-wine-bottle gallery-item-icon"></i>
-                        <div class="gallery-item-title">Bottiglia Premium</div>
-                        <span class="gallery-item-category">Bottiglie</span>
+
+                        <div class="gallery-item-title" data-i18n="t_d6a56ac1">Bottiglia Premium</div>
+
+                        <span class="gallery-item-category" data-i18n="t_20f3a17b">Bottiglie</span>
+
                     </div>
+
                 </div>
 
                 <div class="gallery-item" data-category="bottiglie" data-type="image">
-                    <img src="assets/bottle-15.jpg" alt="Collezione Bottiglie" class="gallery-item-image">
+
+                    <img alt="Collezione Bottiglie" class="gallery-item-image" src="assets/bottle-15.jpg" />
+
                     <div class="gallery-item-overlay">
+
                         <i class="fas fa-wine-bottle gallery-item-icon"></i>
-                        <div class="gallery-item-title">Collezione Completa</div>
-                        <span class="gallery-item-category">Bottiglie</span>
+
+                        <div class="gallery-item-title" data-i18n="t_b85b556a">Collezione Completa</div>
+
+                        <span class="gallery-item-category" data-i18n="t_20f3a17b">Bottiglie</span>
+
                     </div>
+
                 </div>
 
                 <div class="gallery-item" data-category="bottiglie" data-type="image">
-                    <img src="assets/bottle-2.jpg" alt="Dettaglio Bottiglia" class="gallery-item-image">
+
+                    <img alt="Dettaglio Bottiglia" class="gallery-item-image" src="assets/bottle-2.jpg" />
+
                     <div class="gallery-item-overlay">
+
                         <i class="fas fa-wine-bottle gallery-item-icon"></i>
-                        <div class="gallery-item-title">Dettaglio Etichetta</div>
-                        <span class="gallery-item-category">Bottiglie</span>
+
+                        <div class="gallery-item-title" data-i18n="t_18a19012">Dettaglio Etichetta</div>
+
+                        <span class="gallery-item-category" data-i18n="t_20f3a17b">Bottiglie</span>
+
                     </div>
+
                 </div>
 
                 <!-- Supermercati -->
+
                 <div class="gallery-item" data-category="supermercati" data-type="image">
-                    <img src="assets/retail-3.jpg" alt="Scaffale Supermercato" class="gallery-item-image">
+
+                    <img alt="Scaffale Supermercato" class="gallery-item-image" src="assets/retail-3.jpg" />
+
                     <div class="gallery-item-overlay">
+
                         <i class="fas fa-store gallery-item-icon"></i>
-                        <div class="gallery-item-title">Scaffale Supermercato</div>
-                        <span class="gallery-item-category">Supermercati</span>
+
+                        <div class="gallery-item-title" data-i18n="t_64100c3b">Scaffale Supermercato</div>
+
+                        <span class="gallery-item-category" data-i18n="t_fbb53ccc">Supermercati</span>
+
                     </div>
+
                 </div>
 
                 <div class="gallery-item" data-category="supermercati" data-type="image">
-                    <img src="assets/retail-2.jpg" alt="Esposizione Retail" class="gallery-item-image">
+
+                    <img alt="Esposizione Retail" class="gallery-item-image" src="assets/retail-2.jpg" />
+
                     <div class="gallery-item-overlay">
+
                         <i class="fas fa-store gallery-item-icon"></i>
-                        <div class="gallery-item-title">Esposizione Retail</div>
-                        <span class="gallery-item-category">Supermercati</span>
+
+                        <div class="gallery-item-title" data-i18n="t_b1d15f22">Esposizione Retail</div>
+
+                        <span class="gallery-item-category" data-i18n="t_fbb53ccc">Supermercati</span>
+
                     </div>
+
                 </div>
 
                 <div class="gallery-item" data-category="supermercati" data-type="image">
-                    <img src="assets/retail-1.jpg" alt="Spedizione" class="gallery-item-image">
+
+                    <img alt="Spedizione" class="gallery-item-image" src="assets/retail-1.jpg" />
+
                     <div class="gallery-item-overlay">
+
                         <i class="fas fa-store gallery-item-icon"></i>
-                        <div class="gallery-item-title">Spedizione Bottiglie</div>
-                        <span class="gallery-item-category">Supermercati</span>
+
+                        <div class="gallery-item-title" data-i18n="t_5ef595c7">Spedizione Bottiglie</div>
+
+                        <span class="gallery-item-category" data-i18n="t_fbb53ccc">Supermercati</span>
+
                     </div>
+
                 </div>
 
                 <!-- Produzione -->
+
                 <div class="gallery-item" data-category="produzione" data-type="image">
-                    <img src="assets/field-14.jpg" alt="Raccolta Olive" class="gallery-item-image">
+
+                    <img alt="Raccolta Olive" class="gallery-item-image" src="assets/field-14.jpg" />
+
                     <div class="gallery-item-overlay">
+
                         <i class="fas fa-leaf gallery-item-icon"></i>
-                        <div class="gallery-item-title">Raccolta Olive</div>
-                        <span class="gallery-item-category">Produzione</span>
+
+                        <div class="gallery-item-title" data-i18n="t_41416fde">Raccolta Olive</div>
+
+                        <span class="gallery-item-category" data-i18n="t_26450ea0">Produzione</span>
+
                     </div>
+
                 </div>
 
                 <div class="gallery-item" data-category="produzione" data-type="image">
-                    <img src="assets/production-1.jpg" alt="Spremitura" class="gallery-item-image">
+
+                    <img alt="Spremitura" class="gallery-item-image" src="assets/production-1.jpg" />
+
                     <div class="gallery-item-overlay">
+
                         <i class="fas fa-cog gallery-item-icon"></i>
-                        <div class="gallery-item-title">Processo di Spremitura</div>
-                        <span class="gallery-item-category">Produzione</span>
+
+                        <div class="gallery-item-title" data-i18n="t_7fead9c6">Processo di Spremitura</div>
+
+                        <span class="gallery-item-category" data-i18n="t_26450ea0">Produzione</span>
+
                     </div>
+
                 </div>
 
                 <!-- Eventi -->
+
                 <div class="gallery-item" data-category="eventi" data-type="image">
-                    <img src="assets/event-15.jpg" alt="Degustazione" class="gallery-item-image">
+
+                    <img alt="Degustazione" class="gallery-item-image" src="assets/event-15.jpg" />
+
                     <div class="gallery-item-overlay">
+
                         <i class="fas fa-wine-glass gallery-item-icon"></i>
-                        <div class="gallery-item-title">Evento di Degustazione</div>
-                        <span class="gallery-item-category">Eventi</span>
+
+                        <div class="gallery-item-title" data-i18n="t_0c074d81">Evento di Degustazione</div>
+
+                        <span class="gallery-item-category" data-i18n="t_1ac71938">Eventi</span>
+
                     </div>
+
                 </div>
 
                 <div class="gallery-item" data-category="eventi" data-type="image">
-                    <img src="assets/event-10.jpg" alt="Visita Aziendale" class="gallery-item-image">
+
+                    <img alt="Visita Aziendale" class="gallery-item-image" src="assets/event-10.jpg" />
+
                     <div class="gallery-item-overlay">
+
                         <i class="fas fa-users gallery-item-icon"></i>
-                        <div class="gallery-item-title">Visita Aziendale</div>
-                        <span class="gallery-item-category">Eventi</span>
+
+                        <div class="gallery-item-title" data-i18n="t_d2aa3729">Visita Aziendale</div>
+
+                        <span class="gallery-item-category" data-i18n="t_1ac71938">Eventi</span>
+
                     </div>
+
                 </div>
 
                 <div class="gallery-item" data-category="eventi" data-type="image">
-                    <img src="assets/event-12.jpg" alt="Eventi" class="gallery-item-image">
+
+                    <img alt="Eventi" class="gallery-item-image" src="assets/event-12.jpg" />
+
                     <div class="gallery-item-overlay">
+
                         <i class="fas fa-celebration gallery-item-icon"></i>
-                        <div class="gallery-item-title">Eventi</div>
-                        <span class="gallery-item-category">Eventi</span>
+
+                        <div class="gallery-item-title" data-i18n="t_1ac71938">Eventi</div>
+
+                        <span class="gallery-item-category" data-i18n="t_1ac71938">Eventi</span>
+
                     </div>
+
                 </div>
 
                 <!-- Campi e Alberi -->
+
                 <div class="gallery-item" data-category="campi" data-type="image">
-                    <img src="assets/field-8.jpg" alt="Uliveto Siciliano" class="gallery-item-image">
+
+                    <img alt="Uliveto Siciliano" class="gallery-item-image" src="assets/field-8.jpg" />
+
                     <div class="gallery-item-overlay">
+
                         <i class="fas fa-tree gallery-item-icon"></i>
-                        <div class="gallery-item-title">Uliveto Siciliano</div>
-                        <span class="gallery-item-category">Campi</span>
+
+                        <div class="gallery-item-title" data-i18n="t_05300196">Uliveto Siciliano</div>
+
+                        <span class="gallery-item-category" data-i18n="t_43d76b40">Campi</span>
+
                     </div>
+
                 </div>
 
                 <div class="gallery-item" data-category="campi" data-type="image">
-                    <img src="assets/field-3.jpg" alt="campi" class="gallery-item-image">
+
+                    <img alt="campi" class="gallery-item-image" src="assets/field-3.jpg" />
+
                     <div class="gallery-item-overlay">
+
                         <i class="fas fa-tree gallery-item-icon"></i>
-                        <div class="gallery-item-title">Campi</div>
-                        <span class="gallery-item-category">Campi</span>
+
+                        <div class="gallery-item-title" data-i18n="t_43d76b40">Campi</div>
+
+                        <span class="gallery-item-category" data-i18n="t_43d76b40">Campi</span>
+
                     </div>
+
                 </div>
 
                 <div class="gallery-item" data-category="campi" data-type="image">
-                    <img src="assets/dalalto.JPG" alt="Terra Sicana" class="gallery-item-image">
+
+                    <img alt="Terra Sicana" class="gallery-item-image" src="assets/dalalto.JPG" />
+
                     <div class="gallery-item-overlay">
+
                         <i class="fas fa-sun gallery-item-icon"></i>
-                        <div class="gallery-item-title">Terra Sicana</div>
-                        <span class="gallery-item-category">Campi</span>
+
+                        <div class="gallery-item-title" data-i18n="t_2eeb8bdd">Terra Sicana</div>
+
+                        <span class="gallery-item-category" data-i18n="t_43d76b40">Campi</span>
+
                     </div>
+
                 </div>
 
                 <!-- Video - Produzione -->
-                <div class="gallery-item" data-category="video produzione" data-type="video" data-src="assets/production-video-1.mp4">
-                    <img src="assets/video-1.png" alt="Video Produzione 1" class="gallery-item-image">
+
+                <div class="gallery-item" data-category="video produzione" data-src="assets/production-video-1.mp4"
+                    data-type="video">
+
+                    <img alt="Video Produzione 1" class="gallery-item-image" src="assets/video-1.png" />
+
                     <div class="gallery-item-overlay">
+
                         <i class="fas fa-play gallery-item-icon"></i>
-                        <div class="gallery-item-title">Produzione 1</div>
-                        <span class="gallery-item-category">Video</span>
+
+                        <div class="gallery-item-title" data-i18n="t_99a6afc7">Produzione 1</div>
+
+                        <span class="gallery-item-category" data-i18n="t_34e2d198">Video</span>
+
                     </div>
+
                 </div>
 
-                <div class="gallery-item" data-category="video produzione" data-type="video" data-src="assets/production-video-2.mp4">
-                    <img src="assets/video-2.png" alt="Video Produzione 2" class="gallery-item-image">
+                <div class="gallery-item" data-category="video produzione" data-src="assets/production-video-2.mp4"
+                    data-type="video">
+
+                    <img alt="Video Produzione 2" class="gallery-item-image" src="assets/video-2.png" />
+
                     <div class="gallery-item-overlay">
+
                         <i class="fas fa-play gallery-item-icon"></i>
-                        <div class="gallery-item-title">Produzione 2</div>
-                        <span class="gallery-item-category">Video</span>
+
+                        <div class="gallery-item-title" data-i18n="t_54b08854">Produzione 2</div>
+
+                        <span class="gallery-item-category" data-i18n="t_34e2d198">Video</span>
+
                     </div>
+
                 </div>
 
-                <div class="gallery-item" data-category="video produzione" data-type="video" data-src="assets/production-video-3.mp4">
-                    <img src="assets/production-4.jpg" alt="Video Produzione 3" class="gallery-item-image">
+                <div class="gallery-item" data-category="video produzione" data-src="assets/production-video-3.mp4"
+                    data-type="video">
+
+                    <img alt="Video Produzione 3" class="gallery-item-image" src="assets/production-4.jpg" />
+
                     <div class="gallery-item-overlay">
+
                         <i class="fas fa-play gallery-item-icon"></i>
-                        <div class="gallery-item-title">Produzione 3</div>
-                        <span class="gallery-item-category">Video</span>
+
+                        <div class="gallery-item-title" data-i18n="t_adaa0479">Produzione 3</div>
+
+                        <span class="gallery-item-category" data-i18n="t_34e2d198">Video</span>
+
                     </div>
+
                 </div>
 
                 <!-- Video - Eventi -->
-                <div class="gallery-item" data-category="video eventi" data-type="video" data-src="assets/event-video-1.mp4">
-                    <img src="assets/event-1.jpg" alt="Video Evento 1" class="gallery-item-image">
+
+                <div class="gallery-item" data-category="video eventi" data-src="assets/event-video-1.mp4"
+                    data-type="video">
+
+                    <img alt="Video Evento 1" class="gallery-item-image" src="assets/event-1.jpg" />
+
                     <div class="gallery-item-overlay">
+
                         <i class="fas fa-play gallery-item-icon"></i>
-                        <div class="gallery-item-title">Evento 1</div>
-                        <span class="gallery-item-category">Video</span>
+
+                        <div class="gallery-item-title" data-i18n="t_d5559420">Evento</div>
+
+                        <span class="gallery-item-category" data-i18n="t_34e2d198">Video</span>
+
                     </div>
+
                 </div>
 
                 <!-- Video - Campi -->
-                <div class="gallery-item" data-category="video campi" data-type="video" data-src="assets/field-video-1.mp4">
-                    <img src="assets/field-2.jpg" alt="Video Campi 1" class="gallery-item-image">
+
+                <div class="gallery-item" data-category="video campi" data-src="assets/field-video-1.mp4"
+                    data-type="video">
+
+                    <img alt="Video Campi 1" class="gallery-item-image" src="assets/field-2.jpg" />
+
                     <div class="gallery-item-overlay">
+
                         <i class="fas fa-play gallery-item-icon"></i>
-                        <div class="gallery-item-title">Campi 1</div>
-                        <span class="gallery-item-category">Video</span>
+
+                        <div class="gallery-item-title" data-i18n="t_43d76b40">Campi</div>
+
+                        <span class="gallery-item-category" data-i18n="t_34e2d198">Video</span>
+
                     </div>
+
                 </div>
 
-                <div class="gallery-item" data-category="video produzione" data-type="video" data-src="assets/field-video-2.mp4">
-                    <img src="assets/production-1.jpg" alt="Video spremitura" class="gallery-item-image">
+                <div class="gallery-item" data-category="video produzione" data-src="assets/field-video-2.mp4"
+                    data-type="video">
+
+                    <img alt="Video spremitura" class="gallery-item-image" src="assets/production-1.jpg" />
+
                     <div class="gallery-item-overlay">
+
                         <i class="fas fa-play gallery-item-icon"></i>
-                        <div class="gallery-item-title">Spremitura</div>
-                        <span class="gallery-item-category">Video</span>
+
+                        <div class="gallery-item-title" data-i18n="t_6c4f3b14">Spremitura</div>
+
+                        <span class="gallery-item-category" data-i18n="t_34e2d198">Video</span>
+
                     </div>
+
                 </div>
+
             </div>
+
         </div>
+
     </section>
 
     <!-- Stats Section -->
+
     <section class="stats-section">
+
         <div class="container">
+
             <div class="stats-grid">
+
                 <div class="stat-card">
+
                     <div class="stat-number">18+</div>
-                    <div class="stat-label">Foto Esclusive</div>
+
+                    <div class="stat-label" data-i18n="t_1847193f">Foto Esclusive</div>
+
                 </div>
+
                 <div class="stat-card">
+
                     <div class="stat-number">6</div>
-                    <div class="stat-label">Video Professionali</div>
+
+                    <div class="stat-label" data-i18n="t_997c05aa">Video Professionali</div>
+
                 </div>
+
                 <div class="stat-card">
+
                     <div class="stat-number">35+</div>
-                    <div class="stat-label">Anni di Tradizione</div>
+
+                    <div class="stat-label" data-i18n="t_52a91e96">Anni di Tradizione</div>
+
                 </div>
+
                 <div class="stat-card">
+
                     <div class="stat-number">100%</div>
-                    <div class="stat-label">Qualità Garantita</div>
+
+                    <div class="stat-label" data-i18n="t_cd9d849b">Qualità Garantita</div>
+
                 </div>
+
             </div>
+
         </div>
+
     </section>
 
     <!-- CTA Section -->
+
     <section class="cta-section">
+
         <div class="container">
-            <h2 class="cta-title">Scopri i Nostri Oli</h2>
-            <p class="cta-description">
-                Ogni immagine racconta una storia di passione, dedizione e amore per la terra siciliana. 
+
+            <h2 class="cta-title" data-i18n="t_451d7d21">Scopri i Nostri Oli</h2>
+
+            <p class="cta-description" data-i18n="t_1d67187b">
+
+                Ogni immagine racconta una storia di passione, dedizione e amore per la terra siciliana.
+
                 Assaggia la qualità che vedi nella nostra galleria.
+
             </p>
-            <div class="cta-buttons">
-                <a href="shop.html" class="btn-primary">
+
+            <div class="cta-buttons" data-i18n="t_aded639a">
+
+                <a class="btn-primary" href="shop.html">
+
                     <i class="fas fa-shopping-cart"></i>
+
                     Acquista Ora
+
                 </a>
-                <a href="chisiamo.html" class="btn-secondary">
+
+                <a class="btn-secondary" href="chisiamo.html">
+
                     <i class="fas fa-info-circle"></i>
+
                     Scopri di Più
+
                 </a>
+
             </div>
+
         </div>
+
     </section>
 
     <!-- Modal -->
+
     <div class="modal" id="modal">
+
         <div class="modal-content">
+
             <button class="modal-close" id="modalClose">
+
                 <i class="fas fa-times"></i>
+
             </button>
+
             <button class="modal-nav prev" id="modalPrev">
+
                 <i class="fas fa-chevron-left"></i>
+
             </button>
-            <img id="modalImage" class="modal-image" alt="Immagine Ingrandita">
-            <video id="modalVideo" class="modal-video" controls style="display: none;"></video>
+
+            <img alt="Immagine Ingrandita" class="modal-image" id="modalImage" />
+
+            <video class="modal-video" controls="" id="modalVideo" style="display: none;"></video>
+
             <button class="modal-nav next" id="modalNext">
+
                 <i class="fas fa-chevron-right"></i>
+
             </button>
+
         </div>
+
     </div>
 
-    <!-- Footer -->
+    <!-- Footer with Social Media -->
+
     <footer class="footer">
+
         <div class="container">
+
             <div class="footer-grid">
+
                 <div class="footer-section">
+
                     <div class="footer-logo">
-                        <img src="assets/odvlogo.png" alt="l'Olio di Valeria">
+
+                        <img alt="l'Olio di Valeria" src="assets/odvlogo.png" />
+
                     </div>
-                    <p class="footer-description">
-                        Tradizione siciliana dal 1987. Olio extravergine di oliva di qualità superiore dalle terre di San Biagio Platani.
+
+                    <p class="footer-description" data-i18n="t_c0e95901">
+
+                        Tradizione siciliana dal 1987. Olio extravergine di oliva di qualità superiore dalle terre di
+
+                        San Biagio
+
+                        Platani.
+
                     </p>
-                <div class="footer-details">
-                <p>P.IVA: 02957530849</p>
-                <p>Cod. Fisc.: LCTVLR81D62Z112B</p>
-                </div>
+
+                    <div class="footer-details">
+
+                        <p data-i18n="t_8f194203">P.IVA: 02957530849</p>
+
+                        <p data-i18n="t_d91c16d2">Cod. Fisc.: LCTVLR81D62Z112B</p>
+
+                    </div>
+
                 </div>
 
                 <div class="footer-section">
-                    <h4>Prodotti</h4>
+
+                    <p class="footer-title" data-i18n="t_e55cd90f">Prodotti</p>
+
                     <ul class="footer-links">
-                        <li><a href="shop.html#products">Le Nostre Bottiglie</a></li>
-                        <li><a href="shop.html#products">Specialità Siciliana</a></li>
-                        <li><a href="shop.html#latta">Olio In Latta</a></li>
-                        <li><a href="shop.html#regalo">Confezione Regalo</a></li>
+
+                        <li data-i18n="t_ed0d4d1c"><a href="shop.html">Le Nostre Bottiglie</a></li>
+
+                        <li data-i18n="t_14e215ed"><a href="prodotto-testa-di-moro-f.html">Specialità Siciliana</a></li>
+
+                        <li data-i18n="t_ff9639cd"><a href="prodotto-latta.html">Olio In Latta</a></li>
+
+                        <li data-i18n="t_2c4fc6bf"><a href="prodotto-confezione-regalo.html">Confezione Regalo</a></li>
+
                     </ul>
+
                 </div>
 
                 <div class="footer-section">
-                    <h4>Azienda</h4>
+
+                    <p class="footer-title" data-i18n="t_b47745a8">Azienda</p>
+
                     <ul class="footer-links">
-                        <li><a href="chisiamo.html">Chi Siamo</a></li>
-                        <li><a href="aziendaagr.html">L'Azienda Agricola</a></li>
-                        <li><a href="contatti.html">Contatti</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
+
+                        <li><a data-i18n="header.chi_siamo" href="chisiamo.html">Chi Siamo</a></li>
+
+                        <li data-i18n="t_f4b27699"><a href="aziendaagr.html">L'azienda Agricola</a></li>
+
+                        <li><a data-i18n="header.qualita" href="qualita.html">Qualità</a></li>
+
+                        <li><a data-i18n="header.galleria" href="galleria.html">Galleria</a></li>
+
+                        <li data-i18n="t_817e5d8c"><a href="dovesiamo.html">Dove Siamo</a></li>
+
+                        <li data-i18n="t_37fbc3dc"><a href="faq.html">FAQ</a></li>
+
                     </ul>
+
                 </div>
 
                 <div class="footer-section">
-                    <h4>Contatti</h4>
+
+                    <p class="footer-title" data-i18n="t_3996679c">Contatti</p>
+
                     <div class="footer-contact">
-                        <p>
-                            <strong>Sede Operativa:</strong><br>
-                            Via Alcide De Gasperi, 4<br>
+
+                        <p data-i18n="t_243b5002">
+
+                            <strong>Sede Operativa:</strong><br />
+
+                            Via Alcide De Gasperi, 4<br />
+
                             92020 San Biagio Platani (AG)
+
                         </p>
-                        <p>
-                            <strong>Tel:</strong> +39 327 309 8513<br>
-                        <strong>Tel:</strong> +39 339 530 5990
-                    </p>
-                        
+
+                        <p data-i18n="t_1a54656d">
+
+                            <strong>Tel:</strong> +39 327 309 8513<br />
+
+                            <strong>Tel:</strong> +39 339 530 5990
+
+                        </p>
+
+                        <p data-i18n="t_dbaadcaf"><a class="footer-contact-link" href="contatti.html">Vai alla pagina
+                                Contatti</a></p>
+
                     </div>
+
                 </div>
 
                 <div class="footer-section">
-                    <h4>Informazioni Legali</h4>
+
+                    <p class="footer-title" data-i18n="t_019a7b35">Informazioni Legali</p>
+
                     <ul class="footer-links">
-                        <li><a href="termini-e-condizioniodv.html">Termini e Condizioni</a></li>
-                        <li><a href="cookie-e-privacy-policy.html">Privacy Policy</a></li>
+
+                        <li data-i18n="t_cd629114"><a href="termini-e-condizioniodv.html">Termini e Condizioni</a></li>
+
+                        <li data-i18n="t_0944b410"><a href="cookie-e-privacy-policy.html">Cookie e Privacy Policy</a>
+                        </li>
+
                     </ul>
+
+                </div>
+
+                <!-- New Social Media Section -->
+
+                <div class="footer-section">
+
+                    <p class="footer-title" data-i18n="t_e6f48293">Seguici Su</p>
+
+                    <p class="social-description" data-i18n="t_33ada3dd">Resta aggiornato sulle nostre novità</p>
+
+                    <div class="footer-social-mobile">
+
+                        <a class="social-icon facebook" href="https://www.facebook.com/OliodiValeria/?locale=it_IT"
+                            rel="noopener noreferrer" target="_blank">
+
+                            <i class="fab fa-facebook-f"></i>
+
+                        </a>
+
+                        <a class="social-icon instagram" href="https://www.instagram.com/oliodivaleria/"
+                            rel="noopener noreferrer" target="_blank">
+
+                            <i class="fab fa-instagram"></i>
+
+                        </a>
+
+                        <a class="social-icon tiktok" href="https://www.tiktok.com/@oliodivaleria"
+                            rel="noopener noreferrer" target="_blank">
+
+                            <i class="fab fa-tiktok"></i>
+
+                        </a>
+
+                    </div>
+
                 </div>
 
                 <div class="footer-section">
-                    <h4>Seguici Su</h4>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/OliodiValeria/" target="_blank" rel="noopener noreferrer" class="social-icon facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://www.instagram.com/oliodivaleria/" target="_blank" rel="noopener noreferrer" class="social-icon instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.tiktok.com/@oliodivaleria" target="_blank" rel="noopener noreferrer" class="social-icon tiktok">
-                            <i class="fab fa-tiktok"></i>
-                        </a>
+
+                    <p class="footer-title" data-i18n="t_b96a1530">Metodi di Pagamento</p>
+
+                    <div class="payment-methods">
+
+                        <i class="fab fa-cc-visa payment-icon" title="Visa"></i>
+
+                        <i class="fab fa-cc-mastercard payment-icon" title="Mastercard"></i>
+
+                        <i class="fab fa-cc-amex payment-icon" title="American Express"></i>
+
+                        <i class="fab fa-cc-paypal payment-icon" title="PayPal"></i>
+
+                        <i class="fab fa-apple-pay payment-icon" title="Apple Pay"></i>
+
+                        <i class="fab fa-google-pay payment-icon" title="Google Pay"></i>
+
+                        <i class="fas fa-university payment-icon" title="Bonifico Bancario"></i>
+
                     </div>
+
                 </div>
+
             </div>
 
             <div class="footer-bottom">
-                <p class="footer-copyright">
-                    &copy; 2025 Faraj Informatica. Tutti i diritti riservati.
-                </p>
+
+                <div class="footer-bottom-content">
+
+                    <p class="footer-copyright" data-i18n="t_bdb77de5">
+
+                        © 2026 <a href="https://studiofaraj.it/" rel="noopener noreferrer" target="_blank">Studio
+
+                            Faraj</a>. Tutti i diritti riservati.
+
+                    </p>
+
+                </div>
+
             </div>
+
         </div>
+
     </footer>
 
     <script>
-        // Mobile Menu Management
-        class MobileMenu {
-            constructor() {
-                this.init()
+
+        // Header Scroll Effect
+
+        const header = document.getElementById('header')
+
+        window.addEventListener('scroll', () => {
+
+            if (window.scrollY > 50) {
+
+                header.classList.add('scrolled')
+
+            } else {
+
+                header.classList.remove('scrolled')
+
             }
 
-            init() {
-                this.bindEvents()
-            }
-
-            bindEvents() {
-                const mobileMenuBtn = document.getElementById('mobileMenuBtn')
-                const mobileMenuClose = document.getElementById('mobileMenuClose')
-                const mobileMenuOverlay = document.getElementById('mobileMenuOverlay')
-                const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a')
-
-                mobileMenuBtn?.addEventListener('click', this.openMobileMenu.bind(this))
-                mobileMenuClose?.addEventListener('click', this.closeMobileMenu.bind(this))
-                mobileMenuOverlay?.addEventListener('click', this.closeMobileMenu.bind(this))
-
-                // Close menu when clicking on a link
-                mobileNavLinks.forEach(link => {
-                    link.addEventListener('click', this.closeMobileMenu.bind(this))
-                })
-
-                // Handle escape key
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape') {
-                        this.closeMobileMenu()
-                    }
-                })
-            }
-
-            openMobileMenu() {
-                const mobileMenu = document.getElementById('mobileMenu')
-                const mobileMenuOverlay = document.getElementById('mobileMenuOverlay')
-
-                mobileMenu?.classList.add('open')
-                mobileMenuOverlay?.classList.add('open')
-                document.body.style.overflow = 'hidden'
-
-                // Update button icon
-                const mobileMenuBtn = document.getElementById('mobileMenuBtn')
-                const icon = mobileMenuBtn?.querySelector('i')
-                if (icon) {
-                    icon.className = 'fas fa-times'
-                }
-            }
-
-            closeMobileMenu() {
-                const mobileMenu = document.getElementById('mobileMenu')
-                const mobileMenuOverlay = document.getElementById('mobileMenuOverlay')
-
-                mobileMenu?.classList.remove('open')
-                mobileMenuOverlay?.classList.remove('open')
-                document.body.style.overflow = ''
-
-                // Update button icon
-                const mobileMenuBtn = document.getElementById('mobileMenuBtn')
-                const icon = mobileMenuBtn?.querySelector('i')
-                if (icon) {
-                    icon.className = 'fas fa-bars'
-                }
-            }
-        }
-
-        // Initialize mobile menu when DOM is loaded
-        document.addEventListener("DOMContentLoaded", () => {
-            window.mobileMenu = new MobileMenu()
         })
 
+
+
         // Gallery Filter
+
         const filterBtns = document.querySelectorAll('.filter-btn');
+
         const galleryItems = document.querySelectorAll('.gallery-item');
 
+
+
         filterBtns.forEach(btn => {
+
             btn.addEventListener('click', () => {
+
                 // Update active button
+
                 filterBtns.forEach(b => b.classList.remove('active'));
+
                 btn.classList.add('active');
 
+
+
                 // Filter items
+
                 const filter = btn.dataset.filter;
+
                 galleryItems.forEach(item => {
+
                     const categories = item.dataset.category.split(' ');
+
                     if (filter === 'all' || categories.includes(filter)) {
+
                         item.classList.remove('hidden');
+
                         setTimeout(() => {
+
                             item.style.animation = 'fadeInScale 0.6s ease';
+
                         }, 10);
+
                     } else {
+
                         item.classList.add('hidden');
+
                     }
+
                 });
+
             });
+
         });
+
+
 
         // Modal functionality
+
         const modal = document.getElementById('modal');
+
         const modalImage = document.getElementById('modalImage');
+
         const modalVideo = document.getElementById('modalVideo');
+
         const modalClose = document.getElementById('modalClose');
+
         const modalPrev = document.getElementById('modalPrev');
+
         const modalNext = document.getElementById('modalNext');
+
         let currentIndex = 0;
+
         let visibleItems = [];
 
+
+
         function updateVisibleItems() {
+
             visibleItems = Array.from(galleryItems).filter(item => !item.classList.contains('hidden'));
+
         }
+
+
 
         galleryItems.forEach((item, index) => {
+
             item.addEventListener('click', () => {
+
                 updateVisibleItems();
+
                 currentIndex = visibleItems.indexOf(item);
+
                 openModal(item);
+
             });
+
         });
+
+
 
         function openModal(item) {
+
             const isVideo = item.dataset.type === 'video';
+
             const img = item.querySelector('.gallery-item-image');
-            
+
+
+
             if (isVideo) {
+
                 modalImage.style.display = 'none';
+
                 modalVideo.style.display = 'block';
+
                 modalVideo.src = item.dataset.src || '';
+
             } else {
+
                 modalImage.style.display = 'block';
+
                 modalVideo.style.display = 'none';
+
                 modalImage.src = img.src;
+
             }
-            
+
+
+
             modal.classList.add('active');
+
             document.body.style.overflow = 'hidden';
+
         }
+
+
 
         function closeModal() {
+
             modal.classList.remove('active');
+
             document.body.style.overflow = '';
+
             modalVideo.pause();
+
         }
+
+
 
         function showPrevious() {
+
             currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
+
             openModal(visibleItems[currentIndex]);
+
         }
+
+
 
         function showNext() {
+
             currentIndex = (currentIndex + 1) % visibleItems.length;
+
             openModal(visibleItems[currentIndex]);
+
         }
 
+
+
         modalClose.addEventListener('click', closeModal);
+
         modalPrev.addEventListener('click', showPrevious);
+
         modalNext.addEventListener('click', showNext);
 
+
+
         modal.addEventListener('click', (e) => {
+
             if (e.target === modal) closeModal();
+
         });
+
+
 
         // Keyboard navigation
+
         document.addEventListener('keydown', (e) => {
+
             if (!modal.classList.contains('active')) return;
+
             if (e.key === 'Escape') closeModal();
+
             if (e.key === 'ArrowLeft') showPrevious();
+
             if (e.key === 'ArrowRight') showNext();
+
         });
+
+
 
         // Intersection Observer for animations
+
         const observerOptions = {
+
             threshold: 0.1,
+
             rootMargin: '0px 0px -50px 0px'
+
         };
 
+
+
         const observer = new IntersectionObserver((entries) => {
+
             entries.forEach(entry => {
+
                 if (entry.isIntersecting) {
+
                     entry.target.style.opacity = '1';
+
                     entry.target.style.transform = 'translateY(0)';
+
                 }
+
             });
+
         }, observerOptions);
 
+
+
         document.querySelectorAll('.stat-card').forEach(el => {
+
             el.style.opacity = '0';
+
             el.style.transform = 'translateY(30px)';
+
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+
             observer.observe(el);
+
+        });
+
+    </script>
+
+
+    
+\n
+
+    <!-- Cookie Consent Scripts -->
+    <script src="js/cookie-utils.js"></script>
+    <script src="js/cookie-consent.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                if (typeof CookieUtils !== 'undefined' && typeof UserPreferences !== 'undefined') {
+                    window.userPreferences = new UserPreferences();
+                }
+            } catch (error) {
+                console.error('Error initializing cookie systems:', error);
+            }
         });
     </script>
+
 </body>
 </html>
+

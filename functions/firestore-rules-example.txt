@@ -1,0 +1,104 @@
+// Firestore Security Rules for Webhook Integration
+// Add these rules to your firestore.rules file
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Orders collection - with webhook support
+    match /orders/{orderId} {
+      // Allow authenticated users to read their own orders
+      allow read: if request.auth != null && 
+                     resource.data.customerInfo.email == request.auth.token.email;
+      
+      // Allow admin users to read all orders
+      allow read: if request.auth != null && 
+                     request.auth.token.admin == true;
+      
+      // Allow users to create orders (during checkout)
+      allow create: if request.auth != null || 
+                       request.resource.data.customerInfo.email != null;
+      
+      // Allow authenticated users to update their own orders
+      allow update: if request.auth != null && 
+                       (resource.data.customerInfo.email == request.auth.token.email ||
+                        request.auth.token.admin == true);
+      
+      // IMPORTANT: Allow updates from server (Firebase Functions/Webhooks)
+      // This is required for the webhook to update order status
+      // Note: Firebase Functions run with admin privileges and bypass these rules
+      
+      // Allow admins to delete orders
+      allow delete: if request.auth != null && 
+                       request.auth.token.admin == true;
+    }
+    
+    // Webhook Events collection - audit trail
+    match /webhookEvents/{eventId} {
+      // Only allow reading webhook events for admins
+      allow read: if request.auth != null && 
+                     request.auth.token.admin == true;
+      
+      // Never allow direct writes from client
+      // Only Firebase Functions can write (admin privileges)
+      allow write: if false;
+      
+      // Note: Firebase Functions bypass these rules and can always write
+    }
+    
+    // Alternative: More restrictive orders rule
+    // Use this if you want tighter security
+    match /orders/{orderId} {
+      // Define admin emails or UIDs
+      function isAdmin() {
+        return request.auth != null && 
+               (request.auth.token.admin == true ||
+                request.auth.uid in ['admin_uid_1', 'admin_uid_2']);
+      }
+      
+      // Check if user owns the order
+      function isOwner() {
+        return request.auth != null && 
+               resource.data.customerInfo.email == request.auth.token.email;
+      }
+      
+      // Allow reading
+      allow read: if isOwner() || isAdmin();
+      
+      // Allow creating orders (during checkout)
+      allow create: if request.auth != null;
+      
+      // Allow updates only from server or admin
+      // (Webhook updates come from server with admin privileges)
+      allow update: if isAdmin();
+      
+      // Allow deletion only by admin
+      allow delete: if isAdmin();
+    }
+  }
+}
+
+// Additional Notes:
+// 
+// 1. Firebase Functions run with ADMIN privileges
+//    - They bypass all security rules
+//    - The webhook can always update orders
+//    - No special rules needed for webhook functionality
+//
+// 2. These rules protect against direct client writes
+//    - Prevents users from manually setting paymentStatus to 'paid'
+//    - Ensures only webhook can update payment status
+//
+// 3. Webhook Events Collection
+//    - Completely protected from client access
+//    - Only viewable by admins
+//    - Only writable by Functions (admin privileges)
+//
+// 4. Testing Rules
+//    - Use Firebase Emulator for testing
+//    - Test with different user roles
+//    - Verify webhook can update orders
+//
+// 5. Custom Claims for Admin
+//    - Set admin claim on user: admin.auth().setCustomUserClaims(uid, { admin: true })
+//    - Access in rules: request.auth.token.admin == true

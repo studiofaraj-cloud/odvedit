@@ -1,32 +1,31 @@
-/**
- * Import function triggers from their respective submodules:
- *
- * const {onCall} = require("firebase-functions/v2/https");
- * const {onDocumentWritten} = require("firebase-functions/v2/firestore");
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
+const functions = require("firebase-functions");
+const admin = require("firebase-admin");
+const { defineSecret } = require("firebase-functions/params");
 
-const {setGlobalOptions} = require("firebase-functions");
-const {onRequest} = require("firebase-functions/https");
-const logger = require("firebase-functions/logger");
+// Initialize Firebase Admin SDK before requiring any module that touches Firestore.
+admin.initializeApp();
 
-// For cost control, you can set the maximum number of containers that can be
-// running at the same time. This helps mitigate the impact of unexpected
-// traffic spikes by instead downgrading performance. This limit is a
-// per-function limit. You can override the limit for each function using the
-// `maxInstances` option in the function's options, e.g.
-// `onRequest({ maxInstances: 5 }, (req, res) => { ... })`.
-// NOTE: setGlobalOptions does not apply to functions using the v1 API. V1
-// functions should each use functions.runWith({ maxInstances: 10 }) instead.
-// In the v1 API, each function can only serve one request per container, so
-// this will be the maximum concurrent request count.
-setGlobalOptions({ maxInstances: 10 });
+const { handleStripeWebhook } = require("./stripeWebhook");
 
-// Create and deploy your first functions
-// https://firebase.google.com/docs/functions/get-started
+// Secrets — set with: firebase functions:secrets:set STRIPE_SECRET_KEY (etc.)
+const stripeSecretKey = defineSecret("STRIPE_SECRET_KEY");
+const webhookSecret   = defineSecret("STRIPE_WEBHOOK_SECRET");
+const brevoApiKey     = defineSecret("BREVO_API_KEY");
 
-// exports.helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+// Email config
+const fromEmail  = "info@oliodivaleria.it";
+const adminEmail = "oliodivaleria@gmail.com";
+
+exports.stripeWebhook = functions
+  .runWith({ secrets: [stripeSecretKey, webhookSecret, brevoApiKey] })
+  .https.onRequest(async (req, res) => {
+    await handleStripeWebhook(
+      req,
+      res,
+      stripeSecretKey.value(),
+      webhookSecret.value(),
+      brevoApiKey.value(),
+      fromEmail,
+      adminEmail
+    );
+  });

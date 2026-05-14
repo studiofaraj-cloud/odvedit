@@ -1,0 +1,47 @@
+# Robots.txt for l'Olio di Valeria
+# https://oliodivaleria.it
+
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Disallow crawling of sensitive/admin areas
+Disallow: /dashboard.html
+Disallow: /dashboard_*.html
+Disallow: /login.html
+Disallow: /checkout.html
+Disallow: /checkout-success.html
+Disallow: /checkout-cancel.html
+
+# Disallow test and development files
+Disallow: /test-*.html
+Disallow: /functions/
+Disallow: /js/*.test.js
+Disallow: /js/*.spec.js
+Disallow: /backup_html/
+Disallow: /temp_head.html
+Disallow: /new_header.html
+Disallow: /fix-*.js
+Disallow: /encoding_fix.js
+Disallow: /fix_faq.js
+
+# Allow crawling of all public pages
+Allow: /index.html
+Allow: /shop.html
+Allow: /chisiamo.html
+Allow: /aziendaagr.html
+Allow: /qualita.html
+Allow: /galleria.html
+Allow: /dovesiamo.html
+Allow: /contatti.html
+Allow: /faq.html
+Allow: /prodotto-*.html
+Allow: /termini-e-condizioniodv.html
+Allow: /cookie-e-privacy-policy.html
+Allow: /404.html
+
+# Sitemap location
+Sitemap: https://oliodivaleria.it/sitemap.xml
+
+# Crawl-delay (helps with server load)
+Crawl-delay: 1

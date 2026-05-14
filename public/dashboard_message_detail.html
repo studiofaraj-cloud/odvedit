@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<link href="assets/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="assets/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="assets/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="assets/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="assets/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="assets/android-chrome-512x512.png" rel="icon" sizes="512x512" type="image/png"/>
+<link href="assets/site.webmanifest" rel="manifest"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title data-i18n="t_7ea67a10">Dashboard - Dettaglio Messaggio</title>
+<link href="css/dashboard.css" rel="stylesheet"/>
+<script src="js/translations.js"></script>
+<script defer="" src="js/translator.js"></script><link href="css/language-switcher.css" rel="stylesheet"/></head>
+<body>
+<div class="dashboard-wrapper">
+<button aria-label="Menu" class="dashboard-hamburger">☰</button>
+<div class="sidebar-overlay"></div>
+<!-- Sidebar Navigation -->
+<aside class="dashboard-sidebar">
+<div class="sidebar-header">
+<a class="sidebar-logo" href="index.html">
+<img alt="l'Olio di Valeria" src="assets/odvlogo.png"/>
+</a>
+</div>
+<nav class="sidebar-nav">
+<div class="nav-section">
+<div class="nav-section-label" data-i18n="t_b6154120">Menu</div>
+<a class="nav-item" data-i18n="t_0dcb3865" href="dashboard.html">
+<span class="nav-icon">📊</span>
+<span class="nav-label">Dashboard</span>
+</a>
+<a class="nav-item" data-i18n="t_3222eea6" href="dashboard_orders.html">
+<span class="nav-icon">📦</span>
+<span class="nav-label">Ordini</span>
+</a>
+<a class="nav-item" data-i18n="t_3468b4cc" href="dashboard_analytics.html">
+<span class="nav-icon">📈</span>
+<span class="nav-label">Analytics</span>
+</a>
+<a class="nav-item active" data-i18n="t_66a7f88b" href="dashboard_messages.html">
+<span class="nav-icon">💬</span>
+<span class="nav-label">Messaggi</span>
+</a>
+<a class="nav-item" data-i18n="t_83f13666" href="dashboard_newsletter.html">
+<span class="nav-icon">📬</span>
+<span class="nav-label">Newsletter</span>
+</a>
+</div>
+</nav>
+<div class="sidebar-footer">
+<a class="nav-item" data-i18n="t_5454e1cf" href="index.html">
+<span class="nav-icon">🏠</span>
+<span class="nav-label">Home</span>
+</a>
+<button class="nav-item logout-btn" data-i18n="t_3494afa3" id="logout-btn">
+<span class="nav-icon">🚪</span>
+<span class="nav-label">Esci</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="dashboard-main">
+<div class="dashboard-container">
+<a class="btn-back" data-i18n="t_9d2351b9" href="dashboard_messages.html">← Indietro ai Messaggi</a>
+<div class="dashboard-header" style="margin-top: 20px;">
+<h1 data-i18n="t_7ab78576">Dettaglio Messaggio</h1>
+</div>
+<div class="data-container" id="message-detail">
+<div class="loading" data-i18n="t_41655480">Caricamento messaggio...</div>
+</div>
+<button class="btn-delete" data-i18n="t_6d8b92aa" id="delete-btn" style="margin-top: 20px; display: none;">Elimina Messaggio</button>
+</div>
+</main>
+</div>
+<div class="modal" id="delete-modal">
+<div class="modal-content">
+<div class="modal-header" data-i18n="t_97dd1337">Conferma Eliminazione</div>
+<div class="modal-body" data-i18n="t_e68ac6c6">
+                Sei sicuro di voler eliminare questo messaggio? Questa azione non può essere annullata.
+            </div>
+<div class="modal-actions">
+<button class="btn-modal btn-cancel" data-i18n="t_160009a8" id="cancel-delete">Annulla</button>
+<button class="btn-modal btn-confirm-delete" data-i18n="t_bc46965e" id="confirm-delete">Elimina</button>
+</div>
+</div>
+</div>
+<script src="js/firebase-config.js" type="module"></script>
+<script src="js/auth.js" type="module"></script>
+<script src="js/dashboard_message_detail.js" type="module"></script>
+<script type="module">
+        import { logout } from './js/auth.js';
+        import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+        import { getFirebaseAuth } from './js/firebase-config.js';
+        import { hideElementsWithoutPermission, PERMISSIONS } from './js/rbac.js';
+        import { initializeDashboardSidebar } from './js/dashboard-sidebar.js';
+        
+        const auth = getFirebaseAuth();
+
+        initializeDashboardSidebar();
+        
+        document.getElementById('logout-btn').addEventListener('click', logout);
+        
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                await hideElementsWithoutPermission('#admin-users-nav', PERMISSIONS.MANAGE_USERS);
+                await hideElementsWithoutPermission('#audit-logs-nav', PERMISSIONS.MANAGE_USERS);
+            }
+        });
+    </script>
+
+    
+\n
+
+    <!-- Cookie Consent Scripts -->
+    <script src="js/cookie-utils.js"></script>
+    <script src="js/cookie-consent.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                if (typeof CookieUtils !== 'undefined' && typeof UserPreferences !== 'undefined') {
+                    window.userPreferences = new UserPreferences();
+                }
+            } catch (error) {
+                console.error('Error initializing cookie systems:', error);
+            }
+        });
+    </script>
+
+</body>
+</html>
+

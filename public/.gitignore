@@ -1,0 +1,56 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# npm workspace artifacts
+functions/functions/
+
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Secrets and credentials
+*secret*.txt
+*credentials*.json
+*.pem
+*.key
+!functions/STRIPE_SETUP.md
+!SET_STRIPE_SECRET_COMMAND.txt
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build outputs
+dist/
+build/
+lib/
+
+# Cache directories
+.cache/
+.eslintcache
+
+# Test Results
+test-results/
+*-test-results.md
+*-test-results.json
+mobile-menu-test-results-*.md

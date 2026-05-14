@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<link href="assets/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="assets/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="assets/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="assets/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="assets/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="assets/android-chrome-512x512.png" rel="icon" sizes="512x512" type="image/png"/>
+<link href="assets/site.webmanifest" rel="manifest"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title data-i18n="t_d3f315a5">Analytics - Dashboard</title>
+<link href="css/dashboard.css" rel="stylesheet"/>
+<script src="js/translations.js"></script>
+<script defer="" src="js/translator.js"></script><link href="css/language-switcher.css" rel="stylesheet"/></head>
+<body>
+<div class="dashboard-wrapper">
+<button aria-label="Menu" class="dashboard-hamburger">☰</button>
+<div class="sidebar-overlay"></div>
+<aside class="dashboard-sidebar">
+<div class="sidebar-header">
+<a class="sidebar-logo" href="index.html">
+<img alt="l'Olio di Valeria" src="assets/odvlogo.png"/>
+</a>
+</div>
+<nav class="sidebar-nav">
+<div class="nav-section">
+<div class="nav-section-label" data-i18n="t_b6154120">Menu</div>
+<a class="nav-item" data-i18n="t_0dcb3865" href="dashboard.html">
+<span class="nav-icon">📊</span>
+<span class="nav-label">Dashboard</span>
+</a>
+<a class="nav-item" data-i18n="t_3222eea6" href="dashboard_orders.html">
+<span class="nav-icon">📦</span>
+<span class="nav-label">Ordini</span>
+</a>
+<a class="nav-item active" data-i18n="t_3468b4cc" href="dashboard_analytics.html">
+<span class="nav-icon">📈</span>
+<span class="nav-label">Analytics</span>
+</a>
+<a class="nav-item" data-i18n="t_66a7f88b" href="dashboard_messages.html">
+<span class="nav-icon">💬</span>
+<span class="nav-label">Messaggi</span>
+</a>
+<a class="nav-item" data-i18n="t_83f13666" href="dashboard_newsletter.html">
+<span class="nav-icon">📬</span>
+<span class="nav-label">Newsletter</span>
+</a>
+</div>
+</nav>
+<div class="sidebar-footer">
+<a class="nav-item" data-i18n="t_5454e1cf" href="index.html">
+<span class="nav-icon">🏠</span>
+<span class="nav-label">Home</span>
+</a>
+<button class="nav-item logout-btn" data-i18n="t_3494afa3" id="logout-btn">
+<span class="nav-icon">🚪</span>
+<span class="nav-label">Esci</span>
+</button>
+</div>
+</aside>
+<main class="dashboard-main">
+<div class="dashboard-container">
+<div class="analytics-header">
+<div>
+<h1 data-i18n="t_9cb331d5">Analytics Vendite</h1>
+<p class="dashboard-subtitle" data-i18n="t_bfcafb7b">Analisi completa delle performance di vendita</p>
+</div>
+<div class="date-filter">
+<label data-i18n="t_fe734f5e" for="time-range">Periodo:</label>
+<select id="time-range">
+<option data-i18n="t_c4516558" value="7">Ultimi 7 giorni</option>
+<option data-i18n="t_c02ab8c8" selected="" value="30">Ultimi 30 giorni</option>
+<option data-i18n="t_a5f8299b" value="90">Ultimi 90 giorni</option>
+<option data-i18n="t_9123fb10" value="365">Ultimo anno</option>
+<option data-i18n="t_df403dd6" value="all">Tutto il periodo</option>
+<option data-i18n="t_72e812ce" value="custom">Personalizzato</option>
+</select>
+<div id="custom-date-range" style="display: none;">
+<input id="start-date" type="date"/>
+<span>-</span>
+<input id="end-date" type="date"/>
+</div>
+<button class="export-btn" data-i18n="t_1cc626ca" id="apply-filter" style="background: #3b82f6;">
+                            Applica
+                        </button>
+<button class="export-btn" data-i18n="t_da430bfb" id="export-report">
+                            📥 Esporta Report
+                        </button>
+</div>
+</div>
+<div class="loading" data-i18n="t_46387341" id="loading-state" style="display: none;">
+                    Caricamento dati analytics...
+                </div>
+<div id="analytics-content" style="display: none;">
+<div class="metrics-grid">
+<div class="metric-card highlight">
+<div class="metric-label" data-i18n="t_a2d8cd74">Ricavi Totali</div>
+<div class="metric-value" id="total-revenue">€0.00</div>
+<div class="metric-change" id="revenue-change"></div>
+</div>
+<div class="metric-card">
+<div class="metric-label" data-i18n="t_c20ec537">Ordini Totali</div>
+<div class="metric-value" id="total-orders">0</div>
+<div class="metric-change" id="orders-change"></div>
+</div>
+<div class="metric-card">
+<div class="metric-label" data-i18n="t_236928d1">Valore Medio Ordine</div>
+<div class="metric-value" id="avg-order-value">€0.00</div>
+<div class="metric-change" id="aov-change"></div>
+</div>
+<div class="metric-card">
+<div class="metric-label" data-i18n="t_bb8a0a24">Tasso di Conversione</div>
+<div class="metric-value" id="conversion-rate">0%</div>
+<div class="metric-change" id="conversion-change"></div>
+</div>
+<div class="metric-card">
+<div class="metric-label" data-i18n="t_902735e1">Clienti Totali</div>
+<div class="metric-value" id="total-customers">0</div>
+<div class="metric-change" id="customers-change"></div>
+</div>
+<div class="metric-card">
+<div class="metric-label" data-i18n="t_f92ca3f5">Prodotti Venduti</div>
+<div class="metric-value" id="total-products-sold">0</div>
+<div class="metric-change" id="products-change"></div>
+</div>
+</div>
+<div class="charts-section">
+<div class="chart-container full-width">
+<h3 class="chart-title" data-i18n="t_c6a603bc">Tendenza Ricavi nel Tempo</h3>
+<div class="chart-wrapper">
+<canvas id="revenue-chart"></canvas>
+</div>
+</div>
+<div class="chart-container">
+<h3 class="chart-title" data-i18n="t_8b5eb3b1">Top 10 Prodotti più Venduti</h3>
+<ul class="top-products-list" id="top-products-list">
+</ul>
+</div>
+<div class="chart-container">
+<h3 class="chart-title" data-i18n="t_aacb411a">Distribuzione per Formato</h3>
+<div class="chart-wrapper small">
+<canvas id="products-chart"></canvas>
+</div>
+</div>
+<div class="chart-container">
+<h3 class="chart-title" data-i18n="t_b96a1530">Metodi di Pagamento</h3>
+<div class="chart-wrapper small">
+<canvas id="payment-methods-chart"></canvas>
+</div>
+</div>
+<div class="chart-container">
+<h3 class="chart-title" data-i18n="t_4093a5eb">Stati degli Ordini</h3>
+<div class="chart-wrapper small">
+<canvas id="order-status-chart"></canvas>
+</div>
+</div>
+<div class="chart-container full-width">
+<h3 class="chart-title" data-i18n="t_f9119828">Segmentazione Clienti</h3>
+<ul class="customer-segments-list" id="customer-segments-list">
+</ul>
+</div>
+<div class="chart-container full-width">
+<h3 class="chart-title" data-i18n="t_c9fc0a28">Funnel di Conversione</h3>
+<div id="conversion-funnel"></div>
+</div>
+</div>
+</div>
+<div id="empty-state" style="display: none;">
+<div class="empty-state">
+<div class="empty-state-icon">📊</div>
+<div class="empty-state-text" data-i18n="t_3d0abc03">Nessun dato disponibile per il periodo selezionato</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="js/dashboard_analytics.js" type="module"></script>
+<script type="module">
+        import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+        import { getFirebaseAuth } from './js/firebase-config.js';
+        import { hideElementsWithoutPermission, PERMISSIONS } from './js/rbac.js';
+        import { initializeDashboardSidebar } from './js/dashboard-sidebar.js';
+        
+        const auth = getFirebaseAuth();
+
+        initializeDashboardSidebar();
+        
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                await hideElementsWithoutPermission('#admin-users-nav', PERMISSIONS.MANAGE_USERS);
+                await hideElementsWithoutPermission('#audit-logs-nav', PERMISSIONS.MANAGE_USERS);
+            }
+        });
+    </script>
+
+    
+\n
+
+    <!-- Cookie Consent Scripts -->
+    <script src="js/cookie-utils.js"></script>
+    <script src="js/cookie-consent.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                if (typeof CookieUtils !== 'undefined' && typeof UserPreferences !== 'undefined') {
+                    window.userPreferences = new UserPreferences();
+                }
+            } catch (error) {
+                console.error('Error initializing cookie systems:', error);
+            }
+        });
+    </script>
+
+</body>
+</html>
+

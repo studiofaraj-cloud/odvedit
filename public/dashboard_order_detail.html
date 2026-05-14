@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<link href="assets/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="assets/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="assets/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="assets/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="assets/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="assets/android-chrome-512x512.png" rel="icon" sizes="512x512" type="image/png"/>
+<link href="assets/site.webmanifest" rel="manifest"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title data-i18n="t_5cd801fc">Dashboard - Dettaglio Ordine</title>
+<link href="css/dashboard.css" rel="stylesheet"/>
+<script src="js/translations.js"></script>
+<script defer="" src="js/translator.js"></script><link href="css/language-switcher.css" rel="stylesheet"/></head>
+<body>
+<div class="dashboard-wrapper">
+<button aria-label="Menu" class="dashboard-hamburger">☰</button>
+<div class="sidebar-overlay"></div>
+<!-- Sidebar Navigation -->
+<aside class="dashboard-sidebar">
+<div class="sidebar-header">
+<a class="sidebar-logo" href="index.html">
+<img alt="l'Olio di Valeria" src="assets/odvlogo.png"/>
+</a>
+</div>
+<nav class="sidebar-nav">
+<div class="nav-section">
+<div class="nav-section-label" data-i18n="t_b6154120">Menu</div>
+<a class="nav-item" data-i18n="t_0dcb3865" href="dashboard.html">
+<span class="nav-icon">📊</span>
+<span class="nav-label">Dashboard</span>
+</a>
+<a class="nav-item active" data-i18n="t_3222eea6" href="dashboard_orders.html">
+<span class="nav-icon">📦</span>
+<span class="nav-label">Ordini</span>
+</a>
+<a class="nav-item" data-i18n="t_3468b4cc" href="dashboard_analytics.html">
+<span class="nav-icon">📈</span>
+<span class="nav-label">Analytics</span>
+</a>
+<a class="nav-item" data-i18n="t_66a7f88b" href="dashboard_messages.html">
+<span class="nav-icon">💬</span>
+<span class="nav-label">Messaggi</span>
+</a>
+<a class="nav-item" data-i18n="t_83f13666" href="dashboard_newsletter.html">
+<span class="nav-icon">📬</span>
+<span class="nav-label">Newsletter</span>
+</a>
+</div>
+</nav>
+<div class="sidebar-footer">
+<a class="nav-item" data-i18n="t_5454e1cf" href="index.html">
+<span class="nav-icon">🏠</span>
+<span class="nav-label">Home</span>
+</a>
+<button class="nav-item logout-btn" data-i18n="t_3494afa3" id="logout-btn">
+<span class="nav-icon">🚪</span>
+<span class="nav-label">Esci</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="dashboard-main">
+<div class="dashboard-container">
+<a class="btn-back" data-i18n="t_a072b699" href="dashboard_orders.html">← Indietro agli Ordini</a>
+<div class="dashboard-header" style="margin-top: 20px;">
+<h1 data-i18n="t_25918e63">Dettaglio Ordine</h1>
+</div>
+<div class="data-container" id="order-detail">
+<div class="loading" data-i18n="t_15b4ef90">Caricamento ordine...</div>
+</div>
+<button class="btn-mark-paid" data-i18n="t_8e9e6dc1" id="mark-paid-btn" style="margin-top: 20px; display: none;">Segna come Pagato</button>
+<div class="data-container" id="status-update-section" style="margin-top: 20px; display: none;">
+<h3 data-i18n="t_fd7c22e8" style="margin-bottom: 20px; color: #1a202c;">Aggiorna Stato Ordine</h3>
+<div class="status-update-row" style="display: flex; gap: 15px; align-items: flex-end; flex-wrap: wrap;">
+<div style="flex: 1; min-width: 200px;">
+<label data-i18n="t_1d9beee6" for="status-select" style="display: block; font-weight: 600; color: #4a5568; margin-bottom: 8px; font-size: 0.9em;">Stato Ordine</label>
+<select id="status-select" style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 6px; font-size: 1em; background-color: #ffffff; color: #1a202c; cursor: pointer; transition: border-color 0.2s; min-height: 44px;">
+<option data-i18n="t_936a2400" value="pending">⏳ In attesa</option>
+<option data-i18n="t_ebd406ae" value="processing">⚙️ In elaborazione</option>
+<option data-i18n="t_1d2e41be" value="shipped">📦 Spedito</option>
+<option data-i18n="t_d6256932" value="delivered">✅ Consegnato</option>
+<option data-i18n="t_ac211f1e" value="cancelled">❌ Annullato</option>
+</select>
+</div>
+<button class="btn-update" data-i18n="t_eea6b6d5" id="update-status-btn" style="min-width: 150px;">
+<span id="update-btn-text">Salva Modifiche</span>
+<span id="update-btn-loading" style="display: none;">Salvataggio...</span>
+</button>
+</div>
+<div id="status-message" style="margin-top: 15px; padding: 12px; border-radius: 6px; display: none; font-weight: 500;"></div>
+</div>
+<div class="btn-row" style="margin-top: 20px; display: flex; gap: 12px;">
+<button class="btn-primary" data-i18n="t_ab7020fa" id="change-status-btn" style="display: none;">Cambia Stato</button>
+<button class="btn-delete" data-i18n="t_bede48c0" id="delete-order-btn" style="display: none;">Elimina Ordine</button>
+</div>
+</div>
+</main>
+</div>
+<div class="modal" id="delete-modal">
+<div class="modal-content">
+<div class="modal-header" data-i18n="t_97dd1337">Conferma Eliminazione</div>
+<div class="modal-body">
+<p data-i18n="t_20befbd4">Sei sicuro di voler eliminare questo ordine? Questa azione non può essere annullata.</p>
+<div id="modal-order-details"></div>
+</div>
+<div class="modal-footer">
+<button class="btn-modal btn-cancel" data-i18n="t_160009a8" id="cancel-delete-btn">Annulla</button>
+<button class="btn-modal btn-confirm-delete" data-i18n="t_bc46965e" id="confirm-delete-btn">Elimina</button>
+</div>
+</div>
+</div>
+<div class="modal" id="status-modal">
+<div class="modal-content">
+<div class="modal-header" data-i18n="t_4af41f91">Cambia Stato Ordine</div>
+<div class="modal-body">
+<p data-i18n="t_2d1174eb">Seleziona il nuovo stato per questo ordine:</p>
+<select id="status-modal-select" style="width: 100%; padding: 12px; font-size: 1em; border: 2px solid #e5e7eb; border-radius: 8px; margin-top: 12px;">
+<option data-i18n="t_936a2400" value="pending">⏳ In attesa</option>
+<option data-i18n="t_ebd406ae" value="processing">⚙️ In elaborazione</option>
+<option data-i18n="t_1d2e41be" value="shipped">📦 Spedito</option>
+<option data-i18n="t_d6256932" value="delivered">✅ Consegnato</option>
+<option data-i18n="t_ac211f1e" value="cancelled">❌ Annullato</option>
+</select>
+</div>
+<div class="modal-footer">
+<button class="btn-modal btn-cancel" data-i18n="t_160009a8" id="cancel-status-btn">Annulla</button>
+<button class="btn-modal btn-confirm" data-i18n="t_01d0b069" id="confirm-status-btn">Conferma</button>
+</div>
+</div>
+</div>
+<script src="js/firebase-config.js" type="module"></script>
+<script src="js/auth.js" type="module"></script>
+<script src="js/dashboard_order_detail.js" type="module"></script>
+<script type="module">
+        import { logout } from './js/auth.js';
+        import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+        import { getFirebaseAuth } from './js/firebase-config.js';
+        import { hideElementsWithoutPermission, PERMISSIONS } from './js/rbac.js';
+        import { initializeDashboardSidebar } from './js/dashboard-sidebar.js';
+        
+        const auth = getFirebaseAuth();
+
+        initializeDashboardSidebar();
+        
+        document.getElementById('logout-btn').addEventListener('click', logout);
+        
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                await hideElementsWithoutPermission('#admin-users-nav', PERMISSIONS.MANAGE_USERS);
+                await hideElementsWithoutPermission('#audit-logs-nav', PERMISSIONS.MANAGE_USERS);
+            }
+        });
+    </script>
+
+    
+\n
+
+    <!-- Cookie Consent Scripts -->
+    <script src="js/cookie-utils.js"></script>
+    <script src="js/cookie-consent.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                if (typeof CookieUtils !== 'undefined' && typeof UserPreferences !== 'undefined') {
+                    window.userPreferences = new UserPreferences();
+                }
+            } catch (error) {
+                console.error('Error initializing cookie systems:', error);
+            }
+        });
+    </script>
+
+</body>
+</html>
+

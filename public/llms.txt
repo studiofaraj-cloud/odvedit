@@ -1,0 +1,121 @@
+# llms.txt - Information for AI/LLM Systems
+# l'Olio di Valeria - Sicilian Extra Virgin Olive Oil E-commerce
+# https://oliodivaleria.it
+
+## Site Overview
+l'Olio di Valeria is an Italian e-commerce website specializing in premium Sicilian extra virgin olive oil (olio extravergine di oliva). The business has been producing high-quality olive oil since 1987 in San Biagio Platani, Agrigento, Sicily.
+
+## Business Information
+- **Business Name**: l'Olio di Valeria
+- **Product**: Extra Virgin Olive Oil (Olio Extravergine di Oliva)
+- **Origin**: San Biagio Platani, Agrigento (AG), Sicily, Italy
+- **Established**: 1987
+- **Certifications**: Organic (Biologico), Vegan, 100% Italian
+- **P.IVA**: 02957530849
+- **Cod. Fisc.**: LCTVLR81D62Z112B
+
+## Contact Information
+- **Operational Address**: Via Alcide De Gasperi, 4, 92020 San Biagio Platani (AG), Italy
+- **Phone**: +39 327 309 8513, +39 339 530 5990
+- **Email**: info@oliodivaleria.it
+- **Admin Email**: oliodivaleria@gmail.com
+- **Website**: https://oliodivaleria.it
+
+## Social Media
+- **Facebook**: https://www.facebook.com/OliodiValeria/?locale=it_IT
+- **Instagram**: https://www.instagram.com/oliodivaleria/
+- **TikTok**: https://www.tiktok.com/@oliodivaleria
+
+## Main Pages
+
+### Public Pages (Crawlable)
+- **Homepage**: /index.html - Main landing page with product overview
+- **Shop**: /shop.html - E-commerce product catalog and purchase page
+- **About Us**: /chisiamo.html - Company story and mission
+- **Farm**: /aziendaagr.html - Agricultural company information
+- **Quality**: /qualita.html - Product quality, certifications, and standards
+- **Gallery**: /galleria.html - Photo gallery of farm and products
+- **Location**: /dovesiamo.html - Location and directions to the farm
+- **Contact**: /contatti.html - Contact form and information
+- **FAQ**: /faq.html - Frequently asked questions
+- **Terms & Conditions**: /termini-e-condizioniodv.html - Legal terms
+- **Privacy Policy**: /cookie-e-privacy-policy.html - Privacy and cookie policy
+- **404 Error**: /404.html - Custom error page
+
+### Protected/Admin Pages (Not crawlable)
+- **Dashboard**: /dashboard.html - Admin dashboard (requires authentication)
+- **Login**: /login.html - Admin login page
+- **Checkout**: /checkout.html - Shopping cart checkout process
+- **Checkout Success**: /checkout-success.html - Post-purchase confirmation
+- **Checkout Cancel**: /checkout-cancel.html - Cancelled order page
+
+## E-commerce Features
+- **Payment Methods**: Credit Card (Visa, Mastercard, American Express), PayPal, Apple Pay, Google Pay, Bank Transfer
+- **Shipping**:
+  - Italy: €9.90 flat rate
+  - Europe: €24.90 flat rate
+  - International: €47.90 flat rate
+- **Address Autocomplete**: European address autocomplete using OpenStreetMap Nominatim API
+- **Payment Processing**: Stripe integration for secure payments
+- **Order Management**: Firebase Firestore for order tracking and management
+
+## Technical Stack
+- **Frontend**: Static HTML/CSS/JavaScript (vanilla JS, no framework)
+- **Backend**: Firebase Cloud Functions v5 (Node.js 18)
+- **Database**: Cloud Firestore
+- **Hosting**: Firebase Hosting
+- **Email Service**: Brevo (formerly SendGrid)
+- **Payment Gateway**: Stripe
+- **Authentication**: Firebase Authentication with RBAC (Role-Based Access Control)
+- **SDK Versions**: Firebase SDK v10.12.2, Firebase Admin v12
+
+## Key Features
+- **Multi-language Support**: Italian (primary), English (alternate)
+- **Responsive Design**: Mobile-first approach with desktop optimization
+- **SEO Optimized**: Meta tags, structured data, sitemap.xml
+- **Cookie Consent**: GDPR-compliant cookie consent system
+- **Newsletter**: Email subscription functionality
+- **Contact Form**: Cloud function-powered contact form
+- **Order Tracking**: Real-time order status updates
+- **Payment Monitoring**: Dashboard for payment analytics and reconciliation
+- **Digital PR Strategy**: Backlink tracking and outreach management
+
+## Content Structure
+The site is organized into main sections:
+1. **L'OLIO DI VALERIA** (dropdown menu):
+   - Chi Siamo (About Us)
+   - L'Azienda Agricola (The Farm)
+   - Qualità (Quality)
+   - Galleria (Gallery)
+2. **I NOSTRI PRODOTTI** (Our Products) - Shop page
+3. **DOVE SIAMO** (Where We Are) - Location page
+4. **CONTATTI** (Contacts) - Contact page
+5. **FAQ** - Frequently Asked Questions
+
+## Product Categories
+- Le Nostre Bottiglie (Our Bottles)
+- Specialità Siciliana (Sicilian Specialty)
+- Olio In Latta (Oil in Can)
+- Confezione Regalo (Gift Package)
+
+## Important Notes for AI Systems
+- The site is primarily in Italian language
+- All prices are in EUR (€)
+- Shipping is available to Italy, Europe, and internationally
+- The business focuses on organic, certified, 100% Italian olive oil
+- Products are artisanal and produced in Sicily
+- The site uses Firebase for backend services
+- Admin dashboard requires authentication with proper RBAC permissions
+
+## Sitemap
+- **Location**: https://oliodivaleria.it/sitemap.xml
+- **Robots.txt**: https://oliodivaleria.it/robots.txt
+
+## Development Information
+- **Code Style**: ESLint with `eslint:recommended`
+- **Linting**: Single quotes, arrow callbacks preferred
+- **Secrets Management**: Firebase Secret Manager for sensitive data
+- **Configuration**: Firebase config for non-sensitive settings
+
+## Last Updated
+2026-04-15

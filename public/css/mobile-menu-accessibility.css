@@ -1,0 +1,112 @@
+/**
+ * Mobile Menu Accessibility Enhancements
+ * Ensures WCAG 2.1 Level AA compliance for mobile navigation
+ * 
+ * Features:
+ * - Minimum 44x44px touch targets (WCAG 2.5.5)
+ * - Visible focus indicators (WCAG 2.4.7)
+ * - Sufficient color contrast (WCAG 1.4.3)
+ * - Keyboard navigation support
+ */
+
+/* Mobile Menu Button - Minimum Touch Target */
+.mobile-menu-btn {
+    min-width: 44px !important;
+    min-height: 44px !important;
+    padding: 12px !important;
+    border-radius: 8px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-menu-btn:hover {
+    background: rgba(254, 240, 138, 0.5);
+}
+
+.mobile-menu-btn:focus {
+    outline: 2px solid #eab308 !important;
+    outline-offset: 2px !important;
+}
+
+/* Mobile Menu Close Button - Minimum Touch Target */
+.mobile-close-btn,
+.mobile-menu-close {
+    min-width: 44px !important;
+    min-height: 44px !important;
+    padding: 12px !important;
+    border-radius: 8px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-close-btn:hover,
+.mobile-menu-close:hover {
+    color: #eab308;
+    background: rgba(254, 240, 138, 0.5);
+}
+
+.mobile-close-btn:focus,
+.mobile-menu-close:focus {
+    outline: 2px solid #eab308 !important;
+    outline-offset: 2px !important;
+}
+
+/* Mobile Nav Links - Minimum Touch Target */
+.mobile-nav-link {
+    min-height: 44px !important;
+}
+
+.mobile-nav-link:focus {
+    outline: 2px solid #eab308 !important;
+    outline-offset: -2px !important;
+    background: rgba(254, 240, 138, 0.3);
+}
+
+/* Mobile Dropdown Items - Minimum Touch Target */
+.mobile-dropdown-item {
+    min-height: 44px !important;
+}
+
+.mobile-dropdown-item:focus {
+    outline: 2px solid #eab308 !important;
+    outline-offset: -2px !important;
+    background: rgba(254, 240, 138, 0.3);
+}
+
+/* Ensure focus visible in high contrast mode */
+@media (prefers-contrast: high) {
+    .mobile-menu-btn:focus,
+    .mobile-close-btn:focus,
+    .mobile-menu-close:focus,
+    .mobile-nav-link:focus,
+    .mobile-dropdown-item:focus {
+        outline-width: 3px !important;
+        outline-style: solid !important;
+    }
+}
+
+/* Ensure animations respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .mobile-menu,
+    .mobile-overlay,
+    .mobile-menu-overlay,
+    .mobile-dropdown,
+    .dropdown-arrow {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* Additional touch target spacing for mobile devices */
+@media (max-width: 768px) {
+    .mobile-nav-item {
+        margin-bottom: 4px;
+    }
+    
+    .mobile-dropdown-item {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+}

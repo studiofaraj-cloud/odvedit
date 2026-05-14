@@ -1,36 +1,497 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="css/dashboard.css">
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
-        const firebaseConfig = {
-            apiKey: "AIzaSyAg7Jal9PIext4OSxhH4q0Twoybos3_mvE",
-            authDomain: "l-olio-di-valeria.firebaseapp.com",
-            projectId: "l-olio-di-valeria",
-            storageBucket: "l-olio-di-valeria.appspot.com",
-            messagingSenderId: "438585656275",
-            appId: "1:438585656275:web:0ec70ddabc7de64b806526",
-            measurementId: "G-QW0YWNWKZ8"
-        };
-        const app = initializeApp(firebaseConfig);
-    </script>
-</head>
-<body>
-    <div class="dashboard-container">
-        <div class="dashboard-nav">
-            <a href="dashboard_orders.html">Orders</a>
-            <a href="dashboard_messages.html">Messages</a>
-            <a href="dashboard_newsletter.html">Newsletter</a>
-        </div>
-        <h1>Welcome to Your Dashboard</h1>
-        <p>Select a category above to view data.</p>
-    </div>
+﻿<!DOCTYPE html>
 
-    <script type="module" src="js/firebase.js"></script>
-    <script type="module" src="js/auth.js"></script>
+<html lang="it">
+<head>
+<link href="assets/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="assets/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="assets/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="assets/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="assets/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="assets/android-chrome-512x512.png" rel="icon" sizes="512x512" type="image/png"/>
+<link href="assets/site.webmanifest" rel="manifest"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title data-i18n="t_2938c7f7">Dashboard</title>
+<link href="css/dashboard.css" rel="stylesheet"/>
+<script src="js/translations.js"></script>
+<script defer="" src="js/translator.js"></script><link href="css/language-switcher.css" rel="stylesheet"/></head>
+<body>
+<div class="dashboard-wrapper">
+<button aria-label="Menu" class="dashboard-hamburger">☰</button>
+<div class="sidebar-overlay"></div>
+<!-- Sidebar Navigation -->
+<aside class="dashboard-sidebar">
+<div class="sidebar-header">
+<a class="sidebar-logo" href="index.html">
+<img alt="l'Olio di Valeria" src="assets/odvlogo.png"/>
+</a>
+</div>
+<nav class="sidebar-nav">
+<div class="nav-section">
+<div class="nav-section-label" data-i18n="t_b6154120">Menu</div>
+<a class="nav-item active" data-i18n="t_0dcb3865" href="dashboard.html">
+<span class="nav-icon">📊</span>
+<span class="nav-label">Dashboard</span>
+</a>
+<a class="nav-item" data-i18n="t_3222eea6" href="dashboard_orders.html">
+<span class="nav-icon">📦</span>
+<span class="nav-label">Ordini</span>
+</a>
+<a class="nav-item" data-i18n="t_3468b4cc" href="dashboard_analytics.html">
+<span class="nav-icon">📈</span>
+<span class="nav-label">Analytics</span>
+</a>
+<a class="nav-item" data-i18n="t_66a7f88b" href="dashboard_messages.html">
+<span class="nav-icon">💬</span>
+<span class="nav-label">Messaggi</span>
+</a>
+<a class="nav-item" data-i18n="t_83f13666" href="dashboard_newsletter.html">
+<span class="nav-icon">📬</span>
+<span class="nav-label">Newsletter</span>
+</a>
+</div>
+</nav>
+<div class="sidebar-footer">
+<a class="nav-item" data-i18n="t_5454e1cf" href="index.html">
+<span class="nav-icon">🏠</span>
+<span class="nav-label">Home</span>
+</a>
+<button class="nav-item logout-btn" data-i18n="t_3494afa3" id="logout-btn">
+<span class="nav-icon">🚪</span>
+<span class="nav-label">Esci</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="dashboard-main">
+<div class="dashboard-container">
+<div class="dashboard-header">
+<h1 data-i18n="t_caa37e22">Benvenuto nella Tua Dashboard</h1>
+<p class="dashboard-subtitle" data-i18n="t_c1555e43">Seleziona una categoria dal menu per visualizzare i dati</p>
+</div>
+<div class="dashboard-grid">
+<!-- Quick Stats Cards -->
+<div class="stats-section">
+<h2 class="section-title" data-i18n="t_940fa676">Panoramica Rapida</h2>
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-icon">📦</div>
+<div class="stat-content">
+<div class="stat-label" data-i18n="t_c20ec537">Ordini Totali</div>
+<div class="stat-value">--</div>
+</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon">💬</div>
+<div class="stat-content">
+<div class="stat-label" data-i18n="t_7c4264d0">Messaggi</div>
+<div class="stat-value">--</div>
+</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon">📬</div>
+<div class="stat-content">
+<div class="stat-label" data-i18n="t_460afe92">Iscritti Newsletter</div>
+<div class="stat-value">--</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Actions -->
+<div class="actions-section">
+<h2 class="section-title" data-i18n="t_d2229cca">Azioni Rapide</h2>
+<div class="actions-grid" data-i18n="t_2a311eef">
+<a class="action-card" href="dashboard_orders.html">
+<div class="action-icon">📦</div>
+<div class="action-title">Visualizza Ordini</div>
+<div class="action-desc">Gestisci tutti gli ordini</div>
+</a>
+<a class="action-card" href="dashboard_analytics.html">
+<div class="action-icon">📈</div>
+<div class="action-title">Analytics</div>
+<div class="action-desc">Analisi vendite e metriche</div>
+</a>
+<a class="action-card" href="dashboard_messages.html">
+<div class="action-icon">💬</div>
+<div class="action-title">Messaggi</div>
+<div class="action-desc">Leggi i messaggi ricevuti</div>
+</a>
+<a class="action-card" href="dashboard_newsletter.html">
+<div class="action-icon">📬</div>
+<div class="action-title">Newsletter</div>
+<div class="action-desc">Gestisci iscritti</div>
+</a>
+</div>
+</div>
+<!-- Recent Activities -->
+<div class="activities-section" style="grid-column: 1 / -1; margin-top: 40px;">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+<h2 class="section-title" data-i18n="t_9ac84dfc" style="margin: 0;">Attività Recenti</h2>
+<button data-i18n="t_1c37cb49" id="refresh-activities" style="padding: 8px 16px; background: #eab308; color: #000; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.9em; display: flex; align-items: center; gap: 6px;">
+<span>🔄</span>
+<span>Aggiorna</span>
+</button>
+</div>
+<div id="recent-activities" style="background: #fff; border-radius: 12px; border: 1px solid #e5e7eb; overflow: hidden; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);">
+<div style="padding: 24px; text-align: center; color: #9ca3af;">
+<div style="font-size: 2em; margin-bottom: 8px;">⏳</div>
+<div data-i18n="t_3d3dfefd">Caricamento attività...</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script src="js/firebase-config.js" type="module"></script>
+<script src="js/auth.js" type="module"></script>
+<script type="module">
+        import { logout } from './js/auth.js';
+        import { collection, getDocs, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
+        import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+        import { getFirebaseFirestore, getFirebaseAuth, withFirebaseRetry } from './js/firebase-config.js';
+        import { PERMISSIONS, hasPermission, hideElementsWithoutPermission } from './js/rbac.js';
+        import { initializeDashboardSidebar } from './js/dashboard-sidebar.js';
+
+        const db = getFirebaseFirestore();
+        const auth = getFirebaseAuth();
+
+        initializeDashboardSidebar();
+        
+        document.getElementById('logout-btn').addEventListener('click', logout);
+        
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                await hideElementsWithoutPermission('#admin-users-nav', PERMISSIONS.MANAGE_USERS);
+                await hideElementsWithoutPermission('#audit-logs-nav', PERMISSIONS.MANAGE_USERS);
+                await hideElementsWithoutPermission('#payment-monitoring-nav', PERMISSIONS.VIEW_ORDERS);
+            }
+        });
+
+        async function loadDashboardStats() {
+            const statValues = document.querySelectorAll('.stat-value');
+            
+            statValues.forEach(elem => {
+                elem.textContent = '...';
+                elem.style.color = '#9ca3af';
+            });
+
+            try {
+                const [ordersSnapshot, messagesSnapshot, newsletterSnapshot] = await Promise.all([
+                    withFirebaseRetry(
+                        async () => getDocs(collection(db, 'orders')),
+                        'get orders count'
+                    ).catch(error => {
+                        console.error('[Dashboard] Error fetching orders:', error);
+                        return null;
+                    }),
+                    withFirebaseRetry(
+                        async () => getDocs(collection(db, 'contactMessages')),
+                        'get messages count'
+                    ).catch(error => {
+                        console.error('[Dashboard] Error fetching messages:', error);
+                        return null;
+                    }),
+                    withFirebaseRetry(
+                        async () => getDocs(collection(db, 'newsletter')),
+                        'get newsletter count'
+                    ).catch(error => {
+                        console.error('[Dashboard] Error fetching newsletter:', error);
+                        return null;
+                    })
+                ]);
+
+                const ordersCount = ordersSnapshot ? ordersSnapshot.size : 0;
+                const messagesCount = messagesSnapshot ? messagesSnapshot.size : 0;
+                const newsletterCount = newsletterSnapshot ? newsletterSnapshot.size : 0;
+
+                statValues[0].textContent = ordersCount;
+                statValues[0].style.color = '#000';
+                
+                statValues[1].textContent = messagesCount;
+                statValues[1].style.color = '#000';
+                
+                statValues[2].textContent = newsletterCount;
+                statValues[2].style.color = '#000';
+
+                console.log('[Dashboard] Stats loaded:', { ordersCount, messagesCount, newsletterCount });
+            } catch (error) {
+                console.error('[Dashboard] Error loading stats:', error);
+                statValues.forEach(elem => {
+                    elem.textContent = '--';
+                    elem.style.color = '#ef4444';
+                });
+            }
+        }
+
+        function formatTimestamp(timestamp) {
+            if (!timestamp) return 'N/A';
+            
+            try {
+                const date = timestamp.seconds 
+                    ? new Date(timestamp.seconds * 1000) 
+                    : new Date(timestamp);
+                
+                const now = new Date();
+                const diffMs = now - date;
+                const diffMins = Math.floor(diffMs / 60000);
+                const diffHours = Math.floor(diffMs / 3600000);
+                const diffDays = Math.floor(diffMs / 86400000);
+                
+                if (diffMins < 1) return 'Adesso';
+                if (diffMins < 60) return `${diffMins} min${diffMins !== 1 ? 'uti' : 'uto'} fa`;
+                if (diffHours < 24) return `${diffHours} ora${diffHours !== 1 ? 'e' : ''} fa`;
+                if (diffDays < 7) return `${diffDays} giorno${diffDays !== 1 ? 'i' : ''} fa`;
+                
+                return date.toLocaleDateString('it-IT', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+            } catch (error) {
+                console.error('Error formatting timestamp:', error);
+                return 'N/A';
+            }
+        }
+
+        function getActivityIcon(type) {
+            const icons = {
+                'order': '📦',
+                'message': '💬',
+                'newsletter': '📬'
+            };
+            return icons[type] || '📋';
+        }
+
+        function getActivityColor(type) {
+            const colors = {
+                'order': { bg: '#dbeafe', border: '#3b82f6', text: '#1e40af' },
+                'message': { bg: '#fef3c7', border: '#f59e0b', text: '#92400e' },
+                'newsletter': { bg: '#d1fae5', border: '#10b981', text: '#065f46' }
+            };
+            return colors[type] || { bg: '#f3f4f6', border: '#6b7280', text: '#374151' };
+        }
+
+        function getActivityTitle(type, data) {
+            if (type === 'order') {
+                return `Nuovo Ordine da ${data.customerInfo?.name || 'Cliente'}`;
+            } else if (type === 'message') {
+                return `Nuovo Messaggio da ${data.name || 'Anonimo'}`;
+            } else if (type === 'newsletter') {
+                return `Nuova Iscrizione Newsletter`;
+            }
+            return 'Attività';
+        }
+
+        function getActivityDescription(type, data) {
+            if (type === 'order') {
+                const total = data.total ? `€${data.total.toFixed(2)}` : 'N/A';
+                const itemsCount = data.items?.length || 0;
+                return `Ordine di ${total} - ${itemsCount} articolo${itemsCount !== 1 ? 'i' : ''}`;
+            } else if (type === 'message') {
+                const message = data.message || '';
+                const preview = message.length > 100 ? message.substring(0, 100) + '...' : message;
+                return preview || 'Nessun messaggio';
+            } else if (type === 'newsletter') {
+                return `Email: ${data.email || 'N/A'}`;
+            }
+            return '';
+        }
+
+        function getActivityLink(type, id) {
+            if (type === 'order') {
+                return `dashboard_order_detail.html?id=${encodeURIComponent(id)}`;
+            } else if (type === 'message') {
+                return `dashboard_message_detail.html?id=${encodeURIComponent(id)}`;
+            } else if (type === 'newsletter') {
+                return `dashboard_newsletter.html`;
+            }
+            return '#';
+        }
+
+        async function loadRecentActivities() {
+            const activitiesContainer = document.getElementById('recent-activities');
+            
+            if (!activitiesContainer) return;
+            
+            activitiesContainer.innerHTML = '<div style="padding: 24px; text-align: center; color: #9ca3af;"><div style="font-size: 2em; margin-bottom: 8px;">⏳</div><div>Caricamento attività...</div></div>';
+            
+            try {
+                const [ordersSnapshot, messagesSnapshot, newsletterSnapshot] = await Promise.all([
+                    withFirebaseRetry(
+                        async () => getDocs(query(collection(db, 'orders'), orderBy('timestamp', 'desc'), limit(10))),
+                        'get recent orders'
+                    ).catch(error => {
+                        console.error('[Dashboard] Error fetching recent orders:', error);
+                        return null;
+                    }),
+                    withFirebaseRetry(
+                        async () => getDocs(query(collection(db, 'contactMessages'), orderBy('timestamp', 'desc'), limit(10))),
+                        'get recent messages'
+                    ).catch(error => {
+                        console.error('[Dashboard] Error fetching recent messages:', error);
+                        return null;
+                    }),
+                    withFirebaseRetry(
+                        async () => getDocs(query(collection(db, 'newsletter'), orderBy('timestamp', 'desc'), limit(10))),
+                        'get recent newsletter'
+                    ).catch(error => {
+                        console.error('[Dashboard] Error fetching recent newsletter:', error);
+                        return null;
+                    })
+                ]);
+
+                const activities = [];
+                
+                if (ordersSnapshot) {
+                    ordersSnapshot.forEach(doc => {
+                        const data = doc.data();
+                        activities.push({
+                            type: 'order',
+                            id: doc.id,
+                            data: data,
+                            timestamp: data.timestamp || data.createdAt
+                        });
+                    });
+                }
+                
+                if (messagesSnapshot) {
+                    messagesSnapshot.forEach(doc => {
+                        const data = doc.data();
+                        activities.push({
+                            type: 'message',
+                            id: doc.id,
+                            data: data,
+                            timestamp: data.timestamp
+                        });
+                    });
+                }
+                
+                if (newsletterSnapshot) {
+                    newsletterSnapshot.forEach(doc => {
+                        const data = doc.data();
+                        activities.push({
+                            type: 'newsletter',
+                            id: doc.id,
+                            data: data,
+                            timestamp: data.timestamp
+                        });
+                    });
+                }
+                
+                activities.sort((a, b) => {
+                    const timeA = a.timestamp?.seconds || (a.timestamp ? new Date(a.timestamp).getTime() / 1000 : 0);
+                    const timeB = b.timestamp?.seconds || (b.timestamp ? new Date(b.timestamp).getTime() / 1000 : 0);
+                    return timeB - timeA;
+                });
+                
+                const recentActivities = activities.slice(0, 20);
+                
+                if (recentActivities.length === 0) {
+                    activitiesContainer.innerHTML = `
+                        <div style="padding: 48px; text-align: center; color: #9ca3af;">
+                            <div style="font-size: 3em; margin-bottom: 16px;">📭</div>
+                            <h3 style="color: #6b7280; margin: 0 0 8px 0;">Nessuna attività recente</h3>
+                            <p style="margin: 0; font-size: 0.9em;">Le attività recenti appariranno qui</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                let html = '<div style="max-height: 600px; overflow-y: auto;">';
+                
+                recentActivities.forEach((activity, index) => {
+                    const color = getActivityColor(activity.type);
+                    const icon = getActivityIcon(activity.type);
+                    const title = getActivityTitle(activity.type, activity.data);
+                    const description = getActivityDescription(activity.type, activity.data);
+                    const time = formatTimestamp(activity.timestamp);
+                    const link = getActivityLink(activity.type, activity.id);
+                    
+                    html += `
+                        <a href="${link}" style="display: block; text-decoration: none; color: inherit; border-bottom: ${index < recentActivities.length - 1 ? '1px solid #e5e7eb' : 'none'}; transition: background 0.2s;" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='transparent'">
+                            <div style="display: flex; align-items: flex-start; gap: 16px; padding: 20px;">
+                                <div style="width: 48px; height: 48px; border-radius: 12px; background: ${color.bg}; border: 2px solid ${color.border}; display: flex; align-items: center; justify-content: center; font-size: 1.5em; flex-shrink: 0;">
+                                    ${icon}
+                                </div>
+                                <div style="flex: 1; min-width: 0;">
+                                    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 6px;">
+                                        <h3 style="margin: 0; font-size: 1em; font-weight: 600; color: #1f2937;">${escapeHtml(title)}</h3>
+                                        <span style="font-size: 0.85em; color: #9ca3af; white-space: nowrap; flex-shrink: 0;">${time}</span>
+                                    </div>
+                                    <p style="margin: 0; font-size: 0.9em; color: #6b7280; line-height: 1.5;">${escapeHtml(description)}</p>
+                                </div>
+                                <div style="color: #9ca3af; font-size: 1.2em; flex-shrink: 0; margin-top: 4px;">→</div>
+                            </div>
+                        </a>
+                    `;
+                });
+                
+                html += '</div>';
+                activitiesContainer.innerHTML = html;
+                
+                console.log('[Dashboard] Recent activities loaded:', recentActivities.length);
+            } catch (error) {
+                console.error('[Dashboard] Error loading recent activities:', error);
+                activitiesContainer.innerHTML = `
+                    <div style="padding: 24px; text-align: center; color: #ef4444;">
+                        <div style="font-size: 2em; margin-bottom: 8px;">❌</div>
+                        <div>Errore nel caricamento delle attività</div>
+                        <button onclick="loadRecentActivities()" style="margin-top: 12px; padding: 8px 16px; background: #eab308; color: #000; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">Riprova</button>
+                    </div>
+                `;
+            }
+        }
+
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    loadDashboardStats();
+                    loadRecentActivities();
+                }
+            });
+            
+            const refreshBtn = document.getElementById('refresh-activities');
+            if (refreshBtn) {
+                refreshBtn.addEventListener('click', () => {
+                    refreshBtn.disabled = true;
+                    refreshBtn.innerHTML = '<span>⏳</span><span>Caricamento...</span>';
+                    loadRecentActivities().finally(() => {
+                        refreshBtn.disabled = false;
+                        refreshBtn.innerHTML = '<span>🔄</span><span>Aggiorna</span>';
+                    });
+                });
+            }
+        });
+    </script>
+
+    
+\n
+
+    <!-- Cookie Consent Scripts -->
+    <script src="js/cookie-utils.js"></script>
+    <script src="js/cookie-consent.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                if (typeof CookieUtils !== 'undefined' && typeof UserPreferences !== 'undefined') {
+                    window.userPreferences = new UserPreferences();
+                }
+            } catch (error) {
+                console.error('Error initializing cookie systems:', error);
+            }
+        });
+    </script>
+
 </body>
 </html>
+

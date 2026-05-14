@@ -1,0 +1,40 @@
+{
+  "id": "evt_test_webhook",
+  "object": "event",
+  "api_version": "2023-10-16",
+  "created": 1234567890,
+  "data": {
+    "object": {
+      "id": "pi_test_payment_intent",
+      "object": "payment_intent",
+      "amount": 5000,
+      "amount_capturable": 0,
+      "amount_received": 5000,
+      "capture_method": "automatic",
+      "client_secret": "pi_test_secret",
+      "confirmation_method": "automatic",
+      "created": 1234567890,
+      "currency": "eur",
+      "customer": "cus_test_customer",
+      "description": "Order payment for l'Olio di Valeria",
+      "last_payment_error": null,
+      "livemode": false,
+      "metadata": {
+        "orderId": "ORD-TEST-001"
+      },
+      "payment_method": "pm_test_card",
+      "payment_method_types": ["card"],
+      "receipt_email": "customer@example.com",
+      "setup_future_usage": null,
+      "shipping": null,
+      "status": "succeeded"
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 1,
+  "request": {
+    "id": "req_test",
+    "idempotency_key": "test_key"
+  },
+  "type": "payment_intent.succeeded"
+}

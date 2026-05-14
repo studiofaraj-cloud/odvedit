@@ -1,0 +1,22 @@
+{
+  "name": "l'Olio di Valeria",
+  "short_name": "Olio Valeria",
+  "description": "Olio extravergine di oliva biologico siciliano",
+  "icons": [
+    {
+      "src": "/assets/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#eab308",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
+}

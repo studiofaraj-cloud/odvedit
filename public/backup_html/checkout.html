@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+
+<html lang="it">
+
+<head>
+    <link href="assets/favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="assets/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+    <link href="assets/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="assets/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="assets/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png" />
+    <link href="assets/android-chrome-512x512.png" rel="icon" sizes="512x512" type="image/png" />
+    <link href="assets/site.webmanifest" rel="manifest" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title data-i18n="t_d9a9f991">Checkout - l'Olio di Valeria | Pagamento Sicuro</title>
+    <meta
+        content="Completa il tuo ordine di olio extravergine di oliva biologico di l'Olio di Valeria. Pagamento sicuro con Stripe, spedizione rapida in Italia (€9,90) ed Europa (€24,90)."
+        name="description" />
+    <meta content="checkout, pagamento sicuro, acquista olio, olio extravergine, l'Olio di Valeria" name="keywords" />
+    <meta content="noindex, nofollow" name="robots" />
+    <!-- Open Graph / Facebook -->
+    <meta content="website" property="og:type" />
+    <meta content="https://oliodivaleria.it/checkout.html" property="og:url" />
+    <meta content="Checkout - l'Olio di Valeria | Pagamento Sicuro" property="og:title" />
+    <meta
+        content="Completa il tuo ordine di olio extravergine di oliva biologico di l'Olio di Valeria. Pagamento sicuro con Stripe, spedizione rapida."
+        property="og:description" />
+    <meta content="https://oliodivaleria.it/assets/odv-bott.jpg" property="og:image" />
+    <meta content="l'Olio di Valeria" property="og:site_name" />
+    <!-- Twitter -->
+    <!DOCTYPE html>
+
+    <html lang="it">
+
+    <head>
+        <link href="assets/favicon.ico" rel="icon" type="image/x-icon" />
+        <link href="assets/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+        <link href="assets/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+        <link href="assets/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+        <link href="assets/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png" />
+        <link href="assets/android-chrome-512x512.png" rel="icon" sizes="512x512" type="image/png" />
+        <link href="assets/site.webmanifest" rel="manifest" />
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Checkout - l'Olio di Valeria | Pagamento Sicuro</title>
+        <meta
+            content="Completa il tuo ordine di olio extravergine di oliva biologico di l'Olio di Valeria. Pagamento sicuro con Stripe, spedizione rapida in Italia (€9,90) ed Europa (€24,90)."
+            name="description" />
+        <meta content="checkout, pagamento sicuro, acquista olio, olio extravergine, l'Olio di Valeria"
+            name="keywords" />
+        <meta content="noindex, nofollow" name="robots" />
+        <!-- Open Graph / Facebook -->
+        <meta content="website" property="og:type" />
+        <meta content="https://oliodivaleria.it/checkout.html" property="og:url" />
+        <meta content="Checkout - l'Olio di Valeria | Pagamento Sicuro" property="og:title" />
+        <meta
+            content="Completa il tuo ordine di olio extravergine di oliva biologico di l'Olio di Valeria. Pagamento sicuro con Stripe, spedizione rapida."
+            property="og:description" />
+        <meta content="https://oliodivaleria.it/assets/odv-bott.jpg" property="og:image" />
+        <meta content="l'Olio di Valeria" property="og:site_name" />
+        <!-- Twitter -->
+        <meta content="summary_large_image" property="twitter:card" />
+        <meta content="https://oliodivaleria.it/checkout.html" property="twitter:url" />
+        <meta content="Checkout - l'Olio di Valeria | Pagamento Sicuro" property="twitter:title" />
+        <meta
+            content="Completa il tuo ordine di olio extravergine di oliva biologico di l'Olio di Valeria. Pagamento sicuro e spedizione rapida in tutta Italia."
+            property="twitter:description" />
+        <meta content="https://oliodivaleria.it/assets/odv-bott.jpg" property="twitter:image" />
+        <link href="https://oliodivaleria.it/checkout.html" hreflang="it" rel="alternate" />
+        <link href="https://oliodivaleria.it/checkout.html" hreflang="x-default" rel="alternate" />
+        <!-- Resource Hints -->
+        <link href="https://cdnjs.cloudflare.com" rel="dns-prefetch" />
+        <link crossorigin="" href="https://cdnjs.cloudflare.com" rel="preconnect" />
+        <!-- Font Awesome (async) -->
+        <link as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            onload="this.onload=null;this.rel='stylesheet'" rel="preload" />
+        <noscript>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+        </noscript>
+        <!-- Removed missing stylesheet to avoid 404 warnings -->
+        <link href="css/footer.css" rel="stylesheet" />
+        <!-- Stripe SDK -->
+        <script src="https://js.stripe.com/v3/"></script>
+        <style>
+            /* Address Autocomplete Styles */
+            .address-autocomplete-container {
+                position: relative;
+            }
+
+            .address-suggestions {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #fff;
+                border: 1px solid #e5e7eb;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                max-height: 300px;
+                overflow-y: auto;
+                z-index: 1000;
+                margin-top: 4px;
+                display: none;
+            }
+
+            .address-suggestions.show {
+                display: block;
+            }
+
+            .address-suggestion-item {
+                padding: 12px 16px;
+                cursor: pointer;
+                border-bottom: 1px solid #f3f4f6;
+                transition: background-color 0.2s;
+            }
+
+            .address-suggestion-item:hover,
+            .address-suggestion-item.selected {
+                background-color: #fef3c7;
+            }
+
+            .address-suggestion-item:last-child {
+                border-bottom: none;
+            }
+
+            .address-suggestion-main {
+                font-weight: 600;
+                color: #374151;
+                margin-bottom: 4px;
+            }
+
+            .address-suggestion-details {
+                font-size: 12px;
+                color: #6b7280;
+            }
+
+            .address-autocomplete-loading {
+                padding: 12px 16px;
+                text-align: center;
+                color: #6b7280;
+                font-size: 14px;
+            }
+
+            .form-input[readonly] {
+                background-color: #f9fafb;
+                cursor: text;
+            }
+        </style>
+    </head>
+
+<body>
+    <style>
+        /* ========================================
+           Global Styles
+           ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9fafb;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            padding: 0 20px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .checkout-steps {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .step.active {
+            background: #eab308;
+            color: #000;
+        }
+
+        .step.completed {
+            background: #10b981;
+            color: #fff;
+        }
+
+        .step.inactive {
+            background: #e5e7eb;
+            color: #6b7280;
+        }
+
+        .security-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #10b981;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .checkout-main {
+            padding: 40px 0;
+        }
+
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* Order Summary */
+        .order-summary {
+            background: #fff;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid #eab308;
+            position: sticky;
+            top: 120px;
+        }
+
+        .summary-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .order-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-image {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ffffff, #ffffff);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .item-details {
+            flex: 1;
+        }
+
+        .item-name {
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 4px;
+        }
+
+        .item-size {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 4px;
+        }
+
+        .item-quantity {
+            font-size: 14px;
+            color: #374151;
+        }
+
+        .item-price {
+            font-weight: bold;
+            color: #eab308;
+            font-size: 1.125rem;
+        }
+
+        .order-totals {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 2px solid #f3f4f6;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .total-row.final {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #000;
+            padding-top: 12px;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 12px;
+        }
+
+        .total-row.final .total-price {
+            color: #eab308;
+            font-size: 1.5rem;
+        }
+
+        /* Checkout Form */
+        .checkout-form {
+            background: #fff;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-section {
+            margin-bottom: 32px;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: #fff;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #eab308;
+            box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.1);
+        }
+
+        .form-input.error {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 12px;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        /* Payment Methods - Footer Style */
+        .payment-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .payment-methods-group {
+            margin-bottom: 24px;
+        }
+
+        .payment-methods-group-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #6b7280;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .payment-method {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            background: #fff;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 24px;
+            color: #6b7280;
+            min-width: 50px;
+            min-height: 44px;
+            cursor: pointer;
+        }
+
+        .payment-method:hover {
+            border-color: #eab308;
+            background: #fef3c7;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(234, 179, 8, 0.2);
+            color: #000;
+        }
+
+        .payment-method.selected {
+            border-color: #eab308;
+            background: #eab308;
+            color: #000;
+            box-shadow: 0 4px 12px rgba(234, 179, 8, 0.3);
+        }
+
+        .payment-method i {
+            font-size: 24px;
+        }
+
+        .payment-method span {
+            display: none;
+        }
+
+        /* Card Input Styling */
+        .card-input-group {
+            position: relative;
+        }
+
+        .card-type-icon {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #6b7280;
+        }
+
+        .card-type-icon.visa {
+            color: #1a1f71;
+        }
+
+        .card-type-icon.mastercard {
+            color: #eb001b;
+        }
+
+        .card-type-icon.amex {
+            color: #006fcf;
+        }
+
+        /* Stripe Elements Styling */
+        #card-element {
+            min-height: 48px;
+        }
+
+        #card-element.StripeElement--focus {
+            border-color: #eab308;
+            box-shadow: 0 0 0 3px rgba(234, 179, 8, 0.1);
+        }
+
+        #card-element.StripeElement--invalid {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+        }
+
+        #card-element.StripeElement--complete {
+            border-color: #10b981;
+        }
+
+        #card-errors {
+            color: #ef4444;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+
+        /* Security Features */
+        .security-info {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border: 1px solid #bbf7d0;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 24px;
+        }
+
+        .security-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .security-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #166534;
+        }
+
+        .security-feature i {
+            color: #10b981;
+        }
+
+        /* Submit Button */
+        .submit-section {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 2px solid #f3f4f6;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #eab308, #f59e0b);
+            color: #000;
+            border: none;
+            padding: 18px 24px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(234, 179, 8, 0.4);
+        }
+
+        .submit-btn:disabled {
+            background: #d1d5db;
+            color: #6b7280;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .loading-spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top: 2px solid currentColor;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: none;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Terms and Privacy */
+        .terms-section {
+            margin-top: 20px;
+            padding: 16px;
+            background: #f9fafb;
+            border-radius: 12px;
+            font-size: 14px;
+            color: #6b7280;
+            text-align: center;
+        }
+
+        .terms-section a {
+            color: #eab308;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .terms-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Bank Transfer Info */
+        #bankTransferInfo {
+            animation: slideInFromTop 0.3s ease-out;
+        }
+
+        @keyframes slideInFromTop {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Success Modal */
+        .success-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .success-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .success-content {
+            background: #fff;
+            border-radius: 20px;
+            padding: 48px;
+            text-align: center;
+            max-width: 500px;
+            margin: 20px;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .order-details {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .order-details p {
+            margin: 8px 0;
+            color: #374151;
+        }
+
+        .order-details strong {
+            color: #000;
+        }
+
+        .success-modal.show .success-content {
+            transform: scale(1);
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #10b981;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            color: #fff;
+            font-size: 36px;
+        }
+
+        .success-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 16px;
+        }
+
+        .success-message {
+            color: #6b7280;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .success-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: #eab308;
+            color: #000;
+        }
+
+        .btn-secondary {
+            background: #f3f4f6;
+            color: #374151;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Translation transition effects */
+        [data-i18n],
+        [data-i18n-placeholder],
+        [data-i18n-title] {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        [data-i18n].translating,
+        [data-i18n-placeholder].translating,
+        [data-i18n-title].translating {
+            opacity: 0;
+            transform: translateY(-5px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .checkout-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .order-summary {
+                order: -1;
+                position: static;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .payment-methods {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+
+            .checkout-steps {
+                display: none;
+            }
+
+            .success-content {
+                padding: 32px 24px;
+            }
+
+            .success-actions {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            /* Prevent horizontal scrolling */
+            body {
+                overflow-x: hidden;
+            }
+
+            * {
+                max-width: 100%;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
+            .checkout-form,
+            .order-summary {
+                padding: 20px 16px;
+            }
+
+            .payment-methods {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            /* Touch-friendly payment method buttons */
+            .payment-method {
+                min-height: 60px;
+                padding: 16px;
+            }
+
+            /* Touch-friendly form inputs - 16px prevents iOS zoom */
+            .form-input,
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            input[type="number"],
+            select,
+            textarea {
+                font-size: 16px !important;
+                min-height: 44px;
+                padding: 14px 16px;
+            }
+
+            /* Touch-friendly buttons */
+            .btn,
+            .submit-btn,
+            button {
+                min-height: 48px;
+                padding: 14px 24px;
+                font-size: 16px;
+            }
+
+            /* Address autocomplete mobile */
+            #addressAutocomplete {
+                font-size: 16px;
+                min-height: 44px;
+                padding: 14px 16px;
+            }
+
+            .address-suggestions {
+                max-height: 250px;
+            }
+
+            .address-suggestion-item {
+                min-height: 48px;
+                padding: 14px 16px;
+            }
+        }
+    </style>
+</body>
+
+</html>

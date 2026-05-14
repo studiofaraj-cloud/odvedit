@@ -1,0 +1,39 @@
+{
+  "plan": [
+    {
+      "step": 1,
+      "action": "Correct Project Structure and Consolidate Assets",
+      "details": "The main reason for the 'Site Not Found' error is that essential CSS and JavaScript files are outside the 'public' directory. I will move all necessary assets into a structured 'public/assets' directory and then delete the old top-level folders.",
+      "status": "completed"
+    },
+    {
+      "step": 2,
+      "action": "Implement Backend Logic and Email Automation",
+      "details": "I will create a Firebase Cloud Function named 'sendContactEmail'. This function will save contact form submissions to the 'messages' collection in Firestore so they appear in your dashboard. It will also send two transactional emails via an SMTP service (like SendGrid): one notification to 'info@odvsicilia.it' and one confirmation email to the user who submitted the form. I will create basic HTML templates for these emails.",
+      "status": "completed"
+    },
+    {
+      "step": 3,
+      "action": "Enhance On-Page SEO for Better Google Ranking",
+      "details": "To improve the site's visibility on search engines, I will add a 'sitemap.xml' to list all pages and a 'robots.txt' to guide search engine crawlers. I will also update the main HTML pages ('index.html', 'shop.html', 'chisiamo.html') with descriptive meta tags, Open Graph tags for social media sharing, and JSON-LD structured data for rich search results.",
+      "status": "completed"
+    },
+    {
+      "step": 4,
+      "action": "Update Frontend HTML Files",
+      "details": "I will update all HTML files in the 'public' directory to reference the new, consolidated asset paths (e.g., '/assets/css/styles.css'). I will also update the contact form in 'index.html' to connect it to the new 'sendContactEmail' Cloud Function.",
+      "status": "completed"
+    },
+    {
+      "step": 5,
+      "action": "Fix Firebase Configuration",
+      "details": "I will correct the 'firebase.json' file by removing the redundant 'target' attribute from the 'hosting' configuration to resolve the deployment error.",
+      "status": "pending"
+    },
+    {      "step": 6,
+      "action": "Deploy Final Application to Firebase",
+      "details": "With the structure corrected, backend logic implemented, SEO enhancements in place, and configurations fixed, I will deploy the complete, functional application to Firebase Hosting.",
+      "status": "pending"
+    }
+  ]
+}

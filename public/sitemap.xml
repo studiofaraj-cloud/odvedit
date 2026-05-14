@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://oliodivaleria.it/index.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.00</priority>
+  </url>
+  
+  <!-- Shop Page -->
+  <url>
+    <loc>https://oliodivaleria.it/shop.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  
+  <!-- INDIVIDUAL PRODUCT PAGES -->
+  <url>
+    <loc>https://oliodivaleria.it/prodotto-testa-di-moro-m.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://oliodivaleria.it/assets/olio-extravergine-testa-di-moro-maschio-bottiglia-ceramica-siciliana.webp</image:loc>
+      <image:title>Bottiglia Testa di Moro Maschio - Olio Extravergine Siciliano Biologico</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://oliodivaleria.it/prodotto-testa-di-moro-f.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://oliodivaleria.it/assets/olio-extravergine-testa-di-moro-femmina-bottiglia-ceramica-siciliana.webp</image:loc>
+      <image:title>Bottiglia Testa di Moro Femmina - Olio Extravergine Siciliano Biologico</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://oliodivaleria.it/prodotto-spallata.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://oliodivaleria.it/assets/olio-extravergine-biologico-bottiglia-spallata-siciliano.webp</image:loc>
+      <image:title>Bottiglia Spallata - Olio Extravergine Siciliano Biologico</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://oliodivaleria.it/prodotto-king-quadra.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://oliodivaleria.it/assets/olio-extravergine-biologico-bottiglia-king-quadra-limited-edition.webp</image:loc>
+      <image:title>Bottiglia King Quadra Limited Edition - Olio Extravergine Biologico</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://oliodivaleria.it/prodotto-grandolio.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://oliodivaleria.it/assets/olio-extravergine-biologico-bottiglia-grandolio-siciliano.webp</image:loc>
+      <image:title>Bottiglia Grandolio - Olio Extravergine Siciliano Biologico</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://oliodivaleria.it/prodotto-olea.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://oliodivaleria.it/assets/olio-extravergine-biologico-bottiglia-olea-design-moderno.webp</image:loc>
+      <image:title>Bottiglia Olea Modern Design - Olio Extravergine Siciliano</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://oliodivaleria.it/prodotto-king-rotonda.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://oliodivaleria.it/assets/olio-extravergine-biologico-bottiglia-king-rotonda-siciliano.webp</image:loc>
+      <image:title>Bottiglia King Rotonda - Olio Extravergine Siciliano Biologico</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://oliodivaleria.it/prodotto-marasca.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://oliodivaleria.it/assets/olio-extravergine-biologico-bottiglia-marasca-1-litro.webp</image:loc>
+      <image:title>Bottiglia Marasca 1 Litro - Olio Extravergine Siciliano</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://oliodivaleria.it/prodotto-latta.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://oliodivaleria.it/assets/olio-extravergine-biologico-latta-3-litri-5-litri-siciliano.webp</image:loc>
+      <image:title>Olio Extravergine in Latta 3L/5L - Olio Siciliano Biologico</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://oliodivaleria.it/prodotto-confezione-regalo.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://oliodivaleria.it/assets/confezione-regalo-olio-extravergine-biologico-siciliano.jpeg</image:loc>
+      <image:title>Confezione Regalo Olio Extravergine - l'Olio di Valeria</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://oliodivaleria.it/prodotto-spray.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://oliodivaleria.it/assets/olio-extravergine-biologico-spray-100ml-condimento.webp</image:loc>
+      <image:title>Olio Extravergine Spray 100ml - Condimento Gourmet</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://oliodivaleria.it/prodotto-lattina.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://oliodivaleria.it/assets/olio-extravergine-biologico-lattina-250ml-design-bianco-nero.webp</image:loc>
+      <image:title>Lattina Olio Extravergine 250ml - l'Olio di Valeria</image:title>
+    </image:image>
+  </url>
+
+  <!-- Other Pages -->
+  <url>
+    <loc>https://oliodivaleria.it/qualita.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://oliodivaleria.it/aziendaagr.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://oliodivaleria.it/dovesiamo.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://oliodivaleria.it/chisiamo.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://oliodivaleria.it/galleria.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://oliodivaleria.it/contatti.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://oliodivaleria.it/faq.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.55</priority>
+  </url>
+  
+  <!-- Legal Pages -->
+  <url>
+    <loc>https://oliodivaleria.it/termini-e-condizioniodv.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.30</priority>
+  </url>
+  <url>
+    <loc>https://oliodivaleria.it/cookie-e-privacy-policy.html</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.30</priority>
+  </url>
+  
+</urlset>

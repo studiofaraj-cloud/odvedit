@@ -327,7 +327,7 @@ i18n.registerTranslations("it", {
   "btn.send": "Invia",
 
   // Footer
-  "footer.copyright": "© 2024 l'Olio di Valeria. Tutti i diritti riservati.",
+  "footer.copyright": "© 2026 l'Olio di Valeria. Tutti i diritti riservati.",
   "footer.followUs": "Seguici sui social",
 
   // Forms
@@ -530,7 +530,7 @@ i18n.registerTranslations("en", {
   "btn.send": "Send",
 
   // Footer
-  "footer.copyright": "© 2024 l'Olio di Valeria. All rights reserved.",
+  "footer.copyright": "© 2026 l'Olio di Valeria. All rights reserved.",
   "footer.followUs": "Follow Us",
 
   // Forms

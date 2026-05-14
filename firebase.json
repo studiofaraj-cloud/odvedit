@@ -1,17 +1,21 @@
 {
   "firestore": {
-    "rules": "firestore.rules"
+    "database": "(default)",
+    "location": "nam5",
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
   },
   "functions": [
     {
-      "source": "functions",
       "codebase": "default",
       "ignore": [
         "node_modules",
         ".git",
         "firebase-debug.log",
-        "firebase-debug.*.log"
+        "firebase-debug.*.log",
+        "*.local"
       ],
+      "source": "functions",
       "runtime": "nodejs20"
     }
   ],
@@ -22,6 +26,6 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "site": "l-olio-di-valeria-146320-38473"
+    "site": "l-olio-di-valeria"
   }
 }

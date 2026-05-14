@@ -1,33 +1,216 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Page Not Found</title>
+﻿<!DOCTYPE html>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px 16px; border-radius: 3px; }
-      #message h3 { color: #888; font-weight: normal; font-size: 16px; margin: 16px 0 12px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
+<html lang="it">
+<head>
+<link href="https://oliodivaleria.it/assets/android-chrome-512x512.png" rel="icon" type="image/x-icon"/>
+<link href="https://oliodivaleria.it/assets/android-chrome-512x512.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="https://oliodivaleria.it/assets/android-chrome-512x512.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="https://oliodivaleria.it/assets/android-chrome-512x512.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="https://oliodivaleria.it/assets/android-chrome-512x512.png" rel="icon" sizes="192x192" type="image/png"/>
+<link href="https://oliodivaleria.it/assets/android-chrome-512x512.png" rel="icon" sizes="512x512" type="image/png"/>
+<link href="assets/site.webmanifest" rel="manifest"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title data-i18n="t_8b905b35">404 - Pagina non trovata | l'Olio di Valeria</title>
+<meta content="La pagina che stai cercando non esiste. Torna alla home page di l'Olio di Valeria per scoprire il nostro olio extravergine siciliano biologico." name="description"/>
+<meta content="noindex, nofollow" name="robots"/>
+<!-- Open Graph / Facebook -->
+<meta content="website" property="og:type"/>
+<meta content="https://oliodivaleria.it/404.html" property="og:url"/>
+<meta content="404 - Pagina non trovata | l'Olio di Valeria" property="og:title"/>
+<meta content="La pagina che stai cercando non esiste. Torna alla home page per scoprire il nostro olio extravergine siciliano biologico." property="og:description"/>
+<meta content="https://oliodivaleria.it/assets/android-chrome-512x512.png" property="og:image"/>
+<meta content="l'Olio di Valeria" property="og:site_name"/>
+<!-- Twitter -->
+<meta content="summary_large_image" property="twitter:card"/>
+<meta content="https://oliodivaleria.it/404.html" property="twitter:url"/>
+<meta content="404 - Pagina non trovata | l'Olio di Valeria" property="twitter:title"/>
+<meta content="La pagina che stai cercando non esiste. Torna alla home page per scoprire il nostro olio extravergine siciliano biologico." property="twitter:description"/>
+<meta content="https://oliodivaleria.it/assets/android-chrome-512x512.png" property="twitter:image"/>
+<!-- Resource Hints -->
+<link href="https://cdnjs.cloudflare.com" rel="dns-prefetch"/>
+<link crossorigin="" href="https://cdnjs.cloudflare.com" rel="preconnect"/>
+<!-- Font Awesome (async) -->
+<link as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/></noscript>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff;
+            color: #333;
+            line-height: 1.7;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .error-section {
+            text-align: center;
+            padding: 20px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .error-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 32px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .error-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .error-code {
+            font-size: 96px;
+            font-weight: bold;
+            line-height: 1;
+            margin-bottom: 16px;
+            background: linear-gradient(45deg, #000, #6b7280, #eab308);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .error-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #374151;
+            margin-bottom: 16px;
+        }
+
+        .error-message {
+            font-size: 18px;
+            color: #6b7280;
+            margin-bottom: 48px;
+            line-height: 1.6;
+        }
+
+        .error-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #eab308;
+            color: #000;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .error-button:hover {
+            background: #f59e0b;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .error-code {
+                font-size: 120px;
+            }
+
+            .error-logo {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 72px;
+            }
+
+            .error-title {
+                font-size: 24px;
+            }
+
+            .error-message {
+                font-size: 16px;
+            }
+
+            .error-logo {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .error-code {
+                font-size: 64px;
+            }
+
+            .error-title {
+                font-size: 20px;
+            }
+
+            .error-button {
+                padding: 14px 28px;
+                font-size: 16px;
+                min-height: 48px;
+            }
+        }
     </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>404</h2>
-      <h1>Page Not Found</h1>
-      <p>The specified file was not found on this website. Please check the URL for mistakes and try again.</p>
-      <h3>Why am I seeing this?</h3>
-      <p>This page was generated by the Firebase Command-Line Interface. To modify it, edit the <code>404.html</code> file in your project's configured <code>public</code> directory.</p>
-    </div>
-  </body>
+<script src="js/translations.js"></script>
+<script defer="" src="js/translator.js"></script><link href="css/language-switcher.css" rel="stylesheet"/></head>
+<body>
+<section class="error-section">
+<div class="error-logo">
+<img alt="l'Olio di Valeria" src="https://oliodivaleria.it/assets/android-chrome-512x512.png"/>
+</div>
+<h1 class="error-code">404</h1>
+<h2 class="error-title" data-i18n="t_627a89ec">Pagina Non Trovata</h2>
+<p class="error-message" data-i18n="t_e4ba0b49">
+            La pagina che stai cercando non esiste o è stata spostata. 
+            Torna alla home page per scoprire i nostri prodotti e la nostra storia.
+        </p>
+<a class="error-button" data-i18n="t_9a28e1a8" href="https://oliodivaleria.it">
+<i class="fas fa-home"></i>
+<span>Torna alla Home</span>
+</a>
+</section>
+
+    
+\n
+
+    <!-- Cookie Consent Scripts -->
+    <script src="js/cookie-utils.js"></script>
+    <script src="js/cookie-consent.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                if (typeof CookieUtils !== 'undefined' && typeof UserPreferences !== 'undefined') {
+                    window.userPreferences = new UserPreferences();
+                }
+            } catch (error) {
+                console.error('Error initializing cookie systems:', error);
+            }
+        });
+    </script>
+
+</body>
 </html>
+
