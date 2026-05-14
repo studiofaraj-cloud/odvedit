@@ -1371,3 +1371,220 @@ body {
         height: 120px;
     }
 }
+
+/* ================================================================
+   Confezione Regalo — Comprehensive mobile UX overhaul
+   Goals: sticky bottom CTA, no nested scroll on the bottle catalog,
+   proper 44px+ tap targets, breakdown text that wraps cleanly.
+   Placed at end so it overrides earlier mobile blocks.
+   ================================================================ */
+
+/* Hide sticky CTA on desktop */
+.mobile-sticky-cta { display: none; }
+
+@media (max-width: 768px) {
+    /* Tighter builder card */
+    .gift-builder {
+        padding: 18px 14px !important;
+        border-radius: 14px !important;
+    }
+
+    /* Header */
+    .builder-header { margin-bottom: 18px !important; }
+    .builder-header h1 {
+        font-size: 1.35rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 6px !important;
+    }
+    .builder-header p {
+        font-size: 0.88rem !important;
+        margin-bottom: 0 !important;
+        line-height: 1.4 !important;
+    }
+
+    /* Slots — keep 2x2 grid but tighter and always show remove button */
+    .builder-slots {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+        margin-bottom: 20px !important;
+        max-width: 260px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    .bottle-slot {
+        width: 100% !important;
+        height: 120px !important;
+        border-radius: 10px !important;
+        padding: 6px !important;
+    }
+    .bottle-slot img { max-height: 78% !important; margin-bottom: 4px !important; }
+    .slot-label { display: none !important; }
+    .slot-placeholder { font-size: 1.5rem !important; }
+    .bottle-slot.filled .remove-bottle {
+        width: 32px !important;
+        height: 32px !important;
+        top: -10px !important;
+        right: -10px !important;
+        opacity: 1 !important; /* always visible on touch */
+        font-size: 14px !important;
+        box-shadow: 0 3px 8px rgba(239, 68, 68, 0.45) !important;
+    }
+
+    /* Price summary */
+    .price-summary-box {
+        padding: 14px !important;
+        border-radius: 10px !important;
+        margin-top: 18px !important;
+    }
+    .price-rule-badge {
+        font-size: 0.7rem !important;
+        padding: 4px 10px !important;
+        margin-bottom: 12px !important;
+    }
+    /* Allow breakdown rows to wrap so long combos like "1x King Quadra 500ml + 1x King Rotonda 500ml" don't overflow */
+    .price-breakdown { font-size: 0.85rem !important; }
+    .price-breakdown div[style*="flex-direction:column"] > div {
+        flex-wrap: wrap !important;
+        gap: 4px 8px !important;
+    }
+    .price-breakdown span {
+        min-width: 0 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: anywhere !important;
+    }
+
+    /* Total row */
+    .total-row { padding-top: 12px !important; }
+    .total-row .total-label { font-size: 0.88rem !important; }
+    .total-row .total-price { font-size: 1.35rem !important; }
+
+    /* Inline "Aggiungi al Carrello" button — hidden on mobile; sticky bar replaces it */
+    .builder-actions { display: none !important; }
+
+    /* Bottle selection drawer */
+    .bottle-selection-drawer { padding-top: 18px !important; }
+    .selection-title {
+        font-size: 0.95rem !important;
+        margin-bottom: 14px !important;
+        flex-wrap: wrap !important;
+        gap: 6px !important;
+    }
+
+    /* Bottle catalog grid — no nested scrolling (page scrolls naturally) */
+    .bottles-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+        max-height: none !important;
+        overflow-y: visible !important;
+        padding: 0 !important;
+    }
+
+    /* Bottle cards — bigger tap targets */
+    .bottle-card { padding: 12px 10px !important; }
+    .bottle-card img { height: 100px !important; }
+    .bottle-card-name {
+        font-size: 0.85rem !important;
+        line-height: 1.25 !important;
+        margin-bottom: 6px !important;
+    }
+    .bottle-size-select,
+    .bottle-single-size {
+        font-size: 0.82rem !important;
+        padding: 8px 28px 8px 10px !important; /* room for the dropdown arrow */
+        min-height: 38px !important;
+        height: auto !important;
+    }
+    .bottle-card-price {
+        font-size: 0.95rem !important;
+        margin-top: 4px !important;
+        margin-bottom: 10px !important;
+    }
+    .bottle-add-btn {
+        padding: 10px 0 !important;
+        font-size: 0.85rem !important;
+        min-height: 42px !important;
+    }
+
+    /* Reserve space at the bottom of the page so the sticky CTA bar doesn't cover content */
+    .gift-builder-section {
+        padding-bottom: 110px !important;
+    }
+    body { padding-bottom: 0 !important; } /* belt-and-suspenders in case anything else sets it */
+
+    /* STICKY MOBILE CTA BAR */
+    .mobile-sticky-cta {
+        display: flex !important;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 999;
+        align-items: center;
+        gap: 12px;
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-top: 1px solid #fde68a;
+        padding: 10px 14px;
+        padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+        box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.08);
+    }
+    .mobile-sticky-cta .sticky-total {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+        flex-shrink: 0;
+    }
+    .mobile-sticky-cta .sticky-total-label {
+        font-size: 10px;
+        color: #6b7280;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .mobile-sticky-cta .sticky-total-price {
+        font-size: 18px;
+        font-weight: 800;
+        color: #000;
+    }
+    .mobile-sticky-cta .sticky-add-to-cart {
+        flex: 1 1 auto;
+        background: linear-gradient(135deg, #eab308, #f59e0b);
+        color: #000;
+        border: none;
+        padding: 12px 14px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(234, 179, 8, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 46px;
+        white-space: nowrap;
+    }
+    .mobile-sticky-cta .sticky-add-to-cart:active {
+        transform: translateY(1px);
+    }
+}
+
+/* Tiny screens (iPhone SE / small Android, ≤ 380px) */
+@media (max-width: 380px) {
+    .gift-builder { padding: 14px 12px !important; }
+    .builder-header h1 { font-size: 1.2rem !important; }
+    .builder-slots { max-width: 100% !important; gap: 8px !important; }
+    .bottle-slot { height: 105px !important; }
+    .bottle-card { padding: 10px 8px !important; }
+    .bottle-card img { height: 85px !important; }
+    .bottle-card-name { font-size: 0.78rem !important; }
+    .mobile-sticky-cta { padding: 8px 10px; gap: 8px; }
+    .mobile-sticky-cta .sticky-total-price { font-size: 16px; }
+    .mobile-sticky-cta .sticky-add-to-cart {
+        font-size: 13px;
+        padding: 10px 10px;
+        min-height: 44px;
+    }
+}

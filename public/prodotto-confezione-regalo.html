@@ -679,6 +679,20 @@
 
     </section>
 
+    <!-- Sticky mobile CTA bar — visible only on mobile (CSS-gated).
+         Mirrors the main builderTotalPrice + addCustomBoxToCart button so the user
+         doesn't have to scroll back up to add to cart after browsing bottles. -->
+    <div class="mobile-sticky-cta" aria-hidden="false">
+        <div class="sticky-total">
+            <span class="sticky-total-label" data-i18n="t_giftbox.sticky_total">Totale</span>
+            <span class="sticky-total-price" id="stickyBuilderTotalPrice">€29.99</span>
+        </div>
+        <button class="sticky-add-to-cart" id="stickyAddToCartBtn" aria-label="Aggiungi al carrello">
+            <i class="fas fa-cart-plus"></i>
+            <span data-i18n="t_1f8f127a">Aggiungi al Carrello</span>
+        </button>
+    </div>
+
     <!-- Related Products -->
 
     <section class="suggestions-section">
@@ -1492,6 +1506,9 @@
 
             function updatePriceUI() {
                 if (totalPriceEl) totalPriceEl.innerHTML = `&euro;${currentPrice.toFixed(2)}`;
+                // Mirror price into the sticky-mobile CTA bar (only visible on mobile via CSS)
+                const stickyPriceEl = document.getElementById('stickyBuilderTotalPrice');
+                if (stickyPriceEl) stickyPriceEl.innerHTML = `&euro;${currentPrice.toFixed(2)}`;
                 if (ruleBadge) {
                     ruleBadge.textContent = currentRule;
                     if (currentRule === "Box Personalizzata") {
@@ -1537,6 +1554,15 @@
                 renderSlots();
                 renderGrid();
                 calculatePrice();
+            }
+
+            // Wire the sticky mobile CTA: forward clicks to the main button so all logic stays in one place
+            const stickyBtn = document.getElementById('stickyAddToCartBtn');
+            if (stickyBtn && btnAddToCart) {
+                stickyBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    btnAddToCart.click();
+                });
             }
 
             if (btnAddToCart) {
