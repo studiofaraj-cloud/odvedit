@@ -1030,16 +1030,52 @@ export class CheckoutUI {
             const { items, customerInfo, subtotal, shipping, shippingCost, total, orderId } = orderPayload;
             const normalizedShipping = typeof shippingCost === 'number' ? shippingCost : (shipping || 0);
 
+            // Trim items payload for Stripe: the deployed createCheckoutSession function
+            // stringifies the full items array into a Stripe metadata value, and Stripe
+            // enforces a 500-char limit per metadata value. Long gift-box `size` fields
+            // (the bottle list) can push it over. We shorten size to just the rule marker
+            // (e.g., "[Box Personalizzata]") for the Stripe call only. The full cart
+            // is already persisted in Firestore via submitCheckoutOrder, so email +
+            // order history aren't affected.
+            const stripeItems = items.map(it => {
+                const out = { ...it };
+                const s = typeof it.size === 'string' ? it.size : '';
+                if (s.length > 40) {
+                    const ruleMatch = s.match(/\[([^\]]+)\]/);
+                    if (ruleMatch) {
+                        // Gift-box style: keep just the rule marker
+                        out.size = ruleMatch[0];
+                    } else {
+                        // Plain long size: hard truncate
+                        out.size = s.slice(0, 37) + '...';
+                    }
+                }
+                return out;
+            });
+
+            // Final safety net: if the JSON is still > ~480 chars (rare for typical carts),
+            // drop the non-essential totalPrice and productId fields to give more headroom.
+            let payloadItems = stripeItems;
+            if (JSON.stringify(stripeItems).length > 480) {
+                payloadItems = stripeItems.map(it => ({
+                    name: it.name,
+                    size: it.size,
+                    quantity: it.quantity,
+                    price: it.price
+                }));
+            }
+
             // Call Cloud Function to create checkout session
             const CLOUD_FUNCTION_BASE_URL = this.getCloudFunctionBaseUrl();
-            console.log('[CheckoutUI] Calling createCheckoutSession:', CLOUD_FUNCTION_BASE_URL);
+            console.log('[CheckoutUI] Calling createCheckoutSession:', CLOUD_FUNCTION_BASE_URL,
+                        'items_json_len=', JSON.stringify(payloadItems).length);
             const response = await fetch(`${CLOUD_FUNCTION_BASE_URL}/createCheckoutSession`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    items: items,
+                    items: payloadItems,
                     customerInfo: customerInfo,
                     subtotal: subtotal,
                     shippingCost: normalizedShipping,
